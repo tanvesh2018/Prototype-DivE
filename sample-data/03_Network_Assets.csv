@@ -1,0 +1,1255 @@
+Asset Tag,Device Type,Segment,Segment Name,Site/Location,Segment Owner,Mgmt IP,Last Seen,Status
+ND-00001,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.13.241.113,2025-10-29,Active
+ND-00002,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.12.195.25,2025-09-30,Active
+ND-00003,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.213.73,2025-09-28,Active
+ND-00004,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.120.165,2025-09-10,Active
+ND-00005,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.76.226,2025-07-03,Active
+ND-00006,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.90.147,2025-08-05,Active
+ND-00007,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.65.181,2025-06-14,Active
+ND-00008,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.159.203,2025-07-01,Active
+ND-00009,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.151.26,2025-08-27,Active
+ND-00010,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.91.35,2025-10-17,Active
+ND-00011,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.15.243.89,2025-10-02,Active
+ND-00012,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.36.170,2024-04-06,Active
+ND-00013,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.83.101,2025-08-08,Active
+ND-00014,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.14.182.20,2025-10-06,Active
+ND-00015,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.158.81,2025-07-30,Spare
+ND-00016,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.170.234,2025-11-03,Active
+ND-00017,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.14.2.201,2025-10-18,Active
+ND-00018,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.201.172,2025-08-04,Active
+ND-00019,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.136.226,2025-11-04,Active
+ND-00020,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.110.176,2025-10-11,Active
+ND-00021,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.137.168,2025-10-03,Active
+ND-00022,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.15.212.26,2025-08-13,Active
+ND-00023,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.11.153.81,2025-10-23,Active
+ND-00024,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.22.146,2025-10-01,Active
+ND-00025,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.178.182,2025-07-13,Active
+ND-00026,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.14.66.191,2025-08-06,Active
+ND-00027,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.98.17,2025-08-31,Active
+ND-00028,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.172.12,2025-10-24,Active
+ND-00029,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.73.79,2025-10-26,Spare
+ND-00030,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.107.13,2025-06-27,Active
+ND-00031,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.209.66,2025-10-08,Spare
+ND-00032,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.189.23,2025-07-14,Active
+ND-00033,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.179.203,2025-07-20,Active
+ND-00034,WAN link,NET-1,Austin Corporate LAN,,Seller,10.12.1.111,2025-10-10,Active
+ND-00035,Core switch,NET-1,Austin Corporate LAN,,Seller,10.11.55.104,2025-06-17,Active
+ND-00036,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.97.240,2025-09-21,Active
+ND-00037,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.20.131,2025-07-27,Active
+ND-00038,Firewall,NET-4,Penang Test Lab,,Buyer,10.11.103.225,2025-11-04,Active
+ND-00039,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.121.37,2025-08-12,Active
+ND-00040,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.15.59.240,2025-09-13,Spare
+ND-00041,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.193.202,2025-11-03,Active
+ND-00042,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.38.75,2025-07-28,Active
+ND-00043,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.133.66,2025-07-16,Active
+ND-00044,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.251.110,2025-06-28,Active
+ND-00045,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.107.107,2025-11-01,Spare
+ND-00046,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.18.89,2025-10-01,Active
+ND-00047,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.116.196,2025-07-20,Active
+ND-00048,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.75.184,2025-07-30,Active
+ND-00049,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.95.154,2025-06-21,Active
+ND-00050,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.140.173,2025-08-05,Active
+ND-00051,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.134.77,2025-11-02,Active
+ND-00052,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.138.175,2025-08-12,Active
+ND-00053,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.14.148.247,2025-09-09,Active
+ND-00054,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.100.144,2025-10-03,Active
+ND-00055,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.151.231,2025-10-05,Active
+ND-00056,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.68.74,2025-10-21,Active
+ND-00057,Core switch,NET-4,Penang Test Lab,,Buyer,10.10.185.64,2025-08-31,Active
+ND-00058,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.17.245,2024-09-14,Active
+ND-00059,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.11.64.66,2025-09-30,Active
+ND-00060,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.14.16.75,2025-06-09,Active
+ND-00061,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.120.55,2025-08-31,Active
+ND-00062,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.79.42,2025-10-09,Active
+ND-00063,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.200.48,2025-08-09,Active
+ND-00064,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.108.159,2025-10-19,Active
+ND-00065,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.145.163,2025-08-29,Active
+ND-00066,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.21.44,2024-11-19,Active
+ND-00067,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.176.242,2025-10-23,Active
+ND-00068,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.112.134,2025-09-06,Active
+ND-00069,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.136.204,2025-08-22,Active
+ND-00070,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.33.26,2025-09-15,Active
+ND-00071,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.98.201,2025-06-22,Active
+ND-00072,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.36.61,2025-07-20,Active
+ND-00073,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.151.123,2025-07-23,Active
+ND-00074,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.27.201,2025-07-28,Active
+ND-00075,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.160.107,2025-10-25,Active
+ND-00076,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.226.215,2025-10-03,Active
+ND-00077,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.145.7,2025-11-04,Active
+ND-00078,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.126.77,2025-07-21,Active
+ND-00079,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.240.110,2025-07-14,Active
+ND-00080,Access switch,NET-4,Penang Test Lab,,Buyer,10.11.136.3,2025-10-01,Active
+ND-00081,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.144.33,2025-10-20,Active
+ND-00082,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.41.11,2025-10-11,Active
+ND-00083,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.73.53,2025-09-19,Active
+ND-00084,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.141.247,2025-06-18,Active
+ND-00085,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.86.120,2025-06-19,Active
+ND-00086,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.42.57,2025-09-26,Active
+ND-00087,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.95.105,2025-10-22,Active
+ND-00088,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.30.201,2025-09-20,Active
+ND-00089,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.11.46.166,2025-06-13,Active
+ND-00090,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.3.155,2025-08-23,Active
+ND-00091,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.15.222.138,2025-07-19,Active
+ND-00092,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.251.213,2025-07-11,Active
+ND-00093,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.13.46,2025-06-17,Active
+ND-00094,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.189.178,2025-08-14,Active
+ND-00095,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.25.90,2025-08-21,Active
+ND-00096,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.10.117.90,2025-06-17,Active
+ND-00097,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.64.195,2025-08-19,Active
+ND-00098,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.136.119,2025-10-15,Active
+ND-00099,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.126.167,2025-09-19,Active
+ND-00100,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.160.192,2025-10-03,Active
+ND-00101,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.170.112,2025-06-27,Active
+ND-00102,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.80.153,2025-08-23,Active
+ND-00103,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.197.126,2025-10-31,Active
+ND-00104,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.74.183,2025-10-12,Active
+ND-00105,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.206.46,2025-06-26,Active
+ND-00106,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.12.253.37,2025-08-14,Active
+ND-00107,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.38.36,2025-06-28,Active
+ND-00108,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.214.180,2025-07-16,Active
+ND-00109,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.195.196,2025-06-30,Active
+ND-00110,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.12.14.1,2025-07-16,Active
+ND-00111,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.245.225,2025-10-07,Active
+ND-00112,Load balancer,NET-3,Pune Engineering VLAN,Pune,,10.14.221.196,2025-07-09,Active
+ND-00113,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.180.217,2025-10-30,Active
+ND-00114,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.98.47,2025-06-20,Active
+ND-00115,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.66.193,2025-09-30,Active
+ND-00116,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.14.149.101,2025-08-28,Active
+ND-00117,Core switch,NET-3,Pune Engineering VLAN,Pune,,10.15.141.13,2025-08-10,Active
+ND-00118,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.15.249.77,2025-08-13,Active
+ND-00119,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.147.130,2025-07-04,Active
+ND-00120,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.225.68,2024-12-27,Active
+ND-00121,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.75.88,2025-07-18,Active
+ND-00122,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.63.184,2025-07-08,Active
+ND-00123,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.246.168,2025-08-22,Active
+ND-00124,Router,NET-4,Penang Test Lab,Penang,Buyer,10.15.39.215,2025-10-26,Active
+ND-00125,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.11.87.87,2025-08-11,Active
+ND-00126,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.119.40,2025-09-17,Active
+ND-00127,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.107.183,2025-07-25,Active
+ND-00128,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.238.56,2025-10-06,Active
+ND-00129,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.145.114,2025-09-08,Active
+ND-00130,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.64.102,2025-09-17,Active
+ND-00131,Router,NET-3,Pune Engineering VLAN,Pune,,10.13.16.5,2025-10-01,Active
+ND-00132,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.241.102,2025-07-14,Active
+ND-00133,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.229.24,2025-07-29,Active
+ND-00134,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.242.70,2025-10-22,Active
+ND-00135,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.234.46,2025-10-09,Spare
+ND-00136,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.232.168,2025-07-29,Active
+ND-00137,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.194.17,2025-08-31,Active
+ND-00138,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.184.18,2025-09-24,Active
+ND-00139,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.200.118,2025-07-15,Active
+ND-00140,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.128.149,2025-09-02,Active
+ND-00141,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.177.43,2025-08-31,Active
+ND-00142,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.70.216,2025-08-16,Active
+ND-00143,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.222.233,2025-09-23,Active
+ND-00144,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.78.233,2025-07-13,Active
+ND-00145,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.4.157,2025-06-09,Active
+ND-00146,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.104.163,2025-09-08,Active
+ND-00147,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.35.93,2025-07-11,Active
+ND-00148,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.96.220,2025-07-31,Spare
+ND-00149,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.129.200,2025-08-05,Active
+ND-00150,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.73.39,2025-06-15,Active
+ND-00151,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.150.63,2025-09-18,Active
+ND-00152,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.123.240,2025-08-08,Active
+ND-00153,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.110.95,2025-06-12,Active
+ND-00154,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.204.123,2025-07-26,Active
+ND-00155,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.231.27,2025-11-03,Active
+ND-00156,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.248.221,2025-09-06,Active
+ND-00157,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.206.138,2025-10-01,Active
+ND-00158,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.186.226,2025-07-25,Active
+ND-00159,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.13.153.23,2025-10-07,Active
+ND-00160,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.162.175,2025-10-15,Active
+ND-00161,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.107.132,2024-04-29,Active
+ND-00162,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.10.39.115,2025-08-22,Active
+ND-00163,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.53.28,2025-06-25,Active
+ND-00164,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.168.232,2025-09-11,Active
+ND-00165,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.70.23,2025-09-12,Active
+ND-00166,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.35.204,2023-11-11,Active
+ND-00167,Firewall,NET-3,Pune Engineering VLAN,,Shared,10.13.181.25,2025-10-16,Active
+ND-00168,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.9.238,2025-07-16,Active
+ND-00169,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.110.61,2025-10-10,Active
+ND-00170,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.55.149,2025-08-04,Active
+ND-00171,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.215.254,2025-09-21,Active
+ND-00172,WAN link,NET-3,Pune Engineering VLAN,,Shared,10.14.193.158,2025-08-16,Active
+ND-00173,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.15.239.43,2025-08-28,Active
+ND-00174,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.10.166.152,2025-06-10,Active
+ND-00175,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.81.156,2025-08-18,Active
+ND-00176,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.32.42,2025-06-24,Active
+ND-00177,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.212.204,2025-07-03,Active
+ND-00178,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.81.198,2025-10-08,Active
+ND-00179,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.69.106,2025-07-23,Active
+ND-00180,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.206.120,2025-08-23,Active
+ND-00181,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.27.132,2025-09-14,Active
+ND-00182,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.36.168,2025-07-14,Active
+ND-00183,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.10.60.86,2025-09-16,Active
+ND-00184,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.63.132,2025-07-28,Active
+ND-00185,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.141.97,2025-07-08,Active
+ND-00186,Wireless AP,NET-6,Pune Corporate LAN,Pune,,10.15.221.31,2025-08-26,Active
+ND-00187,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.227.100,2025-09-16,Active
+ND-00188,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.129.212,2025-08-24,Active
+ND-00189,Access switch,NET-4,Penang Test Lab,,Buyer,10.10.167.147,2025-07-01,Active
+ND-00190,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.225.193,2025-07-18,Active
+ND-00191,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.223.36,2025-06-08,Active
+ND-00192,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.22.28,2025-07-16,Active
+ND-00193,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.15.44.47,2025-07-02,Active
+ND-00194,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.159.114,2025-06-15,Active
+ND-00195,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.223.36,2025-08-24,Active
+ND-00196,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.52.35,2024-10-08,Active
+ND-00197,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.41.153,2025-07-18,Active
+ND-00198,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.117.234,2025-10-05,Active
+ND-00199,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.152.229,2025-11-03,Spare
+ND-00200,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.244.211,2025-08-12,Active
+ND-00201,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.104.161,2025-10-05,Active
+ND-00202,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.199.96,2025-09-26,Active
+ND-00203,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.119.139,2025-09-12,Active
+ND-00204,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.74.180,2025-10-09,Active
+ND-00205,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.49.99,2025-08-30,Spare
+ND-00206,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.37.158,2025-08-05,Active
+ND-00207,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.234.234,2025-09-12,Active
+ND-00208,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.154.97,2025-09-26,Active
+ND-00209,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.239.11,2025-09-09,Active
+ND-00210,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.167.144,2025-10-23,Active
+ND-00211,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.43.145,2025-10-08,Active
+ND-00212,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.125.6,2025-07-20,Active
+ND-00213,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.99.146,2025-10-25,Active
+ND-00214,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.213.224,2025-06-15,Active
+ND-00215,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.197.164,2025-06-12,Active
+ND-00216,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.34.52,2025-06-18,Active
+ND-00217,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.112.116,2025-06-28,Active
+ND-00218,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.12.99,2025-10-10,Active
+ND-00219,Load balancer,NET-3,Pune Engineering VLAN,,Shared,10.15.58.185,2025-08-31,Active
+ND-00220,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.253.144,2025-09-25,Active
+ND-00221,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.83.77,2025-10-10,Active
+ND-00222,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.40.143,2025-10-21,Active
+ND-00223,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.72.82,2025-07-18,Active
+ND-00224,Access switch,NET-3,Pune Engineering VLAN,,Shared,10.10.244.115,2025-07-04,Active
+ND-00225,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.10.172.213,2025-06-10,Active
+ND-00226,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.156.45,2025-09-01,Active
+ND-00227,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.173.50,2025-10-24,Active
+ND-00228,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.202.64,2025-07-28,Active
+ND-00229,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.183.143,2025-06-30,Active
+ND-00230,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.194.95,2025-06-27,Active
+ND-00231,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.10.175.231,2025-06-13,Active
+ND-00232,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.152.35,2025-09-18,Active
+ND-00233,Wireless AP,NET-4,Penang Test Lab,Penang,,10.14.154.161,2025-07-20,Active
+ND-00234,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.33.243,2025-09-08,Active
+ND-00235,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.13.189.136,2025-09-17,Active
+ND-00236,Firewall,NET-4,Penang Test Lab,,Buyer,10.11.215.142,2025-10-24,Active
+ND-00237,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.11.94.13,2025-06-13,Active
+ND-00238,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.189.150,2025-09-28,Active
+ND-00239,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.75.170,2025-08-30,Active
+ND-00240,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.66.228,2025-07-20,Active
+ND-00241,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.107.170,2025-07-29,Active
+ND-00242,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.12.81.114,2025-09-06,Active
+ND-00243,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.13.138.25,2025-09-16,Active
+ND-00244,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.141.21,2025-07-02,Active
+ND-00245,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.147.111,2025-10-15,Active
+ND-00246,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.162.122,2025-09-30,Active
+ND-00247,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.92.93,2025-07-04,Active
+ND-00248,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.157.239,2025-07-01,Active
+ND-00249,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.36.220,2025-08-17,Active
+ND-00250,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.248.179,2025-11-03,Active
+ND-00251,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.82.139,2025-06-16,Active
+ND-00252,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.164.102,2025-09-22,Active
+ND-00253,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.78.69,2025-06-23,Active
+ND-00254,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.52.247,2025-10-13,Active
+ND-00255,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.34.240,2025-09-14,Active
+ND-00256,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.28.36,2025-08-26,Active
+ND-00257,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.245.112,2025-10-15,Active
+ND-00258,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.13.137.80,2025-08-01,Active
+ND-00259,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.213.46,2025-10-24,Active
+ND-00260,Load balancer,NET-3,Pune Engineering VLAN,,Shared,10.10.200.5,2025-06-18,Active
+ND-00261,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.140.140,2025-08-01,Active
+ND-00262,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.167.8,2025-09-17,Active
+ND-00263,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.175.202,2025-10-11,Active
+ND-00264,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.14.29.62,2025-08-12,Active
+ND-00265,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.39.50,2025-09-19,Active
+ND-00266,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.234.91,2025-07-22,Active
+ND-00267,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.112.195,2025-07-08,Active
+ND-00268,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.109.38,2025-09-20,Active
+ND-00269,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.11.217.107,2025-08-19,Active
+ND-00270,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.14.126.248,2025-07-02,Active
+ND-00271,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.14.134,2025-11-04,Active
+ND-00272,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.11.22.189,2025-06-18,Active
+ND-00273,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.192.176,2025-09-18,Active
+ND-00274,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.56.21,2025-06-17,Active
+ND-00275,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.15.206.244,2025-09-18,Active
+ND-00276,Router,NET-4,Penang Test Lab,Penang,Buyer,10.13.251.135,2025-08-30,Active
+ND-00277,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.100.155,2025-09-20,Active
+ND-00278,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.67.104,2025-10-04,Active
+ND-00279,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.225.245,2025-08-03,Spare
+ND-00280,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.10.71.48,2025-07-20,Active
+ND-00281,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.11.235.9,2025-09-24,Active
+ND-00282,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.161.35,2025-09-29,Active
+ND-00283,Firewall,NET-6,Pune Corporate LAN,,Buyer,10.14.136.211,2025-09-30,Active
+ND-00284,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.76.247,2025-07-19,Active
+ND-00285,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.242.135,2025-09-14,Active
+ND-00286,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.46.206,2025-09-27,Active
+ND-00287,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.249.165,2025-08-28,Active
+ND-00288,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.155.154,2025-06-16,Active
+ND-00289,Load balancer,NET-6,Pune Corporate LAN,,Buyer,10.14.233.79,2025-08-09,Active
+ND-00290,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.246.8,2025-10-02,Active
+ND-00291,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.54.23,2025-06-19,Active
+ND-00292,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.128.65,2025-10-21,Active
+ND-00293,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.11.54.160,2025-08-17,Active
+ND-00294,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.173.190,2025-09-19,Active
+ND-00295,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.72.5,2025-10-04,Active
+ND-00296,Load balancer,NET-3,Pune Engineering VLAN,,Shared,10.10.50.156,2025-10-12,Active
+ND-00297,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.220.196,2025-10-02,Active
+ND-00298,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.83.42,2025-11-01,Active
+ND-00299,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.0.116,2025-07-18,Active
+ND-00300,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.19.167,2025-06-21,Active
+ND-00301,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.55.235,2025-09-08,Active
+ND-00302,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.205.25,2025-07-05,Active
+ND-00303,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.4.52,2025-08-16,Active
+ND-00304,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.12.176,2025-07-24,Active
+ND-00305,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.14.23.69,2025-09-28,Active
+ND-00306,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.44.23,2025-10-05,Active
+ND-00307,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.79.129,2025-06-30,Active
+ND-00308,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.40.254,2025-10-17,Active
+ND-00309,Access switch,NET-6,Pune Corporate LAN,Pune,,10.12.107.153,2025-07-27,Active
+ND-00310,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.10.115.185,2025-10-25,Active
+ND-00311,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.174.193,2025-07-09,Active
+ND-00312,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.10.129.243,2025-10-19,Active
+ND-00313,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.189.245,2025-10-07,Active
+ND-00314,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.191.17,2025-07-01,Active
+ND-00315,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.13.165.75,2025-09-16,Active
+ND-00316,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.177.156,2025-06-08,Active
+ND-00317,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.56.36,2025-10-01,Active
+ND-00318,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.13.206.35,2025-08-22,Active
+ND-00319,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.15.240.120,2025-07-05,Active
+ND-00320,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.69.115,2025-10-21,Active
+ND-00321,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.67.214,2025-09-16,Active
+ND-00322,Router,NET-4,Penang Test Lab,Penang,Buyer,10.15.3.152,2025-06-21,Active
+ND-00323,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.41.145,2025-09-27,Active
+ND-00324,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.107.139,2025-08-19,Active
+ND-00325,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.82.183,2025-07-14,Active
+ND-00326,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.210.82,2025-08-21,Active
+ND-00327,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.13.216.149,2025-09-03,Active
+ND-00328,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.140.191,2025-11-02,Active
+ND-00329,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.149.83,2025-10-17,Active
+ND-00330,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.27.206,2025-06-18,Active
+ND-00331,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.61.131,2025-06-14,Active
+ND-00332,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.244.183,2025-06-23,Active
+ND-00333,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.11.82.241,2024-07-17,Active
+ND-00334,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.140.15,2025-06-15,Active
+ND-00335,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.24.104,2025-07-16,Active
+ND-00336,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.85.85,2025-07-03,Active
+ND-00337,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.13.24.82,2025-10-13,Active
+ND-00338,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.210.45,2025-10-14,Active
+ND-00339,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.186.228,2025-09-30,Active
+ND-00340,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.12.153.251,2025-07-30,Active
+ND-00341,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.11.168.129,2025-07-11,Active
+ND-00342,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.89.119,2025-06-22,Active
+ND-00343,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.13.150.60,2025-10-01,Active
+ND-00344,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.50.27,2025-06-13,Active
+ND-00345,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.127.35,2025-06-30,Active
+ND-00346,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.118.134,2025-06-26,Active
+ND-00347,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.18.13,2025-07-19,Active
+ND-00348,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.6.234,2025-09-10,Active
+ND-00349,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.6.89,2025-08-03,Active
+ND-00350,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.162.93,2025-08-21,Active
+ND-00351,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.152.27,2025-09-24,Active
+ND-00352,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.12.196,2025-10-21,Active
+ND-00353,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.15.176.119,2025-07-10,Active
+ND-00354,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.14.168.147,2025-06-29,Active
+ND-00355,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.214.82,2025-09-06,Active
+ND-00356,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.89.40,2025-07-14,Active
+ND-00357,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.91.201,2025-09-17,Active
+ND-00358,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.101.213,2025-06-25,Active
+ND-00359,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.14.6.168,2025-06-16,Active
+ND-00360,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.98.169,2025-08-05,Active
+ND-00361,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.129.8,2025-09-04,Active
+ND-00362,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.143.202,2025-07-08,Active
+ND-00363,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.59.133,2025-10-01,Active
+ND-00364,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.114.159,2024-01-10,Active
+ND-00365,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.65.66,2025-10-27,Active
+ND-00366,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.43.144,2025-10-21,Active
+ND-00367,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.13.178.205,2023-09-06,Active
+ND-00368,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.14.47.45,2025-08-08,Active
+ND-00369,Router,NET-4,Penang Test Lab,,Buyer,10.10.242.8,2025-09-25,Active
+ND-00370,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.100.81,2025-09-27,Active
+ND-00371,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.213.120,2025-10-05,Active
+ND-00372,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.22.20,2025-09-30,Active
+ND-00373,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.70.206,2025-08-02,Active
+ND-00374,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.34.33,2025-10-13,Active
+ND-00375,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.11.153.112,2025-09-27,Active
+ND-00376,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.158.160,2025-08-31,Active
+ND-00377,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.128.230,2025-09-23,Active
+ND-00378,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.14.177.188,2025-09-20,Active
+ND-00379,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.152.90,2025-07-14,Active
+ND-00380,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.155.97,2025-06-18,Active
+ND-00381,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.10.100.254,2025-08-28,Active
+ND-00382,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.114.146,2025-07-20,Active
+ND-00383,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.159.181,2025-09-25,Active
+ND-00384,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.13.83.241,2025-08-08,Active
+ND-00385,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.191.3,2025-10-29,Active
+ND-00386,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.0.89,2025-10-05,Active
+ND-00387,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.21.155,2025-09-14,Active
+ND-00388,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.224.244,2025-10-06,Active
+ND-00389,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.14.175.235,2025-09-20,Active
+ND-00390,Router,NET-4,Penang Test Lab,Penang,Buyer,10.13.102.158,2025-08-11,Active
+ND-00391,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.15.27.47,2025-10-22,Active
+ND-00392,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.12.214.7,2025-09-27,Active
+ND-00393,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.31.53,2025-08-21,Active
+ND-00394,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.48.85,2025-07-14,Active
+ND-00395,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.3.251,2025-07-19,Active
+ND-00396,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.13.178.45,2025-07-09,Active
+ND-00397,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.241.44,2025-10-11,Active
+ND-00398,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.176.209,2025-10-17,Active
+ND-00399,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.18.171,2025-07-19,Active
+ND-00400,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.62.48,2025-10-31,Active
+ND-00401,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.11.49.16,2025-06-12,Active
+ND-00402,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.65.133,2025-09-14,Active
+ND-00403,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.166.151,2025-07-24,Active
+ND-00404,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.32.147,2025-10-21,Active
+ND-00405,Firewall,NET-4,Penang Test Lab,,Buyer,10.10.47.237,2025-09-17,Active
+ND-00406,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.100.189,2025-09-25,Active
+ND-00407,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.129.189,2025-09-28,Active
+ND-00408,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.14.123.94,2025-06-26,Active
+ND-00409,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.54.149,2025-07-11,Active
+ND-00410,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.112.60,2025-10-18,Active
+ND-00411,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.67.28,2025-09-08,Active
+ND-00412,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.12.111.22,2025-07-16,Active
+ND-00413,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.17.233,2025-09-16,Active
+ND-00414,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.118.52,2025-07-11,Active
+ND-00415,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.210.25,2025-10-04,Active
+ND-00416,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.12.89.252,2025-10-27,Active
+ND-00417,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.177.145,2025-10-14,Active
+ND-00418,WAN link,NET-1,Austin Corporate LAN,,Seller,10.12.122.224,2025-09-03,Active
+ND-00419,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.111.52,2025-07-23,Active
+ND-00420,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.148.141,2025-09-11,Active
+ND-00421,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.42.250,2025-07-09,Active
+ND-00422,Router,NET-4,Penang Test Lab,Penang,Buyer,10.11.200.250,2025-07-13,Active
+ND-00423,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.13.37.205,2025-07-14,Active
+ND-00424,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.26.28,2025-08-28,Active
+ND-00425,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.14.212.114,2025-10-02,Active
+ND-00426,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.217.251,2025-09-12,Active
+ND-00427,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.13.166.10,2025-09-07,Active
+ND-00428,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.93.2,2025-10-19,Active
+ND-00429,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.240.127,2025-11-02,Active
+ND-00430,Router,NET-6,Pune Corporate LAN,,Buyer,10.11.202.161,2025-06-21,Active
+ND-00431,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.99.158,2025-06-14,Active
+ND-00432,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.38.49,2025-10-03,Active
+ND-00433,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.12.218.246,2025-08-03,Active
+ND-00434,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.218.213,2025-08-18,Active
+ND-00435,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.191.219,2025-06-20,Active
+ND-00436,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.193.254,2025-08-11,Active
+ND-00437,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.14.240.146,2025-08-23,Active
+ND-00438,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.247.72,2025-07-10,Spare
+ND-00439,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.13.78.205,2025-07-13,Active
+ND-00440,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.102.141,2025-07-07,Spare
+ND-00441,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.27.40,2025-10-09,Active
+ND-00442,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.42.140,2025-08-14,Spare
+ND-00443,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.46.43,2025-09-29,Active
+ND-00444,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.92.51,2025-07-01,Active
+ND-00445,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.159.210,2025-08-17,Active
+ND-00446,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.11.62.56,2025-10-30,Active
+ND-00447,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.121.10,2025-10-01,Spare
+ND-00448,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.161.228,2025-10-15,Active
+ND-00449,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.13.214,2025-09-18,Active
+ND-00450,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.14.69,2025-09-11,Active
+ND-00451,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.74.197,2025-09-01,Active
+ND-00452,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.238.211,2025-06-20,Active
+ND-00453,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.11.140.184,2025-08-14,Active
+ND-00454,Router,NET-4,Penang Test Lab,Penang,Buyer,10.15.151.97,2025-11-02,Active
+ND-00455,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.165.210,2025-08-29,Active
+ND-00456,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.6.156,2023-09-28,Active
+ND-00457,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.12.3.220,2025-07-30,Active
+ND-00458,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.12.33.174,2025-09-30,Active
+ND-00459,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.11.61.211,2025-06-23,Active
+ND-00460,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.191.222,2025-06-09,Active
+ND-00461,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.14.130.242,2025-11-01,Active
+ND-00462,Wireless AP,NET-5,Global WAN / MPLS,,Seller,10.14.0.55,2025-08-12,Active
+ND-00463,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.74.161,2025-10-21,Active
+ND-00464,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.50.26,2025-06-20,Active
+ND-00465,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.230.71,2025-10-03,Active
+ND-00466,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.63.39,2025-10-19,Active
+ND-00467,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.149.129,2025-06-18,Active
+ND-00468,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.141.71,2025-07-12,Active
+ND-00469,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.79.187,2025-08-23,Spare
+ND-00470,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.28.238,2025-08-15,Active
+ND-00471,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.121.124,2025-07-06,Active
+ND-00472,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.44.110,2025-07-02,Active
+ND-00473,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.1.23,2025-07-03,Spare
+ND-00474,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.252.120,2025-09-06,Active
+ND-00475,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.90.62,2025-10-29,Spare
+ND-00476,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.91.91,2025-07-16,Active
+ND-00477,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.10.60.188,2025-07-08,Active
+ND-00478,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.23.116,2025-10-24,Active
+ND-00479,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.11.203.132,2025-09-26,Active
+ND-00480,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.10.235.93,2025-06-10,Active
+ND-00481,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.185.122,2025-10-05,Active
+ND-00482,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.44.211,2025-06-13,Active
+ND-00483,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.11.249.5,2025-10-10,Active
+ND-00484,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.146.103,2025-06-16,Active
+ND-00485,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.15.147.45,2025-10-19,Active
+ND-00486,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.70.76,2025-07-12,Active
+ND-00487,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.104.254,2025-07-16,Active
+ND-00488,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.174.40,2025-07-13,Active
+ND-00489,Wireless AP,NET-2,Austin Commerce DMZ,,Shared,10.14.98.238,2025-09-25,Active
+ND-00490,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.172.143,2025-08-12,Active
+ND-00491,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.214.232,2024-12-08,Active
+ND-00492,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.133.113,2025-09-02,Active
+ND-00493,Router,NET-3,Pune Engineering VLAN,Pune,,10.11.70.134,2025-10-08,Active
+ND-00494,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.200.178,2025-08-08,Active
+ND-00495,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.103.235,2025-08-27,Active
+ND-00496,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.56.122,2025-08-11,Active
+ND-00497,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.66.103,2025-07-30,Active
+ND-00498,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.10.186.232,2025-06-23,Active
+ND-00499,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.183.104,2025-07-10,Active
+ND-00500,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.99.59,2025-08-24,Active
+ND-00501,Load balancer,NET-2,Austin Commerce DMZ,Austin,,10.14.204.167,2025-07-12,Active
+ND-00502,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.219.20,2024-03-04,Active
+ND-00503,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.89.81,2025-11-04,Active
+ND-00504,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.213.194,2025-11-04,Active
+ND-00505,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.55.116,2025-06-15,Active
+ND-00506,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.227.90,2025-09-19,Active
+ND-00507,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.10.75.126,2025-09-20,Active
+ND-00508,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.142.53,2025-06-09,Active
+ND-00509,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.236.7,2025-07-25,Active
+ND-00510,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.246.171,2025-07-01,Active
+ND-00511,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.108.89,2025-10-05,Active
+ND-00512,Core switch,NET-5,Global WAN / MPLS,,Seller,10.12.254.40,2025-09-18,Active
+ND-00513,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.12.90,2025-06-19,Active
+ND-00514,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.176.188,2025-06-11,Active
+ND-00515,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.207.72,2025-11-04,Active
+ND-00516,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.55.215,2025-11-04,Active
+ND-00517,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.247.224,2025-08-15,Active
+ND-00518,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.90.30,2025-08-16,Active
+ND-00519,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.11.142.145,2025-08-06,Active
+ND-00520,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.10.221.133,2025-08-13,Active
+ND-00521,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.251.140,2025-10-20,Active
+ND-00522,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.49.143,2025-10-29,Active
+ND-00523,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.243.95,2025-09-01,Active
+ND-00524,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.227.30,2025-08-19,Spare
+ND-00525,Core switch,NET-4,Penang Test Lab,Penang,,10.10.151.152,2025-06-28,Active
+ND-00526,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.234.144,2025-07-10,Active
+ND-00527,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.18.73,2025-07-17,Active
+ND-00528,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.228.26,2025-06-20,Active
+ND-00529,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.93.205,2025-10-01,Active
+ND-00530,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.51.104,2025-07-01,Active
+ND-00531,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.10.37.250,2025-10-01,Active
+ND-00532,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.168.171,2025-08-30,Active
+ND-00533,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.227.235,2025-08-31,Active
+ND-00534,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.54.194,2025-06-29,Active
+ND-00535,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.52.221,2025-09-22,Active
+ND-00536,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.183.62,2025-11-04,Active
+ND-00537,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.11.198.251,2025-06-25,Active
+ND-00538,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.15.212.134,2025-07-12,Active
+ND-00539,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.14.217.128,2025-06-17,Active
+ND-00540,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.7.107,2025-09-24,Active
+ND-00541,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.206.140,2025-08-10,Active
+ND-00542,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.90.48,2025-10-16,Active
+ND-00543,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.6.243,2025-11-04,Active
+ND-00544,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.82.184,2025-07-20,Active
+ND-00545,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.141.152,2025-07-01,Spare
+ND-00546,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.43.155,2025-09-07,Active
+ND-00547,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.15.29.90,2025-07-31,Active
+ND-00548,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.244.15,2025-07-30,Active
+ND-00549,Load balancer,NET-5,Global WAN / MPLS,,Seller,10.11.27.100,2025-10-05,Active
+ND-00550,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.15.97.216,2025-08-22,Active
+ND-00551,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.11.240.194,2025-09-26,Active
+ND-00552,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.10.8.217,2025-08-24,Active
+ND-00553,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.73.209,2025-09-30,Active
+ND-00554,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.153.142,2025-08-17,Active
+ND-00555,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.211.173,2025-07-08,Active
+ND-00556,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.15.91.26,2025-06-10,Active
+ND-00557,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.25.93,2025-08-05,Active
+ND-00558,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.234.151,2025-10-01,Active
+ND-00559,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.23.147,2025-07-22,Active
+ND-00560,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.84.61,2025-09-19,Active
+ND-00561,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.44.122,2025-06-11,Active
+ND-00562,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.12.220.205,2025-07-25,Active
+ND-00563,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.154.179,2025-06-18,Active
+ND-00564,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.10.169.21,2025-01-05,Active
+ND-00565,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.227.154,2025-09-04,Active
+ND-00566,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.161.124,2025-09-11,Active
+ND-00567,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.229.49,2025-07-19,Active
+ND-00568,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.15.119.64,2025-09-01,Active
+ND-00569,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.151.249,2025-09-25,Active
+ND-00570,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.10.79.140,2025-09-21,Active
+ND-00571,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.13.119.12,2025-09-29,Active
+ND-00572,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.202.53,2025-09-02,Active
+ND-00573,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.90.105,2025-08-03,Active
+ND-00574,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.56.134,2025-07-10,Active
+ND-00575,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.21.20,2025-07-29,Active
+ND-00576,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.34.171,2025-06-10,Active
+ND-00577,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.90.65,2025-07-27,Active
+ND-00578,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.162.27,2025-08-22,Active
+ND-00579,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.111.32,2025-08-22,Active
+ND-00580,Load balancer,NET-6,Pune Corporate LAN,,Buyer,10.11.190.103,2025-11-03,Active
+ND-00581,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.15.244.180,2025-09-10,Active
+ND-00582,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.10.96.104,2025-09-21,Active
+ND-00583,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.79.95,2025-09-25,Active
+ND-00584,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.10.254,2025-09-19,Active
+ND-00585,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.246.228,2025-09-19,Active
+ND-00586,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.67.189,2025-07-04,Active
+ND-00587,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.62.241,2025-09-14,Active
+ND-00588,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.13.73.178,2025-09-19,Active
+ND-00589,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.195.226,2025-09-23,Active
+ND-00590,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.134.131,2025-09-18,Active
+ND-00591,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.131.34,2025-06-14,Active
+ND-00592,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.12.141.163,2025-07-24,Active
+ND-00593,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.14.194.61,2025-11-02,Active
+ND-00594,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.14.137.48,2025-08-05,Active
+ND-00595,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.24.235,2025-09-13,Active
+ND-00596,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.14.238.212,2025-09-09,Active
+ND-00597,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.11.168.26,2025-08-11,Active
+ND-00598,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.108.51,2025-10-03,Active
+ND-00599,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.14.163.223,2025-07-04,Active
+ND-00600,Router,NET-3,Pune Engineering VLAN,,Shared,10.12.62.53,2025-08-28,Active
+ND-00601,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.15.178.173,2025-08-13,Active
+ND-00602,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.63.67,2025-07-28,Active
+ND-00603,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.180.65,2025-08-29,Active
+ND-00604,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.12.105.70,2025-07-31,Active
+ND-00605,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.137.193,2025-10-15,Active
+ND-00606,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.157.32,2025-11-01,Active
+ND-00607,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.56.176,2025-11-01,Spare
+ND-00608,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.11.194.96,2025-09-28,Active
+ND-00609,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.218.221,2025-09-11,Spare
+ND-00610,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.149.233,2025-06-14,Active
+ND-00611,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.215.132,2025-11-02,Spare
+ND-00612,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.202.120,2025-06-11,Active
+ND-00613,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.229.250,2025-07-22,Active
+ND-00614,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.69.77,2025-08-12,Active
+ND-00615,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.74.48,2025-06-12,Active
+ND-00616,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.252.14,2025-08-16,Active
+ND-00617,Wireless AP,NET-2,Austin Commerce DMZ,,Shared,10.12.22.24,2025-07-03,Active
+ND-00618,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.90.249,2025-10-27,Active
+ND-00619,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.186.23,2025-09-08,Active
+ND-00620,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.223.147,2025-08-19,Active
+ND-00621,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.10.249.93,2025-09-02,Active
+ND-00622,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.7.130,2023-11-02,Active
+ND-00623,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.35.135,2025-09-20,Active
+ND-00624,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.13.17.151,2025-07-15,Active
+ND-00625,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.100.139,2025-09-07,Active
+ND-00626,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.14.192.223,2025-09-17,Active
+ND-00627,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.41.147,2025-10-10,Active
+ND-00628,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.112.236,2025-07-16,Active
+ND-00629,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.14.254.217,2025-09-23,Active
+ND-00630,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.183.9,2025-06-13,Active
+ND-00631,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.192.56,2025-10-25,Active
+ND-00632,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.44.101,2025-08-01,Active
+ND-00633,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.5.111,2025-06-09,Active
+ND-00634,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.25.62,2025-07-22,Active
+ND-00635,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.54.68,2025-09-22,Active
+ND-00636,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.13.233.108,2025-09-28,Active
+ND-00637,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.221.250,2025-08-06,Active
+ND-00638,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.86.16,2025-09-21,Active
+ND-00639,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.83.116,2025-08-11,Active
+ND-00640,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.55.160,2025-09-02,Active
+ND-00641,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.15.14.212,2024-12-20,Active
+ND-00642,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.215.132,2025-08-08,Active
+ND-00643,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.20.197,2025-08-04,Active
+ND-00644,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.248.90,2025-07-03,Active
+ND-00645,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.210.85,2025-09-23,Active
+ND-00646,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.1.138,2025-07-25,Active
+ND-00647,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.167.129,2025-08-28,Active
+ND-00648,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.244.109,2025-09-06,Active
+ND-00649,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.117.237,2025-07-29,Active
+ND-00650,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.35.78,2025-07-21,Active
+ND-00651,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.233.100,2025-10-12,Active
+ND-00652,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.219.74,2025-07-23,Active
+ND-00653,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.128.200,2025-06-25,Active
+ND-00654,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.14.92.142,2025-10-24,Active
+ND-00655,Firewall,NET-6,Pune Corporate LAN,,Buyer,10.14.79.134,2025-08-20,Active
+ND-00656,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.113.13,2025-07-11,Active
+ND-00657,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.13.0.9,2025-06-25,Active
+ND-00658,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.34.223,2025-09-26,Active
+ND-00659,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.170.242,2025-09-19,Active
+ND-00660,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.108.7,2025-09-15,Active
+ND-00661,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.39.10,2025-09-05,Active
+ND-00662,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.42.219,2025-07-24,Active
+ND-00663,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.188.63,2024-09-12,Active
+ND-00664,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.15.94.86,2025-09-25,Active
+ND-00665,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.220.60,2025-08-26,Active
+ND-00666,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.144.124,2025-08-25,Active
+ND-00667,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.108.135,2025-06-24,Active
+ND-00668,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.10.220,2025-08-16,Active
+ND-00669,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.244.9,2025-06-13,Active
+ND-00670,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.15.10,2025-09-26,Active
+ND-00671,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.11.13.31,2025-08-10,Active
+ND-00672,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.13.234,2025-07-10,Active
+ND-00673,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.38.194,2025-10-26,Active
+ND-00674,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.75.175,2025-09-07,Active
+ND-00675,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.159.42,2025-07-30,Spare
+ND-00676,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.206.56,2025-08-02,Active
+ND-00677,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.92.202,2025-08-27,Active
+ND-00678,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.183.245,2025-10-02,Active
+ND-00679,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.233.239,2025-08-25,Active
+ND-00680,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.235.224,2025-08-24,Active
+ND-00681,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.77.239,2025-10-02,Active
+ND-00682,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.12.55.230,2025-09-26,Active
+ND-00683,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.112.34,2025-06-20,Active
+ND-00684,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.10.183.39,2025-08-18,Active
+ND-00685,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.222.238,2025-07-29,Active
+ND-00686,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.14.192.8,2025-07-04,Active
+ND-00687,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.21.137,2025-07-28,Active
+ND-00688,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.5.185,2025-06-10,Active
+ND-00689,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.14.148.23,2025-07-06,Active
+ND-00690,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.104.121,2025-10-26,Active
+ND-00691,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.67.187,2025-07-20,Active
+ND-00692,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.186.59,2025-07-28,Active
+ND-00693,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.39.127,2025-09-18,Active
+ND-00694,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.214.156,2025-08-26,Active
+ND-00695,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.226.50,2025-11-03,Active
+ND-00696,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.36.176,2025-08-17,Active
+ND-00697,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.31.175,2025-10-11,Active
+ND-00698,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.22.20,2025-06-15,Active
+ND-00699,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.145.230,2025-06-09,Active
+ND-00700,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.90.185,2025-10-01,Active
+ND-00701,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.11.251.249,2025-07-01,Active
+ND-00702,Router,NET-4,Penang Test Lab,Penang,Buyer,10.13.148.124,2025-07-26,Active
+ND-00703,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.11.116,2025-07-14,Active
+ND-00704,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.43.142,2025-06-17,Active
+ND-00705,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.164.109,2025-10-01,Active
+ND-00706,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.252.230,2025-09-04,Active
+ND-00707,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.11.151.127,2025-10-28,Active
+ND-00708,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.214.109,2025-07-10,Active
+ND-00709,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.55.58,2025-06-19,Active
+ND-00710,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.14.76.57,2025-06-14,Active
+ND-00711,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.149.16,2025-09-08,Active
+ND-00712,Access switch,NET-3,Pune Engineering VLAN,,Shared,10.14.154.239,2025-06-26,Active
+ND-00713,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.201.44,2025-07-15,Active
+ND-00714,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.14.129.4,2025-09-02,Active
+ND-00715,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.165.140,2025-06-16,Active
+ND-00716,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.12.130.226,2025-08-28,Active
+ND-00717,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.206.238,2025-10-22,Active
+ND-00718,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.15.53.70,2025-06-23,Active
+ND-00719,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.106.58,2025-07-13,Active
+ND-00720,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.139.195,2025-06-15,Active
+ND-00721,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.131.122,2025-07-13,Active
+ND-00722,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.57.65,2025-06-21,Active
+ND-00723,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.203.72,2025-06-12,Active
+ND-00724,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.143.145,2025-06-20,Active
+ND-00725,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.202.191,2025-10-21,Active
+ND-00726,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.174.250,2025-08-01,Active
+ND-00727,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.12.232.252,2025-07-02,Active
+ND-00728,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.17.49,2025-08-31,Active
+ND-00729,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.10.86.158,2025-10-13,Active
+ND-00730,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.38.196,2025-07-05,Active
+ND-00731,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.51.225,2025-09-19,Active
+ND-00732,Router,NET-4,Penang Test Lab,Penang,Buyer,10.13.31.12,2025-07-18,Active
+ND-00733,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.75.201,2025-07-02,Active
+ND-00734,Access switch,NET-4,Penang Test Lab,Penang,,10.11.60.217,2025-07-29,Active
+ND-00735,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.10.90.63,2025-06-19,Spare
+ND-00736,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.12.165.243,2025-06-09,Active
+ND-00737,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.66.63,2025-07-31,Active
+ND-00738,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.216.11,2025-07-12,Active
+ND-00739,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.13.193.44,2025-08-12,Active
+ND-00740,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.128.107,2025-10-08,Active
+ND-00741,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.209.179,2025-10-29,Active
+ND-00742,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.194.117,2025-08-24,Active
+ND-00743,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.11.66.38,2025-07-30,Active
+ND-00744,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.42.132,2025-09-18,Active
+ND-00745,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.72.198,2025-06-13,Active
+ND-00746,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.65.61,2025-09-13,Active
+ND-00747,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.81.172,2025-06-26,Active
+ND-00748,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.123.160,2025-10-07,Active
+ND-00749,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.172.196,2025-09-04,Active
+ND-00750,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.47.25,2025-07-19,Active
+ND-00751,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.110.188,2025-06-11,Active
+ND-00752,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.14.121.147,2023-09-20,Active
+ND-00753,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.27.8,2025-07-26,Active
+ND-00754,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.12.244.160,2025-09-23,Active
+ND-00755,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.205.114,2025-06-19,Active
+ND-00756,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.13.172.146,2025-09-13,Active
+ND-00757,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.45.48,2025-09-01,Active
+ND-00758,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.152.164,2025-10-26,Active
+ND-00759,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.230.27,2025-10-18,Active
+ND-00760,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.107.208,2025-09-18,Active
+ND-00761,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.70.62,2025-10-21,Active
+ND-00762,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.137.70,2025-06-30,Active
+ND-00763,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.13.239.106,2025-10-04,Active
+ND-00764,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.188.83,2025-09-17,Active
+ND-00765,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.10.251.111,2025-09-30,Active
+ND-00766,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.12.227.113,2025-08-19,Active
+ND-00767,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.232.108,2025-07-15,Active
+ND-00768,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.13.58.170,2025-08-27,Active
+ND-00769,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.18.102,2025-06-29,Active
+ND-00770,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.30.213,2024-05-09,Active
+ND-00771,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.18.6,2025-09-27,Active
+ND-00772,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.242.187,2025-09-11,Active
+ND-00773,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.110.217,2025-10-17,Active
+ND-00774,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.41.123,2025-08-01,Active
+ND-00775,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.13.61.180,2025-10-18,Active
+ND-00776,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.86.55,2025-07-14,Active
+ND-00777,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.179.174,2025-08-12,Active
+ND-00778,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.15.117.29,2023-05-28,Active
+ND-00779,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.12.236,2025-07-14,Active
+ND-00780,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.46.183,2025-10-18,Active
+ND-00781,Load balancer,NET-2,Austin Commerce DMZ,,Shared,10.10.85.240,2025-10-07,Active
+ND-00782,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.199.184,2025-10-31,Active
+ND-00783,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.147.67,2025-06-10,Active
+ND-00784,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.60.21,2025-08-06,Active
+ND-00785,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.101.202,2025-08-19,Active
+ND-00786,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.92.47,2025-06-16,Active
+ND-00787,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.15.32.8,2025-10-22,Active
+ND-00788,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.26.121,2025-11-02,Active
+ND-00789,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.11.33.205,2025-06-09,Active
+ND-00790,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.78.138,2025-08-26,Active
+ND-00791,Access switch,NET-5,Global WAN / MPLS,Austin,,10.15.5.93,2025-10-29,Active
+ND-00792,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.14.253.223,2025-09-07,Active
+ND-00793,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.9.249,2024-12-19,Active
+ND-00794,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.98.45,2025-08-30,Active
+ND-00795,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.227.243,2025-10-09,Active
+ND-00796,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.32.83,2025-06-08,Active
+ND-00797,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.14.104.67,2025-08-22,Active
+ND-00798,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.51.137,2025-08-07,Active
+ND-00799,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.22.137,2025-06-27,Active
+ND-00800,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.123.41,2025-09-02,Active
+ND-00801,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.169.196,2024-08-23,Active
+ND-00802,Core switch,NET-4,Penang Test Lab,,Buyer,10.15.28.240,2025-06-16,Active
+ND-00803,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.15.136,2025-10-19,Active
+ND-00804,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.209.254,2025-06-26,Active
+ND-00805,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.13.95.162,2025-07-21,Spare
+ND-00806,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.175.30,2025-07-26,Active
+ND-00807,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.141.68,2025-07-13,Active
+ND-00808,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.67.206,2025-08-05,Active
+ND-00809,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.11.54.93,2025-09-10,Active
+ND-00810,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.71.66,2025-07-06,Active
+ND-00811,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.4.232,2025-07-26,Active
+ND-00812,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.93.10,2025-10-23,Active
+ND-00813,Firewall,NET-4,Penang Test Lab,Penang,,10.10.8.236,2025-10-21,Active
+ND-00814,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.43.194,2025-10-15,Active
+ND-00815,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.15.170.8,2025-10-04,Active
+ND-00816,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.10.64.231,2025-06-15,Active
+ND-00817,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.127.192,2025-10-10,Active
+ND-00818,Router,NET-3,Pune Engineering VLAN,,Shared,10.10.221.109,2025-10-07,Active
+ND-00819,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.176.52,2025-09-17,Active
+ND-00820,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.10.38.126,2025-08-06,Active
+ND-00821,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.169.191,2025-07-28,Active
+ND-00822,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.72.246,2025-09-08,Active
+ND-00823,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.128.203,2023-10-18,Active
+ND-00824,Core switch,NET-4,Penang Test Lab,,Buyer,10.11.244.76,2025-09-27,Active
+ND-00825,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.10.223.131,2025-07-31,Active
+ND-00826,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.15.4.213,2025-10-14,Active
+ND-00827,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.24.221,2025-06-29,Active
+ND-00828,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.14.109.108,2025-09-29,Active
+ND-00829,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.1.32,2025-10-12,Active
+ND-00830,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.221.237,2025-10-27,Active
+ND-00831,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.191.186,2025-07-11,Active
+ND-00832,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.235.122,2025-08-23,Active
+ND-00833,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.181.228,2025-06-27,Active
+ND-00834,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.195.129,2025-10-28,Active
+ND-00835,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.189.93,2025-06-27,Active
+ND-00836,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.178.202,2025-08-28,Active
+ND-00837,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.63.176,2025-09-16,Active
+ND-00838,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.27.175,2025-10-11,Active
+ND-00839,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.22.133,2023-10-31,Active
+ND-00840,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.209.101,2025-08-21,Active
+ND-00841,Router,NET-4,Penang Test Lab,Penang,Buyer,10.12.136.17,2025-08-06,Active
+ND-00842,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.14.167.22,2025-09-17,Active
+ND-00843,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.86.193,2025-07-30,Active
+ND-00844,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.254.203,2025-08-15,Active
+ND-00845,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.79.164,2025-08-19,Active
+ND-00846,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.225.179,2025-08-13,Active
+ND-00847,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.13.49.189,2025-09-10,Active
+ND-00848,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.12.193.31,2025-06-11,Active
+ND-00849,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.172.36,2025-09-07,Active
+ND-00850,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.101.51,2025-06-17,Active
+ND-00851,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.60.54,2025-10-06,Active
+ND-00852,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.25.98,2025-10-15,Active
+ND-00853,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.244.17,2025-07-31,Active
+ND-00854,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.11.143.135,2025-08-26,Active
+ND-00855,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.13.201.226,2025-09-10,Active
+ND-00856,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.10.130.39,2025-10-28,Active
+ND-00857,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.14.230,2025-10-31,Active
+ND-00858,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.174.49,2025-07-29,Active
+ND-00859,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.60.152,2025-10-10,Active
+ND-00860,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.243.81,2025-10-04,Active
+ND-00861,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.251.186,2025-08-28,Active
+ND-00862,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.182.66,2025-08-04,Active
+ND-00863,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.14.37.48,2025-09-11,Active
+ND-00864,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.148.122,2025-09-14,Active
+ND-00865,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.61.21,2025-08-28,Active
+ND-00866,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.212.229,2025-06-08,Active
+ND-00867,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.125.141,2025-10-13,Active
+ND-00868,Router,NET-4,Penang Test Lab,Penang,Buyer,10.15.181.8,2025-09-01,Active
+ND-00869,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.215.207,2025-08-15,Active
+ND-00870,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.66.112,2025-07-17,Active
+ND-00871,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.104.89,2025-09-17,Active
+ND-00872,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.10.253,2025-08-23,Active
+ND-00873,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.3.230,2025-07-29,Active
+ND-00874,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.12.5.192,2025-07-03,Active
+ND-00875,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.14.67.242,2025-07-06,Active
+ND-00876,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.13.88.232,2025-07-27,Active
+ND-00877,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.97.13,2025-06-26,Active
+ND-00878,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.189.177,2025-08-07,Active
+ND-00879,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.13.238.48,2025-10-17,Active
+ND-00880,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.125.216,2025-10-09,Active
+ND-00881,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.130.120,2025-09-13,Active
+ND-00882,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.141.206,2025-07-23,Active
+ND-00883,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.72.210,2025-08-08,Active
+ND-00884,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.156.77,2025-11-03,Active
+ND-00885,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.235.91,2025-09-08,Active
+ND-00886,Router,NET-4,Penang Test Lab,Penang,Buyer,10.15.153.188,2025-07-29,Active
+ND-00887,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.143.147,2025-09-16,Active
+ND-00888,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.132.90,2025-06-23,Active
+ND-00889,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.175.12,2025-08-18,Active
+ND-00890,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.254.114,2025-06-24,Active
+ND-00891,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.18.44,2025-10-20,Active
+ND-00892,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.124.24,2025-06-08,Active
+ND-00893,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.94.216,2025-08-21,Active
+ND-00894,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.14.20.238,2025-09-29,Active
+ND-00895,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.1.114,2025-08-14,Active
+ND-00896,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.1.139,2025-09-23,Active
+ND-00897,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.26.49,2025-11-01,Active
+ND-00898,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.178.56,2025-06-27,Active
+ND-00899,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.150.240,2025-10-01,Active
+ND-00900,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.111.236,2025-08-25,Spare
+ND-00901,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.13.220.17,2025-07-10,Active
+ND-00902,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.219.166,2025-09-27,Active
+ND-00903,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.1.35,2025-09-06,Active
+ND-00904,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.15.217.41,2025-07-27,Active
+ND-00905,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.140.131,2025-09-24,Active
+ND-00906,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.175.79,2025-09-08,Active
+ND-00907,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.147.236,2025-08-06,Active
+ND-00908,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.43.8,2025-11-02,Active
+ND-00909,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.105.93,2025-10-23,Active
+ND-00910,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.55.144,2025-10-15,Active
+ND-00911,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.244.82,2025-06-13,Active
+ND-00912,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.120.142,2025-08-30,Active
+ND-00913,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.15.70.110,2025-09-06,Active
+ND-00914,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.12.72.29,2025-10-29,Active
+ND-00915,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.30.85,2025-10-19,Active
+ND-00916,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.15.201.77,2025-08-01,Active
+ND-00917,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.109.19,2025-08-05,Active
+ND-00918,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.239.80,2025-07-12,Spare
+ND-00919,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.241.35,2025-11-01,Active
+ND-00920,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.14.60.212,2025-08-22,Active
+ND-00921,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.11.162.194,2025-10-13,Active
+ND-00922,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.10.93.26,2025-07-25,Active
+ND-00923,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.14.138.198,2025-10-21,Active
+ND-00924,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.13.23,2025-10-23,Active
+ND-00925,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.208.14,2025-07-18,Active
+ND-00926,Router,NET-4,Penang Test Lab,Penang,Buyer,10.11.235.225,2025-10-10,Active
+ND-00927,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.94.151,2025-08-30,Active
+ND-00928,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.1.49,2025-06-24,Active
+ND-00929,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.153.45,2025-08-22,Active
+ND-00930,WAN link,NET-2,Austin Commerce DMZ,,Shared,10.11.182.103,2025-10-17,Active
+ND-00931,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.15.52.8,2025-10-06,Active
+ND-00932,Load balancer,NET-1,Austin Corporate LAN,Austin,,10.14.201.199,2025-07-15,Active
+ND-00933,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.13.77.31,2025-06-10,Active
+ND-00934,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.12.29.44,2023-08-19,Active
+ND-00935,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.147.111,2025-06-24,Active
+ND-00936,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.14.172.223,2025-09-12,Active
+ND-00937,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.218.126,2025-07-29,Active
+ND-00938,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.234.19,2025-09-10,Active
+ND-00939,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.159.140,2025-08-23,Active
+ND-00940,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.70.213,2025-08-29,Active
+ND-00941,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.14.45.251,2025-08-23,Active
+ND-00942,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.9.13,2025-10-17,Active
+ND-00943,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.45.254,2025-07-13,Active
+ND-00944,Router,NET-4,Penang Test Lab,Penang,Buyer,10.11.94.202,2025-06-16,Active
+ND-00945,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.241.86,2025-08-28,Active
+ND-00946,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.12.172.120,2025-10-06,Active
+ND-00947,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.11.193.135,2024-10-24,Active
+ND-00948,Access switch,NET-2,Austin Commerce DMZ,,Shared,10.11.145.199,2025-09-23,Active
+ND-00949,Access switch,NET-5,Global WAN / MPLS,,Seller,10.13.14.190,2025-07-11,Active
+ND-00950,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.87.239,2025-10-16,Active
+ND-00951,Firewall,NET-1,Austin Corporate LAN,,Seller,10.13.220.128,2025-08-08,Active
+ND-00952,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.175.65,2025-10-28,Active
+ND-00953,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.149.177,2025-10-07,Active
+ND-00954,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.10.70.13,2025-06-28,Active
+ND-00955,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.110.63,2025-06-24,Spare
+ND-00956,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.233.6,2025-07-09,Active
+ND-00957,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.69.203,2025-09-06,Active
+ND-00958,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.12.203.84,2025-09-26,Active
+ND-00959,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.29.251,2025-09-14,Active
+ND-00960,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.30.134,2025-04-17,Active
+ND-00961,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.16.116,2025-07-12,Active
+ND-00962,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.200.216,2025-06-22,Active
+ND-00963,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.13.115.201,2025-09-23,Active
+ND-00964,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.33.123,2025-07-06,Active
+ND-00965,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.118.95,2025-08-03,Active
+ND-00966,Load balancer,NET-5,Global WAN / MPLS,,Seller,10.14.183.114,2025-07-29,Active
+ND-00967,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.13.16.112,2025-07-25,Active
+ND-00968,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.249.97,2025-10-08,Active
+ND-00969,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.215.67,2025-09-13,Active
+ND-00970,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.109.148,2025-08-26,Active
+ND-00971,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.241.68,2025-07-24,Active
+ND-00972,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.113.85,2025-07-06,Active
+ND-00973,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.95.153,2024-08-14,Active
+ND-00974,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.118.82,2025-11-02,Active
+ND-00975,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.11.214.58,2025-10-09,Active
+ND-00976,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.12.22.120,2025-07-26,Active
+ND-00977,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.15.1.109,2025-10-07,Active
+ND-00978,Firewall,NET-4,Penang Test Lab,,Buyer,10.13.162.20,2025-10-30,Active
+ND-00979,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.13.60.19,2025-09-22,Active
+ND-00980,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.100.17,2025-10-24,Active
+ND-00981,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.127.34,2025-10-17,Active
+ND-00982,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.85.160,2025-07-09,Active
+ND-00983,Wireless AP,NET-6,Pune Corporate LAN,,Buyer,10.10.95.55,2025-09-11,Active
+ND-00984,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.14.172.51,2025-10-07,Active
+ND-00985,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.140.12,2025-08-16,Active
+ND-00986,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.106.8,2025-07-31,Active
+ND-00987,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.248.52,2025-06-11,Active
+ND-00988,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.6.56,2025-10-27,Active
+ND-00989,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.19.103,2025-08-22,Active
+ND-00990,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.237.122,2025-09-03,Active
+ND-00991,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.15.181.135,2025-10-02,Active
+ND-00992,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.44.126,2025-08-23,Spare
+ND-00993,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.41.62,2025-06-10,Active
+ND-00994,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.12.142.1,2025-07-11,Active
+ND-00995,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.15.176.5,2025-08-30,Active
+ND-00996,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.130.96,2025-10-10,Active
+ND-00997,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.69.137,2025-08-11,Active
+ND-00998,Router,NET-2,Austin Commerce DMZ,Austin,,10.15.83.54,2025-08-06,Active
+ND-00999,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.175.228,2025-10-30,Active
+ND-01000,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.241.179,2025-07-29,Active
+ND-01001,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.104.196,2025-10-20,Active
+ND-01002,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.193.82,2025-09-20,Active
+ND-01003,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.107.243,2025-08-11,Active
+ND-01004,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.12.59.109,2025-06-26,Active
+ND-01005,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.221.218,2025-09-03,Active
+ND-01006,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.146.121,2025-06-20,Active
+ND-01007,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.14.34.95,2025-06-18,Active
+ND-01008,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.47.235,2025-06-08,Active
+ND-01009,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.15.46.233,2025-08-05,Active
+ND-01010,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.198.234,2025-10-30,Active
+ND-01011,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.202.86,2025-09-07,Active
+ND-01012,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.237.237,2025-10-19,Active
+ND-01013,Core switch,NET-5,Global WAN / MPLS,Austin,,10.15.174.18,2025-08-01,Active
+ND-01014,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.54.192,2025-10-04,Active
+ND-01015,Firewall,NET-5,Global WAN / MPLS,,Seller,10.13.210.2,2025-08-24,Active
+ND-01016,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.16.72,2025-10-31,Active
+ND-01017,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.10.48.206,2025-09-13,Active
+ND-01018,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.27.181,2025-08-16,Active
+ND-01019,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.224.117,2025-10-14,Active
+ND-01020,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.160.152,2025-08-30,Active
+ND-01021,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.22.59,2025-10-01,Active
+ND-01022,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.201.223,2025-09-05,Active
+ND-01023,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.122.132,2025-10-26,Active
+ND-01024,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.116.125,2025-10-02,Active
+ND-01025,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.11.24.193,2025-07-16,Active
+ND-01026,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.28.56,2025-06-22,Active
+ND-01027,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.129.31,2025-07-31,Active
+ND-01028,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.14.114.51,2025-10-18,Active
+ND-01029,Router,NET-1,Austin Corporate LAN,Austin,,10.13.143.126,2025-08-06,Active
+ND-01030,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.163.13,2025-10-08,Active
+ND-01031,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.133.189,2025-06-13,Active
+ND-01032,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.10.89.12,2025-10-31,Active
+ND-01033,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.247.165,2025-09-10,Active
+ND-01034,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.158.155,2025-06-28,Active
+ND-01035,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.10.180.246,2025-06-25,Active
+ND-01036,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.114.247,2025-08-22,Active
+ND-01037,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.11.38.159,2025-10-29,Active
+ND-01038,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.13.202.212,2025-10-21,Active
+ND-01039,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.12.82.143,2025-06-23,Active
+ND-01040,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.66.2,2025-09-26,Active
+ND-01041,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.212.221,2025-09-01,Active
+ND-01042,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.132.28,2025-09-08,Active
+ND-01043,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.254.36,2025-09-21,Active
+ND-01044,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.189.105,2025-07-30,Active
+ND-01045,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.234.157,2025-09-14,Active
+ND-01046,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.159.29,2025-06-25,Active
+ND-01047,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.233.225,2025-08-21,Spare
+ND-01048,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.15.95.4,2025-08-13,Active
+ND-01049,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.11.155,2025-10-14,Spare
+ND-01050,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.14.197.36,2025-09-08,Active
+ND-01051,Core switch,NET-4,Penang Test Lab,,Buyer,10.12.176.29,2025-07-20,Active
+ND-01052,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.180.33,2025-10-04,Active
+ND-01053,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.10.7.9,2025-11-02,Active
+ND-01054,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.54.108,2025-06-25,Active
+ND-01055,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.114.172,2025-06-10,Active
+ND-01056,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.41.179,2025-10-10,Active
+ND-01057,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.12.205.70,2025-09-13,Active
+ND-01058,Firewall,NET-1,Austin Corporate LAN,Austin,Seller,10.14.110.8,2025-10-02,Active
+ND-01059,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.112.122,2025-10-06,Active
+ND-01060,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.97.83,2025-09-12,Active
+ND-01061,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.205.127,2025-10-30,Active
+ND-01062,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.201.173,2025-08-31,Spare
+ND-01063,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.221.140,2025-09-20,Active
+ND-01064,Router,NET-4,Penang Test Lab,Penang,Buyer,10.11.105.251,2025-09-03,Active
+ND-01065,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.190.212,2025-08-16,Active
+ND-01066,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.207.118,2025-07-27,Active
+ND-01067,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.159.42,2025-09-22,Active
+ND-01068,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.118.96,2025-08-30,Active
+ND-01069,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.153.201,2025-09-24,Active
+ND-01070,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.86.224,2025-07-06,Active
+ND-01071,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.17.114,2025-09-13,Active
+ND-01072,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.62.215,2025-06-28,Active
+ND-01073,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.14.253.211,2025-07-07,Active
+ND-01074,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.171.12,2025-08-11,Active
+ND-01075,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.153.233,2025-10-11,Active
+ND-01076,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.244.48,2025-06-26,Active
+ND-01077,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.213.53,2025-09-16,Active
+ND-01078,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.20.192,2025-07-21,Active
+ND-01079,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.65.53,2025-07-19,Active
+ND-01080,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.186.189,2024-10-29,Active
+ND-01081,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.121.169,2025-07-20,Active
+ND-01082,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.191.241,2025-10-24,Active
+ND-01083,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.107.95,2025-10-08,Active
+ND-01084,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.75.209,2025-07-05,Active
+ND-01085,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.151.11,2025-07-23,Active
+ND-01086,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.166.124,2025-09-18,Active
+ND-01087,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.13.1.125,2025-10-21,Active
+ND-01088,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.12.193.133,2025-08-10,Active
+ND-01089,Core switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.21.76,2025-09-12,Active
+ND-01090,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.28.156,2025-08-26,Active
+ND-01091,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.113.161,2025-09-14,Active
+ND-01092,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.10.237.203,2025-10-23,Active
+ND-01093,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.12.2.3,2025-08-17,Active
+ND-01094,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.212.111,2025-07-20,Active
+ND-01095,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.48.14,2025-08-05,Active
+ND-01096,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.72.6,2025-06-13,Active
+ND-01097,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.11.240.254,2025-09-08,Active
+ND-01098,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.13.240.46,2025-10-17,Active
+ND-01099,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.245.221,2025-06-25,Active
+ND-01100,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.158.228,2025-07-16,Active
+ND-01101,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.41.3,2025-09-26,Active
+ND-01102,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.159.205,2025-08-08,Active
+ND-01103,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.14.94,2025-10-02,Active
+ND-01104,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.14.161.80,2025-07-31,Active
+ND-01105,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.15.153.237,2025-07-26,Active
+ND-01106,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.177.205,2025-06-11,Active
+ND-01107,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.120.43,2025-06-30,Active
+ND-01108,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.63.215,2025-10-11,Active
+ND-01109,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.167.97,2025-08-05,Active
+ND-01110,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.84.130,2025-08-15,Active
+ND-01111,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.192.124,2025-08-18,Active
+ND-01112,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.53.225,2025-10-23,Active
+ND-01113,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.13.250.247,2025-07-09,Active
+ND-01114,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.185.45,2025-08-11,Active
+ND-01115,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.179.200,2025-10-21,Active
+ND-01116,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.84.130,2025-10-07,Active
+ND-01117,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.221.246,2025-09-06,Active
+ND-01118,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.177.199,2025-09-28,Active
+ND-01119,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.74.138,2025-09-18,Active
+ND-01120,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.69.129,2025-09-27,Active
+ND-01121,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.72.98,2025-10-24,Active
+ND-01122,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.18.200,2025-08-08,Active
+ND-01123,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.23.110,2025-07-01,Active
+ND-01124,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.195.69,2025-07-29,Active
+ND-01125,Router,NET-4,Penang Test Lab,Penang,Buyer,10.10.232.126,2025-07-05,Active
+ND-01126,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.12.142.85,2025-10-19,Active
+ND-01127,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.61.109,2025-07-13,Active
+ND-01128,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.238.231,2025-09-28,Active
+ND-01129,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.106.200,2024-07-27,Active
+ND-01130,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.11.168.129,2025-09-18,Active
+ND-01131,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.17.26,2025-09-13,Active
+ND-01132,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.10.66.29,2025-09-25,Active
+ND-01133,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.239.130,2025-09-15,Active
+ND-01134,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.13.11.125,2025-06-22,Active
+ND-01135,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.76.183,2025-10-01,Active
+ND-01136,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.34.13,2025-08-17,Active
+ND-01137,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.11.178.25,2025-08-21,Active
+ND-01138,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.10.36.55,2025-07-23,Active
+ND-01139,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.52.79,2025-07-02,Active
+ND-01140,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.197.128,2025-07-31,Active
+ND-01141,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.8.228,2025-06-08,Active
+ND-01142,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.196.34,2025-10-04,Spare
+ND-01143,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.33.87,2025-11-02,Active
+ND-01144,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.12.77.47,2025-09-21,Active
+ND-01145,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.35.103,2025-10-06,Active
+ND-01146,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.14.41.5,2025-09-19,Active
+ND-01147,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.144.178,2025-08-02,Active
+ND-01148,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.14.231.65,2025-07-19,Active
+ND-01149,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.164.195,2025-07-28,Active
+ND-01150,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.9.6,2025-07-08,Active
+ND-01151,Firewall,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.232.193,2025-09-08,Active
+ND-01152,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.14.129.103,2025-10-13,Active
+ND-01153,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.12.169.19,2025-09-03,Active
+ND-01154,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.12.170,2025-08-06,Active
+ND-01155,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.96.10,2025-09-14,Active
+ND-01156,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.10.104.162,2025-08-26,Active
+ND-01157,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.16.243,2025-06-20,Active
+ND-01158,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.121.75,2025-10-04,Active
+ND-01159,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.15.53.112,2025-09-12,Active
+ND-01160,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.11.183.110,2025-10-16,Active
+ND-01161,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.11.4,2025-08-28,Active
+ND-01162,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.221.206,2025-08-20,Active
+ND-01163,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.11.202.220,2025-07-20,Active
+ND-01164,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.10.224.36,2025-09-01,Active
+ND-01165,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.12.47.234,2023-06-14,Active
+ND-01166,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.39.54,2025-08-10,Active
+ND-01167,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.92.162,2025-08-04,Active
+ND-01168,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.238.94,2025-10-23,Active
+ND-01169,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.206.133,2025-07-10,Active
+ND-01170,Access switch,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.99.22,2025-07-29,Active
+ND-01171,Router,NET-1,Austin Corporate LAN,Austin,Seller,10.15.238.6,2025-07-21,Active
+ND-01172,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.116.138,2025-07-05,Active
+ND-01173,Load balancer,NET-3,Pune Engineering VLAN,,Shared,10.15.186.65,2025-08-15,Active
+ND-01174,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.48.100,2025-09-22,Active
+ND-01175,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.150.184,2025-07-05,Active
+ND-01176,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.13.180.232,2025-10-24,Active
+ND-01177,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.13.63.50,2025-07-28,Active
+ND-01178,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.12.74.232,2025-09-27,Active
+ND-01179,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.160.2,2025-07-13,Active
+ND-01180,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.115.30,2025-07-13,Active
+ND-01181,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.146.11,2025-09-10,Active
+ND-01182,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.13.103.66,2025-06-24,Active
+ND-01183,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.59.190,2025-10-10,Active
+ND-01184,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.12.186.165,2025-08-06,Active
+ND-01185,Access switch,NET-3,Pune Engineering VLAN,Pune,,10.15.99.143,2025-09-23,Active
+ND-01186,Wireless AP,NET-1,Austin Corporate LAN,Austin,Seller,10.12.122.86,2025-06-13,Active
+ND-01187,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.170.121,2025-09-15,Active
+ND-01188,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.13.85.55,2025-08-24,Active
+ND-01189,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.195.26,2025-08-06,Active
+ND-01190,Load balancer,NET-4,Penang Test Lab,Penang,Buyer,10.11.185.222,2025-08-30,Spare
+ND-01191,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.13.118.63,2025-06-12,Active
+ND-01192,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.12.91.11,2025-08-31,Active
+ND-01193,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.154.106,2025-07-18,Active
+ND-01194,Router,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.153.155,2025-07-17,Active
+ND-01195,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.41.149,2025-07-30,Active
+ND-01196,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.142.29,2025-10-16,Active
+ND-01197,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.3.39,2025-06-18,Active
+ND-01198,WAN link,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.14.233,2025-10-06,Active
+ND-01199,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.15.172.172,2025-06-18,Active
+ND-01200,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.38.208,2025-07-08,Active
+ND-01201,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.116.141,2025-08-31,Active
+ND-01202,WAN link,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.57.56,2025-07-27,Active
+ND-01203,Wireless AP,NET-5,Global WAN / MPLS,Austin,Seller,10.11.242.81,2025-06-25,Active
+ND-01204,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.11.160.10,2025-10-22,Spare
+ND-01205,WAN link,NET-4,Penang Test Lab,,Buyer,10.14.35.19,2025-07-25,Active
+ND-01206,Firewall,NET-2,Austin Commerce DMZ,Austin,Shared,10.11.244.180,2025-07-08,Active
+ND-01207,Load balancer,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.63.69,2025-09-10,Active
+ND-01208,Access switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.125.31,2025-10-26,Active
+ND-01209,WAN link,NET-4,Penang Test Lab,Penang,Buyer,10.10.246.36,2025-10-01,Active
+ND-01210,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.201.30,2025-08-17,Active
+ND-01211,Core switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.168.55,2025-06-11,Active
+ND-01212,Router,NET-5,Global WAN / MPLS,Austin,Seller,10.14.102.4,2025-06-25,Active
+ND-01213,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.17.40,2025-09-24,Active
+ND-01214,Access switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.240.50,2025-08-22,Active
+ND-01215,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.15.93.26,2025-08-14,Active
+ND-01216,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.40.101,2024-04-06,Active
+ND-01217,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.143.178,2025-07-31,Active
+ND-01218,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.10.159.127,2025-06-28,Active
+ND-01219,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.136.185,2025-09-17,Active
+ND-01220,WAN link,NET-5,Global WAN / MPLS,Austin,Seller,10.12.82.216,2025-09-11,Active
+ND-01221,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.226.112,2025-09-28,Active
+ND-01222,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.39.56,2024-10-20,Active
+ND-01223,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.11.170.198,2025-10-17,Active
+ND-01224,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.13.240.10,2025-08-29,Active
+ND-01225,Wireless AP,NET-4,Penang Test Lab,Penang,Buyer,10.12.49.34,2025-10-22,Active
+ND-01226,Core switch,NET-1,Austin Corporate LAN,Austin,Seller,10.14.39.179,2025-10-05,Active
+ND-01227,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.12.233.52,2025-07-16,Active
+ND-01228,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.15.88.170,2025-06-15,Active
+ND-01229,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.71.15,2025-10-19,Spare
+ND-01230,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.10.247.224,2025-08-11,Active
+ND-01231,Load balancer,NET-6,Pune Corporate LAN,Pune,Buyer,10.14.222.51,2025-10-25,Active
+ND-01232,Access switch,NET-4,Penang Test Lab,Penang,Buyer,10.11.235.61,2025-10-17,Active
+ND-01233,Firewall,NET-5,Global WAN / MPLS,Austin,Seller,10.11.117.42,2025-10-02,Active
+ND-01234,Router,NET-3,Pune Engineering VLAN,Pune,Shared,10.14.160.245,2025-07-18,Active
+ND-01235,Load balancer,NET-2,Austin Commerce DMZ,Austin,Shared,10.12.90.139,2025-07-13,Spare
+ND-01236,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.15.36.128,2025-06-17,Active
+ND-01237,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.10.105.68,2025-09-25,Active
+ND-01238,WAN link,NET-6,Pune Corporate LAN,Pune,Buyer,10.13.38.223,2025-07-27,Active
+ND-01239,Core switch,NET-2,Austin Commerce DMZ,Austin,Shared,10.14.68.33,2025-10-11,Active
+ND-01240,Load balancer,NET-5,Global WAN / MPLS,Austin,Seller,10.10.59.16,2025-07-17,Active
+ND-00851,Core switch,NET-5,Global WAN / MPLS,Austin,Seller,10.15.60.54,2025-10-06,Active
+ND-00888,Access switch,NET-3,Pune Engineering VLAN,Pune,Shared,10.12.132.90,2025-06-23,Active
+ND-00195,Access switch,NET-5,Global WAN / MPLS,Austin,Seller,10.11.223.36,2025-08-24,Active
+ND-00025,Firewall,NET-3,Pune Engineering VLAN,Pune,Shared,10.11.178.182,2025-07-13,Active
+ND-00892,Wireless AP,NET-2,Austin Commerce DMZ,Austin,Shared,10.13.124.24,2025-06-08,Active
+ND-00718,Firewall,NET-4,Penang Test Lab,Penang,Buyer,10.15.53.70,2025-06-23,Active
+ND-00719,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.13.106.58,2025-07-13,Active
+ND-01175,Router,NET-4,Penang Test Lab,Penang,Buyer,10.14.150.184,2025-07-05,Active
+ND-00842,Load balancer,NET-1,Austin Corporate LAN,Austin,Seller,10.14.167.22,2025-09-17,Active
+ND-00974,Wireless AP,NET-3,Pune Engineering VLAN,Pune,Shared,10.10.118.82,2025-11-02,Active
+ND-01167,Core switch,NET-4,Penang Test Lab,Penang,Buyer,10.10.92.162,2025-08-04,Active
+ND-00569,Wireless AP,NET-6,Pune Corporate LAN,Pune,Buyer,10.10.151.249,2025-09-25,Active
+ND-00551,WAN link,NET-1,Austin Corporate LAN,Austin,Seller,10.11.240.194,2025-09-26,Active
+ND-00560,Router,NET-2,Austin Commerce DMZ,Austin,Shared,10.15.84.61,2025-09-19,Active

@@ -1,0 +1,33 @@
+{
+  "name": "dealsync-command-centre",
+  "private": true,
+  "version": "0.1.0",
+  "description": "PwC DealSync Command Centre \u2014 working prototype (v1) for IT carve-out / Day-1 readiness",
+  "type": "module",
+  "scripts": {
+    "prestart": "node scripts/prestart.mjs",
+    "start": "vite --open",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "generate:data": "node scripts/generate-sample-data.mjs",
+    "check:engine": "tsx scripts/check-engine.ts"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^5.4.11"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}

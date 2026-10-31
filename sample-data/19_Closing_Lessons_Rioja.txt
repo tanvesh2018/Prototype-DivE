@@ -1,0 +1,5 @@
+What worked: The single DealSync tracker replaced 9 separate spreadsheets, and the owner questionnaire surfaced the CircuitDesign Pro dependency on SemiCorp's licence server in week 2. Priya Nair's escalation through ChipCo's CIO unlocked EDA Corp consent on 6 Nov.
+What did not work: The Finance ERP vendor master from SemiCorp scored 85 and held Wave 2 for three weeks. Email exit slipped against plan, costing an extra $25K per month.
+Was Day-1 on time: Yes — Day-1 happened on 15 Nov 2025 with a readiness score of 96 (Go).
+Was the TSA extended: Email service extended by one month; the other 3 services exited on time.
+Key lesson: Ask EDA Corp and every design-tool vendor for licence consent in week 1; ChipCo's $1.74M separation budget and 415 tracked assets were manageable once consent was secured.

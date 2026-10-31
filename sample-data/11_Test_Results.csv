@@ -1,0 +1,48 @@
+Test ID,System,Test Case,Result,Run Date,Tester
+TST-001,APP-001,CircuitDesign Pro — Login and SSO,Passed,2025-10-30,Marco Lee
+TST-002,APP-001,CircuitDesign Pro — Core transaction end-to-end,Passed,2025-11-01,Neha Joshi
+TST-003,APP-001,CircuitDesign Pro — Interface to downstream,Failed,2025-10-30,Neha Joshi
+TST-004,APP-001,CircuitDesign Pro — Performance under load,Failed,2025-11-03,Daniel Wong
+TST-005,APP-001,CircuitDesign Pro — Backup and restore,Failed,2025-11-04,Neha Joshi
+TST-006,APP-002,DesignVault — Login and SSO,Passed,2025-11-04,Marco Lee
+TST-007,APP-002,DesignVault — Core transaction end-to-end,Passed,2025-11-03,Daniel Wong
+TST-008,APP-002,DesignVault — Interface to downstream,Passed,2025-11-04,Lena Fischer
+TST-009,APP-003,WaferTest Suite — Login and SSO,Passed,2025-11-02,Wei Chen
+TST-010,APP-003,WaferTest Suite — Core transaction end-to-end,Passed,2025-11-01,Marco Lee
+TST-011,APP-003,WaferTest Suite — Interface to downstream,Passed,2025-10-30,Wei Chen
+TST-012,APP-004,Finance ERP — Login and SSO,Passed,2025-11-05,Marco Lee
+TST-013,APP-004,Finance ERP — Core transaction end-to-end,Passed,2025-11-03,Neha Joshi
+TST-014,APP-004,Finance ERP — Interface to downstream,Passed,2025-11-02,Marco Lee
+TST-015,APP-004,Finance ERP — Performance under load,Passed,2025-10-31,Marco Lee
+TST-016,APP-005,Order Tracker — Login and SSO,Passed,2025-11-03,Marco Lee
+TST-017,APP-005,Order Tracker — Core transaction end-to-end,Passed,2025-11-03,Daniel Wong
+TST-018,APP-005,Order Tracker — Interface to downstream,Passed,2025-11-01,Marco Lee
+TST-019,APP-005,Order Tracker — Performance under load,Passed,2025-11-02,Marco Lee
+TST-020,APP-006,Customer Portal — Login and SSO,Passed,2025-10-31,Daniel Wong
+TST-021,APP-006,Customer Portal — Core transaction end-to-end,Passed,2025-11-04,Daniel Wong
+TST-022,APP-006,Customer Portal — Interface to downstream,Passed,2025-11-05,Lena Fischer
+TST-023,APP-007,Solution Central — Login and SSO,Passed,2025-10-30,Daniel Wong
+TST-024,APP-007,Solution Central — Core transaction end-to-end,Passed,2025-11-02,Neha Joshi
+TST-025,APP-007,Solution Central — Interface to downstream,Passed,2025-11-01,Marco Lee
+TST-026,APP-013,Email & Calendar — Login and SSO,Passed,2025-10-30,Wei Chen
+TST-027,APP-013,Email & Calendar — Core transaction end-to-end,Passed,2025-11-04,Wei Chen
+TST-028,APP-013,Email & Calendar — Interface to downstream,Passed,2025-11-04,Marco Lee
+TST-029,APP-013,Email & Calendar — Performance under load,Passed,2025-11-04,Wei Chen
+TST-030,APP-014,Identity Directory — Login and SSO,Passed,2025-11-03,Neha Joshi
+TST-031,APP-014,Identity Directory — Core transaction end-to-end,Passed,2025-10-30,Wei Chen
+TST-032,APP-014,Identity Directory — Interface to downstream,Passed,2025-11-04,Wei Chen
+TST-033,APP-014,Identity Directory — Performance under load,Failed,2025-11-05,Daniel Wong
+TST-034,APP-015,VPN Gateway — Login and SSO,Passed,2025-11-05,Wei Chen
+TST-035,APP-015,VPN Gateway — Core transaction end-to-end,Passed,2025-11-02,Daniel Wong
+TST-036,APP-015,VPN Gateway — Interface to downstream,Not run,,Wei Chen
+TST-037,APP-016,Endpoint Security — Login and SSO,Passed,2025-10-30,Neha Joshi
+TST-038,APP-016,Endpoint Security — Core transaction end-to-end,Passed,2025-11-03,Wei Chen
+TST-039,APP-016,Endpoint Security — Interface to downstream,Passed,2025-10-30,Daniel Wong
+TST-040,APP-017,Licence Server — Login and SSO,Passed,2025-11-03,Lena Fischer
+TST-041,APP-017,Licence Server — Core transaction end-to-end,Passed,2025-11-05,Lena Fischer
+TST-042,APP-027,Sales CRM — Login and SSO,Passed,2025-11-04,Lena Fischer
+TST-043,APP-027,Sales CRM — Core transaction end-to-end,Passed,2025-10-30,Neha Joshi
+TST-044,APP-027,Sales CRM — Interface to downstream,Passed,2025-11-05,Neha Joshi
+TST-045,APP-018,Payroll Connector — Login and SSO,Passed,2025-11-02,Marco Lee
+TST-046,APP-018,Payroll Connector — Core transaction end-to-end,Passed,2025-11-03,Lena Fischer
+TST-047,APP-018,Payroll Connector — Interface to downstream,Passed,2025-11-03,Lena Fischer

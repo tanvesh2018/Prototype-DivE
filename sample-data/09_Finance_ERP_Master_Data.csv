@@ -1,0 +1,131 @@
+Vendor ID,Vendor Name,GL Account,Cost Centre,Currency,Payment Terms,Legal Entity,Last Updated
+V01001,Atlas Components LLC,5200-24,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-08-15
+V01002,Bright Labs Pvt Ltd,5100-43,,USD,NET60,SemiCorp Design Unit,2025-08-11
+V01003,Prime Systems Pvt Ltd,6400-95,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-06-26
+V01004,Nova Metals Pvt Ltd,6400-32,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-08-17
+V01005,Apex Systems Sdn Bhd,5100-81,CC-TST-PEN,INR,NET45,SemiCorp Design Unit,2025-08-14
+V01006,Atlas Logistics Ltd,6100-27,CC-TST-PEN,MYR,NET60,SemiCorp Design Unit,2025-09-09
+V01007,Apex Metals Pvt Ltd,6100-85,CC-OPS-AUS,MYR,NET45,SemiCorp Design Unit,2025-09-20
+V01008,Prime Labs Inc,6400-50,CC-ENG-PUN,USD,NET45,SemiCorp Design Unit,2025-10-01
+V01009,Atlas Systems LLC,5300-64,CC-ENG-PUN,MYR,NET45,SemiCorp Design Unit,2025-10-29
+V01010,Core Labs LLC,5300-12,CC-SAL-AUS,INR,NET60,SemiCorp Design Unit,2025-06-25
+V01011,Core Metals LLC,5300-78,CC-OPS-AUS,INR,NET45,SemiCorp Design Unit,2025-08-24
+V01012,Nova Services Inc,5200-26,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-07-09
+V01013,Summit Logistics Pvt Ltd,6100-56,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-09-24
+V01014,Nova Components Inc,6400-15,CC-TST-PEN,MYR,NET45,SemiCorp Design Unit,2025-10-29
+V01015,Bright Logistics Ltd,5100-79,CC-TST-PEN,MYR,NET60,SemiCorp Design Unit,2025-08-02
+V01016,Nova Labs Ltd,6100-60,CC-SAL-AUS,MYR,NET60,SemiCorp Design Unit,2025-06-14
+V01017,Delta Metals Ltd,5300-31,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-07-05
+V01018,Summit Services Sdn Bhd,5300-11,CC-SAL-AUS,MYR,NET45,SemiCorp Design Unit,2025-06-21
+V01019,Delta Labs Inc,6100-17,CC-ENG-PUN,MYR,NET45,SemiCorp Design Unit,2025-06-03
+V01020,Delta Components Ltd,5200-36,CC-ENG-PUN,MYR,NET30,SemiCorp Design Unit,2025-08-27
+V01021,Orion Components LLC,5100-47,CC-ENG-PUN,,NET30,SemiCorp Design Unit,2025-07-20
+V01022,Atlas Services Sdn Bhd,5300-79,CC-ENG-PUN,USD,NET30,SemiCorp Design Unit,2025-07-06
+V01023,Vertex Labs LLC,5200-81,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-08-12
+V01024,Nova Materials Pvt Ltd,6100-32,CC-SAL-AUS,MYR,NET60,SemiCorp Design Unit,2025-06-19
+V01025,Orion Labs Ltd,5300-95,CC-FIN-AUS,USD,NET60,SemiCorp Design Unit,2025-10-18
+V01026,Summit Services Ltd,5100-68,CC-SAL-AUS,USD,NET60,SemiCorp Design Unit,2025-07-19
+V01027,Bright Logistics Ltd,5100-60,CC-OPS-AUS,USD,NET60,SemiCorp Design Unit,2025-07-07
+V01028,Orion Logistics Ltd,6400-28,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-07-03
+V01029,Prime Services Ltd,6100-12,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-06-23
+V01030,Orion Components Pvt Ltd,6400-70,CC-SAL-AUS,USD,NET30,SemiCorp Design Unit,2025-09-06
+V01031,Apex Materials Sdn Bhd,5100-15,CC-TST-PEN,MYR,NET30,SemiCorp Design Unit,2025-07-17
+V01032,Core Packaging Sdn Bhd,5100-10,CC-SAL-AUS,INR,NET45,SemiCorp Design Unit,2025-09-20
+V01033,Nova Labs Sdn Bhd,5100-79,CC-TST-PEN,USD,NET60,SemiCorp Design Unit,2025-09-17
+V01034,Vertex Metals LLC,5300-91,CC-OPS-AUS,MYR,NET30,SemiCorp Design Unit,2025-06-17
+V01035,Vertex Materials Inc,5200-35,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-10-23
+V01036,Atlas Metals Sdn Bhd,5300-21,CC-OPS-AUS,USD,NET30,SemiCorp Design Unit,2025-08-10
+V01037,Apex Logistics Ltd,5300-30,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-09-26
+V01038,Summit Packaging LLC,6100-58,CC-SAL-AUS,MYR,NET45,SemiCorp Design Unit,2025-10-10
+V01039,Orion Materials Pvt Ltd,5300-95,CC-SAL-AUS,INR,NET45,SemiCorp Design Unit,2025-06-16
+V01040,Apex Packaging Sdn Bhd,5300-54,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-07-29
+V01041,Core Components LLC,6400-68,CC-SAL-AUS,USD,NET60,SemiCorp Design Unit,2025-08-25
+V01042,Core Services LLC,5100-92,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-07-15
+V01043,Bright Logistics Inc,5100-50,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-07-19
+V01044,Apex Logistics Pvt Ltd,5200-44,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-09-26
+V01045,Nova Services Pvt Ltd,5200-43,CC-SAL-AUS,,NET45,SemiCorp Design Unit,2025-06-11
+V01046,Apex Systems Ltd,5200-77,CC-SAL-AUS,MYR,NET60,SemiCorp Design Unit,2025-06-19
+V01047,Vertex Labs Pvt Ltd,5200-94,CC-ENG-PUN,USD,NET60,SemiCorp Design Unit,2025-07-23
+V01048,Delta Materials Ltd,5300-88,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-07-03
+V01049,Nova Packaging Sdn Bhd,5300-53,CC-FIN-AUS,MYR,NET60,SemiCorp Design Unit,2025-06-27
+V01050,Nova Components Inc,5200-93,CC-SAL-AUS,INR,NET45,SemiCorp Design Unit,2025-08-28
+V01051,Nova Components LLC,5200-80,CC-ENG-PUN,MYR,NET60,SemiCorp Design Unit,2025-09-06
+V01052,Orion Services LLC,5100-38,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-06-10
+V01053,Bright Logistics Sdn Bhd,5200-19,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-08-04
+V01054,Orion Metals Inc,5300-77,CC-ENG-PUN,INR,NET60,SemiCorp Design Unit,2025-09-11
+V01055,Summit Packaging Pvt Ltd,5200-52,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-10-08
+V01056,Delta Components Sdn Bhd,6100-75,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-07-18
+V01057,Atlas Components LLC,6400-87,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-06-21
+V01058,Prime Packaging Sdn Bhd,6400-49,CC-OPS-AUS,INR,NET60,SemiCorp Design Unit,2025-08-28
+V01059,Atlas Labs Pvt Ltd,5100-70,CC-TST-PEN,USD,NET30,SemiCorp Design Unit,2025-10-16
+V01060,Core Metals LLC,5300-78,,MYR,NET45,SemiCorp Design Unit,2025-10-02
+V01061,Prime Labs Ltd,5200-46,CC-FIN-AUS,INR,NET30,SemiCorp Design Unit,2025-09-21
+V01062,Orion Components LLC,5300-93,CC-FIN-AUS,MYR,NET30,SemiCorp Design Unit,2025-06-04
+V01063,Summit Metals Inc,5100-68,CC-SAL-AUS,USD,NET30,SemiCorp Design Unit,2025-10-22
+V01064,Bright Metals LLC,5100-15,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-07-02
+V01065,Vertex Labs LLC,5100-16,CC-TST-PEN,USD,NET60,SemiCorp Design Unit,2025-06-30
+V01066,Summit Components LLC,6400-12,CC-OPS-AUS,MYR,NET45,SemiCorp Design Unit,2025-09-14
+V01067,Delta Components Inc,5300-31,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-08-28
+V01068,Summit Labs Sdn Bhd,5100-25,CC-SAL-AUS,INR,NET45,SemiCorp Design Unit,2025-06-06
+V01069,Core Metals Sdn Bhd,5300-73,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-07-03
+V01070,Vertex Components Sdn Bhd,6100-88,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-06-29
+V01071,Orion Packaging LLC,5200-66,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-06-04
+V01072,Delta Logistics Ltd,5200-16,CC-ENG-PUN,USD,NET60,SemiCorp Design Unit,2025-09-19
+V01073,Core Labs Ltd,6100-95,CC-TST-PEN,MYR,NET45,SemiCorp Design Unit,2025-06-22
+V01074,Bright Logistics LLC,5100-78,CC-FIN-AUS,USD,NET60,SemiCorp Design Unit,2025-10-10
+V01075,Delta Logistics Sdn Bhd,5200-19,CC-TST-PEN,INR,NET30,SemiCorp Design Unit,2024-12-31
+V01076,Apex Components Inc,5300-40,,USD,NET60,SemiCorp Design Unit,2025-08-28
+V01077,Atlas Labs Ltd,5200-90,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-07-22
+V01078,Core Labs LLC,6400-69,CC-OPS-AUS,USD,NET60,SemiCorp Design Unit,2025-09-17
+V01079,Delta Materials Inc,5100-28,CC-TST-PEN,INR,NET30,SemiCorp Design Unit,2025-09-16
+V01080,Orion Logistics Pvt Ltd,5100-11,CC-TST-PEN,INR,NET30,SemiCorp Design Unit,2025-09-23
+V01081,Prime Metals Sdn Bhd,5200-19,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-10-11
+V01082,Summit Systems Pvt Ltd,5300-63,CC-ENG-PUN,USD,NET30,SemiCorp Design Unit,2025-08-08
+V01083,Nova Components Inc,5100-91,CC-ENG-PUN,INR,NET60,SemiCorp Design Unit,2025-07-13
+V01084,Bright Systems Ltd,5300-74,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-06-12
+V01085,Prime Packaging Pvt Ltd,6100-42,CC-ENG-PUN,INR,NET30,SemiCorp Design Unit,2025-08-09
+V01086,Delta Logistics Inc,5200-17,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-10-31
+V01087,Bright Labs Ltd,5200-15,CC-ENG-PUN,USD,NET30,SemiCorp Design Unit,2025-10-15
+V01088,Bright Logistics Sdn Bhd,6100-61,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-07-13
+V01089,Vertex Materials Ltd,5300-28,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2024-12-12
+V01090,Core Services Pvt Ltd,6400-15,CC-ENG-PUN,USD,NET60,SemiCorp Design Unit,2025-07-30
+V01091,Orion Metals Inc,6100-13,CC-OPS-AUS,MYR,NET30,SemiCorp Design Unit,2025-07-13
+V01092,Nova Metals Sdn Bhd,6100-28,CC-OPS-AUS,USD,NET30,SemiCorp Design Unit,2025-10-17
+V01093,Atlas Materials Sdn Bhd,5100-80,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2023-12-11
+V01094,Bright Labs Pvt Ltd,6100-24,CC-ENG-PUN,USD,NET30,SemiCorp Design Unit,2025-10-22
+V01095,Prime Logistics Sdn Bhd,6100-50,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-10-07
+V01096,Vertex Materials LLC,5300-96,CC-ENG-PUN,INR,NET30,SemiCorp Design Unit,2025-08-30
+V01097,Nova Services Ltd,6100-78,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-06-11
+V01098,Orion Labs Inc,5300-51,CC-FIN-AUS,INR,NET30,SemiCorp Design Unit,2025-08-06
+V01099,Bright Packaging Pvt Ltd,5200-86,,INR,NET30,SemiCorp Design Unit,2025-06-16
+V01100,Atlas Metals Sdn Bhd,6100-50,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-06-10
+V01101,Delta Components Sdn Bhd,5200-33,,MYR,NET30,SemiCorp Design Unit,2025-06-10
+V01102,Core Services Sdn Bhd,5200-59,CC-TST-PEN,INR,NET30,SemiCorp Design Unit,2025-08-16
+V01103,Vertex Systems Ltd,6400-68,CC-OPS-AUS,USD,NET30,SemiCorp Design Unit,2025-07-14
+V01104,Atlas Systems Sdn Bhd,5200-72,CC-ENG-PUN,INR,NET30,SemiCorp Design Unit,2025-08-29
+V01105,Bright Components Ltd,5300-85,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-08-25
+V01106,Vertex Components Sdn Bhd,6100-47,CC-ENG-PUN,USD,NET30,SemiCorp Design Unit,2025-06-30
+V01107,Atlas Materials Sdn Bhd,5200-52,CC-SAL-AUS,,NET30,SemiCorp Design Unit,2025-07-13
+V01108,Core Logistics Pvt Ltd,6400-37,CC-OPS-AUS,INR,NET30,SemiCorp Design Unit,2025-10-18
+V01109,Bright Logistics Pvt Ltd,6100-35,CC-FIN-AUS,,NET60,SemiCorp Design Unit,2025-09-07
+V01110,Atlas Services Ltd,5300-71,CC-FIN-AUS,MYR,NET45,SemiCorp Design Unit,2025-06-10
+V01111,Vertex Systems Pvt Ltd,6400-97,CC-SAL-AUS,INR,NET30,SemiCorp Design Unit,2025-10-16
+V01112,Vertex Services Inc,6100-69,CC-ENG-PUN,USD,NET45,SemiCorp Design Unit,2025-07-20
+V01113,Orion Logistics Sdn Bhd,5200-49,CC-ENG-PUN,,NET30,SemiCorp Design Unit,2025-07-10
+V01114,Summit Packaging LLC,5100-51,CC-FIN-AUS,MYR,NET30,SemiCorp Design Unit,2025-08-18
+V01115,Summit Logistics Pvt Ltd,6100-24,CC-FIN-AUS,,NET45,SemiCorp Design Unit,2025-06-05
+V01116,Nova Components Ltd,5100-69,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-07-24
+V01117,Nova Packaging LLC,6100-44,CC-TST-PEN,INR,NET30,SemiCorp Design Unit,2025-07-03
+V01118,Vertex Materials LLC,5300-11,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-08-06
+V01119,Delta Logistics LLC,6100-71,CC-ENG-PUN,,NET45,SemiCorp Design Unit,2025-08-13
+V01120,Vertex Packaging Inc,5300-54,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-09-03
+V01121,Prime Materials Pvt Ltd,5200-99,CC-SAL-AUS,USD,NET45,SemiCorp Design Unit,2025-08-17
+V01122,Bright Components Sdn Bhd,6100-48,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-10-19
+V01123,Delta Components Pvt Ltd,5100-72,CC-SAL-AUS,USD,NET60,SemiCorp Design Unit,2025-09-26
+V01124,Apex Components LLC,5100-27,CC-FIN-AUS,USD,NET30,SemiCorp Design Unit,2025-09-06
+V01125,Prime Services Pvt Ltd,5200-11,CC-TST-PEN,USD,NET45,SemiCorp Design Unit,2025-09-22
+V01126,Prime Packaging Sdn Bhd,6400-69,CC-TST-PEN,USD,NET60,SemiCorp Design Unit,2025-07-05
+V01081,Prime Metals Sdn Bhd,5200-19,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-10-11
+V01035,Vertex Materials Inc,5200-35,CC-ENG-PUN,INR,NET45,SemiCorp Design Unit,2025-10-23
+V01100,Atlas Metals Sdn Bhd,6100-50,CC-OPS-AUS,USD,NET45,SemiCorp Design Unit,2025-06-10
+V01088,Bright Logistics Sdn Bhd,6100-61,CC-FIN-AUS,USD,NET45,SemiCorp Design Unit,2025-07-13

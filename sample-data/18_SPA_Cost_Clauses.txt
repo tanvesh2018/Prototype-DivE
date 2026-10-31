@@ -1,0 +1,14 @@
+SHARE PURCHASE AGREEMENT — EXTRACT (ILLUSTRATIVE)
+Project Rioja · SemiCorp Inc ("Seller") and ChipCo Ltd ("Purchaser")
+
+Clause 7.4 Separation Costs
+(a) "Separation Costs" means all reasonable third-party costs incurred to separate the Business from the Seller's retained group, including the transfer of Transferred Licences and the replication of equipment used exclusively or predominantly by the Business.
+(b) Separation Costs shall be shared equally between the Seller and the Purchaser.
+(c) Notwithstanding paragraph (b), any Enhancement requested by the Purchaser shall be borne solely by the Purchaser. "Enhancement" means any upgrade, additional capacity or improved specification beyond like-for-like replacement.
+(d) The Seller shall use reasonable endeavours to procure third-party consents required for the transfer of Transferred Licences, at the Seller's cost.
+
+Clause 7.5 Disputes
+Any amount of Separation Costs in dispute shall be paid into an escrow account held by an agreed bank pending resolution under Clause 19 (Expert Determination). Disputed amounts shall not delay the Completion Date.
+
+Clause 9.2 Transitional Services
+The Seller shall provide the Transitional Services set out in Schedule 6 for a period not exceeding six (6) months from Completion, at the monthly charges stated in Schedule 6. Any extension shall be charged at 125% of the stated monthly charge.

@@ -1,0 +1,12 @@
+Decision ID,Decision,Approver,Due,Option,Option Name,Security (1-5),Productivity (1-5),"Cost (1-5, 5 = cheapest)",Speed (1-5)
+DEC-01,Laptop migration strategy (340 laptops),CIO Steering Committee,2025-11-04,A,Full rebuild first,5,2,2,2
+DEC-01,Laptop migration strategy (340 laptops),CIO Steering Committee,2025-11-04,B,Move in phases,4,4,3,3
+DEC-01,Laptop migration strategy (340 laptops),CIO Steering Committee,2025-11-04,C,"Move now, secure later",2,5,4,5
+DEC-02,Email cut-over approach,CIO Steering Committee,2025-11-07,A,Big-bang tenant move on Day-1,3,3,4,4
+DEC-02,Email cut-over approach,CIO Steering Committee,2025-11-07,B,"Keep seller mail under TSA, move in January",4,4,3,2
+DEC-02,Email cut-over approach,CIO Steering Committee,2025-11-07,C,Forward mail from seller tenant,2,3,5,5
+DEC-03,Finance ERP separation path,CFO,2025-11-06,A,Clone ERP instance now,4,3,2,2
+DEC-03,Finance ERP separation path,CFO,2025-11-06,B,TSA then migrate in Wave 2,4,4,4,3
+DEC-03,Finance ERP separation path,CFO,2025-11-06,C,Stand up new cloud ERP,5,2,1,1
+DEC-04,Identity tenant split,CISO,2025-11-08,A,New ChipCo tenant + B2B trust,5,3,3,3
+DEC-04,Identity tenant split,CISO,2025-11-08,B,Shared tenant with conditional access,3,5,4,4

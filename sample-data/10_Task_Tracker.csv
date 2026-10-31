@@ -1,0 +1,313 @@
+Task ID,Task,Workstream,Owner,Due Date,Status,Priority,Linked Item
+TSK-118,Secure EDA Corp licence consent for CircuitDesign Pro,Licences,Priya Nair,2025-11-06,Blocked,P0,APP-001
+TSK-119,Complete CircuitDesign Pro failover test,Applications,Marco Lee,2025-11-07,In progress,P0,APP-001
+TSK-120,Remediate Finance ERP vendor master data gaps,Finance & Costs,Aisha Khan,2025-11-08,At risk,P1,APP-004
+TSK-121,Validate NET-3 firewall rules for Pune engineering,Network,Daniel Wong,2025-11-09,In progress,P1,APP-015
+TSK-122,Approve laptop migration option,Infrastructure,Sophie Martin,2025-11-04,Review,P1,APP-016
+TSK-123,Confirm Wave 0 cutover roster,People,Ana Silva,2025-11-10,Not started,P2,
+TSK-124,Transfer L-42 layout verification seats,Licences,Priya Nair,2025-11-09,Not started,P0,APP-001
+TSK-125,Re-host CircuitDesign Pro licence keys on ChipCo licence server,Licences,Rahul Mehta,2025-11-09,Not started,P0,APP-001
+TSK-126,Clone CircuitDesign Pro runtime to ChipCo Pune DC,Applications,Marco Lee,2025-11-03,Done,P0,APP-001
+TSK-127,Configure conditional access policies for ChipCo tenant,Identity & Security,Lena Fischer,2025-11-08,In progress,P1,APP-014
+TSK-128,Order Tracker production cut-over rehearsal,Applications,Neha Joshi,2025-11-12,In progress,P1,APP-005
+TSK-129,Simulation solver pack licence consent (L-41),Licences,Priya Nair,2025-11-07,At risk,P1,APP-021
+TSK-130,Inventory CircuitDesign Pro design libraries,Applications,Marco Lee,2025-10-29,Done,P0,APP-001
+TSK-131,Size ChipCo hardware for CircuitDesign Pro,Applications,Marco Lee,2025-10-16,Done,P0,APP-001
+TSK-132,Confirm CircuitDesign Pro user list (120 seats),Applications,Marco Lee,2025-10-26,Done,P0,APP-001
+TSK-133,Review DesignVault cut-over plan,Applications,Marco Lee,2025-11-02,Done,P1,APP-002
+TSK-134,Migrate DesignVault support handover,Applications,Marco Lee,2025-10-11,Done,P1,APP-002
+TSK-135,Hand over DesignVault access model,Applications,Marco Lee,2025-10-18,Done,P1,APP-002
+TSK-136,Patch DesignVault data copy,Applications,Neha Joshi,2025-10-17,Done,P1,APP-002
+TSK-137,Migrate DesignVault cut-over plan,Applications,Marco Lee,2025-11-11,In progress,P1,APP-002
+TSK-138,Back up DesignVault runbook,Applications,Marco Lee,2025-11-07,In progress,P1,APP-002
+TSK-139,Document WaferTest Suite integration test,Applications,Neha Joshi,2025-10-21,Done,P1,APP-003
+TSK-140,Review WaferTest Suite integration test,Applications,Marco Lee,2025-10-18,Done,P1,APP-003
+TSK-141,Reconcile WaferTest Suite support handover,Applications,Wei Chen,2025-10-17,Done,P1,APP-003
+TSK-142,Configure WaferTest Suite runbook,Applications,Marco Lee,2025-10-20,Done,P1,APP-003
+TSK-143,Reconcile WaferTest Suite cut-over plan,Applications,Neha Joshi,2025-10-23,Done,P1,APP-003
+TSK-144,Hand over Finance ERP monitoring,Finance & Costs,James Cole,2025-10-18,Done,P1,APP-004
+TSK-145,Back up Finance ERP integration test,Finance & Costs,Mei Lin,2025-10-12,Done,P1,APP-004
+TSK-146,Validate Finance ERP monitoring,Finance & Costs,Aisha Khan,2025-10-18,Done,P1,APP-004
+TSK-147,Validate Finance ERP support handover,Finance & Costs,Aisha Khan,2025-10-20,Done,P1,APP-004
+TSK-148,Test Finance ERP access model,Finance & Costs,James Cole,2025-10-24,Done,P1,APP-004
+TSK-149,Patch Finance ERP access model,Finance & Costs,Mei Lin,2025-11-02,Done,P1,APP-004
+TSK-150,Test Finance ERP data copy,Finance & Costs,James Cole,2025-11-09,In progress,P1,APP-004
+TSK-151,Configure Finance ERP cut-over plan,Finance & Costs,James Cole,2025-11-10,Review,P1,APP-004
+TSK-152,Patch Order Tracker integration test,Applications,Wei Chen,2025-10-19,Done,P1,APP-005
+TSK-153,Document Order Tracker access model,Applications,Neha Joshi,2025-10-28,Done,P1,APP-005
+TSK-154,Decommission Order Tracker integration test,Applications,Marco Lee,2025-10-12,Done,P1,APP-005
+TSK-155,Decommission Order Tracker access model,Applications,Neha Joshi,2025-10-24,Done,P1,APP-005
+TSK-156,Review Order Tracker integration test,Applications,Marco Lee,2025-11-14,Review,P1,APP-005
+TSK-157,Migrate Customer Portal data copy,Applications,Marco Lee,2025-10-17,Done,P1,APP-006
+TSK-158,Hand over Customer Portal licence check,Applications,Marco Lee,2025-10-11,Done,P1,APP-006
+TSK-159,Patch Customer Portal runbook,Applications,Wei Chen,2025-10-27,Done,P1,APP-006
+TSK-160,Review Customer Portal cut-over plan,Applications,Neha Joshi,2025-11-03,Done,P1,APP-006
+TSK-161,Map Customer Portal runbook,Applications,Marco Lee,2025-10-23,Done,P1,APP-006
+TSK-162,Hand over Solution Central licence check,Applications,Marco Lee,2025-11-01,Done,P1,APP-007
+TSK-163,Patch Solution Central access model,Applications,Neha Joshi,2025-10-23,Done,P1,APP-007
+TSK-164,Configure Solution Central access model,Applications,Wei Chen,2025-10-28,Done,P1,APP-007
+TSK-165,Migrate Solution Central data copy,Applications,Neha Joshi,2025-10-24,Done,P1,APP-007
+TSK-166,Review Solution Central access model,Applications,Marco Lee,2025-10-30,Done,P1,APP-007
+TSK-167,Document Email & Calendar runbook,Infrastructure,Hafiz Rahman,2025-10-13,Done,P1,APP-013
+TSK-168,Patch Email & Calendar monitoring,Infrastructure,Tom Becker,2025-10-31,Done,P1,APP-013
+TSK-169,Document Email & Calendar access model,Infrastructure,Tom Becker,2025-10-16,Done,P1,APP-013
+TSK-170,Decommission Email & Calendar licence check,Infrastructure,Sophie Martin,2025-10-28,Done,P1,APP-013
+TSK-171,Back up Email & Calendar data copy,Infrastructure,Sophie Martin,2025-10-12,Done,P1,APP-013
+TSK-172,Decommission Email & Calendar licence check,Infrastructure,Sophie Martin,2025-10-15,Done,P1,APP-013
+TSK-173,Migrate Email & Calendar cut-over plan,Infrastructure,Sophie Martin,2025-11-11,Review,P1,APP-013
+TSK-174,Map Identity Directory support handover,Identity & Security,Arjun Iyer,2025-11-04,Done,P1,APP-014
+TSK-175,Decommission Identity Directory access model,Identity & Security,Lena Fischer,2025-10-15,Done,P1,APP-014
+TSK-176,Approve Identity Directory integration test,Identity & Security,Lena Fischer,2025-10-22,Done,P1,APP-014
+TSK-177,Review Identity Directory support handover,Identity & Security,Arjun Iyer,2025-10-11,Done,P1,APP-014
+TSK-178,Review Identity Directory support handover,Identity & Security,Lena Fischer,2025-11-14,In progress,P1,APP-014
+TSK-179,Configure VPN Gateway runbook,Network,Carlos Ruiz,2025-11-04,Done,P1,APP-015
+TSK-180,Patch VPN Gateway monitoring,Network,Carlos Ruiz,2025-10-25,Done,P1,APP-015
+TSK-181,Map VPN Gateway integration test,Network,Daniel Wong,2025-10-28,Done,P1,APP-015
+TSK-182,Decommission VPN Gateway data copy,Network,Daniel Wong,2025-11-10,In progress,P1,APP-015
+TSK-183,Review VPN Gateway licence check,Network,Carlos Ruiz,2025-11-14,In progress,P1,APP-015
+TSK-184,Test Endpoint Security access model,Identity & Security,Arjun Iyer,2025-10-16,Done,P1,APP-016
+TSK-185,Review Endpoint Security cut-over plan,Identity & Security,Lena Fischer,2025-10-11,Done,P1,APP-016
+TSK-186,Review Endpoint Security support handover,Identity & Security,Arjun Iyer,2025-10-15,Done,P1,APP-016
+TSK-187,Validate Endpoint Security runbook,Identity & Security,Lena Fischer,2025-11-11,Review,P1,APP-016
+TSK-188,Back up Licence Server monitoring,Licences,Priya Nair,2025-10-12,Done,P1,APP-017
+TSK-189,Map Licence Server runbook,Licences,Rahul Mehta,2025-10-18,Done,P1,APP-017
+TSK-190,Configure Licence Server access model,Licences,Priya Nair,2025-11-02,Done,P1,APP-017
+TSK-191,Back up Licence Server cut-over plan,Licences,Priya Nair,2025-10-22,Done,P1,APP-017
+TSK-192,Patch Sales CRM data copy,Applications,Wei Chen,2025-10-19,Done,P1,APP-027
+TSK-193,Approve Sales CRM cut-over plan,Applications,Wei Chen,2025-11-03,Done,P1,APP-027
+TSK-194,Approve Sales CRM integration test,Applications,Wei Chen,2025-10-12,Done,P1,APP-027
+TSK-195,Map Sales CRM licence check,Applications,Marco Lee,2025-10-25,Done,P1,APP-027
+TSK-196,Migrate Sales CRM integration test,Applications,Wei Chen,2025-10-13,Done,P1,APP-027
+TSK-197,Back up Payroll Connector access model,Finance & Costs,Aisha Khan,2025-10-13,Done,P1,APP-018
+TSK-198,Document Payroll Connector support handover,Finance & Costs,Aisha Khan,2025-10-15,Done,P1,APP-018
+TSK-199,Migrate Payroll Connector data copy,Finance & Costs,Mei Lin,2025-10-15,Done,P1,APP-018
+TSK-200,Migrate Payroll Connector monitoring,Finance & Costs,Aisha Khan,2025-10-15,Done,P1,APP-018
+TSK-201,Migrate storage replication,Infrastructure,Tom Becker,2025-10-15,Done,P3,
+TSK-202,Migrate print services,Infrastructure,Hafiz Rahman,2025-10-27,Done,P2,
+TSK-203,Decommission monitoring agents,Infrastructure,Hafiz Rahman,2025-10-15,Done,P3,
+TSK-204,Map server build standard,Infrastructure,Sophie Martin,2025-10-13,Done,P2,
+TSK-205,Validate hypervisor cluster,Infrastructure,Sophie Martin,2025-10-23,Done,P3,
+TSK-206,Map DR runbook,Infrastructure,Hafiz Rahman,2025-10-08,Done,P3,
+TSK-207,Patch DR runbook,Infrastructure,Tom Becker,2025-10-27,Done,P2,
+TSK-208,Migrate storage replication,Infrastructure,Tom Becker,2025-09-26,Done,P2,
+TSK-209,Back up print services,Infrastructure,Hafiz Rahman,2025-10-29,Done,P2,
+TSK-210,Approve backup schedule,Infrastructure,Tom Becker,2025-10-01,Done,P2,
+TSK-211,Migrate storage replication,Infrastructure,Hafiz Rahman,2025-10-10,Done,P1,
+TSK-212,Review print services,Infrastructure,Sophie Martin,2025-10-16,Done,P2,
+TSK-213,Map hypervisor cluster,Infrastructure,Hafiz Rahman,2025-09-08,Done,P1,
+TSK-214,Back up Pune DC rack allocation,Infrastructure,Hafiz Rahman,2025-10-06,Done,P3,
+TSK-215,Migrate hypervisor cluster,Infrastructure,Tom Becker,2025-09-07,Done,P1,
+TSK-216,Patch DR runbook,Infrastructure,Sophie Martin,2025-09-30,Done,P1,
+TSK-217,Approve laptop image v2,Infrastructure,Hafiz Rahman,2025-10-11,Done,P3,
+TSK-218,Decommission Pune DC rack allocation,Infrastructure,Sophie Martin,2025-10-15,Done,P2,
+TSK-219,Decommission laptop image v2,Infrastructure,Hafiz Rahman,2025-10-26,Done,P3,
+TSK-220,Validate laptop image v2,Infrastructure,Hafiz Rahman,2025-10-07,Done,P2,
+TSK-221,Approve storage replication,Infrastructure,Sophie Martin,2025-09-19,Done,P2,
+TSK-222,Review backup schedule,Infrastructure,Hafiz Rahman,2025-09-29,Done,P3,
+TSK-223,Review DR runbook,Infrastructure,Sophie Martin,2025-09-08,Done,P2,
+TSK-224,Back up hypervisor cluster,Infrastructure,Hafiz Rahman,2025-10-13,Done,P2,
+TSK-225,Review storage replication,Infrastructure,Hafiz Rahman,2025-10-15,Done,P1,
+TSK-226,Review server build standard,Infrastructure,Hafiz Rahman,2025-10-01,Done,P2,
+TSK-227,Decommission monitoring agents,Infrastructure,Hafiz Rahman,2025-11-02,Done,P2,
+TSK-228,Test server build standard,Infrastructure,Hafiz Rahman,2025-10-29,Done,P1,
+TSK-229,Hand over laptop image v2,Infrastructure,Tom Becker,2025-09-24,Done,P1,
+TSK-230,Map backup schedule,Infrastructure,Tom Becker,2025-11-08,Review,P3,
+TSK-231,Test backup schedule,Infrastructure,Tom Becker,2025-12-12,In progress,P1,
+TSK-232,Configure laptop image v2,Infrastructure,Sophie Martin,2025-11-07,In progress,P1,
+TSK-233,Map smoke test pack,Applications,Marco Lee,2025-09-15,Done,P1,
+TSK-234,Test service accounts,Applications,Neha Joshi,2025-10-06,Done,P2,
+TSK-235,Migrate interface catalogue,Applications,Marco Lee,2025-09-18,Done,P2,
+TSK-236,Reconcile release calendar,Applications,Wei Chen,2025-10-02,Done,P2,
+TSK-237,Validate service accounts,Applications,Marco Lee,2025-10-03,Done,P3,
+TSK-238,Test service accounts,Applications,Neha Joshi,2025-10-16,Done,P2,
+TSK-239,Validate application runbook,Applications,Wei Chen,2025-09-22,Done,P2,
+TSK-240,Map release calendar,Applications,Wei Chen,2025-10-18,Done,P2,
+TSK-241,Hand over smoke test pack,Applications,Wei Chen,2025-09-23,Done,P1,
+TSK-242,Patch smoke test pack,Applications,Wei Chen,2025-11-04,Done,P1,
+TSK-243,Test database copy,Applications,Wei Chen,2025-12-07,In progress,P2,
+TSK-244,Configure smoke test pack,Applications,Wei Chen,2025-11-22,Review,P2,
+TSK-245,Migrate service accounts,Applications,Marco Lee,2025-11-18,Not started,P2,
+TSK-246,Hand over IP address plan,Network,Carlos Ruiz,2025-09-27,Done,P2,
+TSK-247,Migrate Wi-Fi SSIDs,Network,Daniel Wong,2025-09-26,Done,P2,
+TSK-248,Validate firewall rule base,Network,Carlos Ruiz,2025-10-08,Done,P1,
+TSK-249,Patch DNS zones,Network,Daniel Wong,2025-10-03,Done,P2,
+TSK-250,Review site-to-site VPN,Network,Daniel Wong,2025-10-15,Done,P2,
+TSK-251,Reconcile DNS zones,Network,Carlos Ruiz,2025-10-16,Done,P3,
+TSK-252,Review site-to-site VPN,Network,Daniel Wong,2025-10-18,Done,P2,
+TSK-253,Hand over WAN circuit order,Network,Daniel Wong,2025-10-21,Done,P2,
+TSK-254,Hand over IP address plan,Network,Carlos Ruiz,2025-10-07,Done,P2,
+TSK-255,Decommission Wi-Fi SSIDs,Network,Daniel Wong,2025-10-25,Done,P1,
+TSK-256,Approve site-to-site VPN,Network,Carlos Ruiz,2025-10-19,Done,P1,
+TSK-257,Approve DNS zones,Network,Daniel Wong,2025-10-08,Done,P2,
+TSK-258,Validate site-to-site VPN,Network,Carlos Ruiz,2025-10-29,Done,P3,
+TSK-259,Review firewall rule base,Network,Carlos Ruiz,2025-10-06,Done,P2,
+TSK-260,Test site-to-site VPN,Network,Carlos Ruiz,2025-09-16,Done,P2,
+TSK-261,Hand over site-to-site VPN,Network,Carlos Ruiz,2025-10-05,Done,P1,
+TSK-262,Hand over load balancer VIPs,Network,Carlos Ruiz,2025-09-13,Done,P2,
+TSK-263,Migrate WAN circuit order,Network,Daniel Wong,2025-09-27,Done,P3,
+TSK-264,Patch firewall rule base,Network,Daniel Wong,2025-09-07,Done,P3,
+TSK-265,Map firewall rule base,Network,Carlos Ruiz,2025-10-09,Done,P3,
+TSK-266,Decommission DNS zones,Network,Daniel Wong,2025-10-25,Done,P3,
+TSK-267,Approve firewall rule base,Network,Carlos Ruiz,2025-10-03,Done,P2,
+TSK-268,Hand over load balancer VIPs,Network,Daniel Wong,2025-10-04,Done,P1,
+TSK-269,Review IP address plan,Network,Daniel Wong,2025-09-26,Done,P2,
+TSK-270,Test load balancer VIPs,Network,Daniel Wong,2025-10-29,Done,P2,
+TSK-271,Patch firewall rule base,Network,Carlos Ruiz,2025-09-08,Done,P1,
+TSK-272,Approve IP address plan,Network,Daniel Wong,2025-10-18,Done,P2,
+TSK-273,Test IP address plan,Network,Carlos Ruiz,2025-12-10,Not started,P3,
+TSK-274,Document load balancer VIPs,Network,Carlos Ruiz,2025-11-30,In progress,P3,
+TSK-275,Validate Wi-Fi SSIDs,Network,Daniel Wong,2025-11-11,In progress,P3,
+TSK-276,Test WAN circuit order,Network,Carlos Ruiz,2025-12-05,Review,P3,
+TSK-277,Document site-to-site VPN,Network,Daniel Wong,2025-11-23,Review,P3,
+TSK-278,Back up joiner-mover-leaver flow,Identity & Security,Lena Fischer,2025-10-09,Done,P1,
+TSK-279,Hand over MFA enrolment,Identity & Security,Arjun Iyer,2025-10-31,Done,P1,
+TSK-280,Back up EDR policy,Identity & Security,Lena Fischer,2025-09-07,Done,P2,
+TSK-281,Map security groups,Identity & Security,Arjun Iyer,2025-10-15,Done,P2,
+TSK-282,Hand over MFA enrolment,Identity & Security,Lena Fischer,2025-10-23,Done,P2,
+TSK-283,Review MFA enrolment,Identity & Security,Lena Fischer,2025-10-07,Done,P2,
+TSK-284,Configure security groups,Identity & Security,Arjun Iyer,2025-09-21,Done,P3,
+TSK-285,Hand over certificate inventory,Identity & Security,Lena Fischer,2025-09-16,Done,P1,
+TSK-286,Back up MFA enrolment,Identity & Security,Lena Fischer,2025-10-13,Done,P2,
+TSK-287,Approve EDR policy,Identity & Security,Lena Fischer,2025-09-12,Done,P3,
+TSK-288,Test security groups,Identity & Security,Lena Fischer,2025-10-26,Done,P1,
+TSK-289,Configure joiner-mover-leaver flow,Identity & Security,Lena Fischer,2025-10-12,Done,P3,
+TSK-290,Test certificate inventory,Identity & Security,Arjun Iyer,2025-09-16,Done,P3,
+TSK-291,Approve privileged access list,Identity & Security,Arjun Iyer,2025-10-26,Done,P1,
+TSK-292,Document MFA enrolment,Identity & Security,Arjun Iyer,2025-10-10,Done,P2,
+TSK-293,Document EDR policy,Identity & Security,Arjun Iyer,2025-10-15,Done,P3,
+TSK-294,Map MFA enrolment,Identity & Security,Arjun Iyer,2025-11-02,Done,P2,
+TSK-295,Hand over EDR policy,Identity & Security,Arjun Iyer,2025-10-07,Done,P3,
+TSK-296,Configure MFA enrolment,Identity & Security,Lena Fischer,2025-10-29,Done,P3,
+TSK-297,Configure privileged access list,Identity & Security,Arjun Iyer,2025-12-03,In progress,P2,
+TSK-298,Document security groups,Identity & Security,Lena Fischer,2025-12-04,Review,P2,
+TSK-299,Decommission joiner-mover-leaver flow,Identity & Security,Lena Fischer,2025-11-26,Review,P2,
+TSK-300,Hand over certificate inventory,Identity & Security,Arjun Iyer,2025-11-10,In progress,P3,
+TSK-301,Document security groups,Identity & Security,Lena Fischer,2025-12-15,Review,P2,
+TSK-302,Back up seat true-up,Licences,Priya Nair,2025-09-07,Done,P3,
+TSK-303,Migrate seat true-up,Licences,Priya Nair,2025-10-23,Done,P2,
+TSK-304,Test vendor consent letter,Licences,Priya Nair,2025-10-15,Done,P1,
+TSK-305,Migrate seat true-up,Licences,Rahul Mehta,2025-10-12,Done,P2,
+TSK-306,Patch seat true-up,Licences,Rahul Mehta,2025-09-26,Done,P2,
+TSK-307,Decommission vendor consent letter,Licences,Priya Nair,2025-10-05,Done,P1,
+TSK-308,Validate renewal calendar,Licences,Rahul Mehta,2025-10-17,Done,P2,
+TSK-309,Document licence entitlement report,Licences,Rahul Mehta,2025-10-16,Done,P2,
+TSK-310,Validate seat true-up,Licences,Rahul Mehta,2025-11-03,Done,P3,
+TSK-311,Reconcile vendor consent letter,Licences,Rahul Mehta,2025-09-22,Done,P3,
+TSK-312,Hand over vendor consent letter,Licences,Priya Nair,2025-11-18,Review,P2,
+TSK-313,Migrate seat true-up,Licences,Priya Nair,2025-12-13,In progress,P3,
+TSK-314,Document training schedule,People,Ana Silva,2025-10-16,Done,P2,
+TSK-315,Hand over training schedule,People,Ana Silva,2025-09-26,Done,P2,
+TSK-316,Review training schedule,People,Ana Silva,2025-10-08,Done,P3,
+TSK-317,Decommission payroll cut-over file,People,Ana Silva,2025-10-21,Done,P3,
+TSK-318,Map training schedule,People,Ana Silva,2025-09-18,Done,P2,
+TSK-319,Patch org chart,People,Grace Tan,2025-10-08,Done,P2,
+TSK-320,Hand over training schedule,People,Ana Silva,2025-10-12,Done,P2,
+TSK-321,Review employee transfer letters,People,Grace Tan,2025-10-06,Done,P1,
+TSK-322,Configure payroll cut-over file,People,Grace Tan,2025-10-21,Done,P1,
+TSK-323,Approve employee transfer letters,People,Grace Tan,2025-09-21,Done,P2,
+TSK-324,Decommission payroll cut-over file,People,Grace Tan,2025-11-02,Done,P3,
+TSK-325,Review employee transfer letters,People,Ana Silva,2025-10-01,Done,P3,
+TSK-326,Validate access request forms,People,Grace Tan,2025-10-08,Done,P2,
+TSK-327,Validate Day-1 comms pack,People,Ana Silva,2025-10-07,Done,P2,
+TSK-328,Back up employee transfer letters,People,Ana Silva,2025-10-01,Done,P2,
+TSK-329,Hand over Day-1 comms pack,People,Ana Silva,2025-11-01,Done,P2,
+TSK-330,Reconcile org chart,People,Ana Silva,2025-10-25,Done,P3,
+TSK-331,Approve org chart,People,Ana Silva,2025-10-03,Done,P3,
+TSK-332,Reconcile payroll cut-over file,People,Grace Tan,2025-09-11,Done,P1,
+TSK-333,Validate employee transfer letters,People,Grace Tan,2025-10-20,Done,P1,
+TSK-334,Configure org chart,People,Ana Silva,2025-10-11,Done,P1,
+TSK-335,Test org chart,People,Ana Silva,2025-11-02,Done,P2,
+TSK-336,Review payroll cut-over file,People,Grace Tan,2025-09-25,Done,P1,
+TSK-337,Hand over payroll cut-over file,People,Grace Tan,2025-09-06,Done,P2,
+TSK-338,Review Day-1 comms pack,People,Grace Tan,2025-10-26,Done,P2,
+TSK-339,Hand over Day-1 comms pack,People,Ana Silva,2025-11-01,Done,P1,
+TSK-340,Hand over payroll cut-over file,People,Ana Silva,2025-10-01,Done,P3,
+TSK-341,Back up access request forms,People,Ana Silva,2025-09-30,Done,P3,
+TSK-342,Approve org chart,People,Ana Silva,2025-09-15,Done,P2,
+TSK-343,Migrate training schedule,People,Ana Silva,2025-10-23,Done,P2,
+TSK-344,Document Day-1 comms pack,People,Grace Tan,2025-09-11,Done,P2,
+TSK-345,Validate Day-1 comms pack,People,Grace Tan,2025-12-03,Review,P3,
+TSK-346,Map org chart,People,Grace Tan,2025-11-21,Review,P2,
+TSK-347,Migrate TSA service catalogue,TSA Services,Rahul Mehta,2025-10-03,Done,P2,
+TSK-348,Map TSA invoice template,TSA Services,Jen Park,2025-10-08,Done,P2,
+TSK-349,Hand over governance calendar,TSA Services,Jen Park,2025-09-18,Done,P1,
+TSK-350,Map TSA service catalogue,TSA Services,Rahul Mehta,2025-09-15,Done,P3,
+TSK-351,Review TSA service catalogue,TSA Services,Rahul Mehta,2025-10-05,Done,P2,
+TSK-352,Migrate TSA invoice template,TSA Services,Jen Park,2025-10-13,Done,P2,
+TSK-353,Document service level schedule,TSA Services,Rahul Mehta,2025-10-01,Done,P3,
+TSK-354,Hand over TSA invoice template,TSA Services,Rahul Mehta,2025-10-05,Done,P2,
+TSK-355,Decommission TSA invoice template,TSA Services,Rahul Mehta,2025-09-22,Done,P1,
+TSK-356,Hand over TSA service catalogue,TSA Services,Jen Park,2025-10-01,Done,P3,
+TSK-357,Test escalation matrix,TSA Services,Daniel Wong,2025-09-17,Done,P3,
+TSK-358,Back up escalation matrix,TSA Services,Jen Park,2025-11-04,Done,P2,
+TSK-359,Review exit plan,TSA Services,Rahul Mehta,2025-10-03,Done,P2,
+TSK-360,Review TSA invoice template,TSA Services,Jen Park,2025-10-17,Done,P3,
+TSK-361,Hand over service level schedule,TSA Services,Rahul Mehta,2025-10-18,Done,P2,
+TSK-362,Review exit plan,TSA Services,Jen Park,2025-11-02,Done,P1,
+TSK-363,Test TSA service catalogue,TSA Services,Jen Park,2025-09-17,Done,P2,
+TSK-364,Back up TSA service catalogue,TSA Services,Daniel Wong,2025-09-19,Done,P3,
+TSK-365,Hand over exit plan,TSA Services,Rahul Mehta,2025-10-02,Done,P2,
+TSK-366,Document TSA service catalogue,TSA Services,Daniel Wong,2025-10-25,Done,P3,
+TSK-367,Reconcile service level schedule,TSA Services,Rahul Mehta,2025-10-05,Done,P3,
+TSK-368,Hand over exit plan,TSA Services,Rahul Mehta,2025-10-07,Done,P2,
+TSK-369,Hand over TSA invoice template,TSA Services,Rahul Mehta,2025-09-08,Done,P1,
+TSK-370,Document escalation matrix,TSA Services,Daniel Wong,2025-09-30,Done,P2,
+TSK-371,Review governance calendar,TSA Services,Daniel Wong,2025-10-16,Done,P2,
+TSK-372,Map governance calendar,TSA Services,Daniel Wong,2025-09-08,Done,P1,
+TSK-373,Test TSA service catalogue,TSA Services,Daniel Wong,2025-09-28,Done,P1,
+TSK-374,Hand over service level schedule,TSA Services,Rahul Mehta,2025-10-30,Done,P3,
+TSK-375,Migrate escalation matrix,TSA Services,Jen Park,2025-09-24,Done,P2,
+TSK-376,Test service level schedule,TSA Services,Jen Park,2025-11-04,Done,P1,
+TSK-377,Document exit plan,TSA Services,Daniel Wong,2025-10-01,Done,P2,
+TSK-378,Configure governance calendar,TSA Services,Rahul Mehta,2025-10-17,Done,P3,
+TSK-379,Document escalation matrix,TSA Services,Jen Park,2025-10-16,Done,P2,
+TSK-380,Reconcile service level schedule,TSA Services,Rahul Mehta,2025-10-24,Done,P1,
+TSK-381,Document escalation matrix,TSA Services,Daniel Wong,2025-10-30,Done,P3,
+TSK-382,Map exit plan,TSA Services,Daniel Wong,2025-09-12,Done,P3,
+TSK-383,Document TSA invoice template,TSA Services,Jen Park,2025-09-17,Done,P1,
+TSK-384,Reconcile service level schedule,TSA Services,Rahul Mehta,2025-11-20,In progress,P2,
+TSK-385,Test governance calendar,TSA Services,Rahul Mehta,2025-11-16,In progress,P1,
+TSK-386,Migrate governance calendar,TSA Services,Rahul Mehta,2025-11-15,Review,P1,
+TSK-387,Test TSA invoice template,TSA Services,Daniel Wong,2025-12-15,Not started,P2,
+TSK-388,Decommission governance calendar,TSA Services,Rahul Mehta,2025-12-12,In progress,P1,
+TSK-389,Approve governance calendar,TSA Services,Daniel Wong,2025-11-09,In progress,P2,
+TSK-390,Decommission service level schedule,TSA Services,Daniel Wong,2025-12-05,Not started,P3,
+TSK-391,Document opening balances,Finance & Costs,Aisha Khan,2025-11-03,Done,P1,
+TSK-392,Map intercompany settlement,Finance & Costs,Mei Lin,2025-10-08,Done,P2,
+TSK-393,Configure bank account set-up,Finance & Costs,James Cole,2025-09-25,Done,P2,
+TSK-394,Patch chart of accounts mapping,Finance & Costs,Aisha Khan,2025-09-27,Done,P3,
+TSK-395,Map bank account set-up,Finance & Costs,James Cole,2025-09-07,Done,P1,
+TSK-396,Hand over bank account set-up,Finance & Costs,James Cole,2025-10-09,Done,P2,
+TSK-397,Configure tax registrations,Finance & Costs,Mei Lin,2025-09-24,Done,P3,
+TSK-398,Review bank account set-up,Finance & Costs,James Cole,2025-09-23,Done,P1,
+TSK-399,Patch intercompany settlement,Finance & Costs,James Cole,2025-09-10,Done,P2,
+TSK-400,Patch opening balances,Finance & Costs,James Cole,2025-10-02,Done,P3,
+TSK-401,Decommission intercompany settlement,Finance & Costs,Mei Lin,2025-09-14,Done,P2,
+TSK-402,Hand over intercompany settlement,Finance & Costs,Mei Lin,2025-11-02,Done,P2,
+TSK-403,Hand over bank account set-up,Finance & Costs,Aisha Khan,2025-10-17,Done,P2,
+TSK-404,Configure opening balances,Finance & Costs,Aisha Khan,2025-09-24,Done,P2,
+TSK-405,Review chart of accounts mapping,Finance & Costs,James Cole,2025-10-15,Done,P2,
+TSK-406,Validate cost allocation workbook,Finance & Costs,Mei Lin,2025-09-22,Done,P2,
+TSK-407,Migrate intercompany settlement,Finance & Costs,James Cole,2025-09-06,Done,P3,
+TSK-408,Test tax registrations,Finance & Costs,James Cole,2025-09-25,Done,P2,
+TSK-409,Review vendor bank details,Finance & Costs,Aisha Khan,2025-10-30,Done,P3,
+TSK-410,Decommission cost allocation workbook,Finance & Costs,Mei Lin,2025-09-09,Done,P3,
+TSK-411,Map intercompany settlement,Finance & Costs,Mei Lin,2025-11-01,Done,P1,
+TSK-412,Migrate cost allocation workbook,Finance & Costs,Mei Lin,2025-11-03,Done,P3,
+TSK-413,Test cost allocation workbook,Finance & Costs,Mei Lin,2025-09-12,Done,P1,
+TSK-414,Test vendor bank details,Finance & Costs,Aisha Khan,2025-09-06,Done,P2,
+TSK-415,Review tax registrations,Finance & Costs,James Cole,2025-09-06,Done,P2,
+TSK-416,Hand over bank account set-up,Finance & Costs,Aisha Khan,2025-09-23,Done,P2,
+TSK-417,Review cost allocation workbook,Finance & Costs,James Cole,2025-10-15,Done,P2,
+TSK-418,Patch bank account set-up,Finance & Costs,Aisha Khan,2025-10-25,Done,P1,
+TSK-419,Patch opening balances,Finance & Costs,Mei Lin,2025-11-11,In progress,P2,
+TSK-420,Migrate vendor bank details,Finance & Costs,Mei Lin,2025-11-27,Review,P2,
+TSK-421,Validate bank account set-up,Finance & Costs,Aisha Khan,2025-11-26,Review,P3,
+TSK-422,Hand over intercompany settlement,Finance & Costs,Mei Lin,2025-11-19,In progress,P2,
+TSK-423,Migrate opening balances,Finance & Costs,Mei Lin,2025-12-07,At risk,P3,
+TSK-424,Hand over vendor bank details,Finance & Costs,Aisha Khan,2025-11-14,In progress,P3,
+TSK-425,Migrate cost allocation workbook,Finance & Costs,James Cole,2025-11-07,At risk,P3,
+TSK-426,Patch bank account set-up,Finance & Costs,Mei Lin,2025-11-20,In progress,P1,
+TSK-427,Patch vendor bank details,Finance & Costs,Aisha Khan,2025-12-01,Review,P3,
+TSK-428,Configure intercompany settlement,Finance & Costs,James Cole,2025-12-02,Review,P2,
+TSK-429,Document opening balances,Finance & Costs,Mei Lin,2025-11-24,In progress,P2,

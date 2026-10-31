@@ -1,0 +1,25 @@
+Server ID,Host Name,Location,Owned By,Operating System,Env,Last Patched / Updated,Network Segment,vCPU
+SRV-01,PUN-APP-01,Pune,Buyer,Ubuntu 22.04,Production,2025-10-14,NET-6,16
+SRV-02,AUS-WEB-02,Austin,Shared,RHEL 8,Production,2025-10-18,NET-2,32
+SRV-03,AUS-ERP-03,Austin,Seller,RHEL 7,Production,2025-10-27,NET-1,64
+SRV-04,AUS-DB-04,Austin,Seller,Windows Server 2019,Production,2025-09-30,NET-1,48
+SRV-05,PEN-TST-05,Penang,Buyer,Ubuntu 20.04,Production,2025-10-02,NET-4,32
+SRV-06,AUS-CRM-06,Austin,Shared,Windows Server 2022,Production,2025-10-21,NET-2,24
+SRV-07,AUS-ORD-07,Austin,Shared,RHEL 8,Production,2025-10-16,NET-2,32
+SRV-06,AUS-CRM-06,Austin,Shared,Windows Server 2022,Production,2025-10-21,NET-2,24
+SRV-08,PUN-IDM-08,Pune,Shared,Windows Server 2022,Production,2025-10-29,NET-5,16
+SRV-09,AUS-MAIL-09,Austin,Seller,Windows Server 2019,Production,2025-10-30,NET-5,32
+SRV-10,PUN-SEC-10,Pune,Shared,Ubuntu 22.04,Production,2025-10-24,NET-5,16
+SRV-11,PUN-FAX-11,Pune,Seller,Windows Server 2008,Production,2023-05-30,NET-1,4
+SRV-12,PUN-RPT-12,Pune,Shared,Windows Server 2016,Production,2025-07-10,NET-6,16
+SRV-13,AUS-SCM-13,Austin,Shared,RHEL 8,Production,2025-09-18,NET-1,32
+SRV-14,PUN-EDA-14,Pune,Seller,RHEL 8,Production,2025-10-20,NET-3,128
+SRV-15,PEN-WAF-15,Penang,Shared,RHEL 8,Production,2025-09-16,NET-4,64
+SRV-16,PUN-SIM-16,Pune,Buyer,Rocky Linux 9,Production,2025-09-28,NET-3,256
+SRV-17,AUS-LIC-17,Austin,Seller,RHEL 7,Production,2025-09-02,NET-5,8
+SRV-18,PUN-SPEC-18,Pune,Seller,Windows Server 2016,Production,2025-06-20,NET-3,8
+SRV-19,AUS-EXP-19,Austin,Buyer,Ubuntu 22.04,Production,2025-08-05,NET-1,8
+SRV-20,PUN-HR-20,Pune,Buyer,Ubuntu 22.04,Production,2025-08-28,NET-6,16
+SRV-21,PUN-DEV-21,Pune,Seller,Ubuntu 18.04,Development,2024-11-02,NET-3,8
+SRV-PAY-01,Payments Server 01,Austin,Shared,Windows Server 2019,Production,2025-09-26,NET-1,16
+PAY-SRV-1,Payments Server 1,Austin,Shared,,Production,2025-04-11,NET-1,

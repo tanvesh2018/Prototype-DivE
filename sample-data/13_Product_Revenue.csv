@@ -1,0 +1,17 @@
+Product,Country,Quarterly Revenue (USD),Blocked By System,Registration Status
+T-200 Timing Chip,USA,4000000,APP-007,Blocked
+T-200 Timing Chip,Germany,1600000,APP-007,Blocked
+P-410 Power Manager,USA,2600000,APP-007,Blocked
+P-410 Power Manager,Japan,1900000,APP-007,Blocked
+R-77 RF Front-End,India,900000,APP-007,Blocked
+R-77 RF Front-End,Malaysia,650000,APP-007,Registered
+S-12 Sensor Hub,USA,1200000,APP-005,Blocked
+S-12 Sensor Hub,South Korea,800000,APP-005,Blocked
+C-900 Clock Generator,China,2100000,APP-007,Blocked
+C-900 Clock Generator,USA,1400000,APP-007,Registered
+M-55 Motor Driver,Germany,700000,APP-027,Blocked
+M-55 Motor Driver,Mexico,300000,APP-027,Blocked
+A-3 Audio Codec,Japan,450000,APP-006,Blocked
+A-3 Audio Codec,USA,520000,APP-006,Registered
+T-210 Timing Chip (auto grade),Germany,1100000,APP-007,Blocked
+P-420 Power Manager,India,380000,APP-007,Blocked

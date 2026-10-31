@@ -1,0 +1,29 @@
+App Ref,Application Title,Business Function / Description,Hosted On,Network Zone,Licence Ref,Biz Owner Team,Vendor,No. of Users,Site,Annual Run Cost (USD),Last Updated,Used by Buyer?,Licence Transferable?,Go-Live Year,Critical Tool?,Revenue Linked?,Criticality (1-5),Regulatory Risk (1-5),Security Risk (1-5),Buyer Has Similar System?
+APP-001,CircuitDesign Pro,Chip schematic capture and physical layout design used by all design engineers,SRV-14,NET-3,L-07,Engineering IT,EDA Corp,120,,90000,22/10/2025,Yes,Yes - vendor consent required,2017,Yes,No,5,2,3,No
+APP-002,DesignVault,Design file vault and version control for chip layouts and IP blocks,SRV-14,NET-3,L-08,Engineering IT,VaultSoft,140,Pune,64000,02/10/2025,Yes,Yes,2018,No,No,4,2,4,No
+APP-003,WaferTest Suite,Wafer probe test data capture and yield test analysis,SRV-15,NET-4,L-12,Test Systems,,46,Penang,52000,18/09/2025,Yes,Yes,2016,Yes,No,4,2,2,No
+APP-004,Finance ERP,"General ledger, accounts payable, accounts receivable and month-end close",SRV-03,NET-1,L-02,Finance Systems,LedgerOne,210,Austin,310000,28/10/2025,Yes,No,2012,No,No,4,4,3,No
+APP-005,Order Tracker,"Customer order capture, order status tracking and shipment confirmation",SRV-99,NET-2,L-15,Sales Operations,In-house,85,Austin,41000,15/10/2025,Yes,Yes,2019,No,Yes,3,1,2,No
+APP-006,Customer Portal,"Customer self-service portal for quotes, datasheets and order history",SRV-02,NET-2,L-16,Digital,In-house,1400,Austin,76000,11/10/2025,Yes,Yes,2020,No,Yes,3,2,4,No
+APP-007,Solution Central,Product registration and part-number catalogue required before a chip can be sold in a country,SRV-07,NET-2,L-17,Product Management,In-house,64,Austin,58000,08/10/2025,Yes,Yes,2015,No,Yes,4,3,2,No
+APP-008,HR Portal,"Employee self-service, leave and onboarding for the carved-out business",SRV-20,NET-6,L-20,HR Technology,PeopleFirst,520,Pune,38000,30/08/2025,Yes,Yes,2021,No,No,2,3,2,No
+APP-009,Marketing Dashboard,Campaign performance dashboards and lead funnel reporting,SRV-12,NET-6,L-21,Marketing,ChartWorks,22,Pune,18000,14/07/2025,Yes,Yes,2019,No,No,2,1,1,Yes
+APP-010,FaxGateway,Inbound fax to email gateway for legacy supplier documents,SRV-11,NET-1,,Infrastructure Ops,OpenFax,0,Pune,6000,12/06/2023,No,Yes,2009,No,No,1,1,2,No
+APP-011,SpecViewer,Viewer for product specification sheets and design rule documents,SRV-18,NET-3,L-23,,DocuView,75,Pune,12000,21/06/2025,Yes,Unknown,2014,No,No,2,1,2,No
+APP-012,Legacy Reporting Tool,Monthly operational reports built on the old data warehouse,SRV-12,NET-6,L-24,BI Team,ReportCo,31,Pune,22000,02/03/2025,Yes,No,2008,No,No,2,2,2,Yes
+APP-013,Email & Calendar,"Corporate email, calendar and distribution lists",SRV-09,NET-5,L-25,Workplace IT,Microsoft,340,Austin,102000,30/10/2025,Yes,No,2016,No,No,5,3,4,No
+APP-014,Identity Directory,"User directory, single sign-on and access groups",SRV-08,NET-5,L-26,Security Engineering,Microsoft,340,Pune,44000,29/10/2025,Yes,No,2015,No,No,5,4,5,No
+APP-015,VPN Gateway,Remote access VPN for engineers and field sales,SRV-10,NET-5,L-27,Network Engineering,SecureLink,300,Pune,36000,19/10/2025,Yes,Yes,2018,No,No,4,2,5,No
+APP-016,Endpoint Security,Endpoint detection and response agent for all laptops,SRV-10,NET-5,L-28,Security Engineering,ShieldOne,340,Pune,48000,25/10/2025,Yes,Yes,2020,No,No,4,3,5,No
+APP-017,Licence Server,Floating licence server that issues EDA tool seats to design engineers,SRV-17,NET-5,L-29,Engineering IT,FlexKey,120,Austin,15000,04/09/2025,Yes,No,2013,Yes,No,4,2,3,No
+APP-018,Payroll Connector,Interface that sends payroll journals and headcount to finance,SRV-04,NET-1,L-31,HR Technology,PayBridge,6,Austin,9000,27/09/2025,Yes,Yes,2017,No,No,3,5,3,No
+APP-019,Procurement Hub,"Purchase requisitions, purchase orders and supplier onboarding",SRV-13,NET-1,L-32,Procurement,BuyRight,48,Austin,33000,16/08/2025,Yes,Yes,2018,No,No,3,3,2,No
+APP-020,Yield Analytics,Statistical yield analysis across wafer lots and test results,SRV-05,NET-4,L-33,Test Systems,YieldIQ,38,Penang,47000,05/10/2025,Yes,Yes,2019,No,No,3,1,2,No
+APP-020,Yield Analytics,Statistical yield analysis across wafer lots and test results,SRV-05,NET-4,L-33,Test Systems,YieldIQ,38,Penang,47000,05/10/2025,Yes,Yes,2019,No,No,3,1,2,No
+APP-021,Simulation Grid Scheduler,Job scheduler for the circuit simulation compute grid,SRV-16,NET-3,L-34,Engineering IT,GridWorks,95,Pune,29000,29/09/2025,Yes,Yes,2018,No,No,3,1,2,No
+APP-022,IP Library Manager,Catalogue of licensed and in-house IP blocks used in chip designs,SRV-16,NET-3,L-35,Engineering IT,IPWorks,110,Pune,26000,01/10/2025,Yes,Yes,2017,No,No,3,3,3,No
+APP-023,Service Desk,"IT tickets, incident and change management",SRV-01,NET-6,L-36,Workplace IT,DeskPro,25,Pune,21000,20/10/2025,Yes,Yes,2020,No,No,2,1,2,Yes
+APP-024,Collaboration Wiki,Team wiki and engineering knowledge base,SRV-01,NET-6,L-37,,WikiHub,260,Pune,14000,12/09/2025,Yes,Yes,2019,No,No,2,1,2,No
+APP-025,Expense Manager,Employee expense claims and corporate card reconciliation,SRV-19,NET-1,L-38,Finance Systems,SpendWise,330,Austin,19000,08/08/2025,Yes,Yes,2021,No,No,2,3,2,No
+APP-026,Supply Chain Planner,Demand and supply planning for foundry wafer starts,SRV-13,NET-1,L-39,Supply Chain,PlanAhead,27,Austin,54000,21/09/2025,Yes,Yes,2016,No,No,3,2,2,No
+APP-027,Sales CRM,"Accounts, opportunities, design-win pipeline and quotes",SRV-06,NET-2,L-40,Sales Operations,CloudCRM,90,Austin,67000,26/10/2025,Yes,Yes,2019,No,Yes,3,2,3,No

@@ -1,0 +1,5 @@
+TSA Ref,Service,Provider,Monthly Fee (USD),Service Start,Target Exit,Owner,Linked System,Exit Milestones,Milestones Done,Exit Prep Start
+TSA-01,Licence server,SemiCorp,30000,2025-11-15,2025-12-15,Rahul Mehta,APP-017,10,7,2025-10-01
+TSA-02,Email service,SemiCorp,25000,2025-11-15,2026-01-15,Jen Park,APP-013,16,5,2025-09-15
+TSA-03,Shared network,SemiCorp,15000,2025-11-15,2026-01-31,Daniel Wong,NET-5,15,8,2025-10-01
+TSA-04,Finance ERP,SemiCorp,20000,2025-11-15,2026-02-28,Aisha Khan,APP-004,20,7,2025-10-15

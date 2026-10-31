@@ -1,0 +1,15 @@
+App ID,Answered By,Q1 Sends data to,Q1 Gets data from,Q2 Uses anything owned by the seller?,Q3 What breaks if switched off?
+APP-001,Marco Lee,APP-002,APP-022; APP-021,Yes - seller licence server (APP-017) issues our EDA seats,All chip design work stops; tape-out schedule slips
+APP-002,Marco Lee,,APP-001,No,Engineers cannot check in or retrieve layouts
+APP-003,Wei Chen,APP-020,,No,Wafer test data is not captured; lots cannot ship
+APP-004,Aisha Khan,,APP-018; APP-019; APP-025; APP-005,Yes - runs on seller ERP instance,Cannot invoice customers or close the month
+APP-005,Neha Joshi,APP-004,APP-027; APP-006,No,Orders cannot be confirmed or shipped
+APP-006,Neha Joshi,APP-005,APP-007,No,Customers lose self-service quotes and order status
+APP-007,Tom Becker,APP-006,,Yes - product master is shared with seller,New products cannot be registered for sale
+APP-008,Grace Tan,,,No,Employees cannot apply for leave
+APP-011,Marco Lee,,,Not sure,Not sure
+APP-013,Jen Park,,APP-014,Yes - seller mail tenant,No email for 340 staff
+APP-014,Lena Fischer,APP-013; APP-015; APP-016,,Yes - seller directory forest,Nobody can log in
+APP-017,Rahul Mehta,APP-001; APP-021,,Yes - seller-owned licence server,EDA tools refuse to start
+APP-020,Wei Chen,,APP-003,No,Yield reports stop
+APP-027,Neha Joshi,APP-005,,No,Sales pipeline and quoting stop

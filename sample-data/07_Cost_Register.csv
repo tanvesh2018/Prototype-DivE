@@ -1,0 +1,31 @@
+Cost Line,System,Cost Type,Description,Amount (USD),Who Caused It,Like-for-like?,Contract Says,Status
+RUN-001,APP-001,Annual run,CircuitDesign Pro annual run cost,90000,,,,Agreed
+RUN-002,APP-002,Annual run,DesignVault annual run cost,64000,,,,Agreed
+RUN-003,APP-003,Annual run,WaferTest Suite annual run cost,52000,,,,Agreed
+RUN-004,APP-004,Annual run,Finance ERP annual run cost,310000,,,,Agreed
+RUN-005,APP-005,Annual run,Order Tracker annual run cost,41000,,,,Agreed
+RUN-006,APP-006,Annual run,Customer Portal annual run cost,76000,,,,Agreed
+RUN-007,APP-007,Annual run,Solution Central annual run cost,58000,,,,Agreed
+RUN-008,APP-008,Annual run,HR Portal annual run cost,38000,,,,Agreed
+RUN-009,APP-009,Annual run,Marketing Dashboard annual run cost,18000,,,,Agreed
+RUN-010,APP-010,Annual run,FaxGateway annual run cost,6000,,,,Agreed
+RUN-011,APP-011,Annual run,SpecViewer annual run cost,12000,,,,Agreed
+RUN-012,APP-012,Annual run,Legacy Reporting Tool annual run cost,22000,,,,Agreed
+RUN-013,APP-013,Annual run,Email & Calendar annual run cost,102000,,,,Agreed
+RUN-014,APP-014,Annual run,Identity Directory annual run cost,44000,,,,Agreed
+RUN-015,APP-015,Annual run,VPN Gateway annual run cost,36000,,,,Agreed
+RUN-016,APP-016,Annual run,Endpoint Security annual run cost,48000,,,,Agreed
+RUN-017,APP-017,Annual run,Licence Server annual run cost,15000,,,,Agreed
+RUN-018,APP-018,Annual run,Payroll Connector annual run cost,9000,,,,Agreed
+RUN-019,APP-019,Annual run,Procurement Hub annual run cost,33000,,,,Agreed
+RUN-020,APP-020,Annual run,Yield Analytics annual run cost,47000,,,,Agreed
+RUN-021,APP-021,Annual run,Simulation Grid Scheduler annual run cost,29000,,,,Agreed
+RUN-022,APP-022,Annual run,IP Library Manager annual run cost,26000,,,,Agreed
+RUN-023,APP-023,Annual run,Service Desk annual run cost,21000,,,,Agreed
+RUN-024,APP-024,Annual run,Collaboration Wiki annual run cost,14000,,,,Agreed
+RUN-025,APP-025,Annual run,Expense Manager annual run cost,19000,,,,Agreed
+RUN-026,APP-026,Annual run,Supply Chain Planner annual run cost,54000,,,,Agreed
+RUN-027,APP-027,Annual run,Sales CRM annual run cost,67000,,,,Agreed
+SEP-001,APP-001,Separation (one-time),Moving licences to ChipCo,600000,Seller,Like-for-like,,Agreed
+SEP-002,APP-001,Separation (one-time),Copies of engineering equipment,700000,Seller,Partly,,Disputed
+SEP-003,APP-021,Separation (one-time),Faster equipment ChipCo asked for,440000,Buyer,Upgrade,,Agreed

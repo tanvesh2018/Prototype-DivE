@@ -33,6 +33,6 @@
 - [x] 5.2 Run `npm run check:engine` and compare with the golden numbers in AGENTS.md, expecting no change
 - [x] 5.3 Search `dist/` for the key value and `GEMINI_API_KEY`, expecting no key value
 - [x] 5.4 Confirm local mode still works with a key and no sign-in
-- [ ] 5.5 Push the branch; on the Vercel preview, test status, a same-site request, a mismatched origin, wrong method, oversized request and rate limit responses
-- [ ] 5.6 Click through the preview: AI shows "Gemini · model" with no sign-in, and a suggestion changes data only after approval
+- [x] 5.5 Push the branch; on the Vercel preview, test status, a same-site request, a mismatched origin, wrong method, oversized request and rate limit responses
+- [x] 5.6 Click through the preview: AI shows "Gemini · model" with no sign-in, and a suggestion changes data only after approval
 - [ ] 5.7 Confirm with the user before merging to `main`, then repeat the status and live AI checks on production

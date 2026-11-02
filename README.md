@@ -45,7 +45,7 @@ Each deal keeps its own workspace in the browser (IndexedDB). Old v1 saved state
    ```
 3. Save. No restart needed — go to **Governance & Settings → AI engine → Test connection**.
 
-Optional: `GEMINI_MODEL=gemini-2.5-flash` (default; falls back to `gemini-2.5-flash-lite`, then `gemini-2.0-flash`).
+Optional: `GEMINI_MODEL=gemini-flash-latest` (default; falls back through the other models listed in `server/gemini.ts`).
 
 How it works: the browser calls `/api/ai/*` on the local dev server; [`server/aiPlugin.ts`](server/aiPlugin.ts) adds the key and forwards to Gemini, so the key never reaches the browser. Without a key — or if Gemini errors or times out — every AI feature falls back to deterministic rules ([`src/ai/tasks.ts`](src/ai/tasks.ts)), and the UI labels each result **"Gemini · model"** or **"Rule-based fallback"**.
 

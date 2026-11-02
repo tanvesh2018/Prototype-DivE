@@ -21,7 +21,7 @@ export interface AIResult<O> {
 
 export interface AIStatus { configured: boolean; model: string; keyFile: string; keyHint: string | null; checked: boolean; hosted?: boolean; error?: string }
 
-let status: AIStatus = { configured: false, model: 'gemini-2.5-flash', keyFile: '.env.local', keyHint: null, checked: false };
+let status: AIStatus = { configured: false, model: 'gemini-flash-latest', keyFile: '.env.local', keyHint: null, checked: false };
 const listeners = new Set<(s: AIStatus) => void>();
 
 export function getAIStatus() { return status; }

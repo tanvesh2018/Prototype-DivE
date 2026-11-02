@@ -3,7 +3,9 @@
  * (server/aiPlugin.ts) and the hosted Vercel one (api/ai/[action].ts).
  * Server-side only: never import this from src/.
  */
-export const DEFAULT_MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.0-flash'];
+// Google retires model names, so lead with its alias that follows the latest Flash
+// release. The 2.5 models are kept only for accounts that still have access to them.
+export const DEFAULT_MODELS = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-flash-lite'];
 const ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models';
 
 export interface GeminiRequest { system?: string; prompt: string; json?: boolean; temperature?: number; maxTokens?: number }
@@ -21,7 +23,8 @@ export async function callGemini(key: string, preferred: string, body: GeminiReq
   for (const model of models) {
     const generationConfig: Record<string, unknown> = { temperature: body.temperature ?? 0.2, maxOutputTokens: body.maxTokens ?? 2048 };
     if (body.json) generationConfig.responseMimeType = 'application/json';
-    if (model.startsWith('gemini-2.5')) generationConfig.thinkingConfig = { thinkingBudget: 0 };
+    // Keep thinking low so it doesn't use up the output tokens the JSON answer needs.
+    generationConfig.thinkingConfig = model.startsWith('gemini-2.5') ? { thinkingBudget: 0 } : { thinkingLevel: 'minimal' };
     const payload: Record<string, unknown> = { contents: [{ role: 'user', parts: [{ text: body.prompt }] }], generationConfig };
     if (body.system) payload.systemInstruction = { parts: [{ text: body.system }] };
     const started = Date.now();

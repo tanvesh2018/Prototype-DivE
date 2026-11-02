@@ -3,6 +3,7 @@
 - [x] 1.1 Create a feature branch for this change
 - [x] 1.2 Move `callGemini`, the model list and the placeholder-key check from `server/aiPlugin.ts` to `server/gemini.ts`
 - [x] 1.3 Update `server/aiPlugin.ts` to use the shared module, keeping `.env.local` reading and its responses
+- [x] 1.5 Update the default model list to names available to new keys
 - [x] 1.4 Confirm `npm run dev` and `npm run build` resolve the `.js` import path to `server/gemini.ts`
 
 ## 2. Hosted endpoints

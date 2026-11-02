@@ -38,6 +38,9 @@ Alternatives considered:
 
 The status endpoint is public and returns only `configured`, `model`, `hosted` and setup text, with no `keyHint`.
 
+### Model names
+Default to `gemini-flash-latest`, Google's alias for the latest Flash release, with named models as backups. The original list stopped working for new keys: `gemini-2.0-flash` is past its listed shutdown date, and the 2.5 models are limited to accounts that used them before.
+
 ### Limits
 | Limit | Value | Reason |
 |---|---|---|

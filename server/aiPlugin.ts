@@ -9,7 +9,7 @@
  *   Put your key in  .env.local  (project root):   GEMINI_API_KEY=your-key
  *
  * The file is re-read on every request, so no restart is needed after
- * pasting the key. Optional: GEMINI_MODEL=gemini-2.5-flash (default).
+ * pasting the key. Optional: GEMINI_MODEL=gemini-flash-latest (default).
  */
 import fs from 'node:fs';
 import path from 'node:path';

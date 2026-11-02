@@ -1,0 +1,13 @@
+SHARE AND ASSET PURCHASE AGREEMENT — EXTRACT (ILLUSTRATIVE)
+Project Phoenix · Atlas Bancorp ("Seller") and Meridian Payments Inc ("Purchaser")
+
+Clause 8.2 Separation Costs
+(a) Separation Costs shall be borne equally by the Seller and the Purchaser.
+(b) Any upgrade, additional capacity or improved specification requested by the Purchaser shall be borne solely by the Purchaser.
+(c) The Seller shall bear the cost of migrating mailboxes and user identities it is obliged to deliver under Schedule 4.
+
+Clause 8.3 Disputes
+Disputed Separation Costs shall be held in escrow pending expert determination and shall not delay TSA exit.
+
+Clause 11.1 Transitional Services
+The TSA term is ninety (90) days from the Exit Planning Notice. Extensions are charged at 130% of the monthly charge.

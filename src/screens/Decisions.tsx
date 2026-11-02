@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { runAI, type AIResult } from '../ai/client';
-import { boardSummary, bucketAdvice, componentTag } from '../ai/tasks';
-import { UploadModal } from '../components/UploadModal';
-import { AIChip, Badge, Button, Empty, Icon, Modal, PageTitle, Table, Tabs, type IconName } from '../components/ui';
+import { bucketAdvice, componentTag } from '../ai/tasks';
+import { AIChip, Badge, Button, Empty, Icon, Modal, PageTitle, Progress, SearchBox, Table, Tabs, type IconName } from '../components/ui';
+import { DecisionLog } from '../components/DecisionLog';
 import { BUCKETS, COMPONENTS, type Bucket, type Component } from '../engine/glossary';
 import type { ClassifiedApp } from '../engine/model';
 import { addDays, download, fmtDate, money, toCSV } from '../engine/util';
@@ -27,19 +27,14 @@ function indicative(a: ClassifiedApp, b: Bucket, daysToDay1: number) {
 }
 
 export function Decisions() {
-  const { params } = useStore();
-  const [tab, setTab] = useState(params.tab ?? 'strategy');
-  const [upload, setUpload] = useState(false);
-  const { s, m } = useStore();
-  const pendingDec = m.decisions.filter((d) => d.state.status !== 'approved').length;
+  const { params, m } = useStore();
+  const [tab, setTab] = useState(params.tab === 'options' ? 'strategy' : params.tab ?? 'strategy');
   return <>
-    <PageTitle eyebrow="Classify & decide" title="Separation Decisions" description="Classify every app, compare six evidence-based strategies and route recommendations for accountable approval." action={<><Button variant="secondary" icon="upload" onClick={() => setUpload(true)}>Upload decision options</Button><Button variant="secondary" icon="file" onClick={() => setTab('log')}>Decision log</Button></>} />
-    <Tabs value={tab} onChange={setTab} tabs={[{ key: 'strategy', label: 'App strategy' }, { key: 'classify', label: 'Classification (all apps)', count: m.apps.length }, { key: 'options', label: 'Leadership options', count: pendingDec }, { key: 'log', label: 'Decision log' }]} />
+    <PageTitle eyebrow="Classify & decide" title="Separation Decisions" description="Classify every app in plain terms, compare six evidence-based strategies and record accountable decisions." action={<Button variant="secondary" icon="file" onClick={() => setTab('log')}>Decision log</Button>} />
+    <Tabs value={tab} onChange={setTab} tabs={[{ key: 'strategy', label: 'App strategy' }, { key: 'classify', label: 'Classification (all apps)', count: m.apps.length }, { key: 'log', label: 'Decision log' }]} />
     {tab === 'strategy' && <AppStrategy />}
     {tab === 'classify' && <Classification />}
-    {tab === 'options' && <LeadershipOptions />}
-    {tab === 'log' && <DecisionLog />}
-    {upload && <UploadModal expected="decisions" onClose={() => setUpload(false)} />}
+    {tab === 'log' && <DecisionLog modules={['Separation Decisions']} title="Separation decisions" subtitle="Strategy confirmations, overrides and classification changes — undo any of them" />}
   </>;
 }
 
@@ -74,7 +69,7 @@ function AppStrategy() {
     <div className="decision-context" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', background: '#fff', border: '1px solid var(--border)', padding: '14px 18px', marginBottom: 14, alignItems: 'center', gap: 14 }}>
       <div className="row" style={{ alignItems: 'flex-start' }}><span className="app-tile" style={{ width: 40, height: 40, display: 'grid', placeItems: 'center', background: '#f1efeb' }}><Icon name="overview" /></span><div><span className="muted small">Decision SD-{a.id.slice(4)} · {a.timing}{a.flagged ? (a.criticalTool ? ' · critical tool' : ' · revenue-linked') : ''}</span>
         <div className="row"><select className="inline" style={{ fontSize: 15, fontWeight: 650, border: 0, padding: 0 }} value={a.id} onChange={(e) => { setAppId(e.target.value); setSelected(null); setAi(null); }}>{sorted.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select><Button variant="ghost" disabled={idx <= 0} onClick={() => { setAppId(sorted[idx - 1].id); setSelected(null); setAi(null); }}>‹</Button><Button variant="ghost" disabled={idx >= sorted.length - 1} onClick={() => { setAppId(sorted[idx + 1].id); setSelected(null); setAi(null); }}>›</Button></div>
-        <p className="muted small" style={{ margin: 0 }}>{a.component} · Entanglement {a.entanglement} · {a.users} users · {a.site || '—'} · PI {a.PI}</p></div></div>
+        <p className="muted small" style={{ margin: 0 }}>{a.component} · Entanglement {a.entanglement} · {a.users} users · {a.site || '—'} · Priority score {a.PI.toFixed(2)}</p></div></div>
       <div><span className="muted small">Decision due</span><br /><strong>{fmtDate(addDays(s.deal.day1, -10), true)}</strong></div>
       <div><span className="muted small">Approver</span><br /><strong>{a.day1Critical ? 'Technology Steering Committee' : 'Separation PMO'}</strong></div>
       <div><span className="muted small">Status</span><br />{approvedState?.status === 'approved' && approvedState.chosen === a.bucket ? <Badge tone="success">Confirmed</Badge> : a.overridden ? <Badge tone="warning">Overridden</Badge> : <Badge tone="info">Awaiting confirmation</Badge>}</div>
@@ -87,7 +82,7 @@ function AppStrategy() {
     <div className="content-grid halves mt">
       <section className="card"><div className="card-header"><div><h2>Why this strategy?</h2><p>Rule engine reasoning — every fact is from the live data</p></div><Badge tone="info">Formula controlled</Badge></div>
         <div className="card-body stack"><div className="ai-box" style={{ borderLeftColor: '#2b2a28' }}><div className="ai-head"><Icon name="decision" size={14} />{a.ruleBucket}</div>{a.bucketReason}</div>
-          <dl className="kv"><dt>Day-1 critical</dt><dd>{a.day1Critical ? 'Yes' : 'No'} ({a.timing})</dd><dt>Priority Index</dt><dd>{a.PI} = 0.35×C{a.C} + 0.25×D{a.D} + 0.20×R{a.R} + 0.20×S{a.S}</dd><dt>Entanglement</dt><dd>{a.entanglement} ({a.entBand})</dd><dt>Licence</dt><dd>{a.transferable}</dd><dt>Buyer uses / has similar</dt><dd>{a.buyerUses ? 'Yes' : 'No'} / {a.buyerHasSimilar ? 'Yes' : 'No'}</dd><dt>Go-live</dt><dd>{a.goLive}</dd></dl></div></section>
+          <dl className="kv"><dt>Day-1 critical</dt><dd>{a.day1Critical ? 'Yes' : 'No'} ({a.timing})</dd><dt>Priority score</dt><dd>{a.PI.toFixed(2)} — criticality {a.C}, seller dependency {a.D}, regulatory {a.R}, security {a.S} (out of 5)</dd><dt>Entanglement</dt><dd>{a.entanglement} ({a.entBand})</dd><dt>Licence</dt><dd>{a.transferable}</dd><dt>Buyer uses / has similar</dt><dd>{a.buyerUses ? 'Yes' : 'No'} / {a.buyerHasSimilar ? 'Yes' : 'No'}</dd><dt>Go-live</dt><dd>{a.goLive}</dd></dl></div></section>
       <section className="card board-summary"><div className="card-header"><div><h2>AI recommendation</h2><p>AI weighs the same facts and explains — you decide</p></div><div className="row"><AIChip result={ai} /><Button variant="secondary" icon="spark" loading={busy} onClick={askAI}>{ai ? 'Ask again' : 'Ask AI'}</Button></div></div>
         <div className="card-body stack">{ai ? <div className="ai-box"><div className="ai-head"><Icon name="spark" size={14} />{ai.data.bucket}{ai.data.bucket !== a.ruleBucket && <Badge tone="warning">differs from rule</Badge>}</div>{ai.data.reason}</div> : <p className="muted small">Ask AI to review the app facts, owner answers and days left to Day-1.</p>}
           {current !== a.bucket || !approvedState || approvedState.chosen !== a.bucket ? <div className="row" style={{ justifyContent: 'flex-end' }}>
@@ -101,97 +96,82 @@ function AppStrategy() {
   </>;
 }
 
+const SCALE: Record<'C' | 'R' | 'S', string[]> = {
+  C: ['', 'Nice to have', 'Some teams slowed', 'Key team impacted', 'Major function stops', 'Business stops'],
+  R: ['', 'No regulation', 'Light reporting', 'Audit relevant', 'Regulated process', 'Licence / regulator at risk'],
+  S: ['', 'Public data', 'Internal data', 'Confidential data', 'Customer / personal data', 'Payment or crown-jewel data'],
+};
+const D_SCALE = ['', 'Barely tied to seller (0–2)', 'Lightly tied (3–5)', 'Moderately tied (6–8)', 'Heavily tied (9–12)', 'Deeply entangled (13+)'];
+
+function PriorityExplainer({ w, threshold }: { w: { C: number; D: number; R: number; S: number }; threshold: number }) {
+  return <div className="grid-2 card-body" style={{ gap: 14 }}>
+    <div className="stack" style={{ gap: 6 }}>
+      <strong className="small">Four questions we ask about every app (each scored 1–5)</strong>
+      <table className="calc-table"><thead><tr><th>Letter</th><th>Plain question</th><th>Who scores it</th><th>Weight</th></tr></thead><tbody>
+        <tr><td><b>C</b> · Business criticality</td><td>If this app is down on Day-1, how badly does the business stop?</td><td>App owner</td><td>{Math.round(w.C * 100)}%</td></tr>
+        <tr><td><b>D</b> · Seller dependency</td><td>How tied is it to things the seller keeps (servers, network, licences)?</td><td>Automatic — from the Entanglement score</td><td>{Math.round(w.D * 100)}%</td></tr>
+        <tr><td><b>R</b> · Regulatory risk</td><td>Would a regulator, auditor or licence be at risk if it fails?</td><td>App owner / compliance</td><td>{Math.round(w.R * 100)}%</td></tr>
+        <tr><td><b>S</b> · Security risk</td><td>How sensitive is the data it holds?</td><td>App owner / CISO</td><td>{Math.round(w.S * 100)}%</td></tr>
+      </tbody></table>
+    </div>
+    <div className="stack" style={{ gap: 6 }}>
+      <strong className="small">How the Priority score decides timing</strong>
+      <p className="small" style={{ margin: 0 }}><b>Priority score</b> = {Math.round(w.C * 100)}% × C + {Math.round(w.D * 100)}% × D + {Math.round(w.R * 100)}% × R + {Math.round(w.S * 100)}% × S (a number between 1 and 5).</p>
+      <table className="calc-table"><tbody>
+        <tr><td><Badge tone="danger">Day-1 critical</Badge></td><td>Score ≥ {threshold}, <b>or</b> flagged as a critical tool / revenue-linked — must work on Day-1</td></tr>
+        <tr><td><Badge tone="warning">Day-1 + 30</Badge></td><td>Score {(threshold - 0.75).toFixed(2)}–{threshold} — needed within the first month</td></tr>
+        <tr><td><Badge>Post-TSA</Badge></td><td>Lower scores — can move later under the TSA</td></tr>
+      </tbody></table>
+      <p className="muted small" style={{ margin: 0 }}>Change C, R or S in the table below if the owner disagrees — the score, timing and recommended strategy update instantly, and the change is logged with undo.</p>
+    </div>
+  </div>;
+}
+
 function Classification() {
   const { s, m, act, toast } = useStore();
   const [busy, setBusy] = useState(false);
   const [sugg, setSugg] = useState<{ res: AIResult<{ tags: { id: string; component: string; reason: string }[] }>; accept: Record<string, boolean> } | null>(null);
   const [filter, setFilter] = useState('all');
-  const list = m.apps.filter((a) => filter === 'all' || (filter === 'critical' ? a.day1Critical : filter === 'overridden' ? a.overridden : a.bucket === filter)).sort((a, b) => b.PI - a.PI);
-  const setOv = (id: string, patch: Record<string, any>, label: string) => act(label, `${m.byId.get(id)?.name}: ${JSON.stringify(patch)}`, (d) => { d.appOverrides[id] = { ...d.appOverrides[id], ...patch }; }, { kind: 'override' });
+  const [q, setQ] = useState('');
+  const [why, setWhy] = useState<string | null>(null);
+  const [n, setN] = useState(60);
+  const w = s.config.priorityWeights;
+  const list = m.apps.filter((a) => (filter === 'all' || (filter === 'critical' ? a.day1Critical : filter === 'overridden' ? a.overridden : a.bucket === filter)) && (!q || `${a.id} ${a.name}`.toLowerCase().includes(q.toLowerCase()))).sort((a, b) => b.PI - a.PI);
+  const setOv = (id: string, patch: Record<string, any>, label: string) => act(label, `${m.byId.get(id)?.name}: ${Object.entries(patch).map(([k, v]) => `${k} → ${v}`).join(', ')}`, (d) => { d.appOverrides[id] = { ...d.appOverrides[id], ...patch }; }, { kind: 'override' });
   const tagAll = async () => {
     setBusy(true);
-    const r = await runAI(componentTag, { apps: m.apps.map((a) => ({ id: a.id, name: a.name, description: a.description, current: a.component })) });
+    const r = await runAI(componentTag, { apps: m.apps.slice(0, 120).map((a) => ({ id: a.id, name: a.name, description: a.description, current: a.component })) });
     setBusy(false);
     setSugg({ res: r, accept: Object.fromEntries(r.data.tags.map((t) => [t.id, true])) });
   };
-  const score = (id: string, k: 'C' | 'R' | 'S', v: number) => <select className="inline" value={v} onChange={(e) => setOv(id, { [k]: +e.target.value }, `Changed ${k} score`)}>{[1, 2, 3, 4, 5].map((n) => <option key={n}>{n}</option>)}</select>;
-  return <section className="card table-card">
+  const score = (id: string, k: 'C' | 'R' | 'S', v: number) => <select className="inline" title={SCALE[k][v]} value={v} onChange={(e) => setOv(id, { [k]: +e.target.value }, `Changed ${k === 'C' ? 'business criticality' : k === 'R' ? 'regulatory risk' : 'security risk'}`)}>{[1, 2, 3, 4, 5].map((x) => <option key={x} value={x}>{x} – {SCALE[k][x]}</option>)}</select>;
+  const sel = why ? m.byId.get(why) : undefined;
+  return <>
+    <section className="card mb"><div className="card-header"><div><h2>How we prioritise apps — in plain words</h2><p>Every app gets four 1–5 scores. Together they give a Priority score that decides when it must be ready.</p></div></div><PriorityExplainer w={w} threshold={s.config.day1Threshold} /></section>
+    <section className="card table-card">
     <div className="table-tools">
       <div className="status-filters">{[['all', 'All'], ['critical', 'Day-1 critical'], ['overridden', 'Overridden'], ...BUCKETS.map((b) => [b, b])].map(([k, l]) => <button key={k} className={filter === k ? 'active' : ''} onClick={() => setFilter(k)}>{l}<span>{k === 'all' ? m.apps.length : k === 'critical' ? m.apps.filter((a) => a.day1Critical).length : k === 'overridden' ? m.apps.filter((a) => a.overridden).length : m.apps.filter((a) => a.bucket === k).length}</span></button>)}</div>
-      <span style={{ marginLeft: 'auto' }} className="row"><Button variant="secondary" icon="download" onClick={() => download('classification.csv', toCSV(m.apps.map((a) => ({ id: a.id, name: a.name, component: a.component, C: a.C, D: a.D, R: a.R, S: a.S, PI: a.PI, timing: a.timing, critical_tool: a.criticalTool, revenue_linked: a.revenueLinked, entanglement: a.entanglement, bucket: a.bucket, reason: a.bucketReason, move_group: a.moveGroup }))))}>Export</Button><Button icon="spark" loading={busy} onClick={tagAll}>AI tag components</Button></span>
+      <SearchBox value={q} onChange={setQ} placeholder="Search apps…" />
+      <span style={{ marginLeft: 'auto' }} className="row"><Button variant="secondary" icon="download" onClick={() => download('classification.csv', toCSV(m.apps.map((a) => ({ id: a.id, name: a.name, component: a.component, business_criticality_C: a.C, seller_dependency_D: a.D, regulatory_risk_R: a.R, security_risk_S: a.S, priority_score: a.PI, timing: a.timing, critical_tool: a.criticalTool, revenue_linked: a.revenueLinked, entanglement: a.entanglement, bucket: a.bucket, reason: a.bucketReason, move_group: a.moveGroup }))))}>Export</Button><Button icon="spark" loading={busy} onClick={tagAll}>AI tag components</Button></span>
     </div>
-    <p className="muted small" style={{ padding: '6px 14px', margin: 0 }}>Priority Index = {s.config.priorityWeights.C}C + {s.config.priorityWeights.D}D + {s.config.priorityWeights.R}R + {s.config.priorityWeights.S}S · D comes from the Entanglement Score · {s.config.day1Threshold}+ is Day-1 critical · critical tools and revenue-linked items are always Day-1 critical. Edit C/R/S to reflect owner input.</p>
-    <div className="scroll-y" style={{ maxHeight: 640 }}><Table cols="1.7fr 1.3fr 45px 45px 45px 45px 55px 1.1fr 1.6fr 60px" head={['Application', 'Component', 'C', 'D', 'R', 'S', 'PI', 'Timing', 'Bucket', 'Group']}>
-      {list.map((a) => <div className="tr" key={a.id}>
-        <span><strong>{a.name}</strong><small>{a.id} · ent {a.entanglement}</small></span>
+    <div className="scroll-y scroll-both" style={{ maxHeight: 640 }}><Table className="class-table" style={{ minWidth: 1180 }} cols="minmax(170px,1.6fr) minmax(120px,1.1fr) minmax(140px,1.25fr) minmax(90px,.9fr) minmax(140px,1.25fr) minmax(150px,1.3fr) 80px minmax(100px,.9fr) minmax(140px,1.3fr)" head={[<>Application</>, 'Component', <>Business criticality (C)</>, <>Seller dependency (D)</>, <>Regulatory risk (R)</>, <>Security risk (S)</>, 'Priority score', 'Timing', 'Strategy']}>
+      {list.slice(0, n).map((a) => <div className={`tr ${why === a.id ? 'selected' : ''}`} key={a.id}>
+        <span><strong>{a.name}</strong><small>{a.id} · <button className="text-action" style={{ fontSize: 8 }} onClick={() => setWhy(why === a.id ? null : a.id)}>{why === a.id ? 'hide why' : 'why this priority?'}</button></small></span>
         <span><select className="inline" value={a.component} onChange={(e) => setOv(a.id, { component: e.target.value as Component, componentConfirmed: true }, 'Changed component')}>{COMPONENTS.map((c) => <option key={c}>{c}</option>)}</select>{a.componentSource === 'confirmed' && <small>confirmed</small>}</span>
-        <span>{score(a.id, 'C', a.C)}</span><span title="From entanglement">{a.D}</span><span>{score(a.id, 'R', a.R)}</span><span>{score(a.id, 'S', a.S)}</span>
-        <span><strong>{a.PI.toFixed(2)}</strong></span>
+        <span>{score(a.id, 'C', a.C)}</span>
+        <span title="Calculated from the Entanglement score — change links in the Dependency Explorer"><strong>{a.D}</strong><small>{D_SCALE[a.D]}</small></span>
+        <span>{score(a.id, 'R', a.R)}</span><span>{score(a.id, 'S', a.S)}</span>
+        <span><strong>{a.PI.toFixed(2)}</strong><Progress value={(a.PI / 5) * 100} tone={a.day1Critical ? 'red' : a.timing === 'Day-1 + 30' ? 'amber' : 'charcoal'} /></span>
         <span><Badge tone={a.day1Critical ? 'danger' : a.timing === 'Day-1 + 30' ? 'warning' : 'neutral'}>{a.timing}</Badge>{a.flagged && <small>{a.criticalTool ? 'critical tool' : 'revenue-linked'}</small>}</span>
-        <span>{a.bucket}{a.overridden && <small>overridden (rule: {a.ruleBucket})</small>}</span><span>{a.moveGroup}</span>
+        <span>{a.bucket}{a.overridden && <small>overridden (rule: {a.ruleBucket})</small>}</span>
       </div>)}
     </Table></div>
+    {list.length > n && <div className="table-footer"><span>Showing {n} of {list.length}</span><Button variant="secondary" onClick={() => setN(n + 100)}>Show more</Button></div>}
+    {sel && <div className="ai-box" style={{ margin: 14 }}><div className="ai-head"><Icon name="decision" size={14} />Why {sel.name} has a Priority score of {sel.PI.toFixed(2)}</div>
+      {Math.round(w.C * 100)}% × C {sel.C} ({SCALE.C[sel.C]}) + {Math.round(w.D * 100)}% × D {sel.D} ({D_SCALE[sel.D]}, entanglement {sel.entanglement}) + {Math.round(w.R * 100)}% × R {sel.R} ({SCALE.R[sel.R]}) + {Math.round(w.S * 100)}% × S {sel.S} ({SCALE.S[sel.S]}) = <b>{sel.PI.toFixed(2)}</b>.{'\n'}
+      {sel.PI >= s.config.day1Threshold ? `That is at or above ${s.config.day1Threshold}, so it is Day-1 critical.` : sel.flagged ? `Below ${s.config.day1Threshold}, but it is flagged as ${sel.criticalTool ? 'a critical tool' : 'revenue-linked'}, so it is always Day-1 critical.` : `Below ${s.config.day1Threshold}, so it is ${sel.timing}.`} Strategy: {sel.bucketReason}</div>}
     {sugg && <Modal wide title="AI component tags" subtitle="Accept the tags you agree with — the user confirms every AI suggestion." onClose={() => setSugg(null)} footer={<><AIChip result={sugg.res} /><Button variant="secondary" onClick={() => setSugg(null)}>Cancel</Button><Button onClick={() => { const acc = sugg.res.data.tags.filter((t) => sugg.accept[t.id]); act('Accepted AI component tags', `${acc.length} apps`, (d) => acc.forEach((t) => { d.appOverrides[t.id] = { ...d.appOverrides[t.id], component: t.component as Component, componentConfirmed: true }; }), { kind: 'approve' }); toast(`${acc.length} component tags confirmed`); setSugg(null); }}>Accept selected</Button></>}>
       <Table cols="30px 1.5fr 1.2fr 1.2fr 2fr" head={['', 'App', 'Current', 'AI tag', 'Reason']}>{sugg.res.data.tags.map((t) => { const a = m.byId.get(t.id)!; return <div className="tr" key={t.id}><span><input type="checkbox" checked={!!sugg.accept[t.id]} onChange={(e) => setSugg({ ...sugg, accept: { ...sugg.accept, [t.id]: e.target.checked } })} /></span><span>{a.name}</span><span>{a.component}</span><span>{t.component !== a.component ? <Badge tone="warning">{t.component}</Badge> : t.component}</span><span className="muted small">{t.reason}</span></div>; })}</Table>
     </Modal>}
-  </section>;
-}
-
-function LeadershipOptions() {
-  const { s, m, act, toast, params } = useStore();
-  const [decId, setDecId] = useState(params.decision ?? m.decisions[0]?.id);
-  const d = m.decisions.find((x) => x.id === decId) ?? m.decisions[0];
-  const [busy, setBusy] = useState(false);
-  const [res, setRes] = useState<AIResult<{ summary: string }> | null>(null);
-  const [changes, setChanges] = useState<string | null>(null);
-  const [editing, setEditing] = useState(false);
-  const summary = res?.data.summary ?? d?.state.summary;
-  const genSummary = async () => {
-    if (!d) return;
-    setBusy(true);
-    const r = await runAI(boardSummary, { decision: d.title, approver: d.approver, options: d.options.map((o) => ({ name: o.name, security: o.security, productivity: o.productivity, cost: o.cost, speed: o.speed, total: o.total, removed: o.removed })), recommended: d.recommended?.name, context: d.id === 'DEC-01' && m.criticalBlocked.length ? `subject to vendor consent by ${fmtDate(m.criticalBlocked[0].blockers[0]?.due_date)}` : undefined });
-    setRes(r); setBusy(false);
-    act('AI drafted board summary', `${d.title} · ${r.source === 'gemini' ? r.model : 'fallback'}`, (x) => { x.decisions[d.id] = { ...(x.decisions[d.id] ?? { status: 'pending' }), summary: r.data.summary, summarySource: r.source === 'gemini' ? `Gemini · ${r.model}` : 'Rule-based fallback' }; }, { kind: 'ai', skipIssues: true });
-  };
-  const setScore = (rid: string, field: string, v: number) => act('Edited option score', `${d!.title}: ${field} = ${v}`, (x) => { const r = x.datasets.decisions!.rows.find((y) => y._rid === rid); if (r) r[field] = v; }, { kind: 'override', skipIssues: true });
-  if (!d) return <Empty title="No leadership decisions loaded">Upload 17_Decision_Options.csv.</Empty>;
-  const ow = s.config.optionWeights;
-  return <div className="content-grid" style={{ gridTemplateColumns: '260px 1fr' }}>
-    <section className="card"><div className="card-header"><div><h2>Decisions</h2><p>{m.decisions.length} open trade-offs</p></div></div>
-      {m.decisions.map((x) => <button key={x.id} onClick={() => { setDecId(x.id); setRes(null); }} style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%', textAlign: 'left', padding: '11px 14px', border: 0, borderBottom: '1px solid #eee', background: x.id === d.id ? '#fff8f4' : '#fff', boxShadow: x.id === d.id ? 'inset 3px 0 var(--orange)' : undefined, fontSize: 10 }}><strong>{x.title}</strong><span className="muted small">{x.approver} · due {fmtDate(x.due)}</span><Badge tone={x.state.status === 'approved' ? 'success' : x.state.status === 'changes_requested' ? 'warning' : 'info'}>{x.state.status.replace('_', ' ')}</Badge></button>)}
-    </section>
-    <div className="stack" style={{ gap: 14 }}>
-      <section className="card">
-        <div className="card-header"><div><h2>Options assessment · {d.title}</h2><p>Weighted score after mandatory security screening (security below {s.config.securityFloor} is removed)</p></div><div className="row"><Badge tone="info">Formula controlled</Badge><Button variant="ghost" icon="edit" onClick={() => setEditing(!editing)}>{editing ? 'Done editing' : 'Edit scores'}</Button></div></div>
-        <Table cols="1.8fr repeat(4, .8fr) .8fr" head={['Option', `Security ${ow.security * 100}%`, `Productivity ${ow.productivity * 100}%`, `Cost ${ow.cost * 100}%`, `Speed ${ow.speed * 100}%`, 'Total']}>
-          {[...d.options].sort((a, b) => (b.total ?? -1) - (a.total ?? -1)).map((o) => <div className={`tr ${o.removed ? 'muted-row' : ''}`} key={o.code}>
-            <span><strong>{o.code}. {o.name}</strong>{d.recommended?.code === o.code ? <small style={{ color: 'var(--orange-dark)' }}>Recommended</small> : o.removed ? <Badge tone="danger">Removed — security {o.security}</Badge> : null}</span>
-            {(['security', 'productivity', 'cost', 'speed'] as const).map((k) => <span key={k}>{editing ? <select className="inline" value={o[k]} onChange={(e) => setScore(o.row._rid, k, +e.target.value)}>{[1, 2, 3, 4, 5].map((n) => <option key={n}>{n}</option>)}</select> : o[k].toFixed(1)}</span>)}
-            <strong>{o.total?.toFixed(2) ?? '—'}</strong>
-          </div>)}
-        </Table>
-      </section>
-      <section className="card board-summary">
-        <div className="card-header"><div><h2>Board summary</h2><p>AI drafted · review required · {d.state.summarySource ?? (res ? (res.source === 'gemini' ? `Gemini · ${res.model}` : 'Rule-based fallback') : 'not generated')}</p></div><div className="row"><AIChip result={res} /><Button variant="secondary" icon="spark" loading={busy} onClick={genSummary}>{summary ? 'Regenerate' : 'Draft with AI'}</Button></div></div>
-        <div className="card-body stack">
-          {summary ? <blockquote style={{ margin: 0, borderLeft: '3px solid var(--orange)', padding: '8px 14px', fontSize: 11, lineHeight: 1.7, whiteSpace: 'pre-wrap', background: '#fbf8f4' }}>{summary}</blockquote> : <p className="muted small">Draft a 4-line board note explaining the trade-off. The recommendation comes from the formula; AI explains it.</p>}
-          <div className="source-line muted small row"><Icon name="shield" size={13} /> Based on approved assessment criteria and live deal data</div>
-          {d.state.status === 'approved' ? <div className="row" style={{ color: 'var(--green)', fontSize: 11 }}><Icon name="check" /> Approved by {d.state.approvedBy} on {new Date(d.state.approvedAt!).toLocaleDateString('en-GB')} — {d.state.chosen}<Button variant="ghost" onClick={() => act('Re-opened decision', d.title, (x) => { x.decisions[d.id] = { ...x.decisions[d.id], status: 'pending' }; }, { kind: 'override', skipIssues: true })}>Re-open</Button></div>
-            : <div className="row" style={{ justifyContent: 'flex-end' }}>{d.state.status === 'changes_requested' && <Badge tone="warning">Changes requested: {d.state.comment}</Badge>}<Button variant="secondary" onClick={() => setChanges('')}>Request changes</Button><Button icon="check" disabled={!d.recommended} onClick={() => { act('Approved leadership decision', `${d.title}: ${d.recommended!.name} (${d.recommended!.total})`, (x) => { x.decisions[d.id] = { ...x.decisions[d.id], status: 'approved', chosen: d.recommended!.name, approvedAt: new Date().toISOString(), approvedBy: x.currentUser, summary: summary ?? x.decisions[d.id]?.summary }; if (d.id === 'DEC-01') { const t = x.datasets.tasks?.rows.find((y) => /laptop migration option/i.test(y.title)); if (t) t.status = 'Done'; } }, { kind: 'approve', skipIssues: true }); toast('Approved and added to decision log'); }}>Approve recommendation</Button></div>}
-        </div>
-      </section>
-    </div>
-    {changes !== null && <Modal title="Request changes" subtitle={d.title} onClose={() => setChanges(null)} footer={<><Button variant="secondary" onClick={() => setChanges(null)}>Cancel</Button><Button disabled={!changes.trim()} onClick={() => { act('Requested changes on decision', `${d.title}: ${changes}`, (x) => { x.decisions[d.id] = { ...x.decisions[d.id], status: 'changes_requested', comment: changes }; }, { kind: 'override', skipIssues: true }); toast('Change request logged', 'info'); setChanges(null); }}>Send</Button></>}>
-      <label className="field">What needs to change?<textarea value={changes} onChange={(e) => setChanges(e.target.value)} /></label>
-    </Modal>}
-  </div>;
-}
-
-function DecisionLog() {
-  const { s } = useStore();
-  const rows = useMemo(() => s.audit.filter((a) => a.kind === 'approve' || a.kind === 'override'), [s.audit]);
-  return <section className="card">
-    <div className="card-header"><div><h2>Decision log</h2><p>Every approval and override with who, when and why</p></div><Button variant="secondary" icon="download" onClick={() => download('decision_log.csv', toCSV(rows.map((r) => ({ time: r.ts, actor: r.actor, action: r.action, detail: r.detail, kind: r.kind }))))}>Export</Button></div>
-    {rows.length ? <Table cols="140px 130px 1.4fr 2.6fr 90px" head={['When', 'Who', 'Action', 'Detail', 'Type']}>{rows.map((r) => <div className="tr" key={r.id}><span>{new Date(r.ts).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}</span><span>{r.actor}</span><span><strong>{r.action}</strong></span><span className="muted">{r.detail}</span><span><Badge tone={r.kind === 'approve' ? 'success' : 'warning'}>{r.kind}</Badge></span></div>)}</Table> : <Empty title="No decisions logged yet" />}
-  </section>;
+  </section></>;
 }

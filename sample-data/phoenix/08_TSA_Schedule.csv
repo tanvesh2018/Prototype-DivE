@@ -1,0 +1,13 @@
+TSA Ref,Service,Provider,Monthly Fee (₹),Service Start,Target Exit,Owner,Linked System,Exit Milestones,Milestones Done,Exit Prep Start
+TSA-P01,"Email & collaboration (10,000+ mailboxes)",Atlas Bancorp,410000,2025-08-01,2026-01-15,Mateo Garcia,PHX-019,24,9,2025-09-15
+TSA-P02,Identity & access directory,Atlas Bancorp,180000,2025-08-01,2026-01-10,Raj Patel,PHX-018,18,9,2025-09-20
+TSA-P03,"Data-centre hosting (Charlotte, Dublin)",Atlas Bancorp,620000,2025-08-01,2026-02-03,Kofi Mensah,PHX-001,30,12,2025-09-01
+TSA-P04,Network & WAN services,Atlas Bancorp,260000,2025-08-01,2026-01-31,Kofi Mensah,NET-P01,22,7,2025-09-15
+TSA-P05,Authorization switch hosting,Atlas Bancorp,340000,2025-08-01,2026-02-03,Kofi Mensah,PHX-002,20,9,2025-10-01
+TSA-P06,Fraud scoring service,Atlas Bancorp,150000,2025-08-01,2026-01-20,Raj Patel,PHX-004,14,7,2025-10-01
+TSA-P07,Statement print & mail,Atlas Bancorp,90000,2025-08-01,2025-12-31,Mateo Garcia,PHX-006,10,8,2025-09-15
+TSA-P08,Service desk & end-user support,Atlas Bancorp,210000,2025-08-01,2026-01-31,Raj Patel,PHX-020,16,4,2025-09-15
+TSA-P09,General ledger & finance ops,Atlas Bancorp,120000,2025-08-01,2026-02-03,Zofia Nowak,PHX-015,18,8,2025-10-01
+TSA-P10,Data warehouse & reporting,Atlas Bancorp,80000,2025-08-01,2026-02-03,Raj Patel,PHX-017,12,5,2025-10-15
+TSA-P11,Contact centre telephony,Atlas Bancorp,110000,2025-08-01,2026-01-15,Kofi Mensah,PHX-013,12,3,2025-09-20
+TSA-P12,Solution Central product registration,Atlas Bancorp,60000,2025-08-01,2025-12-15,Zofia Nowak,PHX-005,10,6,2025-10-01

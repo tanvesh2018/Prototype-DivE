@@ -4,24 +4,27 @@ import { buildLiveContext } from '../ai/context';
 import { dealBrief } from '../ai/tasks';
 import { AIChip, Badge, Button, Icon, MetricCard, PageTitle, Progress, ScoreRing, signalTone, toneFor } from '../components/ui';
 import { DATASET } from '../engine/glossary';
-import { fmtDate, money, openPrintable } from '../engine/util';
+import { addDays, fmtDate, money, openPrintable } from '../engine/util';
 import { useStore } from '../state/store';
+import { dealsForUser } from '../engine/workspace';
 
 export function boardPackHtml(s: ReturnType<typeof useStore>['s'], m: ReturnType<typeof useStore>['m']) {
   const tone = m.signal === 'GO' ? 'green' : m.signal === 'NO-GO' ? 'red' : 'amber';
-  return `<div class="brand">pwc · DealSync</div><h1>${s.deal.name} — Day-1 board pack</h1><div class="muted">${s.deal.buyer} / ${s.deal.seller} · ${s.deal.dealType} · as of ${fmtDate(s.deal.asOf, true)} · Day-1 ${fmtDate(s.deal.day1, true)} (${m.daysToDay1} days)</div>
-  <h2>Day-1 readiness</h2><span class="big">${m.score}</span> / 100 &nbsp; <span class="pill ${tone}">${m.signal}</span>${m.capped ? `<p class="muted">Underlying score ${m.underlying}, capped at ${s.config.blockerCap} because a critical item is blocked.</p>` : ''}
+  return `<div class="brand">pwc · DealSync</div><h1>${s.deal.name} — ${s.deal.milestoneLabel} board pack</h1><div class="muted">${s.deal.buyer} / ${s.deal.seller} · ${s.deal.dealType} · as of ${fmtDate(s.deal.asOf, true)} · ${s.deal.milestoneLabel} ${fmtDate(s.deal.day1, true)} (${m.daysToDay1} days)</div>
+  <h2>${s.deal.milestoneLabel} readiness</h2><span class="big">${m.score}</span> / 100 &nbsp; <span class="pill ${tone}">${m.signal}</span>${m.capped ? `<p class="muted">Underlying score ${m.underlying}, capped at ${s.config.blockerCap} because a critical item is blocked.</p>` : ''}
   <table><tr><th>Component</th><th>Weight</th><th>Readiness</th><th>Items</th></tr>${m.components.map((c) => `<tr><td>${c.name}</td><td>${Math.round(c.weight * 100)}%</td><td>${c.score}</td><td>${c.items.map((i) => `${i.app.name} ${i.readiness}${i.blocked ? ' (BLOCKED)' : ''}`).join(', ')}</td></tr>`).join('')}</table>
   <h2>Blockers & owners</h2><table><tr><th>Item</th><th>Task</th><th>Owner</th><th>Due</th></tr>${m.items.filter((i) => i.blocked).flatMap((i) => i.blockers.map((b) => `<tr><td>${i.app.name}</td><td>${b.title}</td><td>${b.owner}</td><td>${fmtDate(b.due_date)}</td></tr>`)).join('') || '<tr><td colspan=4>None</td></tr>'}</table>
   <h2>Workstreams</h2><table><tr><th>Workstream</th><th>Done</th><th>%</th></tr>${m.wsProgress.map((w) => `<tr><td>${w.name}</td><td>${w.done}/${w.total}</td><td>${w.pct}%</td></tr>`).join('')}</table>
   <h2>Separation costs</h2><table><tr><th>Line</th><th>Total</th><th>Seller</th><th>Buyer</th><th>Status</th></tr>${m.sepLines.map((l) => `<tr><td>${l.row.description}</td><td>${money(l.amount)}</td><td>${money(l.seller)}</td><td>${money(l.buyer)}</td><td>${l.row.status}</td></tr>`).join('')}<tr><th>Total</th><th>${money(m.sepTotal)}</th><th>${money(m.sellerTotal)}</th><th>${money(m.buyerTotal)}</th><th></th></tr></table>
   <h2>TSA exit</h2><table><tr><th>Service</th><th>Fee/month</th><th>Target exit</th><th>Projected</th><th>Status</th></tr>${m.tsa.map((t) => `<tr><td>${t.row.service}</td><td>${money(t.fee)}</td><td>${fmtDate(t.row.target_exit)}</td><td>${fmtDate(t.projectedExit)}</td><td>${t.status}</td></tr>`).join('')}</table>
-  <h2>Decisions</h2><table><tr><th>Decision</th><th>Recommended</th><th>Status</th></tr>${m.decisions.map((d) => `<tr><td>${d.title}</td><td>${d.recommended?.name ?? '—'} (${d.recommended?.total ?? '—'})</td><td>${d.state.status}</td></tr>`).join('')}</table>
+  <h2>Separation strategy (${s.deal.milestoneLabel}-critical apps)</h2><table><tr><th>App</th><th>Strategy</th><th>Why</th></tr>${m.apps.filter((a) => a.day1Critical).map((a) => `<tr><td>${a.name}</td><td>${a.bucket}${a.overridden ? ' (override)' : ''}</td><td>${a.bucketReason}</td></tr>`).join('')}</table>
   <p class="muted" style="margin-top:30px">Illustrative prototype data. Every score is traceable to its formula in DealSync. AI-drafted text is reviewed by the engagement team.</p>`;
 }
 
 export function Overview() {
-  const { s, m, act, navigate, toast } = useStore();
+  const { s, m, act, navigate, toast, summaries, switchDeal } = useStore();
+  const L = s.deal.milestoneLabel;
+  const myDeals = dealsForUser(s.currentUser);
   const [drill, setDrill] = useState(false);
   const [brief, setBrief] = useState<AIResult<{ bullets: string[] }> | null>(null);
   const [busy, setBusy] = useState(false);
@@ -36,9 +39,10 @@ export function Overview() {
     ...m.tsa.filter((t) => t.risk).map((t) => ({ sev: 'P2', title: `TSA extension risk: ${t.row.service}`, sub: `${money(t.fee)}/mo · projected ${fmtDate(t.projectedExit)}`, go: () => navigate('Funding & TSA Exit', { tab: 'tsa' }) })),
   ];
   const nextWave = [0, 1, 2, 3, 4].find((w) => !s.waveReleased[`W${w}`]);
+  const unconfirmed = m.apps.filter((a) => a.day1Critical && s.decisions[`SD-${a.id}`]?.status !== 'approved' && !a.overridden);
   const pending = [
-    ...m.decisions.filter((d) => d.state.status !== 'approved').map((d) => ({ date: d.due, title: d.title, sub: `${d.approver} · ${d.state.status === 'changes_requested' ? 'Changes requested' : 'Recommendation ready'}`, go: () => navigate('Separation Decisions', { tab: 'options', decision: d.id }) })),
-    ...(m.disputed.length && !s.funding.packages.some((p) => p.status !== 'draft') ? [{ date: '2025-11-12', title: 'Bridge facility approval', sub: `CFO · ${money(m.disputedAmount)} / 12 months`, go: () => navigate('Funding & TSA Exit') }] : []),
+    ...(unconfirmed.length ? [{ date: addDays(s.deal.asOf, 2), title: `Confirm separation strategy for ${unconfirmed.length} critical app${unconfirmed.length > 1 ? 's' : ''}`, sub: `Technology Steering Committee · e.g. ${unconfirmed.slice(0, 2).map((a) => `${a.name} → ${a.bucket}`).join(', ')}`, go: () => navigate('Separation Decisions', { app: unconfirmed[0].id }) }] : []),
+    ...m.disputed.filter((l) => !s.funding.flows?.[l.row.cost_id]?.path).map((l) => ({ date: addDays(s.deal.day1, -3), title: `Agree bank funding: ${l.row.description}`, sub: `CFO + engagement manager · ${money(l.amount)} disputed · bank loan + escrow`, go: () => navigate('Funding & TSA Exit', { cost: l.row.cost_id }) })),
     ...(nextWave !== undefined ? [{ date: s.deal.day1, title: `Wave ${nextWave} release gate`, sub: `Deal Board · ${m.moveGroups.filter((g) => g.wave === nextWave).length} move group(s)`, go: () => navigate('Funding & TSA Exit', { tab: 'waves' }) }] : []),
   ].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
 
@@ -52,13 +56,17 @@ export function Overview() {
   const exportPack = () => { if (!openPrintable(`${s.deal.name} board pack`, boardPackHtml(s, m))) toast('Allow pop-ups to open the board pack', 'warning'); else toast('Board pack opened — use Print / Save as PDF'); };
 
   return <>
-    <PageTitle eyebrow="Command centre" title="Deal Overview" description={`Executive control room for ${s.deal.name}'s Day-1 separation.`} action={<><Button variant="secondary" icon="download" onClick={exportPack}>Export board pack</Button><Button icon="spark" onClick={() => navigate('Knowledge & Market Insights')}>Ask Copilot</Button></>} />
+    <PageTitle eyebrow="Command centre" title="Deal Overview" description={`Executive control room for ${s.deal.name}'s ${s.deal.mode === 'tsa_exit' ? 'TSA exit and IT separation' : 'Day-1 separation'}.`} action={<><Button variant="secondary" icon="download" onClick={exportPack}>Export board pack</Button><Button icon="spark" onClick={() => navigate('Knowledge & Market Insights')}>Ask Copilot</Button></>} />
+    {myDeals.length > 1 && <div className="portfolio">{myDeals.map((d) => { const sum = summaries[d.id]; const active = d.id === s.deal.id; return <button key={d.id} className={active ? 'active' : ''} onClick={() => !active && switchDeal(d.id)}>
+      <span><span className="eyebrow" style={{ margin: 0 }}>{active ? 'Viewing' : 'Open'} · {d.mode === 'tsa_exit' ? 'TSA exit' : 'Day-1 readiness'}</span><br /><strong style={{ fontSize: 13 }}>{d.name}</strong> <span className="muted">· {d.buyer} / {d.seller}</span><br /><span className="muted small">{d.scope}</span></span>
+      <span style={{ textAlign: 'right' }}>{sum ? <><strong className="big">{sum.score}</strong><br /><Badge tone={signalTone(sum.signal)}>{sum.signal}</Badge><br /><span className="muted small">{sum.label} {fmtDate(sum.milestone, true)}</span></> : <span className="muted small">Open to load</span>}</span>
+    </button>; })}</div>}
     {!s.dismissedNotice && <div className="notice"><Icon name="alert" /><div><strong>Illustrative demo data</strong><span>{s.deal.name} is an academic concept. Company names and most values are representative. Upload your own files in Data & Inventory.</span></div><button onClick={() => act('Dismissed notice', 'Demo data notice', (d) => { d.dismissedNotice = true; }, { allowReadOnly: true, skipIssues: true })}>Dismiss</button></div>}
     <div className="metrics-grid">
-      <MetricCard label="Day-1 readiness" value={`${m.score} / 100`} tone={m.signal === 'NO-GO' ? 'danger' : ''} icon="readiness" onClick={() => setDrill(!drill)} detail={<><Badge tone={signalTone(m.signal)}>{m.signal}</Badge><span>{m.capped ? `Underlying score ${m.underlying} · capped` : `${m.items.length} Day-1 critical items`}</span></>} />
+      <MetricCard label={`${L} readiness`} value={`${m.score} / 100`} tone={m.signal === 'NO-GO' ? 'danger' : ''} icon="readiness" onClick={() => setDrill(!drill)} detail={<><Badge tone={signalTone(m.signal)}>{m.signal}</Badge><span>{m.capped ? `Underlying score ${m.underlying} · capped` : `${m.items.length} ${L}-critical items`}</span></>} />
       <MetricCard label="Technology estate" value={m.apps.length} icon="database" onClick={() => navigate('Dependency Explorer')} detail={<><span className="trend positive">{mapped} mapped</span><span>{review} need review</span></>} />
       <MetricCard label="Active workstreams" value={m.wsProgress.filter((w) => w.total).length} icon="tasks" onClick={() => navigate('Execution Tracker')} detail={<><span className={`trend ${behind.length ? 'warning' : 'positive'}`}>{behind.length} behind plan</span><span>{m.totalTasks} activities</span></>} />
-      <MetricCard label="Funding gap" value={money(m.sepTotal)} icon="funding" onClick={() => navigate('Funding & TSA Exit')} detail={<><span className="trend negative">{money(m.disputedAmount)} disputed</span><span>3 options modelled</span></>} />
+      <MetricCard label="Funding gap" value={money(m.sepTotal)} icon="funding" onClick={() => navigate('Funding & TSA Exit')} detail={<><span className="trend negative">{money(m.disputedAmount)} disputed</span><span>bank loan + escrow</span></>} />
     </div>
     {drill && <div className="drill-banner"><div><Icon name="alert" /><div><strong>{m.capped ? `Why is readiness capped at ${m.score}?` : `How is ${m.score} calculated?`}</strong><span>{m.capped ? `${m.criticalBlocked.map((i) => i.app.name).join(', ')} is Day-1 critical and blocked (${m.criticalBlocked[0]?.blockers[0]?.title}). The calculated score is ${m.underlying}, but the critical blocker rule caps the outcome at ${s.config.blockerCap}.` : `Weighted average of ${m.components.length} components: ${m.components.map((c) => `${c.name} ${c.score}`).join(', ')}.`}</span></div></div><Button variant="secondary" onClick={() => navigate('Day-1 Readiness')}>Open score breakdown</Button></div>}
     <div className="content-grid two-thirds">
@@ -67,7 +75,7 @@ export function Overview() {
         <div className="workstream-grid">{m.wsProgress.map((w) => <div className="workstream" key={w.name} style={{ cursor: 'pointer' }} onClick={() => navigate('Execution Tracker', { ws: w.name })}><div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, marginBottom: 6 }}><span>{w.name}</span><strong>{w.pct}%</strong></div><Progress value={w.pct} tone={toneFor(w.pct, 85, 75)} /></div>)}</div>
       </section>
       <section className="card readiness-card">
-        <div className="card-header"><div><h2>Day-1 decision</h2><p>Recalculated live · as of {fmtDate(s.deal.asOf, true)}</p></div><Badge tone={signalTone(m.signal)}>{m.signal}</Badge></div>
+        <div className="card-header"><div><h2>{L} decision</h2><p>Recalculated live · as of {fmtDate(s.deal.asOf, true)}</p></div><Badge tone={signalTone(m.signal)}>{m.signal}</Badge></div>
         <ScoreRing score={m.score} label="of 100" />
         <div className="score-legend" style={{ display: 'flex', justifyContent: 'center', gap: 12, fontSize: 8, color: 'var(--text-3)' }}><span><Badge tone="danger">0–79 No-go</Badge></span><span><Badge tone="warning">80–89 Conditions</Badge></span><span><Badge tone="success">90+ Go</Badge></span></div>
         <button className="full-link text-action" style={{ width: '100%', justifyContent: 'center', padding: 12, marginTop: 12 }} onClick={() => navigate('Day-1 Readiness')}>View readiness drivers <Icon name="chevron" size={15} /></button>

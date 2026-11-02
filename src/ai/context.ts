@@ -23,9 +23,12 @@ export function readinessProjections(s: WorkspaceState, m: Model) {
 export function buildLiveContext(s: WorkspaceState, m: Model) {
   const blockers = m.items.filter((i) => i.blocked).flatMap((i) => i.blockers.map((b) => ({ item: i.app.name, task: b.title, owner: b.owner, due: fmtDate(b.due_date), critical: i.critical })));
   const below = m.datasetsHygiene.filter((d) => d.score < s.config.hygieneGate).map((d) => `${DATASET[d.key as keyof typeof DATASET]?.label ?? d.key} ${d.score}`).join(', ');
-  const pending = m.decisions.filter((d) => d.state.status !== 'approved').map((d) => `${d.title} (${d.approver}, due ${fmtDate(d.due)})`).join('; ');
+  const pending = [
+    ...m.apps.filter((a) => a.day1Critical && s.decisions[`SD-${a.id}`]?.status !== 'approved' && !a.overridden).slice(0, 5).map((a) => `confirm strategy for ${a.name} (${a.bucket})`),
+    ...m.disputed.filter((l) => !s.funding.flows?.[l.row.cost_id]?.path).map((l) => `choose funding path for ${l.row.description} (${money(l.amount)})`),
+  ].join('; ');
   return {
-    deal: `${s.deal.name} (${s.deal.buyer} buying from ${s.deal.seller}, ${s.deal.dealType})`, asOf: fmtDate(s.deal.asOf, true), day1: fmtDate(s.deal.day1, true), daysToDay1: m.daysToDay1,
+    deal: `${s.deal.name} (${s.deal.buyer} buying from ${s.deal.seller}, ${s.deal.dealType}${s.deal.mode === 'tsa_exit' ? ', post-close TSA exit' : ''})`, scope: s.deal.scope, asOf: fmtDate(s.deal.asOf, true), milestone: s.deal.milestoneLabel, day1: fmtDate(s.deal.day1, true), daysToDay1: m.daysToDay1,
     score: m.score, underlying: m.underlying, signal: m.signal, capped: m.capped,
     components: m.components.map((c) => ({ name: c.name, score: c.score, weight: c.weight })),
     blockers,

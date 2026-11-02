@@ -1,4 +1,4 @@
-Company,Deal Role,Revenue (USD M),EBITDA (USD M),Net Profit (USD M),Total Debt (USD M),Cash (USD M),Debt / Equity,Interest Coverage (x),Current Ratio
+Company,Deal Role,Revenue (₹ M),EBITDA (₹ M),Net Profit (₹ M),Total Debt (₹ M),Cash (₹ M),Debt / Equity,Interest Coverage (x),Current Ratio
 ChipCo Ltd,Buyer,820,96,31,540,38,1.9,2.1,0.92
 SemiCorp Inc,Seller,4300,860,410,900,1250,0.35,11.4,1.8
 EDA Corp,Vendor,2100,520,300,300,640,0.25,18,2.2

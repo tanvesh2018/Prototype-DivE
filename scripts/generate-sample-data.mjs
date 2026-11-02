@@ -84,9 +84,9 @@ const apps = [
   ['APP-026', 'Supply Chain Planner', 'Demand and supply planning for foundry wafer starts', 'SRV-13', 'NET-1', 'L-39', 'Supply Chain', 'PlanAhead', 27, 'Austin', 54000, '2025-09-21', 'Yes', 'Yes', 2016, 'No', 'No', 3, 2, 2, 'No'],
   ['APP-027', 'Sales CRM', 'Accounts, opportunities, design-win pipeline and quotes', 'SRV-06', 'NET-2', 'L-40', 'Sales Operations', 'CloudCRM', 90, 'Austin', 67000, '2025-10-26', 'Yes', 'Yes', 2019, 'No', 'Yes', 3, 2, 3, 'No'],
 ];
-const appHeaders = ['App Ref', 'Application Title', 'Business Function / Description', 'Hosted On', 'Network Zone', 'Licence Ref', 'Biz Owner Team', 'Vendor', 'No. of Users', 'Site', 'Annual Run Cost (USD)', 'Last Updated', 'Used by Buyer?', 'Licence Transferable?', 'Go-Live Year', 'Critical Tool?', 'Revenue Linked?', 'Criticality (1-5)', 'Regulatory Risk (1-5)', 'Security Risk (1-5)', 'Buyer Has Similar System?'];
+const appHeaders = ['App Ref', 'Application Title', 'Business Function / Description', 'Hosted On', 'Network Zone', 'Licence Ref', 'Biz Owner Team', 'Vendor', 'No. of Users', 'Site', 'Annual Run Cost (₹)', 'Last Updated', 'Used by Buyer?', 'Licence Transferable?', 'Go-Live Year', 'Critical Tool?', 'Revenue Linked?', 'Criticality (1-5)', 'Regulatory Risk (1-5)', 'Security Risk (1-5)', 'Buyer Has Similar System?'];
 const appRows = apps.map((a) => ({
-  'App Ref': a[0], 'Application Title': a[1], 'Business Function / Description': a[2], 'Hosted On': a[3], 'Network Zone': a[4], 'Licence Ref': a[5], 'Biz Owner Team': a[6], Vendor: a[7], 'No. of Users': a[8], Site: a[9], 'Annual Run Cost (USD)': a[10], 'Last Updated': ukDate(a[11]), 'Used by Buyer?': a[12], 'Licence Transferable?': a[13], 'Go-Live Year': a[14], 'Critical Tool?': a[15], 'Revenue Linked?': a[16], 'Criticality (1-5)': a[17], 'Regulatory Risk (1-5)': a[18], 'Security Risk (1-5)': a[19], 'Buyer Has Similar System?': a[20],
+  'App Ref': a[0], 'Application Title': a[1], 'Business Function / Description': a[2], 'Hosted On': a[3], 'Network Zone': a[4], 'Licence Ref': a[5], 'Biz Owner Team': a[6], Vendor: a[7], 'No. of Users': a[8], Site: a[9], 'Annual Run Cost (₹)': a[10], 'Last Updated': ukDate(a[11]), 'Used by Buyer?': a[12], 'Licence Transferable?': a[13], 'Go-Live Year': a[14], 'Critical Tool?': a[15], 'Revenue Linked?': a[16], 'Criticality (1-5)': a[17], 'Regulatory Risk (1-5)': a[18], 'Security Risk (1-5)': a[19], 'Buyer Has Similar System?': a[20],
 }));
 // exact duplicate row (same App Ref) sent twice by the seller
 appRows.splice(20, 0, { ...appRows[19] });
@@ -209,7 +209,7 @@ const licences = [
   ['L-53', 'Fax Line Rental', 'OpenFax', 'APP-010', 1, 'Yes', 'Seller', 1800, '2024-09-30'],
   ['L-54', 'Forecasting Add-in', 'PlanAhead', 'APP-026', 8, 'Yes', 'Shared', 6000, '2026-09-30'],
 ];
-const licRows = licences.map((l) => ({ 'Lic #': l[0], 'Product / SKU': l[1], Publisher: l[2], 'Used By App': l[3], Seats: l[4], 'Can Transfer?': l[5], 'Contract Holder': l[6], 'Annual Fee': `$${l[7].toLocaleString('en-US')}`, 'Renewal Date': l[8] }));
+const licRows = licences.map((l) => ({ 'Lic #': l[0], 'Product / SKU': l[1], Publisher: l[2], 'Used By App': l[3], Seats: l[4], 'Can Transfer?': l[5], 'Contract Holder': l[6], 'Annual Fee': `₹${l[7].toLocaleString('en-US')}`, 'Renewal Date': l[8] }));
 writeCsv('04_Licence_Register.csv', ['Lic #', 'Product / SKU', 'Publisher', 'Used By App', 'Seats', 'Can Transfer?', 'Contract Holder', 'Annual Fee', 'Renewal Date'], licRows);
 
 // ---------- 05 User accounts (identity — contains personal data) ----------
@@ -262,13 +262,13 @@ for (let i = 1; i <= 186; i++) {
 writeCsv('06_Moving_Employees_HR.csv', ['Employee Name', 'Work Email', 'Employee No', 'Designation', 'Base Location', 'Transfer Type', 'Transfer Effective', 'Needs Laptop Reimage'], hrRows);
 
 // ---------- 07 Cost register ----------
-const costRows = apps.map((a, i) => ({ 'Cost Line': `RUN-${pad(i + 1)}`, System: a[0], 'Cost Type': 'Annual run', Description: `${a[1]} annual run cost`, 'Amount (USD)': a[10], 'Who Caused It': '', 'Like-for-like?': '', 'Contract Says': '', Status: 'Agreed' }));
+const costRows = apps.map((a, i) => ({ 'Cost Line': `RUN-${pad(i + 1)}`, System: a[0], 'Cost Type': 'Annual run', Description: `${a[1]} annual run cost`, 'Amount (₹)': a[10], 'Who Caused It': '', 'Like-for-like?': '', 'Contract Says': '', Status: 'Agreed' }));
 costRows.push(
-  { 'Cost Line': 'SEP-001', System: 'APP-001', 'Cost Type': 'Separation (one-time)', Description: 'Moving licences to ChipCo', 'Amount (USD)': 600000, 'Who Caused It': 'Seller', 'Like-for-like?': 'Like-for-like', 'Contract Says': '', Status: 'Agreed' },
-  { 'Cost Line': 'SEP-002', System: 'APP-001', 'Cost Type': 'Separation (one-time)', Description: 'Copies of engineering equipment', 'Amount (USD)': 700000, 'Who Caused It': 'Seller', 'Like-for-like?': 'Partly', 'Contract Says': '', Status: 'Disputed' },
-  { 'Cost Line': 'SEP-003', System: 'APP-021', 'Cost Type': 'Separation (one-time)', Description: 'Faster equipment ChipCo asked for', 'Amount (USD)': 440000, 'Who Caused It': 'Buyer', 'Like-for-like?': 'Upgrade', 'Contract Says': '', Status: 'Agreed' },
+  { 'Cost Line': 'SEP-001', System: 'APP-001', 'Cost Type': 'Separation (one-time)', Description: 'Moving licences to ChipCo', 'Amount (₹)': 600000, 'Who Caused It': 'Seller', 'Like-for-like?': 'Like-for-like', 'Contract Says': '', Status: 'Agreed' },
+  { 'Cost Line': 'SEP-002', System: 'APP-001', 'Cost Type': 'Separation (one-time)', Description: 'Copies of engineering equipment', 'Amount (₹)': 700000, 'Who Caused It': 'Seller', 'Like-for-like?': 'Partly', 'Contract Says': '', Status: 'Disputed' },
+  { 'Cost Line': 'SEP-003', System: 'APP-021', 'Cost Type': 'Separation (one-time)', Description: 'Faster equipment ChipCo asked for', 'Amount (₹)': 440000, 'Who Caused It': 'Buyer', 'Like-for-like?': 'Upgrade', 'Contract Says': '', Status: 'Agreed' },
 );
-writeCsv('07_Cost_Register.csv', ['Cost Line', 'System', 'Cost Type', 'Description', 'Amount (USD)', 'Who Caused It', 'Like-for-like?', 'Contract Says', 'Status'], costRows);
+writeCsv('07_Cost_Register.csv', ['Cost Line', 'System', 'Cost Type', 'Description', 'Amount (₹)', 'Who Caused It', 'Like-for-like?', 'Contract Says', 'Status'], costRows);
 
 // ---------- 08 TSA schedule ----------
 const tsa = [
@@ -277,7 +277,7 @@ const tsa = [
   ['TSA-03', 'Shared network', 'SemiCorp', 15000, '2025-11-15', '2026-01-31', 'Daniel Wong', 'NET-5', 15, 8, '2025-10-01'],
   ['TSA-04', 'Finance ERP', 'SemiCorp', 20000, '2025-11-15', '2026-02-28', 'Aisha Khan', 'APP-004', 20, 7, '2025-10-15'],
 ];
-writeCsv('08_TSA_Schedule.csv', ['TSA Ref', 'Service', 'Provider', 'Monthly Fee (USD)', 'Service Start', 'Target Exit', 'Owner', 'Linked System', 'Exit Milestones', 'Milestones Done', 'Exit Prep Start'], tsa.map((t) => ({ 'TSA Ref': t[0], Service: t[1], Provider: t[2], 'Monthly Fee (USD)': t[3], 'Service Start': t[4], 'Target Exit': t[5], Owner: t[6], 'Linked System': t[7], 'Exit Milestones': t[8], 'Milestones Done': t[9], 'Exit Prep Start': t[10] })));
+writeCsv('08_TSA_Schedule.csv', ['TSA Ref', 'Service', 'Provider', 'Monthly Fee (₹)', 'Service Start', 'Target Exit', 'Owner', 'Linked System', 'Exit Milestones', 'Milestones Done', 'Exit Prep Start'], tsa.map((t) => ({ 'TSA Ref': t[0], Service: t[1], Provider: t[2], 'Monthly Fee (₹)': t[3], 'Service Start': t[4], 'Target Exit': t[5], Owner: t[6], 'Linked System': t[7], 'Exit Milestones': t[8], 'Milestones Done': t[9], 'Exit Prep Start': t[10] })));
 
 // ---------- 09 Finance ERP master data (wave gate) ----------
 const erpRows = [];
@@ -465,7 +465,7 @@ const products = [
   ['T-210 Timing Chip (auto grade)', 'Germany', 1100000, 'APP-007', 'Blocked'],
   ['P-420 Power Manager', 'India', 380000, 'APP-007', 'Blocked'],
 ];
-writeCsv('13_Product_Revenue.csv', ['Product', 'Country', 'Quarterly Revenue (USD)', 'Blocked By System', 'Registration Status'], products.map((p) => ({ Product: p[0], Country: p[1], 'Quarterly Revenue (USD)': p[2], 'Blocked By System': p[3], 'Registration Status': p[4] })));
+writeCsv('13_Product_Revenue.csv', ['Product', 'Country', 'Quarterly Revenue (₹)', 'Blocked By System', 'Registration Status'], products.map((p) => ({ Product: p[0], Country: p[1], 'Quarterly Revenue (₹)': p[2], 'Blocked By System': p[3], 'Registration Status': p[4] })));
 
 // ---------- 14 Prowess financial health ----------
 const fin = [
@@ -473,27 +473,27 @@ const fin = [
   ['SemiCorp Inc', 'Seller', 4300, 860, 410, 900, 1250, 0.35, 11.4, 1.8],
   ['EDA Corp', 'Vendor', 2100, 520, 300, 300, 640, 0.25, 18.0, 2.2],
 ];
-writeCsv('14_Prowess_Financials.csv', ['Company', 'Deal Role', 'Revenue (USD M)', 'EBITDA (USD M)', 'Net Profit (USD M)', 'Total Debt (USD M)', 'Cash (USD M)', 'Debt / Equity', 'Interest Coverage (x)', 'Current Ratio'], fin.map((f) => ({ Company: f[0], 'Deal Role': f[1], 'Revenue (USD M)': f[2], 'EBITDA (USD M)': f[3], 'Net Profit (USD M)': f[4], 'Total Debt (USD M)': f[5], 'Cash (USD M)': f[6], 'Debt / Equity': f[7], 'Interest Coverage (x)': f[8], 'Current Ratio': f[9] })));
+writeCsv('14_Prowess_Financials.csv', ['Company', 'Deal Role', 'Revenue (₹ M)', 'EBITDA (₹ M)', 'Net Profit (₹ M)', 'Total Debt (₹ M)', 'Cash (₹ M)', 'Debt / Equity', 'Interest Coverage (x)', 'Current Ratio'], fin.map((f) => ({ Company: f[0], 'Deal Role': f[1], 'Revenue (₹ M)': f[2], 'EBITDA (₹ M)': f[3], 'Net Profit (₹ M)': f[4], 'Total Debt (₹ M)': f[5], 'Cash (₹ M)': f[6], 'Debt / Equity': f[7], 'Interest Coverage (x)': f[8], 'Current Ratio': f[9] })));
 
 // ---------- 15 Prospect universe (Prowess style) ----------
 const sectors = ['Electronics', 'Industrial', 'Chemicals', 'Auto components', 'Pharma', 'Consumer', 'Telecom equipment', 'Software', 'Metals', 'Engineering'];
 const prefixes = ['Alpha', 'Beacon', 'Crescent', 'Dynamo', 'Eastern', 'Falcon', 'Granite', 'Horizon', 'Indus', 'Jupiter', 'Kestrel', 'Lotus', 'Meridian', 'Northstar', 'Orbit', 'Pinnacle', 'Quantum', 'Riverstone', 'Sapphire', 'Titan', 'Unity', 'Vantage', 'Westfield', 'Xenon', 'Yarrow', 'Zenith', 'Arcadia', 'Bluewater', 'Coral', 'Delphi', 'Evergreen', 'Fortis', 'Galaxy', 'Harbor', 'Ironclad', 'Jasper', 'Keystone', 'Luminar', 'Monarch', 'Nimbus'];
 const prospects = prefixes.map((p, i) => {
-  if (p === 'Alpha') return { Company: 'Alpha Industries', Sector: 'Electronics', 'Business Segments': 6, 'Loss-making Segment': 'Electronics unit', 'Revenue (USD M)': 2400, 'Debt / Equity': 2.3, 'EBITDA Margin Trend': 'Declining', 'Strategic Review Announced': 'No', 'Promoter Pledge %': 18 };
+  if (p === 'Alpha') return { Company: 'Alpha Industries', Sector: 'Electronics', 'Business Segments': 6, 'Loss-making Segment': 'Electronics unit', 'Revenue (₹ M)': 2400, 'Debt / Equity': 2.3, 'EBITDA Margin Trend': 'Declining', 'Strategic Review Announced': 'No', 'Promoter Pledge %': 18 };
   const segs = int(1, 7);
   return {
     Company: `${p} ${pick(['Industries', 'Holdings', 'Technologies', 'Group', 'Enterprises', 'Corp'])}`,
     Sector: pick(sectors),
     'Business Segments': segs,
     'Loss-making Segment': rnd() < 0.35 && segs > 1 ? `${pick(['Electronics', 'Retail', 'Chemicals', 'Services', 'Components', 'Export'])} unit` : '',
-    'Revenue (USD M)': int(150, 6000),
+    'Revenue (₹ M)': int(150, 6000),
     'Debt / Equity': Math.round(rnd() * 300) / 100,
     'EBITDA Margin Trend': pick(['Improving', 'Stable', 'Stable', 'Declining']),
     'Strategic Review Announced': rnd() < 0.12 ? 'Yes' : 'No',
     'Promoter Pledge %': int(0, 40),
   };
 });
-writeCsv('15_Prospect_Universe.csv', ['Company', 'Sector', 'Business Segments', 'Loss-making Segment', 'Revenue (USD M)', 'Debt / Equity', 'EBITDA Margin Trend', 'Strategic Review Announced', 'Promoter Pledge %'], prospects);
+writeCsv('15_Prospect_Universe.csv', ['Company', 'Sector', 'Business Segments', 'Loss-making Segment', 'Revenue (₹ M)', 'Debt / Equity', 'EBITDA Margin Trend', 'Strategic Review Announced', 'Promoter Pledge %'], prospects);
 
 // ---------- 16 Past learning records (anonymised) ----------
 const industries = [['Semiconductor', 8], ['Electronics', 4], ['Software', 4], ['Pharma', 2], ['Auto components', 2]];
@@ -519,7 +519,7 @@ for (const [ind, n] of industries) {
       id: `${ind.slice(0, 4).toUpperCase().replace(/\s/g, '')}-${pad(rid++, 2)}`,
       industry: ind,
       dealType: pick(['Carve-out', 'Carve-out', 'Divestiture', 'Acquisition', 'Merger']),
-      sizeBand: pick(['$1M to $2M separation budget', '$2M to $5M separation budget', '$5M to $10M separation budget']),
+      sizeBand: pick(['₹1M to ₹2M separation budget', '₹2M to ₹5M separation budget', '₹5M to ₹10M separation budget']),
       appsBand,
       sites: int(1, 6),
       day1OnTime: onTime,
@@ -535,7 +535,7 @@ for (const [ind, n] of industries) {
   }
 }
 // Make the semiconductor carve-out SEMI-03 the closest analogue
-records[2] = { ...records[2], id: 'SEMI-03', industry: 'Semiconductor', dealType: 'Carve-out', appsBand: '20-50 apps', sizeBand: '$1M to $2M separation budget', day1OnTime: true, licenceConsentWeek1: true, keyLesson: 'Licence consent from EDA vendors took 5 weeks — start in week 1 and escalate through the buyer CIO.', whatDidNot: 'Late vendor consent' };
+records[2] = { ...records[2], id: 'SEMI-03', industry: 'Semiconductor', dealType: 'Carve-out', appsBand: '20-50 apps', sizeBand: '₹1M to ₹2M separation budget', day1OnTime: true, licenceConsentWeek1: true, keyLesson: 'Licence consent from EDA vendors took 5 weeks — start in week 1 and escalate through the buyer CIO.', whatDidNot: 'Late vendor consent' };
 fs.writeFileSync(path.join(OUT, '16_Past_Learning_Records.json'), JSON.stringify({ description: 'Anonymised, human-approved DealSync Learning Records (client consent on file). Illustrative.', records }, null, 2) + '\n');
 console.log(`  ${'16_Past_Learning_Records.json'.padEnd(34)} ${records.length} records`);
 
@@ -573,12 +573,14 @@ The Seller shall provide the Transitional Services set out in Schedule 6 for a p
 `);
 console.log(`  ${'18_SPA_Cost_Clauses.txt'.padEnd(34)} text`);
 
+
+
 // ---------- 19 Closing lessons (for Close & Learn demo) ----------
 fs.writeFileSync(path.join(OUT, '19_Closing_Lessons_Rioja.txt'), `What worked: The single DealSync tracker replaced 9 separate spreadsheets, and the owner questionnaire surfaced the CircuitDesign Pro dependency on SemiCorp's licence server in week 2. Priya Nair's escalation through ChipCo's CIO unlocked EDA Corp consent on 6 Nov.
-What did not work: The Finance ERP vendor master from SemiCorp scored 85 and held Wave 2 for three weeks. Email exit slipped against plan, costing an extra $25K per month.
+What did not work: The Finance ERP vendor master from SemiCorp scored 85 and held Wave 2 for three weeks. Email exit slipped against plan, costing an extra ₹25K per month.
 Was Day-1 on time: Yes — Day-1 happened on 15 Nov 2025 with a readiness score of 96 (Go).
 Was the TSA extended: Email service extended by one month; the other 3 services exited on time.
-Key lesson: Ask EDA Corp and every design-tool vendor for licence consent in week 1; ChipCo's $1.74M separation budget and 415 tracked assets were manageable once consent was secured.
+Key lesson: Ask EDA Corp and every design-tool vendor for licence consent in week 1; ChipCo's ₹1.74M separation budget and 415 tracked assets were manageable once consent was secured.
 `);
 console.log(`  ${'19_Closing_Lessons_Rioja.txt'.padEnd(34)} text`);
 console.log('Done.');

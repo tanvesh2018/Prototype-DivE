@@ -1,4 +1,4 @@
-Cost Line,System,Cost Type,Description,Amount (USD),Who Caused It,Like-for-like?,Contract Says,Status
+Cost Line,System,Cost Type,Description,Amount (₹),Who Caused It,Like-for-like?,Contract Says,Status
 RUN-001,APP-001,Annual run,CircuitDesign Pro annual run cost,90000,,,,Agreed
 RUN-002,APP-002,Annual run,DesignVault annual run cost,64000,,,,Agreed
 RUN-003,APP-003,Annual run,WaferTest Suite annual run cost,52000,,,,Agreed

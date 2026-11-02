@@ -66,7 +66,7 @@ export function normaliseHeader(h: string) {
 export function parseNumber(v: any): number | null {
   if (v === null || v === undefined || v === '') return null;
   if (typeof v === 'number') return v;
-  const s = String(v).replace(/[$,\s]/g, '');
+  const s = String(v).replace(/[$₹,\s]|INR|Rs\.?/gi, '');
   const n = Number(s);
   return Number.isFinite(n) ? n : null;
 }
@@ -108,10 +108,10 @@ export function fmtDate(iso?: string | null, withYear = false) {
 export function money(n: number | null | undefined, compact = true) {
   if (n === null || n === undefined || !Number.isFinite(n)) return '—';
   if (compact) {
-    if (Math.abs(n) >= 1e6) return `$${(n / 1e6).toFixed(2).replace(/\.?0+$/, '')}M`;
-    if (Math.abs(n) >= 1e3) return `$${Math.round(n / 1e3)}K`;
+    if (Math.abs(n) >= 1e6) return `₹${(n / 1e6).toFixed(2).replace(/\.?0+$/, '')}M`;
+    if (Math.abs(n) >= 1e3) return `₹${Math.round(n / 1e3)}K`;
   }
-  return `$${Math.round(n).toLocaleString('en-US')}`;
+  return `₹${Math.round(n).toLocaleString('en-IN')}`;
 }
 export const round = (n: number, d = 0) => Math.round(n * 10 ** d) / 10 ** d;
 export const clamp = (n: number, a: number, b: number) => Math.max(a, Math.min(b, n));

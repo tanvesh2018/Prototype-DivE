@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAIStatus, onAIStatus, refreshAIStatus, testAIConnection } from '../ai/client';
 import { Badge, Button, Icon, Modal, PageTitle, SearchBox, Table, Toggle } from '../components/ui';
+import { DecisionLog } from '../components/DecisionLog';
 import type { AuditEvent, Config, RoleKey, WorkspaceState } from '../engine/types';
 import { download, toCSV } from '../engine/util';
 import { DEFAULT_CONFIG, ROLES } from '../engine/workspace';
@@ -54,7 +55,7 @@ export function Governance() {
         <div className="approved-ai row" style={{ padding: 14, fontSize: 10 }}><Icon name="shield" /><div><strong>Approved AI boundary</strong><div className="muted">Deal data is processed only in approved services with no retention or training.</div></div></div></section>
       <section className="card"><div className="card-header"><div><h2>Retention policy</h2><p>Raw deal data lifecycle</p></div><Button variant="ghost" onClick={() => setDeletePreview(true)}>Preview deletion</Button></div>
         <div className="card-body stack"><label className="field">Delete raw client data<select value={s.retention} disabled={readOnly} onChange={(e) => act('Changed retention policy', e.target.value, (d) => { d.retention = e.target.value; }, { kind: 'access', skipIssues: true })}><option>At deal close</option><option>90 days after TSA exit</option><option>180 days after TSA exit</option></select></label>
-          <div className="retention-timeline grid-3 small"><div className="lesson-card"><strong>1. Upload & process</strong><span className="muted">Personal data minimised</span></div><div className="lesson-card" style={{ borderColor: 'var(--orange)' }}><strong>2. Active deal + TSA</strong><span className="muted">Encrypted, access controlled</span></div><div className="lesson-card"><strong>3. Secure deletion</strong><span className="muted">{s.retention}</span></div></div></div></section>
+          <div className="retention-steps"><div className="lesson-card"><strong>1. Upload & process</strong><span className="muted">Personal data minimised</span></div><div className="lesson-card" style={{ borderColor: 'var(--orange)' }}><strong>2. Active deal + TSA</strong><span className="muted">Encrypted, access controlled</span></div><div className="lesson-card"><strong>3. Secure deletion</strong><span className="muted">{s.retention}</span></div></div></div></section>
     </div>
 
     <div className="governance-grid mt">
@@ -62,13 +63,15 @@ export function Governance() {
       <DealSettings />
     </div>
 
-    <section className="card mt"><div className="card-header"><div><h2>Workspace data</h2><p>The prototype stores everything in your browser (localStorage). Reset any time.</p></div></div>
+    <section className="card mt"><div className="card-header"><div><h2>Workspace data · {s.deal.name}</h2><p>Each deal is stored separately in your browser (IndexedDB). Reset any time — other deals are not affected.</p></div></div>
       <div className="card-body row wrap">
-        <Button variant="secondary" icon="refresh" onClick={() => { if (confirm('Reset to the Project Rioja demo data? Your changes will be lost.')) { replaceWorkspace(resetToDemo(), 'Reset to demo data'); toast('Demo workspace restored'); } }}>Reset to demo data</Button>
-        <Button variant="secondary" icon="trash" onClick={() => { if (confirm('Start with an empty workspace? You can then upload the sample files one by one.')) { replaceWorkspace(blankWorkspace(), 'Started empty workspace'); toast('Empty workspace — upload files in Data & Inventory', 'info'); } }}>Start empty (upload from scratch)</Button>
+        <Button variant="secondary" icon="refresh" onClick={() => { if (confirm(`Reset ${s.deal.name} to its demo data? Your changes to this deal will be lost.`)) { resetToDemo(s.deal.id).then((w) => { replaceWorkspace(w, 'Reset to demo data'); toast('Demo workspace restored'); }); } }}>Reset to demo data</Button>
+        <Button variant="secondary" icon="trash" onClick={() => { if (confirm('Start with an empty workspace? You can then upload the sample files one by one.')) { replaceWorkspace(blankWorkspace(s.deal.id), 'Started empty workspace'); toast('Empty workspace — upload files in Data & Inventory', 'info'); } }}>Start empty (upload from scratch)</Button>
         <Button variant="secondary" icon="download" onClick={() => download(`dealsync_workspace_${s.deal.asOf}.json`, JSON.stringify(s), 'application/json')}>Export workspace JSON</Button>
         <label className="btn secondary" style={{ cursor: 'pointer' }}><Icon name="upload" size={14} />Import workspace JSON<input type="file" accept=".json" hidden onChange={(e) => e.target.files?.[0]?.text().then((t) => { try { const w = JSON.parse(t); if (!w.deal || !w.datasets) throw new Error('not a DealSync workspace'); replaceWorkspace(w, 'Imported workspace'); toast('Workspace imported'); } catch (err: any) { toast(`Import failed: ${err.message}`, 'danger'); } })} /></label>
       </div></section>
+
+    <div className="mt"><DecisionLog title="Decision log — all screens" subtitle={`Every decision on ${s.deal.name}, with undo. Uploads, AI drafts and access changes are in the audit log below.`} limit={100} /></div>
 
     <section className="card audit-card"><div className="card-header"><div><h2>Recent audit activity</h2><p>Immutable record of access, approvals, AI use and overrides</p></div><button className="text-action" onClick={() => setAuditAll(true)}>View all {s.audit.length} events <Icon name="arrow" size={14} /></button></div>
       <div className="audit-list">{s.audit.slice(0, 6).map((a) => <div key={a.id}><span className={`audit-dot ${a.kind === 'override' || a.kind === 'escalate' ? 'a3' : a.kind === 'system' ? 'a2' : ''}`}><Icon name={a.kind === 'ai' ? 'spark' : a.kind === 'override' ? 'alert' : a.kind === 'system' ? 'readiness' : 'check'} size={13} /></span><time>{new Date(a.ts).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</time><div><strong>{a.action}</strong><span>{a.actor} · {a.detail}</span></div><button onClick={() => setDetail(a)}>View details</button></div>)}</div></section>

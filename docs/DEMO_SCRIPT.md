@@ -1,14 +1,19 @@
-# 5–8 minute demo script (Project Rioja)
+# 8–10 minute demo script (v2)
 
-Tip: Governance → *Reset to demo data* before presenting.
+Tip: Governance → *Reset to demo data* before presenting (resets the active deal).
 
-1. **Deal Overview** — 79/100 NO-GO. Click the readiness card: underlying 85 capped because CircuitDesign Pro's EDA consent is blocked. Generate the AI daily brief. Export board pack.
-2. **Data & Inventory** — Upload source file → `01_Applications.csv`. Show column matching ("Hosted On" → `hosting_server_id`, samples look like SRV-14). Import → hygiene **71 / Blocked**, broken link SRV-99.
-3. Quality queue → *Apply rule fixes* (CircuitDesign Pro site copied from SRV-14) → merge the APP-020 duplicate → fix SRV-99 → re-point to SRV-07 → FaxGateway *Retired* → *Ask AI to fill blanks* → AI suggestions → approve WaferTest vendor = EDA Corp. Hygiene climbs back toward the 90 gate; remaining owner gaps sit in the owner queue.
-4. Owner queue → "Has EDA Corp consented to transfer L-07?" → Answer **Yes**. (Consent task closes.)
-5. **Day-1 Readiness** — cap removed; now Go-with-conditions. Use the what-if simulator (tick "All tasks" + "All tests" for VPN Gateway and Identity Directory) → 91 GO. *Explain with AI*.
-6. **Dependency Explorer** — CircuitDesign Pro entanglement high; *Find hidden links with AI* → confirm one; SpecViewer unclear link → trial-run checklist → "Trial found a dependency".
-7. **Separation Decisions** — Clone and Go for CircuitDesign Pro with reasons; Leadership options → laptop decision B 3.65 vs A 3.05, C removed → *Draft with AI* → Approve.
-8. **Funding & TSA Exit** — Cost allocation shows provisional $1.074M seller → *Read clause* → confirm → $1.03M / $0.71M. Funding options → bridge $700K ≈ $61.6K/month → Model package → Share with bank. TSA exit: email extension risk. Waves: Wave 2 blocked by ERP data 85.
-9. **Copilot** — "Why are we No-go?", "What moves us to 90?", "What will EDA Corp charge?" → "I don't know".
-10. **Governance** — switch profile to *Sophie Martin (CIO)* → read-only banner; audit log shows every action.
+## Project Rioja (Day-1 carve-out)
+1. **Deal Overview**: 79/100 NO-GO. Click the readiness card: underlying 85 is capped because CircuitDesign Pro's EDA consent is blocked. Portfolio strip shows Phoenix too (Alex Chen sees both deals).
+2. **Data & Inventory**: ⓘ on Average hygiene explains the formula. Click a file's score to see "clean ÷ total" and how many records reach the 90 gate. Quality queue → *Apply rule fixes* → **Decisions** tab → Undo → Confirm (score drops back).
+3. **Dependency Explorer**: ⓘ on Entanglement score (house-moving analogy). *AI-suggested links* dropdown → *All*. Confirm one, then drag from an app's blue handle onto another app to re-target a suggestion. *Decision log* shows each action with undo.
+4. **Separation Decisions** → Classification: plain-words C/D/R/S table, "why this priority?" on any app.
+5. **Execution Tracker**: *Suggested Day-1* = 27 Nov (+12 days). Open ⓘ for pace, readiness gap, buffer and consent floor. *Use suggested date* is undoable.
+6. **Day-1 Readiness**: under *Readiness by component*, use *Tune the weightages*: drag Engineering tools up and watch the mix bar and Now → Preview score (the final score stays at 79 while the blocker cap holds; the underlying score moves). Switch to *Item formula* for the tasks/tests/hygiene split. Apply, then read *Calculation logic*.
+7. **Funding & TSA Exit** → Funding desk for the ₹700K equipment copies. Follow *Your next step*: Explain the cost → Can each side afford it? (ChipCo cash-tight) → *Agree the bank funding plan* (bank lends ₹700K; ₹490K of SemiCorp's purchase price held in escrow) → draft & approve the bank summary → CFO approves sharing + PwC independence → answer the bank's questions → bank decision → tranches release when milestones are met. Settle: read the SPA clause → agree the split → *Mark dispute settled* (escrow repays SemiCorp's share, the rest returns to SemiCorp, ChipCo repays its share). Learn: save the lesson.
+   Then **TSA exit**: Email service is *Running late* (expected 27 Feb vs 15 Jan target, ~₹63K); *Record a finished milestone* and watch the expected date move; *Ask AI how to recover*.
+8. **Copilot**: "Why are we No-go?", "What moves us to 90?"
+
+## Project Phoenix (90-day TSA exit)
+9. Deal switcher → **Project Phoenix**: 415 apps, 46k+ records, TSA exit 03 Feb 2026, 74 NO-GO (Solution Central feed blocked). Data & Inventory: network hygiene 81 → *Apply rule fixes* on 4,000+ gaps in ~2 s.
+10. Tracker: suggested TSA exit vs target. Funding: ₹2.3M devices dispute.
+11. Profile → **Laura Bennett (Meridian CIO)**: the deal switcher shows Phoenix only, read-only. **Northbank Credit**: Funding flow only, empty until the client consents.

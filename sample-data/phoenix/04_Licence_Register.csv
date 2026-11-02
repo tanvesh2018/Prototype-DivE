@@ -1,0 +1,416 @@
+Licence ID,Product,Vendor,Application,Quantity,Transferable,Holder,Annual Cost,Expiry
+LP-0001,Card Issuing Platform Seats,CoreCard Systems,PHX-001,3658,Yes,Seller,"₹98,000",2027-01-28
+LP-0002,Authorization Switch Seats,SwitchWorks,PHX-002,755,Yes,Buyer,"₹104,000",2026-11-28
+LP-0003,Credit Decision Engine Enterprise,DecisionIQ,PHX-003,1926,No,Shared,"₹192,000",2027-12-28
+LP-0004,Fraud Detection Hub Enterprise,FraudShield,PHX-004,681,Yes,Shared,"₹322,000",2026-12-28
+LP-0005,Solution Central Runtime,Internal,PHX-005,3858,Yes,Seller,"₹240,000",2026-01-28
+LP-0006,Statement Generation Enterprise,DocuGen,PHX-006,873,Yes,Shared,"₹12,000",2027-09-28
+LP-0007,Collections Platform Enterprise,CollectPro,PHX-007,2967,Yes,Seller,"₹382,000",2027-09-28
+LP-0008,Dispute & Chargeback Portal Seats,DisputeHub,PHX-008,367,Yes,Seller,"₹155,000",2026-09-28
+LP-0009,KYC Onboarding Runtime,VerifyNow,PHX-009,3772,No,Buyer,"₹366,000",2026-05-28
+LP-0010,Rewards Engine Enterprise,LoyaltyOne,PHX-010,2353,Consent required,Shared,"₹322,000",2026-08-28
+LP-0011,Card Personalisation Subscription,EmbossTech,PHX-011,2245,Yes,Shared,"₹99,000",2026-02-28
+LP-0012,Customer Servicing CRM Seats,CloudCRM,PHX-012,3375,Yes,Seller,"₹380,000",2026-07-28
+LP-0013,IVR & Contact Routing Subscription,VoiceFlow,PHX-013,1203,Consent required,Shared,"₹242,000",2027-01-28
+LP-0014,Regulatory Reporting Suite Enterprise,RegReport,PHX-014,3113,Yes,Seller,"₹146,000",2026-05-28
+LP-0015,General Ledger Runtime,LedgerOne,PHX-015,1923,No,Seller,"₹281,000",2026-10-28
+LP-0016,Treasury & Settlement Subscription,TreasuryPro,PHX-016,3110,No,Seller,"₹98,000",2027-09-28
+LP-0017,Enterprise Data Warehouse Subscription,DataCore,PHX-017,2614,Consent required,Shared,"₹42,000",2027-09-28
+LP-0018,Identity & Access Directory Enterprise,Microsoft,PHX-018,727,Consent required,Buyer,"₹106,000",2027-09-28
+LP-0019,Email & Collaboration Enterprise,Microsoft,PHX-019,1192,No,Shared,"₹348,000",2026-06-28
+LP-0020,Endpoint Security & MDM Enterprise,ShieldOne,PHX-020,2496,Yes,Shared,"₹320,000",2026-05-28
+LP-0021,Product Interface Hub Seats,OracleWorks,PHX-021,2139,No,Seller,"₹287,000",2026-03-28
+LP-0022,Risk API Gateway Enterprise,CloudCRM,PHX-022,4302,Yes,Seller,"₹42,000",2027-11-28
+LP-0023,HR Analytics Dashboard Runtime,RulesNet,PHX-023,269,Yes,Shared,"₹394,000",2026-02-28
+LP-0024,HR Monitoring Subscription,WorkflowCo,PHX-024,1718,Yes,Buyer,"₹81,000",2026-09-28
+LP-0025,Data Monitoring Enterprise,OracleWorks,PHX-025,4098,Consent required,Seller,"₹379,000",2027-08-28
+LP-0026,Payments Batch Scheduler Subscription,ArchivePro,PHX-026,918,Consent required,Seller,"₹383,000",2026-05-28
+LP-0027,Compliance API Gateway Enterprise,Internal,PHX-027,1855,No,Seller,"₹396,000",2026-01-28
+LP-0028,Servicing Admin Console Enterprise,DataCore,PHX-028,3169,No,Buyer,"₹280,000",2027-08-28
+LP-0029,Servicing Interface Hub Seats,CloudCRM,PHX-029,2112,Yes,Seller,"₹19,000",2026-01-28
+LP-0030,Compliance Notification Service Enterprise,CloudCRM,PHX-030,1991,Yes,Seller,"₹30,000",2027-07-28
+LP-0031,HR Case Manager Runtime,CloudCRM,PHX-031,3175,Yes,Shared,"₹106,000",2026-06-28
+LP-0032,Treasury Workflow Tool Seats,ObservaOne,PHX-032,2704,No,Seller,"₹160,000",2027-10-28
+LP-0033,Payments Reporting Mart Runtime,DataCore,PHX-033,3885,No,Seller,"₹2,000",2027-03-28
+LP-0034,Fraud Document Archive Enterprise,SAPient,PHX-034,4478,No,Seller,"₹188,000",2027-06-28
+LP-0035,Payments Notification Service Subscription,ArchivePro,PHX-035,2511,Consent required,Seller,"₹253,000",2026-12-28
+LP-0036,Compliance Case Manager Enterprise,ObservaOne,PHX-036,4248,Yes,Shared,"₹286,000",2027-01-28
+LP-0037,HR Data Feed Enterprise,SAPient,PHX-037,3498,Consent required,Shared,"₹299,000",2026-04-28
+LP-0038,Marketing Monitoring Seats,ReportCo,PHX-038,1424,,Seller,"₹69,000",2026-06-28
+LP-0039,Data Monitoring 2 Enterprise,WorkflowCo,PHX-039,2489,Consent required,Shared,"₹308,000",2027-07-28
+LP-0040,Servicing Data Feed Seats,ObservaOne,PHX-040,3609,Yes,Seller,"₹233,000",2026-10-28
+LP-0041,Workplace Analytics Dashboard Enterprise,Internal,PHX-041,1961,No,Shared,"₹345,000",2027-03-28
+LP-0042,Collections Case Manager Seats,Internal,PHX-042,4159,Consent required,Buyer,"₹383,000",2026-08-28
+LP-0043,Fraud Case Manager Runtime,ArchivePro,PHX-043,3811,Yes,Seller,"₹102,000",2026-03-28
+LP-0044,Security Batch Scheduler Subscription,IntegrateX,PHX-044,1583,Yes,Seller,"₹147,000",2026-01-28
+LP-0045,Marketing Portal Subscription,CloudCRM,PHX-045,2255,No,Shared,"₹335,000",2027-01-28
+LP-0046,Marketing Reconciliation Enterprise,ObservaOne,PHX-046,2851,Yes,Shared,"₹306,000",2026-04-28
+LP-0047,Marketing Workflow Tool Runtime,IntegrateX,PHX-047,2658,,Seller,"₹284,000",2026-05-28
+LP-0048,Security Rules Engine Enterprise,IntegrateX,PHX-048,4333,No,Seller,"₹97,000",2026-03-28
+LP-0049,Servicing Portal Seats,ObservaOne,PHX-049,3603,Yes,Seller,"₹282,000",2026-01-28
+LP-0050,Risk Document Archive Runtime,SAPient,PHX-050,1874,Consent required,Buyer,"₹275,000",2026-03-28
+LP-0051,Servicing Document Archive Enterprise,WorkflowCo,PHX-051,140,Yes,Buyer,"₹125,000",2027-02-28
+LP-0052,Fraud API Gateway Subscription,ArchivePro,PHX-052,1359,Yes,Shared,"₹399,000",2027-02-28
+LP-0053,Finance Notification Service Enterprise,CloudCRM,PHX-053,2180,,Shared,"₹13,000",2026-07-28
+LP-0054,Marketing Case Manager Subscription,WorkflowCo,PHX-054,2613,Yes,Seller,"₹251,000",2026-01-28
+LP-0055,Issuing Workflow Tool Enterprise,Internal,PHX-055,3193,Yes,Buyer,"₹209,000",2026-06-28
+LP-0056,Security Interface Hub Enterprise,RulesNet,PHX-056,2555,No,Buyer,"₹9,000",2027-05-28
+LP-0057,HR Analytics Dashboard 2 Subscription,WorkflowCo,PHX-057,2900,Consent required,Buyer,"₹334,000",2026-06-28
+LP-0058,Product Rules Engine Seats,OracleWorks,PHX-058,3311,No,Seller,"₹211,000",2026-03-28
+LP-0059,Collections Notification Service Runtime,Internal,PHX-059,10,No,Buyer,"₹190,000",2027-07-28
+LP-0060,Data Portal Enterprise,ArchivePro,PHX-060,2872,Yes,Buyer,"₹82,000",2026-02-28
+LP-0061,Fraud Rules Engine Enterprise,ArchivePro,PHX-061,399,Yes,Seller,"₹223,000",2026-11-28
+LP-0062,Product Admin Console Runtime,OracleWorks,PHX-062,201,Yes,Shared,"₹67,000",2027-03-28
+LP-0063,Product Workflow Tool Subscription,Internal,PHX-063,4351,Yes,Seller,"₹291,000",2026-06-28
+LP-0064,Compliance Admin Console Subscription,Internal,PHX-064,524,Consent required,Seller,"₹105,000",2026-07-28
+LP-0065,Servicing Rules Engine Subscription,RulesNet,PHX-065,2391,Yes,Buyer,"₹197,000",2026-07-28
+LP-0066,Payments Interface Hub Runtime,CloudCRM,PHX-066,1664,Yes,Seller,"₹81,000",2026-10-28
+LP-0067,Risk Portal Runtime,SAPient,PHX-067,3614,Yes,Shared,"₹232,000",2026-06-28
+LP-0068,Finance Reporting Mart Seats,IntegrateX,PHX-068,3283,No,Seller,"₹328,000",2027-01-28
+LP-0069,Security Interface Hub 2 Runtime,SAPient,PHX-069,4553,Consent required,Shared,"₹59,000",2027-12-28
+LP-0070,Issuing Monitoring Subscription,ObservaOne,PHX-070,3327,Yes,Seller,"₹321,000",2026-09-28
+LP-0071,Product API Gateway Runtime,IntegrateX,PHX-071,1227,No,Seller,"₹89,000",2027-02-28
+LP-0072,HR Workflow Tool Seats,Internal,PHX-072,1303,Yes,Seller,"₹123,000",2026-05-28
+LP-0073,Data Admin Console Subscription,OracleWorks,PHX-073,1735,Yes,Seller,"₹68,000",2027-09-28
+LP-0074,Finance Monitoring Runtime,DataCore,PHX-074,4449,No,Seller,"₹192,000",2027-04-28
+LP-0075,Treasury Workflow Tool 2 Subscription,CloudCRM,PHX-075,1879,Consent required,Seller,"₹118,000",2026-08-28
+LP-0076,Marketing Admin Console Enterprise,OracleWorks,PHX-076,1906,Yes,Seller,"₹297,000",2027-05-28
+LP-0077,Risk Rules Engine Enterprise,IntegrateX,PHX-077,147,Yes,Buyer,"₹380,000",2026-12-28
+LP-0078,Security API Gateway Enterprise,ArchivePro,PHX-078,2456,Consent required,Seller,"₹338,000",2026-04-28
+LP-0079,Compliance Admin Console 2 Runtime,IntegrateX,PHX-079,107,No,Shared,"₹285,000",2027-06-28
+LP-0080,Servicing Analytics Dashboard Subscription,SAPient,PHX-080,1082,Yes,Seller,"₹202,000",2026-06-28
+LP-0081,Payments Document Archive Seats,ArchivePro,PHX-081,3461,No,Seller,"₹68,000",2027-12-28
+LP-0082,Compliance Data Feed Runtime,IntegrateX,PHX-082,1394,Consent required,Seller,"₹55,000",2027-07-28
+LP-0083,Treasury Monitoring Seats,SAPient,PHX-083,3803,No,Seller,"₹180,000",2026-12-28
+LP-0084,Servicing Workflow Tool Enterprise,ArchivePro,PHX-084,496,Yes,Shared,"₹351,000",2027-05-28
+LP-0085,Compliance Interface Hub Seats,ObservaOne,PHX-085,1921,No,Buyer,"₹155,000",2027-05-28
+LP-0086,Payments Analytics Dashboard Seats,Internal,PHX-086,3582,Yes,Shared,"₹135,000",2027-09-28
+LP-0087,Risk Admin Console Subscription,OracleWorks,PHX-087,549,No,Seller,"₹235,000",2026-12-28
+LP-0088,Servicing Document Archive 2 Seats,ArchivePro,PHX-088,1314,No,Seller,"₹20,000",2026-07-28
+LP-0089,Payments Data Feed Seats,WorkflowCo,PHX-089,644,Consent required,Buyer,"₹209,000",2026-06-28
+LP-0090,Servicing Reconciliation Enterprise,Internal,PHX-090,205,Yes,Seller,"₹324,000",2026-04-28
+LP-0091,Compliance Monitoring Subscription,ArchivePro,PHX-091,4376,Consent required,Buyer,"₹239,000",2026-02-28
+LP-0092,Payments Monitoring Runtime,ObservaOne,PHX-092,2569,Yes,Buyer,"₹2,000",2026-07-28
+LP-0093,Marketing Batch Scheduler Runtime,DataCore,PHX-093,454,No,Seller,"₹49,000",2026-04-28
+LP-0094,Workplace Data Feed Runtime,ObservaOne,PHX-094,3404,Yes,Seller,"₹325,000",2026-07-28
+LP-0095,Workplace Interface Hub Runtime,SAPient,PHX-095,629,Yes,Shared,"₹365,000",2026-07-28
+LP-0096,HR Document Archive Subscription,SAPient,PHX-096,2807,No,Seller,"₹339,000",2026-10-28
+LP-0097,Finance Interface Hub Enterprise,WorkflowCo,PHX-097,496,Consent required,Shared,"₹393,000",2026-11-28
+LP-0098,Security Rules Engine 2 Subscription,ReportCo,PHX-098,803,Yes,Shared,"₹191,000",2026-12-28
+LP-0099,Finance Reconciliation Subscription,IntegrateX,PHX-099,410,No,Shared,"₹296,000",2026-05-28
+LP-0100,Workplace Workflow Tool Seats,WorkflowCo,PHX-100,4533,No,Shared,"₹184,000",2027-10-28
+LP-0101,Product Case Manager Enterprise,Internal,PHX-101,4280,No,Seller,"₹330,000",2026-12-28
+LP-0102,Risk Portal 2 Enterprise,ArchivePro,PHX-102,1042,Yes,Seller,"₹31,000",2027-04-28
+LP-0103,Payments Reporting Mart 2 Subscription,ObservaOne,PHX-103,3219,Yes,Seller,"₹40,000",2026-01-28
+LP-0104,Payments Data Feed 2 Subscription,ReportCo,PHX-104,1556,Yes,Seller,"₹267,000",2026-11-28
+LP-0105,Compliance Reconciliation Runtime,OracleWorks,PHX-105,2141,Yes,Shared,"₹12,000",2026-01-28
+LP-0106,Risk Admin Console 2 Runtime,Internal,PHX-106,163,Yes,Shared,"₹238,000",2026-01-28
+LP-0107,Marketing Monitoring 2 Runtime,RulesNet,PHX-107,2965,Yes,Seller,"₹211,000",2026-03-28
+LP-0108,HR Batch Scheduler Runtime,DataCore,PHX-108,3857,Yes,Buyer,"₹294,000",2027-05-28
+LP-0109,Fraud API Gateway 2 Runtime,DataCore,PHX-109,2255,Yes,Seller,"₹162,000",2027-01-28
+LP-0110,Fraud Data Feed Seats,ObservaOne,PHX-110,1455,Yes,Shared,"₹253,000",2026-05-28
+LP-0111,Data Notification Service Seats,DataCore,PHX-111,1303,Yes,Buyer,"₹225,000",2026-12-28
+LP-0112,Finance Interface Hub 2 Subscription,OracleWorks,PHX-112,488,No,Shared,"₹51,000",2026-01-28
+LP-0113,Compliance Case Manager 2 Enterprise,SAPient,PHX-113,4161,Yes,Seller,"₹359,000",2027-05-28
+LP-0114,Compliance Portal Runtime,OracleWorks,PHX-114,3298,No,Seller,"₹389,000",2026-08-28
+LP-0115,Treasury Portal Subscription,ArchivePro,PHX-115,176,Yes,Seller,"₹123,000",2026-01-28
+LP-0116,Finance Batch Scheduler Seats,WorkflowCo,PHX-116,2750,Consent required,Buyer,"₹27,000",2027-06-28
+LP-0117,HR Reconciliation Enterprise,ArchivePro,PHX-117,595,Yes,Seller,"₹277,000",2027-06-28
+LP-0118,Issuing Interface Hub Seats,ObservaOne,PHX-118,732,Yes,Buyer,"₹212,000",2026-07-28
+LP-0119,Marketing Reconciliation 2 Enterprise,SAPient,PHX-119,573,Yes,Seller,"₹295,000",2026-07-28
+LP-0120,Finance Workflow Tool Enterprise,CloudCRM,PHX-120,788,No,Shared,"₹66,000",2026-11-28
+LP-0121,Issuing Batch Scheduler Runtime,CloudCRM,PHX-121,4494,No,Seller,"₹16,000",2027-08-28
+LP-0122,HR API Gateway Runtime,DataCore,PHX-122,4185,Consent required,Seller,"₹78,000",2026-04-28
+LP-0123,Payments Analytics Dashboard 2 Enterprise,RulesNet,PHX-123,3053,Yes,Seller,"₹353,000",2027-02-28
+LP-0124,Payments Rules Engine Enterprise,DataCore,PHX-124,1701,,Seller,"₹200,000",2026-04-28
+LP-0125,HR Interface Hub Subscription,CloudCRM,PHX-125,2040,No,Seller,"₹244,000",2027-02-28
+LP-0126,Security Monitoring Seats,WorkflowCo,PHX-126,4085,Consent required,Buyer,"₹320,000",2026-11-28
+LP-0127,Data Document Archive Enterprise,WorkflowCo,PHX-127,1343,Yes,Shared,"₹95,000",2026-08-28
+LP-0128,Payments API Gateway Runtime,WorkflowCo,PHX-128,751,Yes,Seller,"₹278,000",2026-05-28
+LP-0129,Security Reporting Mart Subscription,DataCore,PHX-129,1949,Yes,Seller,"₹334,000",2027-06-28
+LP-0130,Fraud Workflow Tool Subscription,OracleWorks,PHX-130,2466,No,Seller,"₹117,000",2026-08-28
+LP-0131,Data Monitoring 3 Enterprise,CloudCRM,PHX-131,2028,Yes,Seller,"₹62,000",2026-06-28
+LP-0132,Security Workflow Tool Subscription,WorkflowCo,PHX-132,3098,Consent required,Seller,"₹281,000",2026-09-28
+LP-0133,Data Reconciliation Seats,SAPient,PHX-133,2967,Yes,Seller,"₹300,000",2026-11-28
+LP-0134,Servicing Data Feed 2 Subscription,OracleWorks,PHX-134,2293,No,Buyer,"₹131,000",2026-12-28
+LP-0135,Issuing Portal Seats,Internal,PHX-135,2551,Yes,Seller,"₹369,000",2026-10-28
+LP-0136,Servicing Admin Console 2 Subscription,SAPient,PHX-136,4474,Yes,Seller,"₹253,000",2026-01-28
+LP-0137,Risk Reconciliation Subscription,IntegrateX,PHX-137,2122,Yes,Buyer,"₹132,000",2027-10-28
+LP-0138,Fraud Admin Console Runtime,ArchivePro,PHX-138,1491,Consent required,Seller,"₹252,000",2026-05-28
+LP-0139,Fraud Reporting Mart Enterprise,ObservaOne,PHX-139,2421,Yes,Seller,"₹360,000",2026-07-28
+LP-0140,Issuing Rules Engine Enterprise,SAPient,PHX-140,3640,Consent required,Shared,"₹341,000",2027-08-28
+LP-0141,Fraud Rules Engine 2 Runtime,DataCore,PHX-141,1977,Consent required,Seller,"₹128,000",2026-05-28
+LP-0142,HR Batch Scheduler 2 Enterprise,SAPient,PHX-142,3161,Consent required,Seller,"₹146,000",2026-12-28
+LP-0143,Data Data Feed Subscription,DataCore,PHX-143,827,Yes,Seller,"₹62,000",2026-04-28
+LP-0144,Data Document Archive 2 Enterprise,ReportCo,PHX-144,3249,Consent required,Buyer,"₹270,000",2026-06-28
+LP-0145,Collections Case Manager 2 Seats,Internal,PHX-145,4096,Yes,Seller,"₹336,000",2027-09-28
+LP-0146,Payments Document Archive 2 Enterprise,Internal,PHX-146,941,Consent required,Seller,"₹70,000",2026-04-28
+LP-0147,Security Interface Hub 3 Enterprise,ObservaOne,PHX-147,94,Consent required,Seller,"₹162,000",2027-12-28
+LP-0148,Collections Notification Service 2 Subscription,WorkflowCo,PHX-148,3254,Yes,Seller,"₹117,000",2026-09-28
+LP-0149,Payments Monitoring 2 Seats,Internal,PHX-149,525,No,Seller,"₹71,000",2027-11-28
+LP-0150,Risk Admin Console 3 Subscription,ObservaOne,PHX-150,2605,No,Buyer,"₹120,000",2026-04-28
+LP-0151,Workplace Reporting Mart Seats,WorkflowCo,PHX-151,4060,Consent required,Shared,"₹345,000",2026-12-28
+LP-0152,Treasury Reporting Mart Seats,SAPient,PHX-152,2005,Yes,Shared,"₹222,000",2026-05-28
+LP-0153,Treasury Rules Engine Seats,ArchivePro,PHX-153,76,Consent required,Seller,"₹294,000",2026-06-28
+LP-0154,Compliance Admin Console 3 Runtime,Internal,PHX-154,469,Yes,Seller,"₹66,000",2027-01-28
+LP-0155,Workplace Notification Service Runtime,RulesNet,PHX-155,4575,No,Shared,"₹60,000",2026-12-28
+LP-0156,Product Notification Service Subscription,RulesNet,PHX-156,1343,No,Seller,"₹217,000",2026-02-28
+LP-0157,Workplace Monitoring Subscription,OracleWorks,PHX-157,1569,Consent required,Buyer,"₹109,000",2026-09-28
+LP-0158,Marketing Reporting Mart Runtime,CloudCRM,PHX-158,2479,Yes,Shared,"₹217,000",2027-04-28
+LP-0159,Product Interface Hub 2 Enterprise,ObservaOne,PHX-159,2435,Yes,Seller,"₹333,000",2026-08-28
+LP-0160,Payments Reporting Mart 3 Enterprise,Internal,PHX-160,2905,No,Seller,"₹50,000",2026-07-28
+LP-0161,Compliance Admin Console 4 Seats,ReportCo,PHX-161,882,No,Seller,"₹68,000",2026-02-28
+LP-0162,Data Admin Console 2 Runtime,CloudCRM,PHX-162,2376,No,Shared,"₹219,000",2026-11-28
+LP-0163,Servicing Admin Console 3 Subscription,Internal,PHX-163,3150,Yes,Seller,"₹19,000",2026-02-28
+LP-0164,Workplace Notification Service 2 Runtime,ObservaOne,PHX-164,2360,Yes,Buyer,"₹83,000",2026-05-28
+LP-0165,HR Case Manager 2 Runtime,RulesNet,PHX-165,1282,Consent required,Seller,"₹327,000",2026-08-28
+LP-0166,Payments Document Archive 3 Seats,ObservaOne,PHX-166,3400,Consent required,Shared,"₹138,000",2027-07-28
+LP-0167,Workplace Reconciliation Enterprise,OracleWorks,PHX-167,3077,Consent required,Buyer,"₹147,000",2026-08-28
+LP-0168,Servicing Interface Hub 2 Enterprise,CloudCRM,PHX-168,2129,Consent required,Seller,"₹221,000",2026-08-28
+LP-0169,Security Batch Scheduler 2 Enterprise,ObservaOne,PHX-169,3775,Consent required,Buyer,"₹132,000",2026-02-28
+LP-0170,Risk Admin Console 4 Seats,WorkflowCo,PHX-170,2022,Yes,Seller,"₹51,000",2026-03-28
+LP-0171,Data Monitoring 4 Enterprise,ArchivePro,PHX-171,3372,No,Buyer,"₹290,000",2026-04-28
+LP-0172,Compliance Reporting Mart Seats,WorkflowCo,PHX-172,2924,Yes,Shared,"₹54,000",2026-10-28
+LP-0173,Marketing Admin Console 2 Subscription,ObservaOne,PHX-173,2629,No,Buyer,"₹132,000",2026-10-28
+LP-0174,Finance Monitoring 2 Seats,WorkflowCo,PHX-174,954,Yes,Shared,"₹177,000",2026-01-28
+LP-0175,Payments Data Feed 3 Subscription,Internal,PHX-175,741,Consent required,Seller,"₹320,000",2026-12-28
+LP-0176,Treasury Reconciliation Seats,OracleWorks,PHX-176,567,No,Shared,"₹376,000",2026-09-28
+LP-0177,Risk API Gateway 2 Runtime,Internal,PHX-177,1071,No,Seller,"₹381,000",2027-04-28
+LP-0178,Marketing Interface Hub Seats,SAPient,PHX-178,4526,Yes,Seller,"₹380,000",2026-03-28
+LP-0179,Risk Workflow Tool Subscription,OracleWorks,PHX-179,1172,Yes,Buyer,"₹285,000",2027-01-28
+LP-0180,Collections Case Manager 3 Enterprise,CloudCRM,PHX-180,1569,No,Seller,"₹310,000",2027-02-28
+LP-0181,Data API Gateway Enterprise,ObservaOne,PHX-181,1048,No,Seller,"₹212,000",2027-03-28
+LP-0182,Risk Notification Service Subscription,Internal,PHX-182,249,No,Seller,"₹165,000",2026-08-28
+LP-0183,Data Monitoring 5 Enterprise,CloudCRM,PHX-183,1733,Yes,Buyer,"₹302,000",2026-09-28
+LP-0184,Marketing Interface Hub 2 Runtime,ReportCo,PHX-184,1177,Yes,Seller,"₹176,000",2026-09-28
+LP-0185,Marketing Notification Service Enterprise,RulesNet,PHX-185,4535,No,Buyer,"₹120,000",2026-05-28
+LP-0186,Collections Case Manager 4 Subscription,RulesNet,PHX-186,2781,,Seller,"₹77,000",2026-11-28
+LP-0187,Risk Interface Hub Seats,Internal,PHX-187,2750,Yes,Shared,"₹151,000",2026-02-28
+LP-0188,Collections Interface Hub Enterprise,ReportCo,PHX-188,1323,Yes,Shared,"₹279,000",2026-02-28
+LP-0189,Servicing Data Feed 3 Enterprise,ReportCo,PHX-189,4439,Yes,Shared,"₹79,000",2026-09-28
+LP-0190,Fraud Workflow Tool 2 Subscription,ObservaOne,PHX-190,2840,Yes,Buyer,"₹295,000",2027-05-28
+LP-0191,Treasury Reconciliation 2 Seats,OracleWorks,PHX-191,2890,No,Shared,"₹102,000",2026-04-28
+LP-0192,Issuing Data Feed Subscription,Internal,PHX-192,4220,Consent required,Seller,"₹323,000",2026-07-28
+LP-0193,Compliance Batch Scheduler Enterprise,Internal,PHX-193,143,Consent required,Seller,"₹398,000",2026-10-28
+LP-0194,Treasury Data Feed Runtime,WorkflowCo,PHX-194,276,No,Buyer,"₹255,000",2027-06-28
+LP-0195,Marketing Reporting Mart 2 Seats,WorkflowCo,PHX-195,564,Yes,Buyer,"₹181,000",2026-07-28
+LP-0196,Fraud API Gateway 3 Subscription,ArchivePro,PHX-196,955,Consent required,Seller,"₹315,000",2026-12-28
+LP-0197,HR Admin Console Runtime,Internal,PHX-197,1944,Yes,Seller,"₹296,000",2027-10-28
+LP-0198,Fraud Data Feed 2 Enterprise,WorkflowCo,PHX-198,752,Yes,Buyer,"₹78,000",2027-05-28
+LP-0199,Workplace Portal Seats,ObservaOne,PHX-199,569,Yes,Seller,"₹188,000",2026-08-28
+LP-0200,Compliance Notification Service 2 Seats,Internal,PHX-200,3632,Consent required,Seller,"₹236,000",2026-11-28
+LP-0201,Workplace Document Archive Enterprise,RulesNet,PHX-201,2578,No,Seller,"₹267,000",2026-09-28
+LP-0202,Payments Document Archive 4 Seats,WorkflowCo,PHX-202,1350,Yes,Seller,"₹317,000",2026-09-28
+LP-0203,Collections Reconciliation Runtime,WorkflowCo,PHX-203,722,No,Seller,"₹182,000",2027-08-28
+LP-0204,Finance Interface Hub 3 Runtime,SAPient,PHX-204,3581,Yes,Seller,"₹253,000",2026-09-28
+LP-0205,Finance Monitoring 3 Seats,Internal,PHX-205,2633,No,Buyer,"₹396,000",2027-10-28
+LP-0206,Marketing Document Archive Subscription,ObservaOne,PHX-206,3301,Yes,Shared,"₹183,000",2026-05-28
+LP-0207,Risk API Gateway 3 Seats,SAPient,PHX-207,1474,Consent required,Shared,"₹368,000",2026-12-28
+LP-0208,Issuing Rules Engine 2 Subscription,SAPient,PHX-208,2069,Yes,Seller,"₹40,000",2026-05-28
+LP-0209,Product Portal Enterprise,Internal,PHX-209,958,Yes,Seller,"₹267,000",2027-10-28
+LP-0210,Compliance Reconciliation 2 Enterprise,IntegrateX,PHX-210,1366,,Buyer,"₹91,000",2026-08-28
+LP-0211,Payments Data Feed 4 Enterprise,RulesNet,PHX-211,2870,Consent required,Seller,"₹230,000",2027-12-28
+LP-0212,Data Document Archive 3 Subscription,ArchivePro,PHX-212,1565,Consent required,Seller,"₹6,000",2026-01-28
+LP-0213,Payments Interface Hub 2 Subscription,ReportCo,PHX-213,2438,,Seller,"₹109,000",2027-11-28
+LP-0214,Security Reconciliation Enterprise,CloudCRM,PHX-214,2036,Yes,Seller,"₹262,000",2026-02-28
+LP-0215,Product Reconciliation Runtime,ReportCo,PHX-215,775,No,Seller,"₹198,000",2026-02-28
+LP-0216,Marketing Monitoring 3 Runtime,ArchivePro,PHX-216,4391,No,Seller,"₹26,000",2026-05-28
+LP-0217,Treasury Reporting Mart 2 Subscription,ReportCo,PHX-217,812,Consent required,Seller,"₹293,000",2027-08-28
+LP-0218,Data Admin Console 3 Subscription,ObservaOne,PHX-218,2128,Yes,Shared,"₹263,000",2026-03-28
+LP-0219,Compliance Rules Engine Seats,ObservaOne,PHX-219,514,Yes,Shared,"₹243,000",2026-09-28
+LP-0220,Collections Document Archive Seats,DataCore,PHX-220,1616,Yes,Buyer,"₹370,000",2026-03-28
+LP-0221,Finance Reconciliation 2 Runtime,ArchivePro,PHX-221,2471,No,Seller,"₹143,000",2026-02-28
+LP-0222,Product Monitoring Enterprise,ArchivePro,PHX-222,1550,Yes,Buyer,"₹279,000",2026-02-28
+LP-0223,Product Data Feed Enterprise,ReportCo,PHX-223,1371,Consent required,Buyer,"₹355,000",2027-03-28
+LP-0224,Marketing Batch Scheduler 2 Subscription,Internal,PHX-224,2630,Yes,Seller,"₹13,000",2026-10-28
+LP-0225,Risk Rules Engine 2 Enterprise,ArchivePro,PHX-225,2268,No,Shared,"₹367,000",2027-09-28
+LP-0226,Issuing Case Manager Seats,RulesNet,PHX-226,4430,,Shared,"₹377,000",2026-02-28
+LP-0227,Marketing Notification Service 2 Enterprise,CloudCRM,PHX-227,2598,No,Buyer,"₹214,000",2026-08-28
+LP-0228,Marketing Data Feed Enterprise,Internal,PHX-228,418,Consent required,Seller,"₹349,000",2026-01-28
+LP-0229,Product Data Feed 2 Runtime,ObservaOne,PHX-229,3858,Yes,Seller,"₹188,000",2027-05-28
+LP-0230,Risk Reconciliation 2 Runtime,Internal,PHX-230,2936,Yes,Seller,"₹33,000",2026-04-28
+LP-0231,Treasury Portal 2 Seats,WorkflowCo,PHX-231,2126,No,Shared,"₹56,000",2026-03-28
+LP-0232,Treasury Batch Scheduler Enterprise,ObservaOne,PHX-232,1946,No,Seller,"₹193,000",2026-04-28
+LP-0233,Marketing Data Feed 2 Enterprise,WorkflowCo,PHX-233,3604,,Shared,"₹192,000",2027-05-28
+LP-0234,Servicing Monitoring Runtime,ReportCo,PHX-234,2891,No,Buyer,"₹81,000",2027-03-28
+LP-0235,Fraud Admin Console 2 Enterprise,OracleWorks,PHX-235,2757,No,Shared,"₹23,000",2027-02-28
+LP-0236,Payments Notification Service 2 Runtime,DataCore,PHX-236,985,Yes,Shared,"₹399,000",2027-04-28
+LP-0237,Fraud Notification Service Seats,IntegrateX,PHX-237,4402,Yes,Seller,"₹384,000",2026-03-28
+LP-0238,Security Reporting Mart 2 Seats,CloudCRM,PHX-238,1263,Yes,Shared,"₹243,000",2027-03-28
+LP-0239,Finance Reconciliation 3 Enterprise,ArchivePro,PHX-239,1559,,Shared,"₹364,000",2026-01-28
+LP-0240,Finance Workflow Tool 2 Runtime,WorkflowCo,PHX-240,516,Yes,Shared,"₹145,000",2026-04-28
+LP-0241,Marketing Admin Console 3 Subscription,ArchivePro,PHX-241,3419,No,Seller,"₹16,000",2027-09-28
+LP-0242,Finance Analytics Dashboard Enterprise,ObservaOne,PHX-242,2601,No,Buyer,"₹176,000",2026-01-28
+LP-0243,Collections Notification Service 3 Subscription,RulesNet,PHX-243,488,No,Buyer,"₹148,000",2026-03-28
+LP-0244,Issuing Notification Service Seats,RulesNet,PHX-244,3882,Consent required,Seller,"₹51,000",2027-05-28
+LP-0245,Finance Rules Engine Runtime,CloudCRM,PHX-245,138,,Shared,"₹214,000",2026-02-28
+LP-0246,Finance Portal Runtime,Internal,PHX-246,542,Consent required,Seller,"₹50,000",2026-11-28
+LP-0247,Data Analytics Dashboard Runtime,ReportCo,PHX-247,1962,Yes,Shared,"₹106,000",2026-06-28
+LP-0248,Fraud Workflow Tool 3 Subscription,DataCore,PHX-248,2798,No,Shared,"₹121,000",2027-11-28
+LP-0249,Issuing Portal 2 Runtime,DataCore,PHX-249,2847,Yes,Seller,"₹272,000",2026-10-28
+LP-0250,Collections Admin Console Seats,RulesNet,PHX-250,1761,Consent required,Buyer,"₹238,000",2026-06-28
+LP-0251,Issuing Reconciliation Seats,CloudCRM,PHX-251,2762,Yes,Seller,"₹169,000",2026-11-28
+LP-0252,Servicing Rules Engine 2 Enterprise,ReportCo,PHX-252,2824,Yes,Seller,"₹192,000",2026-02-28
+LP-0253,Risk Reporting Mart Runtime,DataCore,PHX-253,4414,Consent required,Shared,"₹104,000",2026-03-28
+LP-0254,Workplace Analytics Dashboard 2 Enterprise,Internal,PHX-254,4034,No,Seller,"₹304,000",2026-07-28
+LP-0255,Product Reporting Mart Runtime,Internal,PHX-255,2521,,Seller,"₹260,000",2026-04-28
+LP-0256,Collections Reporting Mart Seats,RulesNet,PHX-256,2830,Consent required,Seller,"₹156,000",2026-10-28
+LP-0257,Marketing Reconciliation 3 Enterprise,Internal,PHX-257,4460,No,Buyer,"₹362,000",2026-05-28
+LP-0258,Security Reconciliation 2 Enterprise,IntegrateX,PHX-258,1752,No,Seller,"₹223,000",2026-10-28
+LP-0259,Fraud Document Archive 2 Runtime,Internal,PHX-259,3678,No,Seller,"₹6,000",2027-07-28
+LP-0260,Compliance Reconciliation 3 Seats,Internal,PHX-260,3626,Consent required,Seller,"₹181,000",2026-10-28
+LP-0261,Compliance Batch Scheduler 2 Runtime,ObservaOne,PHX-261,673,Consent required,Buyer,"₹125,000",2027-07-28
+LP-0262,Workplace Reconciliation 2 Runtime,CloudCRM,PHX-262,1490,Yes,Shared,"₹87,000",2026-01-28
+LP-0263,Payments Case Manager Seats,Internal,PHX-263,2376,Yes,Buyer,"₹118,000",2026-10-28
+LP-0264,Fraud Monitoring Seats,ArchivePro,PHX-264,3004,Consent required,Buyer,"₹114,000",2027-05-28
+LP-0265,Marketing Reporting Mart 3 Enterprise,DataCore,PHX-265,652,Yes,Seller,"₹24,000",2027-03-28
+LP-0266,Product Batch Scheduler Subscription,ObservaOne,PHX-266,3517,Yes,Seller,"₹399,000",2026-03-28
+LP-0267,Compliance Notification Service 3 Enterprise,SAPient,PHX-267,1539,Yes,Seller,"₹132,000",2026-05-28
+LP-0268,Payments Admin Console Enterprise,ReportCo,PHX-268,1097,No,Seller,"₹114,000",2026-12-28
+LP-0269,Servicing Batch Scheduler Seats,IntegrateX,PHX-269,4419,No,Buyer,"₹110,000",2027-01-28
+LP-0270,Issuing Admin Console Enterprise,ObservaOne,PHX-270,3629,Yes,Shared,"₹355,000",2027-11-28
+LP-0271,Servicing Notification Service Runtime,Internal,PHX-271,711,Yes,Seller,"₹161,000",2026-07-28
+LP-0272,Finance Document Archive Enterprise,Internal,PHX-272,4389,Yes,Buyer,"₹247,000",2027-03-28
+LP-0273,Product Interface Hub 3 Runtime,WorkflowCo,PHX-273,2923,,Shared,"₹313,000",2027-08-28
+LP-0274,Issuing Case Manager 2 Subscription,Internal,PHX-274,1173,No,Buyer,"₹247,000",2027-06-28
+LP-0275,HR Portal Enterprise,Internal,PHX-275,3233,Yes,Shared,"₹241,000",2026-12-28
+LP-0276,Product Data Feed 3 Runtime,DataCore,PHX-276,937,Yes,Seller,"₹60,000",2026-06-28
+LP-0277,Risk Monitoring Seats,CloudCRM,PHX-277,2817,Yes,Buyer,"₹375,000",2026-04-28
+LP-0278,Security Monitoring 2 Seats,Internal,PHX-278,4334,Yes,Seller,"₹334,000",2027-12-28
+LP-0279,Workplace Admin Console Enterprise,ObservaOne,PHX-279,3823,Yes,Seller,"₹204,000",2026-04-28
+LP-0280,Marketing Data Feed 3 Runtime,IntegrateX,PHX-280,408,Yes,Buyer,"₹54,000",2026-06-28
+LP-0281,Data Monitoring 6 Runtime,OracleWorks,PHX-281,4316,Yes,Buyer,"₹207,000",2026-05-28
+LP-0282,Servicing Workflow Tool 2 Seats,ArchivePro,PHX-282,2419,Yes,Shared,"₹86,000",2027-05-28
+LP-0283,Risk Interface Hub 2 Enterprise,CloudCRM,PHX-283,1807,Consent required,Seller,"₹52,000",2026-07-28
+LP-0284,Marketing Workflow Tool 2 Subscription,SAPient,PHX-284,1964,Consent required,Buyer,"₹245,000",2026-05-28
+LP-0285,Product Batch Scheduler 2 Seats,DataCore,PHX-285,2200,Consent required,Shared,"₹147,000",2026-06-28
+LP-0286,Servicing Reconciliation 2 Runtime,IntegrateX,PHX-286,4547,Yes,Buyer,"₹164,000",2027-06-28
+LP-0287,Product Rules Engine 2 Seats,SAPient,PHX-287,1427,No,Seller,"₹176,000",2026-03-28
+LP-0288,Issuing Portal 3 Subscription,Internal,PHX-288,1716,Yes,Shared,"₹158,000",2026-10-28
+LP-0289,HR Batch Scheduler 3 Seats,WorkflowCo,PHX-289,465,Consent required,Seller,"₹134,000",2027-08-28
+LP-0290,Product Case Manager 2 Subscription,Internal,PHX-290,3989,Yes,Seller,"₹282,000",2026-11-28
+LP-0291,Marketing Data Feed 4 Subscription,WorkflowCo,PHX-291,933,Consent required,Seller,"₹160,000",2027-02-28
+LP-0292,Servicing Document Archive 3 Runtime,RulesNet,PHX-292,4474,Yes,Seller,"₹196,000",2027-03-28
+LP-0293,Finance Interface Hub 4 Subscription,RulesNet,PHX-293,1346,Yes,Seller,"₹383,000",2027-07-28
+LP-0294,Risk Reconciliation 3 Seats,CloudCRM,PHX-294,2271,Consent required,Shared,"₹276,000",2026-09-28
+LP-0295,Risk Batch Scheduler Enterprise,SAPient,PHX-295,1538,Yes,Buyer,"₹266,000",2026-02-28
+LP-0296,Compliance API Gateway 2 Subscription,IntegrateX,PHX-296,4347,Consent required,Seller,"₹306,000",2027-03-28
+LP-0297,Payments Analytics Dashboard 3 Enterprise,WorkflowCo,PHX-297,4479,No,Seller,"₹155,000",2026-10-28
+LP-0298,Risk Monitoring 2 Runtime,RulesNet,PHX-298,968,No,Seller,"₹146,000",2026-05-28
+LP-0299,Marketing Batch Scheduler 3 Seats,ObservaOne,PHX-299,3162,Yes,Seller,"₹360,000",2026-01-28
+LP-0300,Treasury Analytics Dashboard Seats,Internal,PHX-300,595,Consent required,Seller,"₹349,000",2027-06-28
+LP-0301,Treasury Portal 3 Seats,SAPient,PHX-301,1633,Consent required,Seller,"₹153,000",2026-05-28
+LP-0302,Finance Interface Hub 5 Seats,RulesNet,PHX-302,4577,Consent required,Seller,"₹365,000",2026-05-28
+LP-0303,Product Batch Scheduler 3 Seats,ArchivePro,PHX-303,3710,Yes,Seller,"₹85,000",2027-07-28
+LP-0304,Risk Document Archive 2 Seats,ReportCo,PHX-304,2228,Yes,Shared,"₹216,000",2027-05-28
+LP-0305,Product API Gateway 2 Runtime,SAPient,PHX-305,3168,Yes,Seller,"₹56,000",2027-08-28
+LP-0306,Collections Reporting Mart 2 Enterprise,ObservaOne,PHX-306,1675,No,Buyer,"₹354,000",2026-03-28
+LP-0307,Treasury Rules Engine 2 Runtime,WorkflowCo,PHX-307,2013,No,Seller,"₹320,000",2027-01-28
+LP-0308,Finance Data Feed Subscription,ReportCo,PHX-308,2860,No,Buyer,"₹114,000",2026-04-28
+LP-0309,Product Data Feed 4 Enterprise,IntegrateX,PHX-309,1552,Yes,Buyer,"₹114,000",2027-01-28
+LP-0310,Payments Analytics Dashboard 4 Seats,ReportCo,PHX-310,2869,Yes,Seller,"₹125,000",2027-01-28
+LP-0311,Security Portal Subscription,Internal,PHX-311,665,Consent required,Seller,"₹376,000",2026-09-28
+LP-0312,Product Interface Hub 4 Subscription,ObservaOne,PHX-312,4049,Consent required,Seller,"₹135,000",2026-01-28
+LP-0313,Risk Admin Console 5 Runtime,SAPient,PHX-313,3823,Yes,Seller,"₹26,000",2027-10-28
+LP-0314,HR Reconciliation 2 Subscription,ArchivePro,PHX-314,817,Yes,Buyer,"₹378,000",2026-11-28
+LP-0315,Security Document Archive Runtime,IntegrateX,PHX-315,2908,Yes,Buyer,"₹334,000",2026-06-28
+LP-0316,Servicing Interface Hub 3 Enterprise,WorkflowCo,PHX-316,3548,Consent required,Seller,"₹37,000",2026-03-28
+LP-0317,Security Batch Scheduler 3 Seats,Internal,PHX-317,3200,Yes,Seller,"₹53,000",2027-07-28
+LP-0318,HR Case Manager 3 Enterprise,ArchivePro,PHX-318,77,Consent required,Seller,"₹66,000",2026-07-28
+LP-0319,Payments Reconciliation Enterprise,SAPient,PHX-319,761,Yes,Buyer,"₹91,000",2027-12-28
+LP-0320,Product Batch Scheduler 4 Runtime,Internal,PHX-320,3786,Yes,Seller,"₹89,000",2026-10-28
+LP-0321,Data Notification Service 2 Subscription,CloudCRM,PHX-321,524,No,Shared,"₹388,000",2027-05-28
+LP-0322,HR Rules Engine Subscription,Internal,PHX-322,4490,Consent required,Shared,"₹131,000",2026-12-28
+LP-0323,Payments Document Archive 5 Runtime,ObservaOne,PHX-323,402,Consent required,Buyer,"₹398,000",2026-03-28
+LP-0324,Collections Interface Hub 2 Subscription,SAPient,PHX-324,4272,No,Shared,"₹223,000",2026-05-28
+LP-0325,Servicing Data Feed 4 Runtime,ObservaOne,PHX-325,2028,Yes,Buyer,"₹297,000",2027-08-28
+LP-0326,Treasury Case Manager Subscription,IntegrateX,PHX-326,3164,Yes,Shared,"₹272,000",2027-07-28
+LP-0327,Issuing Case Manager 3 Enterprise,IntegrateX,PHX-327,2794,No,Seller,"₹92,000",2026-08-28
+LP-0328,Fraud API Gateway 4 Enterprise,ObservaOne,PHX-328,3309,Yes,Buyer,"₹173,000",2026-11-28
+LP-0329,Data Workflow Tool Enterprise,DataCore,PHX-329,1435,Yes,Buyer,"₹345,000",2026-01-28
+LP-0330,Data Reconciliation 2 Subscription,Internal,PHX-330,4279,Yes,Seller,"₹227,000",2026-04-28
+LP-0331,Marketing Interface Hub 3 Seats,SAPient,PHX-331,4270,Yes,Seller,"₹152,000",2026-03-28
+LP-0332,Collections Monitoring Enterprise,DataCore,PHX-332,3896,Consent required,Seller,"₹312,000",2026-07-28
+LP-0333,Payments Admin Console 2 Enterprise,OracleWorks,PHX-333,337,No,Shared,"₹43,000",2026-07-28
+LP-0334,Risk Workflow Tool 2 Enterprise,ObservaOne,PHX-334,4366,No,Seller,"₹158,000",2026-12-28
+LP-0335,Compliance Rules Engine 2 Subscription,RulesNet,PHX-335,3100,No,Shared,"₹102,000",2026-08-28
+LP-0336,Product Interface Hub 5 Seats,RulesNet,PHX-336,1002,,Seller,"₹316,000",2026-09-28
+LP-0337,Issuing Admin Console 2 Enterprise,SAPient,PHX-337,4423,No,Buyer,"₹356,000",2026-10-28
+LP-0338,Security Data Feed Runtime,WorkflowCo,PHX-338,3984,Yes,Seller,"₹362,000",2026-09-28
+LP-0339,Collections Reporting Mart 3 Enterprise,OracleWorks,PHX-339,1824,No,Seller,"₹28,000",2026-12-28
+LP-0340,Marketing Workflow Tool 3 Seats,IntegrateX,PHX-340,3088,Yes,Shared,"₹55,000",2027-08-28
+LP-0341,Marketing Workflow Tool 4 Seats,OracleWorks,PHX-341,1141,Yes,Shared,"₹316,000",2026-01-28
+LP-0342,Fraud Reporting Mart 2 Runtime,CloudCRM,PHX-342,2234,Consent required,Buyer,"₹197,000",2027-03-28
+LP-0343,Workplace Document Archive 2 Runtime,IntegrateX,PHX-343,3647,Yes,Buyer,"₹53,000",2026-08-28
+LP-0344,Workplace Monitoring 2 Subscription,DataCore,PHX-344,4352,Consent required,Shared,"₹212,000",2026-04-28
+LP-0345,Risk API Gateway 4 Seats,SAPient,PHX-345,2356,Yes,Seller,"₹211,000",2026-02-28
+LP-0346,HR Reconciliation 3 Runtime,Internal,PHX-346,844,,Shared,"₹314,000",2027-07-28
+LP-0347,Fraud Portal Runtime,Internal,PHX-347,3675,,Seller,"₹15,000",2026-04-28
+LP-0348,Issuing Notification Service 2 Enterprise,DataCore,PHX-348,2500,Consent required,Seller,"₹340,000",2027-04-28
+LP-0349,Servicing Monitoring 2 Runtime,ArchivePro,PHX-349,369,No,Shared,"₹155,000",2027-10-28
+LP-0350,Payments Portal Runtime,ArchivePro,PHX-350,2250,Yes,Shared,"₹353,000",2027-12-28
+LP-0351,Security Batch Scheduler 4 Subscription,Internal,PHX-351,3838,Consent required,Seller,"₹181,000",2026-07-28
+LP-0352,Servicing Reconciliation 3 Runtime,RulesNet,PHX-352,1404,Yes,Buyer,"₹281,000",2026-02-28
+LP-0353,Finance Analytics Dashboard 2 Runtime,IntegrateX,PHX-353,538,Consent required,Seller,"₹133,000",2026-08-28
+LP-0354,Data Data Feed 2 Enterprise,SAPient,PHX-354,2271,No,Buyer,"₹340,000",2026-04-28
+LP-0355,Payments Portal 2 Subscription,ObservaOne,PHX-355,549,No,Buyer,"₹98,000",2026-01-28
+LP-0356,Servicing Interface Hub 4 Runtime,RulesNet,PHX-356,1528,Consent required,Seller,"₹398,000",2026-08-28
+LP-0357,Data Data Feed 3 Seats,RulesNet,PHX-357,4365,No,Seller,"₹206,000",2026-10-28
+LP-0358,Security Notification Service Enterprise,RulesNet,PHX-358,75,Consent required,Buyer,"₹41,000",2027-06-28
+LP-0359,Security Reporting Mart 3 Seats,ReportCo,PHX-359,1132,Consent required,Buyer,"₹290,000",2026-07-28
+LP-0360,Data Workflow Tool 2 Seats,ReportCo,PHX-360,1679,Yes,Seller,"₹243,000",2027-09-28
+LP-0361,HR Batch Scheduler 4 Seats,ReportCo,PHX-361,2056,Yes,Shared,"₹16,000",2026-06-28
+LP-0362,Product Data Feed 5 Subscription,ReportCo,PHX-362,3052,Consent required,Shared,"₹55,000",2026-04-28
+LP-0363,Security Data Feed 2 Runtime,SAPient,PHX-363,934,Consent required,Buyer,"₹261,000",2026-05-28
+LP-0364,Finance Reconciliation 4 Seats,WorkflowCo,PHX-364,3594,Yes,Seller,"₹367,000",2027-09-28
+LP-0365,Compliance Portal 2 Seats,CloudCRM,PHX-365,909,Yes,Buyer,"₹328,000",2027-10-28
+LP-0366,Marketing Interface Hub 4 Seats,DataCore,PHX-366,2634,Consent required,Shared,"₹137,000",2027-10-28
+LP-0367,Servicing Monitoring 3 Enterprise,DataCore,PHX-367,184,No,Seller,"₹35,000",2026-07-28
+LP-0368,Collections Batch Scheduler Subscription,RulesNet,PHX-368,3645,No,Shared,"₹7,000",2026-01-28
+LP-0369,Data Monitoring 7 Seats,DataCore,PHX-369,2373,Consent required,Seller,"₹307,000",2027-01-28
+LP-0370,Marketing Notification Service 3 Seats,IntegrateX,PHX-370,2086,Consent required,Seller,"₹31,000",2026-11-28
+LP-0371,Finance Interface Hub 6 Seats,CloudCRM,PHX-371,2814,Yes,Seller,"₹290,000",2026-06-28
+LP-0372,Issuing Analytics Dashboard Runtime,SAPient,PHX-372,2939,Yes,Shared,"₹322,000",2027-03-28
+LP-0373,Risk Monitoring 3 Subscription,Internal,PHX-373,1451,Consent required,Shared,"₹109,000",2026-06-28
+LP-0374,Finance Workflow Tool 3 Subscription,ReportCo,PHX-374,4113,No,Shared,"₹368,000",2026-01-28
+LP-0375,Workplace Portal 2 Seats,DataCore,PHX-375,2563,No,Buyer,"₹213,000",2026-07-28
+LP-0376,Product Portal 2 Enterprise,Internal,PHX-376,2120,Yes,Seller,"₹117,000",2026-03-28
+LP-0377,Payments Admin Console 3 Enterprise,ReportCo,PHX-377,1418,No,Shared,"₹393,000",2027-05-28
+LP-0378,HR Portal 2 Runtime,DataCore,PHX-378,2737,No,Seller,"₹363,000",2027-08-28
+LP-0379,HR Data Feed 2 Enterprise,IntegrateX,PHX-379,409,No,Shared,"₹175,000",2026-03-28
+LP-0380,Finance Reconciliation 5 Runtime,IntegrateX,PHX-380,538,Yes,Shared,"₹180,000",2027-03-28
+LP-0381,Finance Interface Hub 7 Enterprise,Internal,PHX-381,2205,Consent required,Shared,"₹379,000",2027-03-28
+LP-0382,Issuing Admin Console 3 Seats,CloudCRM,PHX-382,4286,Consent required,Shared,"₹154,000",2027-06-28
+LP-0383,Collections API Gateway Runtime,IntegrateX,PHX-383,3894,No,Seller,"₹351,000",2027-09-28
+LP-0384,Fraud Analytics Dashboard Subscription,CloudCRM,PHX-384,3810,Yes,Buyer,"₹43,000",2026-11-28
+LP-0385,Treasury Reporting Mart 3 Enterprise,Internal,PHX-385,2038,Consent required,Seller,"₹142,000",2026-01-28
+LP-0386,Fraud Admin Console 3 Runtime,WorkflowCo,PHX-386,2520,Yes,Seller,"₹58,000",2026-11-28
+LP-0387,Workplace Data Feed 2 Subscription,ArchivePro,PHX-387,1280,Yes,Seller,"₹356,000",2027-02-28
+LP-0388,Compliance Notification Service 4 Subscription,ReportCo,PHX-388,611,Consent required,Seller,"₹281,000",2026-01-28
+LP-0389,Security Portal 2 Seats,RulesNet,PHX-389,412,No,Buyer,"₹100,000",2027-08-28
+LP-0390,Marketing Analytics Dashboard Enterprise,Internal,PHX-390,3777,No,Seller,"₹257,000",2026-02-28
+LP-0391,Treasury Data Feed 2 Seats,CloudCRM,PHX-391,4578,Consent required,Seller,"₹132,000",2026-02-28
+LP-0392,Payments Portal 3 Enterprise,Internal,PHX-392,4348,Consent required,Shared,"₹229,000",2026-11-28
+LP-0393,Security Interface Hub 4 Subscription,IntegrateX,PHX-393,347,No,Seller,"₹154,000",2027-10-28
+LP-0394,Finance Batch Scheduler 2 Runtime,IntegrateX,PHX-394,6,Yes,Seller,"₹340,000",2026-05-28
+LP-0395,Compliance Interface Hub 2 Runtime,IntegrateX,PHX-395,524,Yes,Seller,"₹174,000",2026-03-28
+LP-0396,Collections API Gateway 2 Enterprise,ArchivePro,PHX-396,51,,Seller,"₹5,000",2027-08-28
+LP-0397,Servicing Admin Console 4 Enterprise,Internal,PHX-397,2677,Yes,Seller,"₹192,000",2026-11-28
+LP-0398,Issuing Interface Hub 2 Runtime,WorkflowCo,PHX-398,3808,Yes,Shared,"₹21,000",2027-12-28
+LP-0399,Collections Reconciliation 2 Seats,Internal,PHX-399,2051,Consent required,Seller,"₹319,000",2026-06-28
+LP-0400,Product Workflow Tool 2 Enterprise,DataCore,PHX-400,2732,No,Buyer,"₹36,000",2026-06-28
+LP-0401,Issuing Workflow Tool 2 Seats,WorkflowCo,PHX-401,2655,Consent required,Seller,"₹227,000",2027-11-28
+LP-0402,Fraud Notification Service 2 Subscription,Internal,PHX-402,1334,Consent required,Seller,"₹92,000",2026-05-28
+LP-0403,HR Notification Service Subscription,OracleWorks,PHX-403,1777,No,Shared,"₹21,000",2026-02-28
+LP-0404,Payments API Gateway 2 Runtime,ReportCo,PHX-404,4572,Yes,Seller,"₹108,000",2026-06-28
+LP-0405,Treasury Batch Scheduler 2 Runtime,Internal,PHX-405,2593,Consent required,Seller,"₹311,000",2026-12-28
+LP-0406,Issuing Reporting Mart Subscription,ArchivePro,PHX-406,561,Yes,Seller,"₹299,000",2026-02-28
+LP-0407,HR Reporting Mart Enterprise,IntegrateX,PHX-407,1309,Yes,Shared,"₹124,000",2027-08-28
+LP-0408,HR Rules Engine 2 Enterprise,CloudCRM,PHX-408,4299,Yes,Buyer,"₹137,000",2027-08-28
+LP-0409,Payments Case Manager 2 Subscription,WorkflowCo,PHX-409,2274,Yes,Seller,"₹62,000",2026-06-28
+LP-0410,Security Analytics Dashboard Enterprise,DataCore,PHX-410,2146,No,Seller,"₹263,000",2026-04-28
+LP-0411,Data Case Manager Subscription,SAPient,PHX-411,1113,Yes,Shared,"₹68,000",2026-10-28
+LP-0412,HR Interface Hub 2 Runtime,Internal,PHX-412,28,No,Shared,"₹372,000",2026-02-28
+LP-0413,Collections Document Archive 2 Seats,WorkflowCo,PHX-413,2863,Yes,Shared,"₹64,000",2026-09-28
+LP-0414,Payments Analytics Dashboard 5 Enterprise,Internal,PHX-414,4453,No,Shared,"₹198,000",2027-05-28
+LP-0415,Fraud Batch Scheduler Enterprise,ReportCo,PHX-415,55,No,Seller,"₹276,000",2027-12-28

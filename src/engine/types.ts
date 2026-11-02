@@ -92,6 +92,8 @@ export interface DecisionState {
   chosen?: string;
 }
 
+export type PatchOp = { path: (string | number)[]; op: 'set' | 'insert' | 'remove'; before?: any; after?: any; index?: number };
+
 export interface AuditEvent {
   id: string;
   ts: string;
@@ -99,6 +101,12 @@ export interface AuditEvent {
   action: string;
   detail: string;
   kind: 'approve' | 'override' | 'ai' | 'data' | 'system' | 'access' | 'escalate';
+  /** Screen where the decision was taken (for module decision logs). */
+  module?: string;
+  /** Inverse-able change set; present when the action can be undone. */
+  patch?: PatchOp[];
+  undone?: boolean;
+  undoOf?: string;
 }
 
 export interface ChatMessage {
@@ -144,9 +152,34 @@ export interface Config {
   bridgeRate: number; leaseRate: number; escrowFeePct: number;
 }
 
+export interface FundingFlow {
+  costId: string;
+  step1?: { text: string; source: string };
+  step2?: { text: string; source: string };
+  /** Set when the bank funding plan is agreed (bank loan + escrow). */
+  path?: 'underwriting';
+  decidedBy?: string;
+  a1?: { pack: string; source: string; approved: boolean };
+  a2?: { fields: Record<string, boolean>; consented: boolean; independence: boolean };
+  a3?: { questions: { q: string; answer?: string; sent?: boolean }[]; decision?: 'approved' | 'approved_with_conditions' | 'declined'; conditions?: string };
+  a4?: { released: boolean[]; updates: string[] };
+  settle?: { sellerPct: number; method: 'spa' | 'negotiated'; quote?: string; summary?: string; source?: string; settled: boolean };
+  learn?: { lesson: string; source: string; saved: boolean };
+}
+
+export interface DealInfo {
+  id: string; name: string; buyer: string; seller: string; dealType: string; industry: string;
+  asOf: string; day1: string; sites: string[];
+  /** 'day1' = Day-1 readiness deal (Rioja); 'tsa_exit' = post-close TSA exit deal (Phoenix). */
+  mode: 'day1' | 'tsa_exit';
+  milestoneLabel: string;
+  closeDate?: string;
+  scope?: string;
+}
+
 export interface WorkspaceState {
   version: number;
-  deal: { name: string; buyer: string; seller: string; dealType: string; industry: string; asOf: string; day1: string; sites: string[] };
+  deal: DealInfo;
   datasets: Partial<Record<DatasetKey, DatasetState>>;
   issues: Issue[];
   ownerQueue: OwnerItem[];
@@ -156,7 +189,7 @@ export interface WorkspaceState {
   waveOverrides: Record<string, number>;
   waveReleased: Record<string, boolean>;
   waveChecklist: Record<string, boolean[]>;
-  funding: { packages: FundingPackage[]; spaReading?: { lines: Record<string, { answer: string; quote: string; confirmed: boolean }>; source: string } };
+  funding: { packages: FundingPackage[]; flows?: Record<string, FundingFlow>; spaReading?: { lines: Record<string, { answer: string; quote: string; confirmed: boolean }>; source: string } };
   learning: LearningDraft[];
   chat: ChatMessage[];
   consents: Record<string, 'Granted' | 'Pending' | 'Not granted'>;

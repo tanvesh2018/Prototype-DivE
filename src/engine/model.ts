@@ -5,6 +5,7 @@
  */
 import { COMPONENT_KEYWORDS, WORKSTREAMS, type Bucket, type Component } from './glossary';
 import { hygieneScore } from './quality';
+import { standardFor } from './standards';
 import type { LinkType, Ownership, WorkspaceState } from './types';
 import { addDays, clamp, daysBetween, parseNumber, round, yes, type Row } from './util';
 
@@ -47,6 +48,9 @@ export function tagComponent(name: string, description: string): Component {
   }
   return 'Applications';
 }
+
+/** Apps whose data lives in the finance master data (their hygiene uses that file). */
+export const isFinanceCore = (a: { id: string; name: string }) => a.id === 'APP-004' || /\b(erp|general ledger)\b/i.test(a.name);
 
 export function entToD(e: number) { return e <= 2 ? 1 : e <= 5 ? 2 : e <= 8 ? 3 : e <= 12 ? 4 : 5; }
 export const entBand = (e: number) => (e <= 3 ? 'Low' : e <= 8 ? 'Medium' : 'High') as 'Low' | 'Medium' | 'High';
@@ -216,7 +220,7 @@ export function buildModel(s: WorkspaceState) {
     else if (has((a) => a.bucket === 'Commercial agreement / TSA' && a.entanglement >= 9)) { ruleWave = 2; waveReason = 'Most tangled with the seller — currently on TSA'; }
     else if (has((a) => a.component === 'Revenue systems') && !has((a) => a.criticalTool)) { ruleWave = 3; waveReason = 'Revenue systems'; }
     else if (!has((a) => a.day1Critical)) { ruleWave = 3; waveReason = 'Not Day-1 critical — later wave'; }
-    const usesErp = has((a) => a.id === 'APP-004');
+    const usesErp = has((a) => isFinanceCore(a));
     const hygiene = usesErp && erpHyg !== null ? Math.min(appsHyg, erpHyg) : appsHyg;
     return { id, apps: g, ruleWave, wave: s.waveOverrides[id] ?? ruleWave, waveReason, hygiene, hygieneSource: usesErp ? 'Finance ERP master data' : 'Applications file' };
   });
@@ -238,18 +242,21 @@ export function buildModel(s: WorkspaceState) {
   // --- tests & readiness ---
   const tests = (s.datasets.tests?.rows ?? []) as Row[];
   const rw = cfg.readinessWeights;
-  const items: ReadinessItem[] = classified.filter((a) => a.day1Critical).map((a) => {
+  const allItems: ReadinessItem[] = classified.filter((a) => a.day1Critical).map((a) => {
     const t = tasks.filter((x) => x.linked_item === a.id);
     const te = tests.filter((x) => x.app_id === a.id);
     const tasksDone = t.filter(isDone).length;
     const testsPassed = te.filter((x) => /pass/i.test(x.result ?? '')).length;
-    const hygiene = a.id === 'APP-004' && erpHyg !== null ? erpHyg : appsHyg;
+    const hygiene = isFinanceCore(a) && erpHyg !== null ? erpHyg : appsHyg;
     const taskPct = t.length ? (100 * tasksDone) / t.length : 0;
     const testPct = te.length ? (100 * testsPassed) / te.length : 0;
     const readiness = round(rw.tasks * taskPct + rw.tests * testPct + rw.hygiene * hygiene, 1);
     const blockers = t.filter((x) => x.status === 'Blocked');
     return { app: a, tasksTotal: t.length, tasksDone, testsTotal: te.length, testsPassed, hygiene, readiness, blocked: blockers.length > 0, blockers, critical: a.flagged };
   });
+  // Items with no linked tasks AND no tests have no evidence yet: they are listed for planning, not scored.
+  const items = allItems.filter((i) => i.tasksTotal + i.testsTotal > 0);
+  const noEvidence = allItems.filter((i) => i.tasksTotal + i.testsTotal === 0).map((i) => i.app);
   const compNames = [...new Set(items.map((i) => i.app.component))];
   const components = compNames.map((c) => {
     const its = items.filter((i) => i.app.component === c);
@@ -305,7 +312,7 @@ export function buildModel(s: WorkspaceState) {
   const tsaMonthly = tsa.reduce((x, t) => x + t.fee, 0);
   const burndown = (() => {
     if (!tsa.length) return [];
-    const start = s.deal.day1;
+    const start = s.deal.mode === 'tsa_exit' ? asOf : s.deal.day1;
     const pts: { date: string; plan: number; projected: number }[] = [];
     for (let i = 0; i <= 10; i++) {
       const d = addDays(start, i * 14);
@@ -390,7 +397,7 @@ export function buildModel(s: WorkspaceState) {
 
   return {
     asOf, daysToDay1, apps: classified, byId, nodes, links, activeLinks, moveGroups, tasks, totalTasks, doneTasks, wsProgress, warnings,
-    tests, testsPassed, items, components, underlying, score, capped, signal, criticalBlocked,
+    tests, testsPassed, items, noEvidence, components, underlying, score, capped, signal, criticalBlocked,
     sepLines, sepTotal, sellerTotal, buyerTotal: sepTotal - sellerTotal, disputed, disputedAmount, disputedSeller, runCost,
     tsa, tsaMonthly, burndown, products, blockedRevenue, decisions, fin, datasetsHygiene, avgHygiene, appsHyg, erpHyg,
     learning, bench, matches, prospects, openOwner, overdueOwner,
@@ -399,15 +406,42 @@ export function buildModel(s: WorkspaceState) {
 
 export type Model = ReturnType<typeof buildModel>;
 
+/**
+ * Suggested Day-1 (or TSA-exit) date, based on industry & case standards:
+ *   finish date   = as-of + open tasks ÷ the team's recent weekly completion pace
+ *   + readiness gap = ½ day for every point the score is below GO
+ *   + industry buffer (rehearsal / hypercare / regulator window)
+ *   and never earlier than open third-party consents allow.
+ */
+export function suggestMilestone(s: WorkspaceState, m: Model) {
+  const std = standardFor(s.deal.industry);
+  const asOf = s.deal.asOf;
+  const done = m.tasks.filter((t) => /^done/i.test(t.status ?? ''));
+  const recent = done.filter((t) => t.due_date && t.due_date <= asOf && t.due_date > addDays(asOf, -28)).length;
+  const pacePerWeek = Math.max(3, Math.round(recent / 4));
+  const open = m.totalTasks - m.doneTasks;
+  const workDays = Math.ceil((open / pacePerWeek) * 7);
+  const gapDays = Math.max(0, Math.ceil((s.config.goThreshold - m.underlying) * 0.5));
+  const blockedConsent = m.items.some((i) => i.blocked && /consent|licen/i.test(i.blockers.map((b) => b.title).join(' ')));
+  const consentFloor = blockedConsent ? Math.ceil(std.consentLeadDays / 5) : 0; // remaining consent wait once escalated (~1/5 of lead time)
+  const total = Math.max(workDays, consentFloor) + gapDays + std.bufferDays;
+  const suggested = addDays(asOf, total);
+  const delta = daysBetween(s.deal.day1, suggested);
+  const daysAvail = Math.max(1, daysBetween(asOf, s.deal.day1) - std.bufferDays);
+  const neededPace = Math.ceil((open / daysAvail) * 7);
+  return { suggested, delta, pacePerWeek, open, workDays, gapDays, bufferDays: std.bufferDays, consentFloor, std, neededPace, total };
+}
+
 /** What-if: recompute readiness with hypothetical task/test completions — never changes data. */
 export function simulateReadiness(s: WorkspaceState, opts: { unblock?: string[]; completeTasksFor?: string[]; passTestsFor?: string[] }) {
-  const clone: WorkspaceState = structuredClone(s);
-  const tasks = clone.datasets.tasks?.rows ?? [];
-  tasks.forEach((t) => {
-    if (opts.unblock?.includes(t.linked_item) && t.status === 'Blocked') t.status = 'Done';
-    if (opts.completeTasksFor?.includes(t.linked_item)) t.status = 'Done';
+  // Only tasks and tests change in a what-if, so copy just those rows (fast even for 46,000-record deals).
+  const tasks = (s.datasets.tasks?.rows ?? []).map((t) => {
+    if (opts.unblock?.includes(t.linked_item) && t.status === 'Blocked') return { ...t, status: 'Done' };
+    if (opts.completeTasksFor?.includes(t.linked_item)) return { ...t, status: 'Done' };
+    return t;
   });
-  (clone.datasets.tests?.rows ?? []).forEach((t) => { if (opts.passTestsFor?.includes(t.app_id)) t.result = 'Passed'; });
+  const tests = (s.datasets.tests?.rows ?? []).map((t) => (opts.passTestsFor?.includes(t.app_id) ? { ...t, result: 'Passed' } : t));
+  const clone: WorkspaceState = { ...s, datasets: { ...s.datasets, ...(s.datasets.tasks ? { tasks: { ...s.datasets.tasks, rows: tasks } } : {}), ...(s.datasets.tests ? { tests: { ...s.datasets.tests, rows: tests } } : {}) } };
   const m = buildModel(clone);
   return { score: m.score, underlying: m.underlying, signal: m.signal, capped: m.capped };
 }

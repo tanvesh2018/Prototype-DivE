@@ -25,6 +25,7 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
   const serverIds = ds.servers ? ids('servers', 'server_id') : null;
   const appIds = ds.applications ? ids('applications', 'app_id') : null;
   const segIds = ds.network ? ids('network', 'network_id') : null;
+  const hostedServers = ds.applications ? new Set(ds.applications.rows.filter((a) => !a._retired).map((a) => a.hosting_server_id)) : null;
   const serverById = new Map((ds.servers?.rows ?? []).map((r) => [r.server_id, r]));
   const licById = new Map((ds.licences?.rows ?? []).map((r) => [r.licence_id, r]));
 
@@ -51,6 +52,8 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
     if (!d) continue;
     const def = DATASET[key];
     const rows = d.rows.filter((r) => !r._retired);
+    const reqFields = def.fields.filter((fd) => fd.required && !fd.pii);
+    const mappedTargets = new Set(d.mapping.length ? d.mapping.map((m) => m.target) : def.fields.map((f) => f.key));
     const seen = new Map<string, Row>();
     const push = (i: Omit<Issue, 'id' | 'dataset' | 'status' | 'label' | 'rid'> & { r: Row }) => {
       const { r, ...rest } = i;
@@ -65,9 +68,8 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
         else seen.set(idv, r);
       }
       // missing required values
-      for (const fd of def.fields) {
-        if (!fd.required || fd.pii) continue;
-        if (!(fd.key in r) && d.mapping.length && !d.mapping.some((m) => m.target === fd.key)) continue;
+      for (const fd of reqFields) {
+        if (!(fd.key in r) && !mappedTargets.has(fd.key)) continue;
         if (!blank(r[fd.key])) continue;
         let suggestion: Issue['suggestion'];
         if (key === 'applications' && fd.key === 'site') {
@@ -93,8 +95,10 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
       if (key === 'licences' && appIds && r.app_id && !appIds.has(r.app_id)) push({ r, type: 'broken_link', field: 'app_id', message: `Licence belongs to ${r.app_id}, which does not exist` });
       if (key === 'costs' && appIds && r.app_id && !appIds.has(r.app_id)) push({ r, type: 'broken_link', field: 'app_id', message: `Cost line points to unknown system ${r.app_id}` });
       if (key === 'servers' && ds.applications) {
-        const hosted = ds.applications.rows.some((a) => !a._retired && a.hosting_server_id === r.server_id);
-        if (!hosted && !blank(r.server_id)) push({ r, type: 'orphan', message: 'Server hosts no application — still needed?' });
+        const hosted = hostedServers!.has(r.server_id);
+        const isServerOs = !/storage|backup|load balancer|hsm|firewall|appliance/i.test(String(r.os ?? ''));
+        const idle = isServerOs && (!r.last_updated || String(r.last_updated) < addDays(s.deal.asOf, -90));
+        if (!hosted && idle && !blank(r.server_id)) push({ r, type: 'orphan', message: 'Hosts no application and not updated for 90+ days — still needed?' });
       }
       // stale
       const last = r.last_updated as string | null;
@@ -103,7 +107,7 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
       }
     }
     // look-alike duplicates (names) for small inventories
-    if ((key === 'servers' || key === 'applications') && rows.length < 400) {
+    if ((key === 'servers' || key === 'applications') && rows.length < 600) {
       const nameF = def.nameField!;
       for (let i = 0; i < rows.length; i++) {
         for (let j = i + 1; j < rows.length; j++) {
@@ -129,7 +133,7 @@ export function recomputeIssues(s: WorkspaceState): Issue[] {
 
 export function hygieneScore(s: WorkspaceState, key: DatasetKey): number | null {
   const d = s.datasets[key];
-  if (!d || !DATASET[key].hygiene) return null;
+  if (!d || !DATASET[key]?.hygiene) return null;
   const total = d.rows.length;
   if (!total) return 100;
   const dirty = new Set(s.issues.filter((i) => i.dataset === key && i.status === 'open').map((i) => i.rid));

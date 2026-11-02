@@ -1,4 +1,6 @@
+import { isDraft, original } from 'immer';
 import { useMemo, useState } from 'react';
+import { DecisionLog, InfoTip } from '../components/DecisionLog';
 import { runAI } from '../ai/client';
 import { gapFill, type GapIn } from '../ai/tasks';
 import { UploadModal } from '../components/UploadModal';
@@ -8,10 +10,20 @@ import { hygieneScore, issueCounts, mergeRows } from '../engine/quality';
 import type { Issue, OwnerItem, WorkspaceState } from '../engine/types';
 import { addDays, daysBetween, download, fmtDate, toCSV, uid } from '../engine/util';
 import { useStore } from '../state/store';
+import { ownersOf } from '../engine/workspace';
 
 const TYPE_LABEL: Record<string, string> = { missing: 'Missing value', duplicate: 'Duplicate', lookalike: 'Look-alike', broken_link: 'Broken link', stale: 'Stale', orphan: 'Unused / orphan' };
 
-function rowOf(d: WorkspaceState, i: Issue) { return d.datasets[i.dataset]?.rows.find((r) => r._rid === i.rid); }
+// Index rows by _rid once per (draft) rows array — bulk fixes over 35,000+ records stay fast.
+const rowIndex = new WeakMap<object, Map<string, number>>();
+function rowOf(d: WorkspaceState, i: Issue) {
+  const rows = d.datasets[i.dataset]?.rows;
+  if (!rows) return undefined;
+  let idx = rowIndex.get(rows);
+  if (!idx) { const src = (isDraft(rows) ? original(rows) : rows) as typeof rows; idx = new Map(src.map((r, k) => [r._rid, k])); rowIndex.set(rows, idx); }
+  const k = idx.get(i.rid);
+  return k === undefined ? undefined : rows[k];
+}
 function setIssueStatus(d: WorkspaceState, id: string, status: Issue['status'], resolution?: string) { const x = d.issues.find((i) => i.id === id); if (x) { x.status = status; x.resolution = resolution; } }
 function closeOwnerFor(d: WorkspaceState, issueId: string, answer: string) { d.ownerQueue.forEach((o) => { if (o.issueId === issueId && o.status !== 'answered') { o.status = 'answered'; o.answer = answer; } }); }
 
@@ -37,7 +49,7 @@ function IssueRow({ i }: { i: Issue }) {
   }, [i, s.datasets]);
   const fix = (kind: Parameters<typeof applyFix>[2], v?: string, label?: string) => act(label ?? 'Resolved data quality issue', `${i.dataset} · ${i.label} · ${TYPE_LABEL[i.type]}${v ? ` → ${v}` : ''}`, (d) => applyFix(d, i, kind, v), { kind: i.suggestion && v === i.suggestion.value && i.suggestion.source !== 'rule' ? 'approve' : 'data' });
   const sendOwner = () => act('Sent issue to owner queue', i.message, (d) => {
-    d.ownerQueue.push({ id: uid('OQ'), question: `${i.label}: ${i.message} — please confirm the correct value`, context: `${DATASET[i.dataset].label} · ${TYPE_LABEL[i.type]}`, owner: i.dataset === 'licences' ? 'Priya Nair' : i.dataset === 'erp' ? 'Aisha Khan' : i.dataset === 'network' ? 'Daniel Wong' : 'Marco Lee', role: 'Data owner', due: addDays(d.deal.asOf, 3), priority: 'P2', status: 'open', issueId: i.id, createdAt: new Date().toISOString() });
+    d.ownerQueue.push({ id: uid('OQ'), question: `${i.label}: ${i.message} — please confirm the correct value`, context: `${DATASET[i.dataset].label} · ${TYPE_LABEL[i.type]}`, owner: i.dataset === 'licences' ? ownersOf(d).procurement : i.dataset === 'erp' ? ownersOf(d).finance : i.dataset === 'network' ? ownersOf(d).network : ownersOf(d).apps, role: 'Data owner', due: addDays(d.deal.asOf, 3), priority: 'P2', status: 'open', issueId: i.id, createdAt: new Date().toISOString() });
   });
   return <div className="tr">
     <span><Badge tone={i.type === 'broken_link' ? 'danger' : i.type === 'missing' ? 'warning' : 'info'}>{TYPE_LABEL[i.type]}</Badge></span>
@@ -74,6 +86,7 @@ export function Inventory() {
   const [answer, setAnswer] = useState<OwnerItem | null>(null);
   const [answerText, setAnswerText] = useState('');
   const [newQ, setNewQ] = useState(false);
+  const [hygFile, setHygFile] = useState<DatasetKey | null>(null);
   const [recordsDs, setRecordsDs] = useState<DatasetKey>((params.dataset as DatasetKey) ?? 'applications');
 
   const counts = issueCounts(s);
@@ -152,9 +165,9 @@ export function Inventory() {
       <MetricCard label="Source files" value={loaded.length} icon="file" onClick={() => setTab('files')} detail={<><span>{loaded.filter((d) => d.hygiene).length} baseline files</span><span>{DATASETS.length - loaded.length} not uploaded</span></>} />
       <MetricCard label="Records" value={invRecords.toLocaleString()} icon="database" onClick={() => setTab('records')} detail={<><span className="trend positive">mapped to glossary</span><span>across {new Set(loaded.filter((d) => d.hygiene).map((d) => d.component)).size} components</span></>} />
       <MetricCard label="Open quality issues" value={counts.open} icon="alert" tone={counts.open ? 'warning' : ''} onClick={() => setTab('quality')} detail={<><span className="trend warning">{m.openOwner.length} with owners</span><span>{aiSuggestions.length} AI suggestions</span></>} />
-      <MetricCard label="Average hygiene" value={m.avgHygiene} icon="shield" onClick={() => setTab('files')} detail={<><span className={`trend ${belowGate.length ? 'negative' : 'positive'}`}>{belowGate.length ? `${belowGate.length} below gate` : '90 gate passed'}</span><span>gate {s.config.hygieneGate}+</span></>} />
+      <MetricCard label="Average hygiene" value={<>{m.avgHygiene}<HygieneInfo /></>} icon="shield" onClick={() => setTab('files')} detail={<><span className={`trend ${belowGate.length ? 'negative' : 'positive'}`}>{belowGate.length ? `${belowGate.length} below gate` : '90 gate passed'}</span><span>gate {s.config.hygieneGate}+ · click a file's score for its breakdown</span></>} />
     </div>
-    <Tabs value={tab} onChange={(t) => { setTab(t); setPage(1); }} tabs={[{ key: 'files', label: 'Files' }, { key: 'quality', label: 'Quality queue', count: counts.open }, { key: 'ai', label: 'AI suggestions', count: aiSuggestions.length }, { key: 'owner', label: 'Owner queue', count: m.openOwner.length }, { key: 'records', label: 'Records' }]} />
+    <Tabs value={tab} onChange={(t) => { setTab(t); setPage(1); }} tabs={[{ key: 'files', label: 'Files' }, { key: 'quality', label: 'Quality queue', count: counts.open }, { key: 'ai', label: 'AI suggestions', count: aiSuggestions.length }, { key: 'owner', label: 'Owner queue', count: m.openOwner.length }, { key: 'records', label: 'Records' }, { key: 'decisions', label: 'Decisions', count: s.audit.filter((a) => a.module === 'Data & Inventory' && ['approve', 'override', 'data', 'escalate'].includes(a.kind) && !a.undone).length }]} />
 
     {tab === 'files' && <section className="card table-card">
       <div className="table-tools"><SearchBox value={q} onChange={setQ} placeholder="Search source files…" />
@@ -170,7 +183,7 @@ export function Inventory() {
           return <div className="tr" key={d.key}>
             <span className="row"><span className="file-icon" style={{ background: '#f1efeb', padding: '3px 5px', fontSize: 8, fontWeight: 700 }}>{ds.fileName.split('.').pop()?.toUpperCase()}</span><span><strong>{ds.fileName}</strong><small>{d.label}{ds.piiMasked ? ' · personal data hidden' : ''}</small></span></span>
             <span>{d.component}</span><span>{ds.rawCount.toLocaleString()}</span>
-            <span>{h === null ? <span className="muted">n/a</span> : <div style={{ display: 'grid', gridTemplateColumns: '28px 1fr', alignItems: 'center', gap: 6 }}><strong>{h}</strong><Progress value={h} tone={toneFor(h, s.config.hygieneGate, s.config.hygieneGate - 3)} /></div>}</span>
+            <span>{h === null ? <span className="muted">n/a</span> : <button title="Show how this score is calculated" onClick={() => setHygFile(d.key)} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', alignItems: 'center', gap: 6, width: '100%', border: 0, background: 'transparent', padding: 0, textAlign: 'left' }}><strong style={{ textDecoration: 'underline dotted' }}>{h}</strong><Progress value={h} tone={toneFor(h, s.config.hygieneGate, s.config.hygieneGate - 3)} /></button>}</span>
             <span><Badge tone={st.tone}>{st.label}</Badge></span>
             <span className="muted">{new Date(ds.uploadedAt).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}</span>
             <span className="row" style={{ justifyContent: 'flex-end' }}>
@@ -206,7 +219,7 @@ export function Inventory() {
         <div style={{ flex: 1, fontSize: 10, display: 'flex', flexDirection: 'column', gap: 4 }}><div className="row"><strong>{i.suggestion!.value === 'merge' ? `Merge ${i.label}` : i.suggestion!.value === 'unknown' ? `${i.label}: ${i.field} unknown` : `Set ${i.label} ${DATASET[i.dataset].fields.find((f) => f.key === i.field)?.label.toLowerCase() ?? i.field} to “${i.suggestion!.value}”`}</strong><Badge tone="info">{Math.round(i.suggestion!.confidence * 100)}% confidence</Badge></div><span className="muted">{s.datasets[i.dataset]?.fileName} · {i.suggestion!.reason}</span></div>
         <div className="row">
           <Button variant="ghost" onClick={() => act('Rejected AI suggestion', `${i.label} · ${i.suggestion!.value}`, (d) => { const x = d.issues.find((y) => y.id === i.id); if (x) x.suggestion = undefined; if (i.type === 'lookalike') applyFix(d, i, 'dismiss', 'Rejected look-alike'); }, { kind: 'override' })}>Reject</Button>
-          {i.suggestion!.value === 'unknown' ? <Button variant="secondary" onClick={() => act('Sent to owner queue', i.message, (d) => { d.ownerQueue.push({ id: uid('OQ'), question: `${i.label}: ${i.message}`, context: i.suggestion!.reason, owner: 'Marco Lee', role: 'Application Lead', due: addDays(d.deal.asOf, 2), priority: 'P2', status: 'open', issueId: i.id, createdAt: new Date().toISOString() }); })}>Ask owner</Button>
+          {i.suggestion!.value === 'unknown' ? <Button variant="secondary" onClick={() => act('Sent to owner queue', i.message, (d) => { d.ownerQueue.push({ id: uid('OQ'), question: `${i.label}: ${i.message}`, context: i.suggestion!.reason, owner: ownersOf(d).apps, role: 'Application Lead', due: addDays(d.deal.asOf, 2), priority: 'P2', status: 'open', issueId: i.id, createdAt: new Date().toISOString() }); })}>Ask owner</Button>
             : <Button onClick={() => { act('Approved AI suggestion', `${i.label} → ${i.suggestion!.value}`, (d) => applyFix(d, i, i.suggestion!.value === 'merge' ? 'merge' : 'value', i.suggestion!.value), { kind: 'approve' }); toast('Approved and applied'); }}>Approve</Button>}
         </div>
       </div>)}
@@ -235,6 +248,8 @@ export function Inventory() {
     </section>}
 
     {tab === 'records' && <RecordsView ds={recordsDs} setDs={setRecordsDs} initialQ={params.q} />}
+    {tab === 'decisions' && <DecisionLog modules={['Data & Inventory']} title="Data decisions" subtitle="Every fix, merge, retirement, AI approval and owner answer taken on this screen — undo any of them" />}
+    {hygFile && <HygieneBreakdown k={hygFile} onClose={() => setHygFile(null)} />}
 
     {upload && <UploadModal expected={upload === 'any' ? undefined : upload} onClose={() => setUpload(null)} />}
     {mappingView && <Modal title={`Column mapping · ${s.datasets[mappingView]?.fileName}`} subtitle="How the seller's columns were matched to the DealSync glossary" onClose={() => setMappingView(null)} footer={<Button onClick={() => setMappingView(null)}>Close</Button>}>
@@ -284,4 +299,45 @@ function RecordsView({ ds, setDs, initialQ }: { ds: DatasetKey; setDs: (k: Datas
       <div className="scroll-y"><Table cols={`repeat(${shown.length}, minmax(80px, 1fr)) 90px`} head={[...shown, 'Quality']}>{rows.slice(0, n).map((r) => <div className={`tr ${r._retired ? 'muted-row' : ''}`} key={r._rid}>{shown.map((c) => <span key={c} style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{typeof r[c] === 'boolean' ? (r[c] ? 'Yes' : 'No') : String(r[c] ?? '')}</span>)}<span>{r._retired ? <Badge>Retired</Badge> : openRids.has(r._rid) ? <Badge tone="warning">Issue</Badge> : <Badge tone="success">Clean</Badge>}</span></div>)}</Table></div>}
     {rows.length > n && <div className="table-footer"><span>Showing {n} of {rows.length}</span><Button variant="secondary" onClick={() => setN(n + 100)}>Show more</Button></div>}
   </section>;
+}
+
+const TYPE_PLAIN: Record<string, string> = { missing: 'Missing a required value', duplicate: 'Exact duplicate', lookalike: 'Look-alike duplicate', broken_link: 'Points to a record that doesn\'t exist', stale: 'Not updated in 6+ months', orphan: 'Unused (0 users / hosts nothing)' };
+
+function HygieneInfo() {
+  const { s } = useStore();
+  return <InfoTip title="How is the hygiene score calculated?" wide>
+    <p><b>Hygiene = share of records in a file that have no open quality problem.</b></p>
+    <p style={{ fontFamily: 'monospace', background: '#f6f5f2', padding: 6 }}>hygiene = 100 × clean records ÷ total records</p>
+    <p>A record is <b>not clean</b> if any of these checks is open on it:</p>
+    <table><tbody>{Object.entries(TYPE_PLAIN).map(([k, v]) => <tr key={k}><td><b>{TYPE_LABEL[k]}</b></td><td>{v}</td></tr>)}</tbody></table>
+    <p>Fixing, merging, retiring or accepting a record (“accept as-is”) makes it clean. Retired records count as clean because they won't move.</p>
+    <p><b>{s.config.hygieneGate}+ = green.</b> Only green files can feed decisions or release a migration wave. The average shown is the simple mean of all scored files.</p>
+  </InfoTip>;
+}
+
+function HygieneBreakdown({ k, onClose }: { k: DatasetKey; onClose: () => void }) {
+  const { s } = useStore();
+  const d = s.datasets[k]!;
+  const open = s.issues.filter((i) => i.dataset === k && i.status === 'open');
+  const dirty = new Set(open.map((i) => i.rid));
+  const total = d.rows.length;
+  const retired = d.rows.filter((r) => r._retired).length;
+  const accepted = s.issues.filter((i) => i.dataset === k && i.status === 'dismissed').length;
+  const clean = total - dirty.size;
+  const score = hygieneScore(s, k) ?? 0;
+  const byType = Object.keys(TYPE_LABEL).map((t) => ({ t, issues: open.filter((i) => i.type === t).length, records: new Set(open.filter((i) => i.type === t).map((i) => i.rid)).size })).filter((x) => x.issues);
+  const needed = Math.max(0, Math.ceil((s.config.hygieneGate / 100) * total) - clean);
+  return <Modal title={`Hygiene breakdown · ${d.fileName}`} subtitle={DATASET[k].label} onClose={onClose} footer={<Button onClick={onClose}>Close</Button>}>
+    <div className="stack">
+      <table className="calc-table"><tbody>
+        <tr><td>Total records in file</td><td className="num">{total.toLocaleString()}</td></tr>
+        <tr><td>Records with at least one open problem</td><td className="num">− {dirty.size.toLocaleString()}</td></tr>
+        <tr><td>Clean records <span className="muted">(incl. {retired} retired, {accepted} accepted as-is)</span></td><td className="num">{clean.toLocaleString()}</td></tr>
+        <tr className="total"><td>Hygiene = 100 × {clean.toLocaleString()} ÷ {total.toLocaleString()}</td><td className="num">{score}</td></tr>
+      </tbody></table>
+      <div className="row"><Badge tone={score >= s.config.hygieneGate ? 'success' : 'danger'}>{score >= s.config.hygieneGate ? `Passes the ${s.config.hygieneGate} gate` : `Below the ${s.config.hygieneGate} gate`}</Badge>{needed > 0 && <span className="small">Clean <b>{needed.toLocaleString()}</b> more record{needed === 1 ? '' : 's'} to reach {s.config.hygieneGate}.</span>}</div>
+      {byType.length > 0 && <table className="calc-table"><thead><tr><th>Problem</th><th>What it means</th><th>Open issues</th><th>Records affected</th></tr></thead><tbody>{byType.map((x) => <tr key={x.t}><td><b>{TYPE_LABEL[x.t]}</b></td><td className="muted">{TYPE_PLAIN[x.t]}</td><td>{x.issues.toLocaleString()}</td><td>{x.records.toLocaleString()}</td></tr>)}</tbody></table>}
+      <p className="muted small" style={{ margin: 0 }}>A record with several problems is counted once. Go to the Quality queue to fix them — every fix is logged in the Decisions tab and can be undone.</p>
+    </div>
+  </Modal>;
 }

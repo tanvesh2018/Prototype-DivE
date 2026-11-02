@@ -4,7 +4,9 @@ Propose each with `/opsx:propose <name>`.
 
 - **Excel upload (.xlsx)** via SheetJS, multi-sheet detection.
 - **Backend + auth**: persist workspaces server-side (SQLite/Postgres), real login, per-deal tenancy, bank portal.
-- **Multi-deal portfolio** (Project Phoenix: 400+ apps, 35k records) — performance of quality checks & graph (virtualised tables, graph clustering).
+- ~~Multi-deal portfolio (Project Phoenix)~~ shipped in v2. Next: virtualised tables, server-side quality checks, graph clustering for 400+ apps.
+- **Readiness history**: store a daily snapshot so slider/weight changes can be compared over time.
+- **Funding flow**: real bank-portal hand-off, escrow-agent integration and settlement statements.
 - **Daily readiness history** chart (BRD: score updated daily; Go/No-go ≥ 2 weeks before Day-1).
 - **Copilot evaluation set** (200 questions, ≥85% correct) and answer feedback analytics.
 - **Owner questionnaire links** emailed to seller owners; SLA escalation automation.

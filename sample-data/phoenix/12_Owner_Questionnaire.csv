@@ -1,0 +1,121 @@
+App ID,Answered By,Q1 Sends data to,Q1 Gets data from,Q2 Uses anything owned by the seller?,Q3 What breaks if switched off?
+PHX-001,Aarav Sharma,PHX-002; PHX-011,,No,Month-end close delayed
+PHX-002,Wei Tan,PHX-016; PHX-004,,Yes - shared mainframe batch,Month-end close delayed
+PHX-003,Zofia Nowak,PHX-002,,No,Agents cannot service customers
+PHX-004,Zofia Nowak,PHX-025,,No,Month-end close delayed
+PHX-005,Aarav Sharma,PHX-037,,Yes - seller product master catalogue,Agents cannot service customers
+PHX-006,Aarav Sharma,,,Yes - shared mainframe batch,Month-end close delayed
+PHX-007,Wei Tan,,,No,Card transactions decline
+PHX-008,Aarav Sharma,,,No,Card transactions decline
+PHX-009,Aarav Sharma,,,Not sure,Reports late
+PHX-010,Wei Tan,,,No,Card transactions decline
+PHX-011,Aarav Sharma,PHX-012,,No,Statements stop
+PHX-012,Aarav Sharma,PHX-001,,Yes - shared mainframe batch,Statements stop
+PHX-013,Wei Tan,PHX-021,,Yes - shared mainframe batch,Nothing immediate
+PHX-014,Aarav Sharma,,,No,Agents cannot service customers
+PHX-015,Wei Tan,PHX-038,,No,Agents cannot service customers
+PHX-016,Aarav Sharma,PHX-010,,Yes - shared mainframe batch,Statements stop
+PHX-017,Aarav Sharma,,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-018,Zofia Nowak,PHX-035,,Yes - shared mainframe batch,Reports late
+PHX-019,Aarav Sharma,,,No,Statements stop
+PHX-020,Wei Tan,,,No,Month-end close delayed
+PHX-021,Zofia Nowak,,,No,Card transactions decline
+PHX-022,Zofia Nowak,PHX-040,,No,Reports late
+PHX-023,Wei Tan,PHX-039,,Yes - shared mainframe batch,Month-end close delayed
+PHX-024,Aarav Sharma,PHX-029,,Not sure,Statements stop
+PHX-025,Wei Tan,PHX-016,,No,Agents cannot service customers
+PHX-026,Zofia Nowak,,,No,Agents cannot service customers
+PHX-027,Zofia Nowak,,,No,Month-end close delayed
+PHX-028,Wei Tan,PHX-007,,No,Statements stop
+PHX-029,Aarav Sharma,PHX-022,,Yes - shared mainframe batch,Card transactions decline
+PHX-030,Wei Tan,PHX-020,,No,Agents cannot service customers
+PHX-031,Wei Tan,,,No,Card transactions decline
+PHX-032,Wei Tan,PHX-036,,Yes - shared mainframe batch,Reports late
+PHX-033,Zofia Nowak,,,No,Nothing immediate
+PHX-034,Wei Tan,PHX-027,,No,Reports late
+PHX-035,Aarav Sharma,PHX-001,,Yes - shared mainframe batch,Reports late
+PHX-036,Zofia Nowak,PHX-027,,No,Nothing immediate
+PHX-037,Zofia Nowak,,,No,Nothing immediate
+PHX-038,Aarav Sharma,PHX-031,,No,Agents cannot service customers
+PHX-039,Aarav Sharma,,,No,Agents cannot service customers
+PHX-040,Aarav Sharma,,,No,Nothing immediate
+PHX-041,Wei Tan,,,No,Reports late
+PHX-042,Zofia Nowak,PHX-035,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-043,Wei Tan,PHX-016,,No,Agents cannot service customers
+PHX-044,Wei Tan,PHX-038,,Not sure,Statements stop
+PHX-045,Zofia Nowak,,,No,Agents cannot service customers
+PHX-046,Aarav Sharma,,,No,Statements stop
+PHX-047,Zofia Nowak,,,Yes - shared mainframe batch,Reports late
+PHX-048,Zofia Nowak,,,Yes - shared mainframe batch,Reports late
+PHX-049,Wei Tan,PHX-040,,No,Nothing immediate
+PHX-050,Zofia Nowak,PHX-037,,No,Month-end close delayed
+PHX-051,Zofia Nowak,PHX-011,,No,Card transactions decline
+PHX-052,Aarav Sharma,,,No,Statements stop
+PHX-053,Aarav Sharma,PHX-032,,No,Agents cannot service customers
+PHX-054,Aarav Sharma,,,No,Reports late
+PHX-055,Aarav Sharma,PHX-006,,No,Month-end close delayed
+PHX-056,Zofia Nowak,,,No,Reports late
+PHX-057,Aarav Sharma,PHX-030,,No,Card transactions decline
+PHX-058,Zofia Nowak,PHX-033,,No,Nothing immediate
+PHX-059,Wei Tan,,,Yes - shared mainframe batch,Reports late
+PHX-060,Aarav Sharma,,,Yes - shared mainframe batch,Month-end close delayed
+PHX-061,Wei Tan,,,Yes - shared mainframe batch,Nothing immediate
+PHX-062,Wei Tan,,,No,Card transactions decline
+PHX-063,Wei Tan,,,Yes - shared mainframe batch,Card transactions decline
+PHX-064,Aarav Sharma,PHX-031,,Not sure,Reports late
+PHX-065,Aarav Sharma,PHX-001,,No,Reports late
+PHX-066,Wei Tan,PHX-020,,No,Month-end close delayed
+PHX-067,Wei Tan,PHX-013,,No,Statements stop
+PHX-068,Wei Tan,PHX-009,,No,Agents cannot service customers
+PHX-069,Wei Tan,PHX-023,,No,Card transactions decline
+PHX-070,Zofia Nowak,,,No,Statements stop
+PHX-071,Wei Tan,PHX-032,,Yes - shared mainframe batch,Statements stop
+PHX-072,Aarav Sharma,PHX-006,,Yes - shared mainframe batch,Reports late
+PHX-073,Aarav Sharma,,,No,Agents cannot service customers
+PHX-074,Wei Tan,PHX-016,,Not sure,Card transactions decline
+PHX-075,Wei Tan,PHX-029,,Yes - shared mainframe batch,Month-end close delayed
+PHX-076,Wei Tan,PHX-039,,No,Month-end close delayed
+PHX-077,Wei Tan,,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-078,Wei Tan,,,Yes - shared mainframe batch,Month-end close delayed
+PHX-079,Aarav Sharma,PHX-013,,No,Agents cannot service customers
+PHX-080,Aarav Sharma,PHX-004,,No,Agents cannot service customers
+PHX-081,Zofia Nowak,,,No,Agents cannot service customers
+PHX-082,Zofia Nowak,,,Yes - shared mainframe batch,Statements stop
+PHX-083,Wei Tan,,,Yes - shared mainframe batch,Reports late
+PHX-084,Zofia Nowak,,,No,Agents cannot service customers
+PHX-085,Zofia Nowak,PHX-028,,Yes - shared mainframe batch,Nothing immediate
+PHX-086,Aarav Sharma,PHX-028,,Yes - shared mainframe batch,Statements stop
+PHX-087,Zofia Nowak,,,No,Agents cannot service customers
+PHX-088,Wei Tan,PHX-006,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-089,Wei Tan,PHX-036,,Yes - shared mainframe batch,Card transactions decline
+PHX-090,Zofia Nowak,,,Yes - shared mainframe batch,Reports late
+PHX-091,Zofia Nowak,,,Yes - shared mainframe batch,Nothing immediate
+PHX-092,Wei Tan,,,No,Month-end close delayed
+PHX-093,Zofia Nowak,PHX-009,,Not sure,Agents cannot service customers
+PHX-094,Wei Tan,PHX-022,,No,Reports late
+PHX-095,Aarav Sharma,,,Yes - shared mainframe batch,Month-end close delayed
+PHX-096,Wei Tan,,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-097,Zofia Nowak,PHX-026,,No,Month-end close delayed
+PHX-098,Wei Tan,PHX-007,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-099,Wei Tan,PHX-011,,Not sure,Reports late
+PHX-100,Aarav Sharma,PHX-040,,Not sure,Nothing immediate
+PHX-101,Wei Tan,,,No,Card transactions decline
+PHX-102,Wei Tan,,,Yes - shared mainframe batch,Card transactions decline
+PHX-103,Aarav Sharma,PHX-018,,No,Statements stop
+PHX-104,Wei Tan,PHX-024,,No,Agents cannot service customers
+PHX-105,Wei Tan,PHX-030,,No,Reports late
+PHX-106,Zofia Nowak,PHX-040,,No,Agents cannot service customers
+PHX-107,Wei Tan,,,Yes - shared mainframe batch,Statements stop
+PHX-108,Wei Tan,,,No,Reports late
+PHX-109,Zofia Nowak,,,Not sure,Month-end close delayed
+PHX-110,Wei Tan,PHX-014,,No,Card transactions decline
+PHX-111,Aarav Sharma,PHX-008,,No,Nothing immediate
+PHX-112,Aarav Sharma,PHX-023,,No,Card transactions decline
+PHX-113,Aarav Sharma,PHX-015,,No,Nothing immediate
+PHX-114,Wei Tan,PHX-037,,No,Month-end close delayed
+PHX-115,Zofia Nowak,,,Yes - shared mainframe batch,Nothing immediate
+PHX-116,Zofia Nowak,PHX-015,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-117,Wei Tan,PHX-002,,No,Card transactions decline
+PHX-118,Wei Tan,PHX-020,,Yes - shared mainframe batch,Agents cannot service customers
+PHX-119,Wei Tan,PHX-036,,No,Agents cannot service customers
+PHX-120,Wei Tan,PHX-038,,Yes - shared mainframe batch,Nothing immediate

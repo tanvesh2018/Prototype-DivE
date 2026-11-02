@@ -1,0 +1,65 @@
+Cost Line,System,Cost Type,Description,Amount (₹),Who Caused It,Like-for-like?,Contract Says,Status
+RUN-001,PHX-001,Annual run,Card Issuing Platform annual run cost,137000,,,,Agreed
+RUN-002,PHX-002,Annual run,Authorization Switch annual run cost,641000,,,,Agreed
+RUN-003,PHX-003,Annual run,Credit Decision Engine annual run cost,149000,,,,Agreed
+RUN-004,PHX-004,Annual run,Fraud Detection Hub annual run cost,431000,,,,Agreed
+RUN-005,PHX-005,Annual run,Solution Central annual run cost,396000,,,,Agreed
+RUN-006,PHX-006,Annual run,Statement Generation annual run cost,116000,,,,Agreed
+RUN-007,PHX-007,Annual run,Collections Platform annual run cost,307000,,,,Agreed
+RUN-008,PHX-008,Annual run,Dispute & Chargeback Portal annual run cost,434000,,,,Agreed
+RUN-009,PHX-009,Annual run,KYC Onboarding annual run cost,166000,,,,Agreed
+RUN-010,PHX-010,Annual run,Rewards Engine annual run cost,314000,,,,Agreed
+RUN-011,PHX-011,Annual run,Card Personalisation annual run cost,331000,,,,Agreed
+RUN-012,PHX-012,Annual run,Customer Servicing CRM annual run cost,344000,,,,Agreed
+RUN-013,PHX-013,Annual run,IVR & Contact Routing annual run cost,489000,,,,Agreed
+RUN-014,PHX-014,Annual run,Regulatory Reporting Suite annual run cost,306000,,,,Agreed
+RUN-015,PHX-015,Annual run,General Ledger annual run cost,436000,,,,Agreed
+RUN-016,PHX-016,Annual run,Treasury & Settlement annual run cost,269000,,,,Agreed
+RUN-017,PHX-017,Annual run,Enterprise Data Warehouse annual run cost,349000,,,,Agreed
+RUN-018,PHX-018,Annual run,Identity & Access Directory annual run cost,24000,,,,Agreed
+RUN-019,PHX-019,Annual run,Email & Collaboration annual run cost,83000,,,,Agreed
+RUN-020,PHX-020,Annual run,Endpoint Security & MDM annual run cost,187000,,,,Agreed
+RUN-021,PHX-021,Annual run,Product Interface Hub annual run cost,135000,,,,Agreed
+RUN-022,PHX-022,Annual run,Risk API Gateway annual run cost,250000,,,,Agreed
+RUN-023,PHX-023,Annual run,HR Analytics Dashboard annual run cost,884000,,,,Agreed
+RUN-024,PHX-024,Annual run,HR Monitoring annual run cost,752000,,,,Agreed
+RUN-025,PHX-025,Annual run,Data Monitoring annual run cost,811000,,,,Agreed
+RUN-026,PHX-026,Annual run,Payments Batch Scheduler annual run cost,269000,,,,Agreed
+RUN-027,PHX-027,Annual run,Compliance API Gateway annual run cost,666000,,,,Agreed
+RUN-028,PHX-028,Annual run,Servicing Admin Console annual run cost,579000,,,,Agreed
+RUN-029,PHX-029,Annual run,Servicing Interface Hub annual run cost,50000,,,,Agreed
+RUN-030,PHX-030,Annual run,Compliance Notification Service annual run cost,507000,,,,Agreed
+RUN-031,PHX-031,Annual run,HR Case Manager annual run cost,81000,,,,Agreed
+RUN-032,PHX-032,Annual run,Treasury Workflow Tool annual run cost,874000,,,,Agreed
+RUN-033,PHX-033,Annual run,Payments Reporting Mart annual run cost,409000,,,,Agreed
+RUN-034,PHX-034,Annual run,Fraud Document Archive annual run cost,274000,,,,Agreed
+RUN-035,PHX-035,Annual run,Payments Notification Service annual run cost,709000,,,,Agreed
+RUN-036,PHX-036,Annual run,Compliance Case Manager annual run cost,78000,,,,Agreed
+RUN-037,PHX-037,Annual run,HR Data Feed annual run cost,677000,,,,Agreed
+RUN-038,PHX-038,Annual run,Marketing Monitoring annual run cost,408000,,,,Agreed
+RUN-039,PHX-039,Annual run,Data Monitoring 2 annual run cost,836000,,,,Agreed
+RUN-040,PHX-040,Annual run,Servicing Data Feed annual run cost,373000,,,,Agreed
+RUN-041,PHX-041,Annual run,Workplace Analytics Dashboard annual run cost,105000,,,,Agreed
+RUN-042,PHX-042,Annual run,Collections Case Manager annual run cost,313000,,,,Agreed
+RUN-043,PHX-043,Annual run,Fraud Case Manager annual run cost,33000,,,,Agreed
+RUN-044,PHX-044,Annual run,Security Batch Scheduler annual run cost,378000,,,,Agreed
+RUN-045,PHX-045,Annual run,Marketing Portal annual run cost,371000,,,,Agreed
+RUN-046,PHX-046,Annual run,Marketing Reconciliation annual run cost,672000,,,,Agreed
+RUN-047,PHX-047,Annual run,Marketing Workflow Tool annual run cost,678000,,,,Agreed
+RUN-048,PHX-048,Annual run,Security Rules Engine annual run cost,797000,,,,Agreed
+RUN-049,PHX-049,Annual run,Servicing Portal annual run cost,899000,,,,Agreed
+RUN-050,PHX-050,Annual run,Risk Document Archive annual run cost,178000,,,,Agreed
+RUN-051,PHX-051,Annual run,Servicing Document Archive annual run cost,569000,,,,Agreed
+RUN-052,PHX-052,Annual run,Fraud API Gateway annual run cost,821000,,,,Agreed
+RUN-053,PHX-053,Annual run,Finance Notification Service annual run cost,540000,,,,Agreed
+RUN-054,PHX-054,Annual run,Marketing Case Manager annual run cost,268000,,,,Agreed
+RUN-055,PHX-055,Annual run,Issuing Workflow Tool annual run cost,240000,,,,Agreed
+RUN-056,PHX-056,Annual run,Security Interface Hub annual run cost,211000,,,,Agreed
+RUN-057,PHX-057,Annual run,HR Analytics Dashboard 2 annual run cost,487000,,,,Agreed
+RUN-058,PHX-058,Annual run,Product Rules Engine annual run cost,305000,,,,Agreed
+RUN-059,PHX-059,Annual run,Collections Notification Service annual run cost,202000,,,,Agreed
+RUN-060,PHX-060,Annual run,Data Portal annual run cost,685000,,,,Agreed
+SEP-P01,PHX-019,Separation (one-time),"Mailbox migration for 10,000+ mailboxes",1100000,Seller,Like-for-like,Shared,Agreed
+SEP-P02,PHX-020,Separation (one-time),"End-user devices and security tooling for 4,600 conveying staff",2300000,Seller,Partly,,Disputed
+SEP-P03,PHX-001,Separation (one-time),"Data-centre asset transfer and re-racking (9,000+ assets)",1600000,Shared,Like-for-like,Shared,Agreed
+SEP-P04,PHX-002,Separation (one-time),Network re-IP and segmentation across 23 sites,900000,Seller,Like-for-like,,Disputed

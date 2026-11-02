@@ -1,3 +1,4 @@
+import { current } from 'immer';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { runAI, type AIResult } from '../ai/client';
 import { columnMapping, type ColumnMapOut } from '../ai/tasks';
@@ -6,12 +7,13 @@ import { detectDataset, parseUpload, ruleMapColumns, type ParsedUpload } from '.
 import { hygieneScore } from '../engine/quality';
 import type { ColumnMapping } from '../engine/types';
 import { download } from '../engine/util';
-import { ingest } from '../engine/workspace';
-import { SAMPLE_FILES, useStore } from '../state/store';
+import { ingest, postIngestOwnerItems } from '../engine/workspace';
+import { recomputeIssues } from '../engine/quality';
+import { useStore } from '../state/store';
 import { AIChip, Badge, Button, Conf, Icon, Modal } from './ui';
 
 export function UploadModal({ expected, onClose }: { expected?: DatasetKey; onClose: () => void }) {
-  const { s, act, toast, navigate } = useStore();
+  const { s, act, toast, navigate, samples: SAMPLE_FILES } = useStore();
   const [parsed, setParsed] = useState<ParsedUpload | null>(null);
   const [key, setKey] = useState<DatasetKey | null>(expected ?? null);
   const [mapping, setMapping] = useState<ColumnMapping[]>([]);
@@ -27,7 +29,7 @@ export function UploadModal({ expected, onClose }: { expected?: DatasetKey; onCl
     if (!expected) return all;
     const first = all.filter((f) => f === DATASET[expected].sampleFile);
     return [...first, ...all.filter((f) => !first.includes(f))];
-  }, [expected]);
+  }, [expected, SAMPLE_FILES]);
 
   const load = (fileName: string, text: string) => {
     setError('');
@@ -79,7 +81,9 @@ export function UploadModal({ expected, onClose }: { expected?: DatasetKey; onCl
     const finalMap = mapping.map((m) => ({ ...m, confirmed: true }));
     let notes: string[] = [];
     const ok = act(`Uploaded ${parsed.fileName}`, `${DATASET[key].label} · ${parsed.kind === 'csv' ? parsed.rows.length : 1} records · ${finalMap.filter((m) => m.method === 'ai').length} AI-mapped columns`, (d) => {
-      notes = ingest(d, parsed, key, finalMap).notes;
+      notes = ingest(d, parsed, key, finalMap, { deferIssues: true }).notes;
+      d.issues = recomputeIssues(current(d) as typeof d);
+      postIngestOwnerItems(d, key);
     });
     if (ok) {
       setDone({ key, notes });

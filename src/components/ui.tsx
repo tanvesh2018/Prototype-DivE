@@ -59,11 +59,11 @@ export function Progress({ value, tone = 'orange' }: { value: number; tone?: 'or
 export const toneFor = (v: number, gate = 90, mid = 80): 'green' | 'amber' | 'red' => (v >= gate ? 'green' : v >= mid ? 'amber' : 'red');
 
 export function MetricCard({ label, value, detail, icon, tone = 'default', onClick }: { label: string; value: ReactNode; detail: ReactNode; icon: IconName; tone?: string; onClick?: () => void }) {
-  return <button className={`metric-card ${tone} ${onClick ? '' : 'static'}`} onClick={onClick}>
+  return <div role={onClick ? 'button' : undefined} tabIndex={onClick ? 0 : undefined} className={`metric-card ${tone} ${onClick ? '' : 'static'}`} onClick={onClick} onKeyDown={(e) => { if (onClick && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onClick(); } }}>
     <div className="metric-top"><span>{label}</span><div className="metric-icon"><Icon name={icon} /></div></div>
     <div className="metric-value">{value}</div>
     <div className="metric-detail">{detail}</div>
-  </button>;
+  </div>;
 }
 
 export function Button({ children, variant = 'primary', icon, onClick, disabled = false, loading = false, title, type = 'button' }: { children?: ReactNode; variant?: 'primary' | 'secondary' | 'ghost' | 'danger'; icon?: IconName; onClick?: () => void; disabled?: boolean; loading?: boolean; title?: string; type?: 'button' | 'submit' }) {

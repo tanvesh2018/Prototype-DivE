@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { refreshAIStatus } from './ai/client';
 import { Badge, Icon, useClickOutside, type IconName } from './components/ui';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { fmtDate, initials } from './engine/util';
-import { ROLES } from './engine/workspace';
+import { DEALS, dealsForUser, ROLES } from './engine/workspace';
 import { PAGES, useStore, type PageName } from './state/store';
 import { Overview } from './screens/Overview';
 import { Inventory } from './screens/Inventory';
@@ -23,7 +24,6 @@ function useNotifications() {
     m.tsa.filter((t) => t.risk).forEach((t) => n.push({ id: `tsa-${t.row.tsa_id}`, title: `TSA extension risk: ${t.row.service}`, detail: `Projected exit ${fmtDate(t.projectedExit)} vs ${fmtDate(t.row.target_exit)}`, page: 'Funding & TSA Exit', params: { tab: 'tsa' }, tone: 'warning' }));
     m.datasetsHygiene.filter((d) => d.score < s.config.hygieneGate).forEach((d) => n.push({ id: `hyg-${d.key}-${d.score}`, title: `Data below the 90 gate`, detail: `${s.datasets[d.key as keyof typeof s.datasets]?.fileName} scores ${d.score}`, page: 'Data & Inventory', tone: 'warning' }));
     s.links.filter((l) => l.status === 'suggested').length && n.push({ id: `ai-links-${s.links.filter((l) => l.status === 'suggested').length}`, title: 'AI found unrecorded dependencies', detail: `${s.links.filter((l) => l.status === 'suggested').length} suggestions awaiting review`, page: 'Dependency Explorer', tone: 'info' });
-    m.decisions.filter((d) => d.state.status === 'pending').forEach((d) => n.push({ id: `dec-${d.id}`, title: `Decision pending: ${d.title}`, detail: `${d.approver} · due ${fmtDate(d.due)}`, page: 'Separation Decisions', params: { tab: 'options', decision: d.id }, tone: 'info' }));
     return n;
   }, [s, m]);
 }
@@ -79,38 +79,39 @@ function Notifications() {
 }
 
 function ProfileMenu() {
-  const { s, act, toast } = useStore();
+  const { s, switchUser } = useStore();
   const [open, setOpen] = useState(false);
   const ref = useClickOutside<HTMLDivElement>(open, () => setOpen(false));
   const me = s.users.find((u) => u.name === s.currentUser);
-  const switchTo = (name: string) => {
-    const u = s.users.find((x) => x.name === name)!;
-    act('Switched user / role', `${u.name} · ${ROLES[u.role].label}`, (d) => { d.currentUser = u.name; d.role = u.role; }, { kind: 'access', allowReadOnly: true, skipIssues: true });
-    toast(`Now viewing as ${u.name} (${ROLES[u.role].label})`, 'info');
-    setOpen(false);
-  };
+  const switchTo = (name: string) => { switchUser(name); setOpen(false); };
   return <div className="profile" ref={ref} onClick={() => setOpen(!open)}>
     <span>{initials(s.currentUser)}</span><div><strong>{s.currentUser}</strong><small>{me?.title ?? ROLES[s.role].label}</small></div><Icon name="chevron" size={14} />
     {open && <div className="menu" onClick={(e) => e.stopPropagation()} style={{ minWidth: 280 }}>
-      <div className="menu-label">View as (role-based access demo)</div>
-      {s.users.map((u) => <button key={u.name} onClick={() => switchTo(u.name)}>{u.name === s.currentUser ? <Icon name="check" size={13} /> : <span style={{ width: 13 }} />}<span style={{ flex: 1 }}>{u.name}<br /><small className="muted">{u.title} · {ROLES[u.role].description}</small></span></button>)}
+      <div className="menu-label">View as · users on {s.deal.name}</div>
+      {s.users.map((u) => <button key={u.name} onClick={() => switchTo(u.name)}>{u.name === s.currentUser ? <Icon name="check" size={13} /> : <span style={{ width: 13 }} />}<span style={{ flex: 1 }}>{u.name}<br /><small className="muted">{u.title} · {ROLES[u.role].description} · deals: {dealsForUser(u.name).map((d) => d.name.replace('Project ', '')).join(', ')}</small></span></button>)}
     </div>}
   </div>;
 }
 
 function DealSwitcher() {
-  const { s, navigate } = useStore();
+  const { s, navigate, switchDeal, summaries } = useStore();
   const [open, setOpen] = useState(false);
   const ref = useClickOutside<HTMLDivElement>(open, () => setOpen(false));
+  const mine = dealsForUser(s.currentUser);
+  const hidden = Object.keys(DEALS).length - mine.length;
   return <div className="deal-switcher" ref={ref} onClick={() => setOpen(!open)}>
     <div className="deal-avatar">{s.deal.name.split(' ').pop()?.[0]}</div>
-    <div><small>ACTIVE DEAL</small><strong>{s.deal.name}</strong><span>{s.deal.industry} {s.deal.dealType.toLowerCase()}</span></div>
+    <div><small>ACTIVE DEAL</small><strong>{s.deal.name}</strong><span>{s.deal.industry} · {s.deal.mode === 'tsa_exit' ? 'TSA exit' : `${s.deal.dealType} · Day-1`}</span></div>
     <Icon name="chevron" size={15} />
-    {open && <div className="menu left" style={{ color: '#222', minWidth: 230 }} onClick={(e) => e.stopPropagation()}>
-      <div className="menu-label">Your deals</div>
-      <button onClick={() => setOpen(false)}><Icon name="check" size={13} />{s.deal.name} · {s.deal.buyer} / {s.deal.seller}</button>
+    {open && <div className="menu left" style={{ color: '#222', minWidth: 300 }} onClick={(e) => e.stopPropagation()}>
+      <div className="menu-label">Deals you can access ({mine.length})</div>
+      {mine.map((d) => { const sum = summaries[d.id]; return <button key={d.id} onClick={() => { setOpen(false); switchDeal(d.id); }}>
+        {d.id === s.deal.id ? <Icon name="check" size={13} /> : <span style={{ width: 13 }} />}
+        <span style={{ flex: 1 }}><strong>{d.name}</strong> · {d.buyer} / {d.seller}<br /><small className="muted">{d.scope}</small></span>
+        {sum && <Badge tone={sum.signal === 'GO' ? 'success' : sum.signal === 'NO-GO' ? 'danger' : 'warning'}>{sum.score}</Badge>}
+      </button>; })}
       <hr />
-      <div className="menu-label">Other deals are hidden — each user sees only their own deal</div>
+      <div className="menu-label">{hidden > 0 ? `${hidden} other deal${hidden > 1 ? 's are' : ' is'} hidden — role-based access` : 'Each client user sees only their own deal'}</div>
       <button onClick={() => { setOpen(false); navigate('Governance & Settings', { tab: 'deal' }); }}><Icon name="settings" size={13} />Deal settings</button>
     </div>}
   </div>;
@@ -138,7 +139,7 @@ export default function App() {
     }
   };
   const phases = ['Baseline', 'Classify', 'Decide', 'Execute', 'Day-1', 'TSA exit'];
-  const active = m.daysToDay1 > 0 ? 3 : m.daysToDay1 === 0 ? 4 : 5;
+  const active = s.deal.mode === 'tsa_exit' ? 5 : m.daysToDay1 > 0 ? 3 : m.daysToDay1 === 0 ? 4 : 5;
   const openTasksAtRisk = m.warnings.length;
 
   return <div className={`app-shell ${collapsed ? 'collapsed' : ''}`}>
@@ -156,11 +157,11 @@ export default function App() {
       </header>
       {readOnly && <div className="readonly-banner"><Icon name="lock" size={13} />Viewing as {s.currentUser} — {role.label}: {role.description}. Actions that change data are disabled.</div>}
       <div className="phasebar">
-        <div className="phase-label"><span>DEAL PHASE</span><strong>{active === 3 ? 'Execution to Day-1' : active === 4 ? 'Day-1' : 'TSA period'}</strong></div>
+        <div className="phase-label"><span>DEAL PHASE</span><strong>{s.deal.mode === 'tsa_exit' ? '90-day TSA exit' : active === 3 ? 'Execution to Day-1' : active === 4 ? 'Day-1' : 'TSA period'}</strong></div>
         <div className="phase-track">{phases.map((p, i) => <div className={i < active ? 'complete' : i === active ? 'active' : ''} key={p}><span>{i < active ? <Icon name="check" size={11} /> : i + 1}</span><strong>{p}</strong></div>)}</div>
-        <div className="phase-date"><span>DAY-1</span><strong>{fmtDate(s.deal.day1, true).toUpperCase()}</strong><small>{m.daysToDay1 > 0 ? `${m.daysToDay1} days remaining · as of ${fmtDate(s.deal.asOf)}` : 'Day-1 passed'}</small></div>
+        <div className="phase-date"><span>{s.deal.milestoneLabel.toUpperCase()}</span><strong>{fmtDate(s.deal.day1, true).toUpperCase()}</strong><small>{m.daysToDay1 > 0 ? `${m.daysToDay1} days remaining · as of ${fmtDate(s.deal.asOf)}` : `${s.deal.milestoneLabel} passed`}</small></div>
       </div>
-      <div className="page" key={page + JSON.stringify(params)}>{renderPage()}</div>
+      <div className="page" key={page + JSON.stringify(params)}><ErrorBoundary label={page}>{renderPage()}</ErrorBoundary></div>
     </main>
     <div className="toasts">{toasts.map((t) => <div key={t.id} className={`toast ${t.tone}`}><Icon name={t.tone === 'success' ? 'check' : t.tone === 'danger' || t.tone === 'warning' ? 'alert' : 'spark'} size={14} />{t.text}</div>)}</div>
   </div>;

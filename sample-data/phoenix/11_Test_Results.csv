@@ -1,0 +1,114 @@
+Test ID,System,Test Case,Result,Run Date,Tester
+PTST-0001,PHX-001,Card Issuing Platform — Performance,Passed,2025-10-27,Zofia Nowak
+PTST-0002,PHX-001,Card Issuing Platform — End-to-end transaction,Passed,2025-11-02,Wei Tan
+PTST-0003,PHX-001,Card Issuing Platform — Backup restore,Passed,2025-11-03,Amara Khan
+PTST-0004,PHX-001,Card Issuing Platform — Failover,Passed,2025-10-31,Zofia Nowak
+PTST-0005,PHX-001,Card Issuing Platform — End-to-end transaction,Passed,2025-10-29,Zofia Nowak
+PTST-0006,PHX-002,Authorization Switch — Failover,Passed,2025-10-26,Wei Tan
+PTST-0007,PHX-002,Authorization Switch — Access review,Passed,2025-10-26,Amara Khan
+PTST-0008,PHX-002,Authorization Switch — Access review,Passed,2025-10-29,Zofia Nowak
+PTST-0009,PHX-002,Authorization Switch — End-to-end transaction,Passed,2025-11-05,Zofia Nowak
+PTST-0010,PHX-002,Authorization Switch — Interface reconciliation,Passed,2025-10-28,Zofia Nowak
+PTST-0011,PHX-003,Credit Decision Engine — Access review,Passed,2025-10-27,Wei Tan
+PTST-0012,PHX-003,Credit Decision Engine — Failover,Passed,2025-11-01,Wei Tan
+PTST-0013,PHX-003,Credit Decision Engine — Backup restore,Passed,2025-11-01,Zofia Nowak
+PTST-0014,PHX-004,Fraud Detection Hub — Interface reconciliation,Passed,2025-10-28,Wei Tan
+PTST-0015,PHX-004,Fraud Detection Hub — Access review,Not run,2025-11-04,Zofia Nowak
+PTST-0016,PHX-004,Fraud Detection Hub — Interface reconciliation,Not run,2025-10-28,Amara Khan
+PTST-0017,PHX-005,Solution Central — Backup restore,Passed,2025-11-05,Zofia Nowak
+PTST-0018,PHX-005,Solution Central — Access review,Passed,2025-10-31,Wei Tan
+PTST-0019,PHX-005,Solution Central — Performance,Passed,2025-10-27,Zofia Nowak
+PTST-0020,PHX-005,Solution Central — Performance,Passed,2025-10-27,Zofia Nowak
+PTST-0021,PHX-005,Solution Central — Access review,Passed,2025-11-01,Wei Tan
+PTST-0022,PHX-005,Solution Central — Performance,Passed,2025-10-31,Amara Khan
+PTST-0023,PHX-006,Statement Generation — Backup restore,Passed,2025-11-02,Amara Khan
+PTST-0024,PHX-006,Statement Generation — End-to-end transaction,Not run,2025-11-05,Zofia Nowak
+PTST-0025,PHX-006,Statement Generation — Performance,Failed,2025-11-05,Wei Tan
+PTST-0026,PHX-007,Collections Platform — Access review,Passed,2025-11-05,Zofia Nowak
+PTST-0027,PHX-007,Collections Platform — Failover,Passed,2025-10-30,Wei Tan
+PTST-0028,PHX-007,Collections Platform — Access review,Passed,2025-10-30,Amara Khan
+PTST-0029,PHX-009,KYC Onboarding — Access review,Passed,2025-11-01,Amara Khan
+PTST-0030,PHX-009,KYC Onboarding — Interface reconciliation,Passed,2025-11-02,Amara Khan
+PTST-0031,PHX-009,KYC Onboarding — End-to-end transaction,Passed,2025-10-27,Amara Khan
+PTST-0032,PHX-010,Rewards Engine — Interface reconciliation,Passed,2025-11-03,Zofia Nowak
+PTST-0033,PHX-010,Rewards Engine — Failover,Passed,2025-10-29,Zofia Nowak
+PTST-0034,PHX-010,Rewards Engine — Backup restore,Passed,2025-10-26,Amara Khan
+PTST-0035,PHX-010,Rewards Engine — End-to-end transaction,Passed,2025-11-03,Amara Khan
+PTST-0036,PHX-010,Rewards Engine — Performance,Passed,2025-10-26,Zofia Nowak
+PTST-0037,PHX-011,Card Personalisation — Performance,Passed,2025-10-27,Amara Khan
+PTST-0038,PHX-011,Card Personalisation — Failover,Passed,2025-10-26,Zofia Nowak
+PTST-0039,PHX-011,Card Personalisation — Failover,Passed,2025-10-26,Zofia Nowak
+PTST-0040,PHX-011,Card Personalisation — Failover,Passed,2025-11-03,Amara Khan
+PTST-0041,PHX-011,Card Personalisation — Performance,Passed,2025-10-28,Amara Khan
+PTST-0042,PHX-016,Treasury & Settlement — Backup restore,Passed,2025-10-31,Amara Khan
+PTST-0043,PHX-016,Treasury & Settlement — Failover,Passed,2025-10-31,Amara Khan
+PTST-0044,PHX-016,Treasury & Settlement — Backup restore,Passed,2025-10-26,Wei Tan
+PTST-0045,PHX-016,Treasury & Settlement — Backup restore,Passed,2025-10-27,Wei Tan
+PTST-0046,PHX-016,Treasury & Settlement — Backup restore,Failed,2025-10-26,Zofia Nowak
+PTST-0047,PHX-016,Treasury & Settlement — Backup restore,Failed,2025-11-03,Zofia Nowak
+PTST-0048,PHX-018,Identity & Access Directory — Performance,Passed,2025-10-31,Amara Khan
+PTST-0049,PHX-018,Identity & Access Directory — Failover,Passed,2025-10-26,Amara Khan
+PTST-0050,PHX-018,Identity & Access Directory — Interface reconciliation,Passed,2025-10-30,Amara Khan
+PTST-0051,PHX-018,Identity & Access Directory — Backup restore,Passed,2025-10-29,Wei Tan
+PTST-0052,PHX-018,Identity & Access Directory — Access review,Not run,2025-11-04,Wei Tan
+PTST-0053,PHX-018,Identity & Access Directory — Failover,Failed,2025-10-27,Wei Tan
+PTST-0054,PHX-019,Email & Collaboration — Access review,Passed,2025-10-29,Amara Khan
+PTST-0055,PHX-019,Email & Collaboration — Failover,Passed,2025-10-30,Zofia Nowak
+PTST-0056,PHX-019,Email & Collaboration — Access review,Passed,2025-10-29,Wei Tan
+PTST-0057,PHX-019,Email & Collaboration — Access review,Passed,2025-11-02,Amara Khan
+PTST-0058,PHX-019,Email & Collaboration — Interface reconciliation,Passed,2025-10-31,Zofia Nowak
+PTST-0059,PHX-019,Email & Collaboration — Backup restore,Failed,2025-10-30,Amara Khan
+PTST-0060,PHX-020,Endpoint Security & MDM — Interface reconciliation,Passed,2025-11-05,Wei Tan
+PTST-0061,PHX-020,Endpoint Security & MDM — Interface reconciliation,Passed,2025-11-01,Amara Khan
+PTST-0062,PHX-020,Endpoint Security & MDM — End-to-end transaction,Passed,2025-11-01,Zofia Nowak
+PTST-0063,PHX-020,Endpoint Security & MDM — Access review,Failed,2025-11-04,Wei Tan
+PTST-0064,PHX-020,Endpoint Security & MDM — Interface reconciliation,Not run,2025-11-03,Zofia Nowak
+PTST-0065,PHX-048,Security Rules Engine — Interface reconciliation,Passed,2025-11-04,Amara Khan
+PTST-0066,PHX-048,Security Rules Engine — End-to-end transaction,Passed,2025-10-29,Zofia Nowak
+PTST-0067,PHX-048,Security Rules Engine — Access review,Passed,2025-11-01,Zofia Nowak
+PTST-0068,PHX-048,Security Rules Engine — Access review,Passed,2025-11-03,Wei Tan
+PTST-0069,PHX-063,Product Workflow Tool — Performance,Passed,2025-11-03,Amara Khan
+PTST-0070,PHX-063,Product Workflow Tool — Interface reconciliation,Passed,2025-10-30,Zofia Nowak
+PTST-0071,PHX-063,Product Workflow Tool — Interface reconciliation,Passed,2025-10-26,Amara Khan
+PTST-0072,PHX-071,Product API Gateway — Backup restore,Passed,2025-11-04,Zofia Nowak
+PTST-0073,PHX-071,Product API Gateway — Backup restore,Passed,2025-10-27,Amara Khan
+PTST-0074,PHX-071,Product API Gateway — Performance,Passed,2025-11-03,Wei Tan
+PTST-0075,PHX-147,Security Interface Hub 3 — Backup restore,Passed,2025-11-05,Amara Khan
+PTST-0076,PHX-147,Security Interface Hub 3 — Access review,Passed,2025-11-01,Zofia Nowak
+PTST-0077,PHX-147,Security Interface Hub 3 — Interface reconciliation,Passed,2025-11-04,Amara Khan
+PTST-0078,PHX-209,Product Portal — Interface reconciliation,Passed,2025-11-01,Wei Tan
+PTST-0079,PHX-209,Product Portal — Failover,Passed,2025-10-28,Zofia Nowak
+PTST-0080,PHX-209,Product Portal — End-to-end transaction,Passed,2025-10-28,Wei Tan
+PTST-0081,PHX-214,Security Reconciliation — Access review,Passed,2025-10-28,Amara Khan
+PTST-0082,PHX-214,Security Reconciliation — Interface reconciliation,Passed,2025-11-02,Wei Tan
+PTST-0083,PHX-214,Security Reconciliation — Backup restore,Passed,2025-11-04,Zofia Nowak
+PTST-0084,PHX-214,Security Reconciliation — Interface reconciliation,Passed,2025-10-27,Amara Khan
+PTST-0085,PHX-215,Product Reconciliation — Performance,Passed,2025-10-31,Wei Tan
+PTST-0086,PHX-215,Product Reconciliation — Failover,Passed,2025-11-01,Zofia Nowak
+PTST-0087,PHX-215,Product Reconciliation — Performance,Passed,2025-11-04,Wei Tan
+PTST-0088,PHX-215,Product Reconciliation — Performance,Passed,2025-10-29,Zofia Nowak
+PTST-0089,PHX-266,Product Batch Scheduler — Failover,Passed,2025-10-26,Wei Tan
+PTST-0090,PHX-266,Product Batch Scheduler — Failover,Passed,2025-11-05,Zofia Nowak
+PTST-0091,PHX-266,Product Batch Scheduler — Failover,Passed,2025-11-03,Amara Khan
+PTST-0092,PHX-266,Product Batch Scheduler — Failover,Not run,2025-10-31,Zofia Nowak
+PTST-0093,PHX-276,Product Data Feed 3 — Access review,Passed,2025-11-04,Zofia Nowak
+PTST-0094,PHX-276,Product Data Feed 3 — Performance,Passed,2025-10-31,Zofia Nowak
+PTST-0095,PHX-276,Product Data Feed 3 — Interface reconciliation,Passed,2025-10-29,Amara Khan
+PTST-0096,PHX-276,Product Data Feed 3 — Performance,Passed,2025-10-30,Zofia Nowak
+PTST-0097,PHX-276,Product Data Feed 3 — End-to-end transaction,Passed,2025-11-03,Amara Khan
+PTST-0098,PHX-287,Product Rules Engine 2 — End-to-end transaction,Passed,2025-10-29,Zofia Nowak
+PTST-0099,PHX-287,Product Rules Engine 2 — Access review,Passed,2025-11-03,Zofia Nowak
+PTST-0100,PHX-287,Product Rules Engine 2 — Interface reconciliation,Failed,2025-10-27,Amara Khan
+PTST-0101,PHX-305,Product API Gateway 2 — End-to-end transaction,Passed,2025-10-30,Zofia Nowak
+PTST-0102,PHX-305,Product API Gateway 2 — Interface reconciliation,Passed,2025-10-30,Amara Khan
+PTST-0103,PHX-305,Product API Gateway 2 — Failover,Passed,2025-10-30,Amara Khan
+PTST-0104,PHX-309,Product Data Feed 4 — Access review,Passed,2025-11-05,Wei Tan
+PTST-0105,PHX-309,Product Data Feed 4 — Failover,Passed,2025-10-26,Amara Khan
+PTST-0106,PHX-309,Product Data Feed 4 — Access review,Passed,2025-11-01,Wei Tan
+PTST-0107,PHX-309,Product Data Feed 4 — Failover,Passed,2025-11-02,Wei Tan
+PTST-0108,PHX-309,Product Data Feed 4 — Interface reconciliation,Passed,2025-10-28,Amara Khan
+PTST-0109,PHX-309,Product Data Feed 4 — Performance,Passed,2025-10-28,Wei Tan
+PTST-0110,PHX-336,Product Interface Hub 5 — Failover,Passed,2025-10-28,Amara Khan
+PTST-0111,PHX-336,Product Interface Hub 5 — Performance,Passed,2025-11-01,Amara Khan
+PTST-0112,PHX-336,Product Interface Hub 5 — End-to-end transaction,Passed,2025-11-05,Zofia Nowak
+PTST-0113,PHX-336,Product Interface Hub 5 — Access review,Not run,2025-11-01,Zofia Nowak

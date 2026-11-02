@@ -20,7 +20,7 @@ export interface AITask<I, O> {
   fallback: (input: I) => O;
 }
 
-const GUARD = 'You are DealSync, an assistant inside PwC\'s deal technology command centre. You only suggest; a human approves every change. Never invent facts that are not in the data provided. Be concise and specific; quote numbers from the data.';
+const GUARD = 'You are DealSync, an assistant inside PwC\'s deal technology command centre. You only suggest; a human approves every change. Never invent facts that are not in the data provided. Be concise and specific; quote numbers from the data. Write every money amount in Indian rupees with the ₹ symbol (e.g. ₹1.74M, ₹700K), never $.';
 const J = (o: unknown) => JSON.stringify(o, null, 1);
 
 // ---------------------------------------------------------------- 1. column mapping
@@ -167,7 +167,7 @@ export const spaReader: AITask<SpaIn, SpaOut> = {
 };
 
 // ---------------------------------------------------------------- 9. early warning
-export interface WarnIn { daysToDay1: number; warnings: { id: string; title: string; workstream: string; owner: string; due: string; status: string; reason: string; critical: boolean; item?: string }[] }
+export interface WarnIn { buyer?: string; daysToDay1: number; warnings: { id: string; title: string; workstream: string; owner: string; due: string; status: string; reason: string; critical: boolean; item?: string }[] }
 export interface WarnOut { headline: string; detail: string; items: { id: string; nextStep: string }[] }
 export const earlyWarning: AITask<WarnIn, WarnOut> = {
   id: 'early-warning', label: 'AI early warning', json: true,
@@ -181,7 +181,7 @@ export const earlyWarning: AITask<WarnIn, WarnOut> = {
     const crit = list.some((x) => x.critical);
     return {
       headline: `Early warning: ${ws} workstream is likely to slip`,
-      detail: `${list.length} ${ws.toLowerCase()} task${list.length === 1 ? ' is' : 's are'} flagged${blocked.length ? `, ${blocked.length} blocked (${blocked[0].title})` : ''}${crit ? ' on a Day-1 critical item' : ''}, with ${i.daysToDay1} days to Day-1. ${blocked.length ? "Escalate through ChipCo's CIO today." : 'Confirm owners and start dates today.'}`,
+      detail: `${list.length} ${ws.toLowerCase()} task${list.length === 1 ? ' is' : 's are'} flagged${blocked.length ? `, ${blocked.length} blocked (${blocked[0].title})` : ''}${crit ? ' on a Day-1 critical item' : ''}, with ${i.daysToDay1} days to Day-1. ${blocked.length ? `Escalate through ${i.buyer ?? "the buyer"}'s CIO today.` : 'Confirm owners and start dates today.'}`,
       items: i.warnings.map((w) => ({ id: w.id, nextStep: w.status === 'Blocked' ? `Escalate to engagement manager today; ${w.owner} to name the external dependency and a date.` : w.reason.startsWith('Not started') ? `${w.owner} to start today or hand over — due ${w.due}.` : w.reason === 'Overdue' ? `Agree a new date with ${w.owner} and record the reason.` : `${w.owner} to confirm a recovery plan at the next stand-up.` })),
     };
   },
@@ -215,15 +215,15 @@ export function anonymise(text: string, hide: string[]) {
     const code = isPerson ? `[PERSON-${String.fromCharCode(65 + person++)}]` : `[ORG-${String.fromCharCode(65 + org++)}]`;
     if (re.test(out)) { found.push(h); out = out.replace(re, code); }
   });
-  out = out.replace(/\$\s?(\d+(?:\.\d+)?)\s?M\b/gi, (_, n) => { const v = +n; found.push(`$${n}M`); return v < 1 ? '<$1M' : v < 2 ? '$1M to $2M' : v < 5 ? '$2M to $5M' : '$5M+'; });
-  out = out.replace(/\$\s?(\d{2,3})K\b/gi, (_, n) => { found.push(`$${n}K`); return +n < 50 ? '<$50K' : '$50K to $250K'; });
+  out = out.replace(/[$₹]\s?(\d+(?:\.\d+)?)\s?M\b/gi, (_, n) => { const v = +n; found.push(`₹${n}M`); return v < 1 ? '<₹1M' : v < 2 ? '₹1M to ₹2M' : v < 5 ? '₹2M to ₹5M' : '₹5M+'; });
+  out = out.replace(/[$₹]\s?(\d{2,3})K\b/gi, (_, n) => { found.push(`₹${n}K`); return +n < 50 ? '<₹50K' : '₹50K to ₹250K'; });
   out = out.replace(/\b(\d{2,})\s+((?:[a-z]+\s+)?)(apps|assets|systems|users|laptops|records|services)\b/gi, (m0, n, mid, w) => { found.push(m0); const v = +n; return `${v >= 200 ? '200+' : v >= 100 ? '100+' : v >= 50 ? '50+' : '10+'} ${mid}${w}`; });
   out = out.replace(/\b(1[0-9]|2[0-9]|3[01]|[1-9]) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* 20\d\d\b/g, (m) => { found.push(m); return '[date]'; });
   return { text: out, found: [...new Set(found)] };
 }
 export const learningRecord: AITask<LearnIn, LearnOut> = {
   id: 'learning-record', label: 'AI anonymised learning record', json: true,
-  system: `${GUARD} Rewrite closing lessons into an anonymised Learning Record. Replace every listed name (clients, vendors, people) with a code like [ORG-A] or [PERSON-A]; turn exact numbers into ranges (415 apps -> "200+ apps", $1.74M -> "$1M to $2M"); remove dates. Keep the lesson useful.`,
+  system: `${GUARD} Rewrite closing lessons into an anonymised Learning Record. Replace every listed name (clients, vendors, people) with a code like [ORG-A] or [PERSON-A]; turn exact numbers into ranges (415 apps -> "200+ apps", ₹1.74M -> "₹1M to ₹2M"); remove dates. Keep the lesson useful.`,
   prompt: (i) => `Names to hide: ${i.hide.join(', ')}\nDeal: ${i.deal.industry} ${i.deal.dealType}, ${i.deal.apps} apps\nAnswers:\n${Object.entries(i.answers).map(([k, v]) => `${k}: ${v}`).join('\n')}\nReturn JSON {"summary":"<3-5 sentence anonymised record>","keyLesson":"<one sentence>","hiddenTerms":["each original term you replaced"]}`,
   fallback: (i) => {
     const all = Object.entries(i.answers).map(([k, v]) => `${k}: ${v}`).join(' ');
@@ -321,3 +321,52 @@ export const dealBrief: AITask<BriefIn, { bullets: string[] }> = {
     ] };
   },
 };
+
+// ================================================================ Funding flow (bank underwriting + escrow)
+// One task per AI step of the flow. Each explains or drafts; people decide.
+const FUND_SYS = `${GUARD} You support a funding flow for a disputed separation cost: a bank commits to lend now, releases the money at deal milestones, and is repaid at settlement from the seller's share held in escrow plus the buyer's share. PwC refers, takes no fee and runs independence checks. Nothing reaches the bank without client consent. The bank sees summaries only — never app lists or employee data.`;
+const mk = <I, O>(id: string, label: string, ask: string, prompt: (i: I) => string, fallback: (i: I) => O): AITask<I, O> => ({ id, label, json: true, system: `${FUND_SYS} ${ask}`, prompt, fallback });
+
+export interface FundLine { costId: string; description: string; amount: number; appName: string; component: string; critical: boolean; site: string; needBy: string; milestone: string; buyer: string; seller: string; sellerPct: number }
+export interface FinRow { company: string; role: string; cash: number; de: number; cr: number; ic: number; tight: boolean }
+export const fundUnderstand = mk<{ line: FundLine }, { text: string }>('fund-understand', 'Understand the cost', 'In 2-3 plain sentences: what exactly is being paid for (equipment, licences or services), when it is needed, and what stops if it is late.',
+  (i) => `Cost line: ${J(i.line)}\nReturn JSON {"text":""}`,
+  ({ line: l }) => ({ text: `${money(l.amount)} for ${l.description.toLowerCase()} used by ${l.appName} (${l.component.toLowerCase()}). Needed by ${l.needBy} — ${l.milestone} is close behind. Without it, ${l.critical ? `${l.appName} work stops at ${l.site || 'the site'} on ${l.milestone}` : 'the separation plan slips'}.` }));
+
+export const fundAfford = mk<{ line: FundLine; fin: FinRow[] }, { text: string }>('fund-afford', 'Who can afford it', 'Turn the Prowess numbers into a 2-sentence plain summary of who can absorb the cost now and who would be strained.',
+  (i) => `Disputed: ${money(i.line.amount)} (provisional seller share ${Math.round(i.line.sellerPct * 100)}%)\nFinancial health: ${J(i.fin)}\nReturn JSON {"text":""}`,
+  ({ line, fin }) => {
+    const b = fin.find((f) => /buyer/i.test(f.role)), s = fin.find((f) => /seller/i.test(f.role));
+    const bt = b ? (b.tight ? `${b.company} has ${b.de > 1.5 ? 'high debt' : 'thin buffers'} after the purchase (D/E ${b.de}, current ratio ${b.cr}) and limited short-term cash, so paying ${money(line.amount)} now would strain it.` : `${b.company} has room to fund ${money(line.amount)} itself (current ratio ${b.cr}).`) : 'Buyer data missing.';
+    const st = s ? (s.tight ? `${s.company} is also stretched and may need financing for its share.` : `${s.company} has strong cash (${money(s.cash * 1e6)}) and low debt (D/E ${s.de}), and could hold its share safely in escrow.`) : '';
+    return { text: `${bt} ${st}` };
+  });
+
+export const fundBankPack = mk<{ line: FundLine; afford: string; readiness: { score: number; signal: string; blockers: string[] }; escrow: number }, { pack: string }>('fund-bank-pack', 'Bank pack', 'Draft a short bank pack with 4 headed sections: Deal summary, Financial health, Day-1 progress, How the bank gets repaid. Summaries only — no app lists or employee data.',
+  (i) => `${J(i)}\nReturn JSON {"pack":""}`,
+  ({ line, afford, readiness, escrow }) => ({ pack: `DEAL SUMMARY\n${line.buyer} is separating a business from ${line.seller}. The facility funds ${line.description.toLowerCase()} (${money(line.amount)}), needed by ${line.needBy} so ${line.milestone} is not delayed.\n\nFINANCIAL HEALTH\n${afford}\n\n${line.milestone.toUpperCase()} PROGRESS\nReadiness ${readiness.score}/100 (${readiness.signal}).${readiness.blockers.length ? ` Open blocker: ${readiness.blockers[0]}.` : ' No critical blockers.'}\n\nHOW THE BANK GETS REPAID\n${line.seller}'s disputed share (${money(escrow)}) is held in escrow and released to the bank when the dispute settles; ${line.buyer} repays the balance. Funds are released in two milestones (blocker cleared; board Go).` }));
+
+export const fundBankAnswer = mk<{ question: string; context: any }, { answer: string }>('fund-bank-answer', 'Answer bank question', 'Draft a factual 2-3 sentence answer to the bank credit team using only the live data given. A person approves before sending.',
+  (i) => `Question: ${i.question}\nLive data: ${J(i.context)}\nReturn JSON {"answer":""}`,
+  ({ question, context: c }) => ({ answer: /slip|late|delay/i.test(question) ? `${c.milestone} is ${c.date}; readiness is ${c.score}/100 (${c.signal}). If it slips, the second tranche stays locked until the board gives a Go, so the bank's exposure is limited to the first ${money(c.tranche)}.` : /repay|secur|collateral/i.test(question) ? `Repayment comes first from ${c.seller}'s disputed share (${money(c.escrow)}) held in escrow under the SPA dispute clause; ${c.buyer} repays the balance over the facility term.` : `The readiness score is recalculated daily from task completion (50%), test evidence (30%) and data hygiene (20%) for every critical item; it is currently ${c.score}/100 with ${c.blockers} critical blocker(s).` }));
+
+export const fundMilestone = mk<{ milestone: string; context: any }, { update: string }>('fund-milestone', 'Milestone update', 'Draft a 2-sentence progress update to the bank confirming a milestone was reached, with the evidence.',
+  (i) => `Milestone: ${i.milestone}\nData: ${J(i.context)}\nReturn JSON {"update":""}`,
+  ({ milestone, context: c }) => ({ update: `Milestone reached: ${milestone}. Readiness is now ${c.score}/100 (${c.signal}) with ${c.blockers} critical blocker(s); we request release of the next tranche of ${money(c.tranche)}.` }));
+
+export const fundSettle = mk<{ path: string; amount: number; sellerPct: number; escrow: number; buyer: string; seller: string; method: string; quote?: string }, { summary: string }>('fund-settle', 'Settlement summary', 'Draft the settlement summary in plain words: the agreed split, how much of the loan the escrow repays for the seller, what is returned to the seller, and what the buyer repays.',
+  (i) => `${J(i)}\nReturn JSON {"summary":""}`,
+  (i) => {
+    const sp = Math.round(i.sellerPct * 100);
+    const sellerOwes = Math.round(i.amount * i.sellerPct), buyerOwes = i.amount - sellerOwes;
+    const fromEscrow = Math.min(sellerOwes, i.escrow), back = Math.max(0, i.escrow - sellerOwes), extra = Math.max(0, sellerOwes - i.escrow);
+    return { summary: [
+      `Final split agreed via ${i.method === 'spa' ? `the SPA reading${i.quote ? ` (“${i.quote.slice(0, 90)}…”)` : ''}` : 'negotiation at the deal board'}: ${i.seller} ${sp}% · ${i.buyer} ${100 - sp}%.`,
+      `Escrow pays the bank ${money(fromEscrow)} for ${i.seller}'s share${back ? `; the remaining ${money(back)} in escrow is returned to ${i.seller}` : ''}${extra ? `; ${i.seller} pays the extra ${money(extra)} directly under the SPA` : ''}.`,
+      `${i.buyer} repays its share of ${money(buyerOwes)}. Interest is split in the same ratio, and the facility is then closed.`,
+    ].join('\n') };
+  });
+
+export const fundLesson = mk<{ facts: any }, { lesson: string }>('fund-lesson', 'Close and learn', 'Write one anonymised, reusable lesson (no client or person names, numbers as ranges).',
+  (i) => `${J(i.facts)}\nReturn JSON {"lesson":""}`,
+  ({ facts: f }) => ({ lesson: `The disputed cost was funded by a bank against deal milestones, so ${f.milestone} was not delayed by a ${f.band} cost dispute. Agree the escrow of the seller's likely share at closing and get client consent for the bank summary early.` }));

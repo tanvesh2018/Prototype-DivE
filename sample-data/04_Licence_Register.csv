@@ -1,43 +1,43 @@
 Lic #,Product / SKU,Publisher,Used By App,Seats,Can Transfer?,Contract Holder,Annual Fee,Renewal Date
-L-01,Office Productivity Suite,Microsoft,APP-013,340,No,Seller,"$74,000",2026-06-30
-L-02,LedgerOne ERP Enterprise,LedgerOne,APP-004,210,No,Seller,"$180,000",2026-12-31
-L-07,CircuitDesign Pro Seats,EDA Corp,APP-001,120,Consent required,Seller,"$90,000",2026-03-31
-L-08,DesignVault Enterprise,VaultSoft,APP-002,140,Yes,Shared,"$64,000",2026-09-30
-L-12,WaferTest Suite Runtime,EDA Corp,APP-003,46,Yes,Shared,"$52,000",2026-05-31
-L-15,Order Tracker DB,DataCore,APP-005,85,Yes,Shared,"$12,000",2026-08-31
-L-16,Portal CMS,WebStack,APP-006,1400,Yes,Shared,"$21,000",2026-10-31
-L-17,Catalogue Engine,CatalogX,APP-007,64,Yes,Shared,"$18,000",2026-04-30
-L-20,PeopleFirst HR,PeopleFirst,APP-008,520,Yes,Buyer,"$38,000",2026-12-31
-L-21,ChartWorks Pro,ChartWorks,APP-009,22,Yes,Shared,"$9,000",2026-01-31
-L-23,DocuView Server,DocuView,APP-011,75,,Seller,"$7,000",2026-02-28
-L-24,ReportCo Classic,ReportCo,APP-012,31,No,Seller,"$11,000",2025-12-31
-L-25,Mail & Calendar Plan E3,Microsoft,APP-013,340,No,Seller,"$28,000",2026-06-30
-L-26,Directory Premium P1,Microsoft,APP-014,340,No,Seller,"$22,000",2026-06-30
-L-27,SecureLink VPN,SecureLink,APP-015,300,Yes,Shared,"$19,000",2026-07-31
-L-28,ShieldOne EDR,ShieldOne,APP-016,340,Yes,Shared,"$31,000",2026-09-30
-L-29,FlexKey Licence Manager,FlexKey,APP-017,1,No,Seller,"$15,000",2026-03-31
-L-31,PayBridge Connector,PayBridge,APP-018,6,,Seller,"$9,000",2026-06-30
-L-32,BuyRight Procurement,BuyRight,APP-019,48,Yes,Shared,"$24,000",2026-11-30
-L-33,YieldIQ Analytics,YieldIQ,APP-020,38,Yes,Buyer,"$47,000",2026-05-31
-L-34,GridWorks Scheduler,GridWorks,APP-021,95,Yes,Buyer,"$29,000",2026-08-31
-L-35,IPWorks Catalogue,IPWorks,APP-022,110,,Shared,"$26,000",2026-10-31
-L-36,DeskPro ITSM,DeskPro,APP-023,25,Yes,Buyer,"$21,000",2026-12-31
-L-37,WikiHub Team,WikiHub,APP-024,260,Yes,Buyer,"$14,000",2026-07-31
-L-38,SpendWise Expenses,SpendWise,APP-025,330,Yes,Buyer,"$19,000",2026-04-30
-L-39,PlanAhead Supply,PlanAhead,APP-026,27,Yes,Shared,"$54,000",2026-09-30
-L-40,CloudCRM Sales,CloudCRM,APP-027,90,Yes,Shared,"$67,000",2026-12-31
-L-41,Simulation Solver Pack,EDA Corp,APP-021,60,Consent required,Seller,"$72,000",2026-03-31
-L-42,Layout Verification Add-on,EDA Corp,APP-001,40,Consent required,Seller,"$38,000",2026-03-31
-L-30,Legacy Scanner Licence,ScanPro,APP-099,5,Yes,Seller,"$2,000",2025-12-31
-L-43,PDF Toolkit,DocuView,APP-011,75,Yes,Shared,"$3,000",2026-02-28
-L-44,Code Signing Certs,TrustCA,APP-022,4,,Seller,"$6,000",2026-01-31
-L-45,Statistical Toolbox,YieldIQ,APP-020,20,Yes,Buyer,"$8,000",2026-05-31
-L-46,Backup Agent,SafeKeep,APP-004,30,Yes,Shared,"$12,000",2026-06-30
-L-47,Network Monitoring,NetWatch,APP-015,1,Yes,Shared,"$16,000",2026-09-30
-L-48,Mobile Device Mgmt,ShieldOne,APP-016,340,Yes,Shared,"$14,000",2026-09-30
-L-49,Data Warehouse Seats,ReportCo,APP-012,31,No,Seller,"$7,000",2025-12-31
-L-50,E-signature,SignFast,APP-008,50,Yes,Buyer,"$5,000",2026-03-31
-L-51,Translation Memory,LinguaPro,APP-006,10,Yes,Shared,"$4,000",2026-02-28
-L-52,Test Program Compiler,EDA Corp,APP-003,12,Yes,Shared,"$22,000",2026-05-31
-L-53,Fax Line Rental,OpenFax,APP-010,1,Yes,Seller,"$1,800",2024-09-30
-L-54,Forecasting Add-in,PlanAhead,APP-026,8,Yes,Shared,"$6,000",2026-09-30
+L-01,Office Productivity Suite,Microsoft,APP-013,340,No,Seller,"₹74,000",2026-06-30
+L-02,LedgerOne ERP Enterprise,LedgerOne,APP-004,210,No,Seller,"₹180,000",2026-12-31
+L-07,CircuitDesign Pro Seats,EDA Corp,APP-001,120,Consent required,Seller,"₹90,000",2026-03-31
+L-08,DesignVault Enterprise,VaultSoft,APP-002,140,Yes,Shared,"₹64,000",2026-09-30
+L-12,WaferTest Suite Runtime,EDA Corp,APP-003,46,Yes,Shared,"₹52,000",2026-05-31
+L-15,Order Tracker DB,DataCore,APP-005,85,Yes,Shared,"₹12,000",2026-08-31
+L-16,Portal CMS,WebStack,APP-006,1400,Yes,Shared,"₹21,000",2026-10-31
+L-17,Catalogue Engine,CatalogX,APP-007,64,Yes,Shared,"₹18,000",2026-04-30
+L-20,PeopleFirst HR,PeopleFirst,APP-008,520,Yes,Buyer,"₹38,000",2026-12-31
+L-21,ChartWorks Pro,ChartWorks,APP-009,22,Yes,Shared,"₹9,000",2026-01-31
+L-23,DocuView Server,DocuView,APP-011,75,,Seller,"₹7,000",2026-02-28
+L-24,ReportCo Classic,ReportCo,APP-012,31,No,Seller,"₹11,000",2025-12-31
+L-25,Mail & Calendar Plan E3,Microsoft,APP-013,340,No,Seller,"₹28,000",2026-06-30
+L-26,Directory Premium P1,Microsoft,APP-014,340,No,Seller,"₹22,000",2026-06-30
+L-27,SecureLink VPN,SecureLink,APP-015,300,Yes,Shared,"₹19,000",2026-07-31
+L-28,ShieldOne EDR,ShieldOne,APP-016,340,Yes,Shared,"₹31,000",2026-09-30
+L-29,FlexKey Licence Manager,FlexKey,APP-017,1,No,Seller,"₹15,000",2026-03-31
+L-31,PayBridge Connector,PayBridge,APP-018,6,,Seller,"₹9,000",2026-06-30
+L-32,BuyRight Procurement,BuyRight,APP-019,48,Yes,Shared,"₹24,000",2026-11-30
+L-33,YieldIQ Analytics,YieldIQ,APP-020,38,Yes,Buyer,"₹47,000",2026-05-31
+L-34,GridWorks Scheduler,GridWorks,APP-021,95,Yes,Buyer,"₹29,000",2026-08-31
+L-35,IPWorks Catalogue,IPWorks,APP-022,110,,Shared,"₹26,000",2026-10-31
+L-36,DeskPro ITSM,DeskPro,APP-023,25,Yes,Buyer,"₹21,000",2026-12-31
+L-37,WikiHub Team,WikiHub,APP-024,260,Yes,Buyer,"₹14,000",2026-07-31
+L-38,SpendWise Expenses,SpendWise,APP-025,330,Yes,Buyer,"₹19,000",2026-04-30
+L-39,PlanAhead Supply,PlanAhead,APP-026,27,Yes,Shared,"₹54,000",2026-09-30
+L-40,CloudCRM Sales,CloudCRM,APP-027,90,Yes,Shared,"₹67,000",2026-12-31
+L-41,Simulation Solver Pack,EDA Corp,APP-021,60,Consent required,Seller,"₹72,000",2026-03-31
+L-42,Layout Verification Add-on,EDA Corp,APP-001,40,Consent required,Seller,"₹38,000",2026-03-31
+L-30,Legacy Scanner Licence,ScanPro,APP-099,5,Yes,Seller,"₹2,000",2025-12-31
+L-43,PDF Toolkit,DocuView,APP-011,75,Yes,Shared,"₹3,000",2026-02-28
+L-44,Code Signing Certs,TrustCA,APP-022,4,,Seller,"₹6,000",2026-01-31
+L-45,Statistical Toolbox,YieldIQ,APP-020,20,Yes,Buyer,"₹8,000",2026-05-31
+L-46,Backup Agent,SafeKeep,APP-004,30,Yes,Shared,"₹12,000",2026-06-30
+L-47,Network Monitoring,NetWatch,APP-015,1,Yes,Shared,"₹16,000",2026-09-30
+L-48,Mobile Device Mgmt,ShieldOne,APP-016,340,Yes,Shared,"₹14,000",2026-09-30
+L-49,Data Warehouse Seats,ReportCo,APP-012,31,No,Seller,"₹7,000",2025-12-31
+L-50,E-signature,SignFast,APP-008,50,Yes,Buyer,"₹5,000",2026-03-31
+L-51,Translation Memory,LinguaPro,APP-006,10,Yes,Shared,"₹4,000",2026-02-28
+L-52,Test Program Compiler,EDA Corp,APP-003,12,Yes,Shared,"₹22,000",2026-05-31
+L-53,Fax Line Rental,OpenFax,APP-010,1,Yes,Seller,"₹1,800",2024-09-30
+L-54,Forecasting Add-in,PlanAhead,APP-026,8,Yes,Shared,"₹6,000",2026-09-30

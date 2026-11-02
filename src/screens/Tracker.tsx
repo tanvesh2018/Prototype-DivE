@@ -6,6 +6,8 @@ import { AIChip, Badge, Button, Empty, Icon, Menu, Modal, PageTitle, Progress, S
 import { TASK_STATUSES, WORKSTREAMS } from '../engine/glossary';
 import { addDays, daysBetween, download, fmtDate, initials, toCSV, uid, type Row } from '../engine/util';
 import { useStore } from '../state/store';
+import { suggestMilestone } from '../engine/model';
+import { DecisionLogButton, InfoTip } from '../components/DecisionLog';
 
 const statusTone = (st: string) => (st === 'Blocked' ? 'danger' : st === 'At risk' || st === 'Review' ? 'warning' : st === 'In progress' ? 'info' : st === 'Done' ? 'success' : 'neutral');
 
@@ -36,11 +38,11 @@ export function Tracker() {
 
   const explain = async () => {
     setBusy(true);
-    const r = await runAI(earlyWarning, { daysToDay1: m.daysToDay1, warnings: m.warnings.map((w) => ({ id: w.task.task_id, title: w.task.title, workstream: w.task.workstream, owner: w.task.owner, due: fmtDate(w.task.due_date), status: w.task.status, reason: w.reason, critical: !!m.byId.get(w.task.linked_item)?.flagged || w.task.priority === 'P0', item: m.byId.get(w.task.linked_item)?.name })) });
+    const r = await runAI(earlyWarning, { buyer: s.deal.buyer, daysToDay1: m.daysToDay1, warnings: m.warnings.map((w) => ({ id: w.task.task_id, title: w.task.title, workstream: w.task.workstream, owner: w.task.owner, due: fmtDate(w.task.due_date), status: w.task.status, reason: w.reason, critical: !!m.byId.get(w.task.linked_item)?.flagged || w.task.priority === 'P0', item: m.byId.get(w.task.linked_item)?.name })) });
     setAi(r); setBusy(false);
     act('AI early warning generated', r.data.headline, () => {}, { kind: 'ai', skipIssues: true, allowReadOnly: true });
   };
-  const rule = useMemo(() => earlyWarning.fallback({ daysToDay1: m.daysToDay1, warnings: m.warnings.map((w) => ({ id: w.task.task_id, title: w.task.title, workstream: w.task.workstream, owner: w.task.owner, due: fmtDate(w.task.due_date), status: w.task.status, reason: w.reason, critical: !!m.byId.get(w.task.linked_item)?.flagged || w.task.priority === 'P0' })) }), [m]);
+  const rule = useMemo(() => earlyWarning.fallback({ buyer: s.deal.buyer, daysToDay1: m.daysToDay1, warnings: m.warnings.map((w) => ({ id: w.task.task_id, title: w.task.title, workstream: w.task.workstream, owner: w.task.owner, due: fmtDate(w.task.due_date), status: w.task.status, reason: w.reason, critical: !!m.byId.get(w.task.linked_item)?.flagged || w.task.priority === 'P0' })) }), [m]);
   const warn = ai?.data ?? rule;
   const nextStep = (id: string) => ai?.data.items.find((x) => x.id === id)?.nextStep;
 
@@ -50,18 +52,19 @@ export function Tracker() {
     act('Created escalation', `${warn.headline} — ${top.task.title}`, (d) => {
       d.ownerQueue.push({ id: uid('OQ'), question: `ESCALATION: ${top.task.title} (${top.task.task_id})`, context: warn.detail, owner: d.users.find((u) => u.title.includes('CIO'))?.name ?? 'Sophie Martin', role: 'Client CIO', due: addDays(d.deal.asOf, 1), priority: 'P0', status: 'escalated', createdAt: new Date().toISOString() });
     }, { kind: 'escalate', skipIssues: true });
-    toast("Escalation created and routed to ChipCo's CIO", 'warning');
+    toast(`Escalation created and routed to ${s.deal.buyer}'s CIO`, 'warning');
   };
 
   return <>
-    <PageTitle eyebrow="Track & score" title="Execution Tracker" description={`One accountable plan for ${m.totalTasks} activities across ${m.wsProgress.length} workstreams.`} action={<><Button variant="secondary" icon="upload" onClick={() => setUpload(true)}>Import tracker</Button><Button variant="secondary" icon="download" onClick={() => { download('separation_plan.csv', toCSV(tasks.map((t) => ({ task_id: t.task_id, task: t.title, workstream: t.workstream, owner: t.owner, due_date: t.due_date, status: t.status, priority: t.priority, linked_item: t.linked_item, flagged: flaggedIds.has(t._rid) ? 'Yes' : '' })))); toast('Plan exported'); }}>Export plan</Button><Button icon="plus" onClick={() => setEdit('new')}>Add task</Button></>} />
+    <PageTitle eyebrow="Track & score" title="Execution Tracker" description={`One accountable plan for ${m.totalTasks} activities across ${m.wsProgress.length} workstreams.`} action={<><DecisionLogButton modules={['Execution Tracker']} /><Button variant="secondary" icon="upload" onClick={() => setUpload(true)}>Import tracker</Button><Button variant="secondary" icon="download" onClick={() => { download('separation_plan.csv', toCSV(tasks.map((t) => ({ task_id: t.task_id, task: t.title, workstream: t.workstream, owner: t.owner, due_date: t.due_date, status: t.status, priority: t.priority, linked_item: t.linked_item, flagged: flaggedIds.has(t._rid) ? 'Yes' : '' })))); toast('Plan exported'); }}>Export plan</Button><Button icon="plus" onClick={() => setEdit('new')}>Add task</Button></>} />
     <div className="tracker-summary">
       <div><span>Overall completion</span><strong>{pct}%</strong><Progress value={pct} /></div>
       <div style={{ cursor: 'pointer' }} onClick={() => setStatus('Open')}><span>Open tasks</span><strong>{m.totalTasks - m.doneTasks}</strong><small>of {m.totalTasks} total</small></div>
       <div><span>Due this week</span><strong>{dueWeek.filter((t) => t.status !== 'Done').length}</strong><small>{dueWeek.filter((t) => t.status === 'Done').length} completed</small></div>
       <div className="risk" style={{ cursor: 'pointer' }} onClick={() => { setFlagged(true); setStatus('All'); }}><span>At risk / blocked</span><strong>{m.warnings.length}</strong><small>{crit.length} critical</small></div>
-      <div><span>Day-1</span><strong>{m.daysToDay1} days</strong><small>{fmtDate(s.deal.day1, true)}</small></div>
+      <div><span>{s.deal.milestoneLabel} (contractual)</span><strong>{m.daysToDay1} days</strong><small>{fmtDate(s.deal.day1, true)}</small></div>
     </div>
+    <SuggestedMilestone />
     {m.warnings.length > 0 && <div className="ai-warning" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, padding: '12px 16px', background: '#fff', marginBottom: 12 }}>
       <div className="row" style={{ alignItems: 'flex-start' }}><Icon name="spark" /><div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 10 }}><strong style={{ fontSize: 11 }}>{warn.headline}</strong><span>{warn.detail}</span><span className="row"><AIChip result={ai} />{!ai && <span className="muted small">Rule flags: due within 5 days and not started, overdue, at risk or blocked</span>}</span></div></div>
       <div className="row"><Button variant="secondary" icon="spark" loading={busy} onClick={explain}>{ai ? 'Refresh AI next steps' : 'AI next steps'}</Button><Button variant="secondary" onClick={escalate}>Create escalation</Button></div>
@@ -122,4 +125,36 @@ function TaskModal({ task, onClose }: { task: Row | null; onClose: () => void })
       {f.linked_item && <p className="full muted small">Linked tasks feed the item's readiness (50% weight). {daysBetween(s.deal.asOf, f.due_date) <= 5 && f.status === 'Not started' ? 'This task will be flagged by the early-warning rule.' : ''}</p>}
     </div>
   </Modal>;
+}
+
+/** Suggested Day-1 / TSA-exit date from team pace + industry & case standards. */
+function SuggestedMilestone() {
+  const { s, m, act, toast, readOnly } = useStore();
+  const g = useMemo(() => suggestMilestone(s, m), [s, m]);
+  const L = s.deal.milestoneLabel;
+  const late = g.delta > 0;
+  return <div className="suggest-card" style={{ borderLeftColor: late ? 'var(--red)' : 'var(--green)' }}>
+    <div className="suggest-date">
+      <span className="eyebrow" style={{ margin: 0 }}>Suggested {L} date<InfoTip title={`How the suggested ${L} date is worked out`} wide>
+        <p>It answers: <b>“Given how fast this team is really closing tasks, and what the industry needs for a safe cut-over, when can {L} realistically happen?”</b></p>
+        <table><tbody>
+          <tr><td>Open tasks</td><td><b>{g.open}</b></td></tr>
+          <tr><td>Team pace (tasks closed per week, last 4 weeks)</td><td><b>{g.pacePerWeek}</b></td></tr>
+          <tr><td>Days to finish open work = open ÷ pace × 7</td><td><b>{g.workDays}</b></td></tr>
+          {g.consentFloor > 0 && <tr><td>Wait for a blocked third-party consent (industry lead time)</td><td><b>{g.consentFloor}</b></td></tr>}
+          <tr><td>Readiness gap: ½ day per point below {s.config.goThreshold} (now {m.underlying})</td><td><b>+{g.gapDays}</b></td></tr>
+          <tr><td>Industry buffer ({s.deal.industry}): {g.std.bufferWhy}</td><td><b>+{g.bufferDays}</b></td></tr>
+          <tr><td><b>Total from as-of date {fmtDate(s.deal.asOf)}</b></td><td><b>{g.total} days</b></td></tr>
+        </tbody></table>
+        <p className="muted">Case & industry standards: {g.std.typical}. Consents: {g.std.consentWhy}.</p>
+      </InfoTip></span>
+      <strong style={{ fontSize: 20 }}>{fmtDate(g.suggested, true)}</strong>
+      <Badge tone={late ? 'danger' : 'success'}>{late ? `${g.delta} days after the contractual date` : g.delta === 0 ? 'Matches the contractual date' : `${-g.delta} days of headroom`}</Badge>
+    </div>
+    <p className="suggest-why">
+      Contractual {L}: <b>{fmtDate(s.deal.day1, true)}</b>. At the current pace of <b>{g.pacePerWeek} tasks/week</b>, the {g.open} open tasks finish in about {g.workDays} days, then {s.deal.industry.toLowerCase()} standards add {g.bufferDays} days ({g.std.bufferWhy}){g.gapDays ? ` and ${g.gapDays} days to close the readiness gap` : ''}.
+      {late ? <> To hold the contractual date the team needs about <b>{g.neededPace} tasks/week</b> — {Math.round(g.neededPace / g.pacePerWeek * 10) / 10}× today's pace — or scope must move to the TSA.</> : <> The plan has headroom; keep the pace and protect the buffer.</>}
+    </p>
+    <Button variant="secondary" disabled={readOnly || g.delta === 0} onClick={() => { act(`Moved ${L} date to suggested`, `${fmtDate(s.deal.day1, true)} → ${fmtDate(g.suggested, true)}`, (d) => { d.deal.day1 = g.suggested; }, { kind: 'override', skipIssues: true }); toast(`${L} moved to ${fmtDate(g.suggested, true)} — undo from the Decision log`, 'info'); }}>Use suggested date</Button>
+  </div>;
 }

@@ -3,7 +3,7 @@ schema: spec-driven
 context: |
   Product: PwC DealSync Command Centre — IT carve-out / Day-1 readiness prototype (see docs/requirements/BRD.md, SOLUTION_LOGIC.md).
   Tech stack: React 19 + Vite 5 + TypeScript (strict), Node 18.18+, plain CSS from the Figma export (src/styles.css), no back end except the AI gateway;
-  workspace state in localStorage; Gemini via server/aiPlugin.ts (local, key in .env.local) or api/ai/[action].ts (Vercel, key in env vars, access code required) with rule fallbacks.
+  workspace state in localStorage; Gemini via server/aiPlugin.ts (local, key in .env.local) or api/ai/[action].ts (Vercel, key in env vars, public with guards) with rule fallbacks.
   Architecture rules: formulas only in src/engine/model.ts; mutations only via act(); AI only via runAI() with a
   fallback and human approval. Demo deal: Project Rioja (ChipCo buys from SemiCorp), as-of 2025-11-05, Day-1 2025-11-15.
   Verification: npm run typecheck, npm run build, npm run check:engine (golden numbers in AGENTS.md).

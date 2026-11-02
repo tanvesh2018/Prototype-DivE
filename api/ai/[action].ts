@@ -1,45 +1,50 @@
 /**
  * Hosted AI gateway (Vercel). Serves /api/ai/status | test | generate.
  *
- * The site is public, so test and generate need the shared access code.
- * Set GEMINI_API_KEY and DEALSYNC_ACCESS_CODE in Vercel's environment
- * variables. If either is missing, it refuses rather than running open,
- * and the app uses its deterministic fallback.
+ * Visitors don't log in, so these guards limit misuse of the key's quota:
+ * same-site requests only, size and token caps, and rate limits. They slow
+ * abuse but can't stop a determined script, so the hard spending limit must
+ * be the quota set on the key on Google's side.
+ *
+ * Set GEMINI_API_KEY in Vercel's environment variables. Without it, the app
+ * uses its deterministic fallback.
  */
-import { createHash, timingSafeEqual } from 'node:crypto';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { DEFAULT_MODELS, callGemini, getWorkingModel, isPlaceholderKey, type GeminiRequest } from '../../server/gemini.js';
 
 const MAX_PROMPT_CHARS = 200_000; // largest real task is about 65,000
 const MAX_OUTPUT_TOKENS = 4096;
-const REQUESTS_PER_MINUTE = 30;
-const FAILED_CODES_PER_MINUTE = 5;
+const REQUESTS_PER_MINUTE_PER_IP = 15;
+const REQUESTS_PER_MINUTE_TOTAL = 60;
 const WINDOW_MS = 60_000;
+const ALL_CLIENTS = '*';
 
-// Best effort: counters are per instance and reset on cold start. The hard
-// spending limit is the quota set on the key on Google's side.
-type Counter = Map<string, { count: number; resetAt: number }>;
-const requests: Counter = new Map();
-const failedCodes: Counter = new Map();
+// Best effort: counters are per instance and reset on cold start.
+const requests = new Map<string, { count: number; resetAt: number }>();
 
-function current(counter: Counter, ip: string) {
+function current(id: string) {
   const now = Date.now();
-  if (counter.size > 5000) for (const [k, v] of counter) if (v.resetAt <= now) counter.delete(k);
-  let entry = counter.get(ip);
-  if (!entry || entry.resetAt <= now) { entry = { count: 0, resetAt: now + WINDOW_MS }; counter.set(ip, entry); }
+  if (requests.size > 5000) for (const [k, v] of requests) if (v.resetAt <= now) requests.delete(k);
+  let entry = requests.get(id);
+  if (!entry || entry.resetAt <= now) { entry = { count: 0, resetAt: now + WINDOW_MS }; requests.set(id, entry); }
   return entry;
 }
 
-function clientIp(req: IncomingMessage) {
-  const forwarded = req.headers['x-forwarded-for'];
-  const first = Array.isArray(forwarded) ? forwarded[0] : forwarded;
-  return first?.split(',')[0].trim() || req.socket?.remoteAddress || 'unknown';
+function firstHeader(value: string | string[] | undefined) {
+  const first = Array.isArray(value) ? value[0] : value;
+  return first?.split(',')[0].trim() || '';
 }
 
-function codeMatches(given: unknown, expected: string) {
-  if (typeof given !== 'string' || !given) return false;
-  const digest = (v: string) => createHash('sha256').update(v).digest();
-  return timingSafeEqual(digest(given), digest(expected));
+function clientIp(req: IncomingMessage) {
+  return firstHeader(req.headers['x-forwarded-for']) || req.socket?.remoteAddress || 'unknown';
+}
+
+/** Browsers send Origin on POST. Scripts can fake it, so this only stops other websites and casual misuse. */
+function isSameSite(req: IncomingMessage) {
+  const source = firstHeader(req.headers.origin) || firstHeader(req.headers.referer);
+  const host = firstHeader(req.headers['x-forwarded-host']) || firstHeader(req.headers.host);
+  if (!source || !host) return false;
+  try { return new URL(source).host === host; } catch { return false; }
 }
 
 function send(res: ServerResponse, status: number, body: unknown) {
@@ -79,26 +84,23 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const rawKey = process.env.GEMINI_API_KEY ?? '';
   const key = isPlaceholderKey(rawKey) ? '' : rawKey;
   const preferred = process.env.GEMINI_MODEL ?? '';
-  const accessCode = process.env.DEALSYNC_ACCESS_CODE ?? '';
 
   if (action === 'status') {
-    return send(res, 200, { configured: !!key && !!accessCode, model: getWorkingModel() ?? (preferred || DEFAULT_MODELS[0]), keyFile: 'Vercel environment variable', keyHint: null, authRequired: true });
+    return send(res, 200, { configured: !!key, model: getWorkingModel() ?? (preferred || DEFAULT_MODELS[0]), keyFile: 'Vercel environment variable', keyHint: null, hosted: true });
   }
   if (action !== 'test' && action !== 'generate') return send(res, 404, { error: 'unknown endpoint' });
   if (req.method !== 'POST') return send(res, 405, { error: 'POST only' });
+  if (!isSameSite(req)) return send(res, 403, { error: 'Requests must come from this site.' });
 
-  const ip = clientIp(req);
-  const failed = current(failedCodes, ip);
-  if (failed.count >= FAILED_CODES_PER_MINUTE) return send(res, 429, { error: 'Too many incorrect access codes. Try again in a minute.' });
-  const used = current(requests, ip);
-  if (used.count >= REQUESTS_PER_MINUTE) return send(res, 429, { error: 'Too many AI requests. Try again in a minute.' });
-  used.count += 1;
-
-  if (!key || !accessCode) return send(res, 503, { error: 'Live AI is not set up on this site. Using rule-based fallback.' });
-  if (!codeMatches(req.headers['x-dealsync-access'], accessCode)) {
-    failed.count += 1;
-    return send(res, 401, { error: 'Access code missing or incorrect.' });
+  const forClient = current(clientIp(req));
+  const forAll = current(ALL_CLIENTS);
+  if (forClient.count >= REQUESTS_PER_MINUTE_PER_IP || forAll.count >= REQUESTS_PER_MINUTE_TOTAL) {
+    return send(res, 429, { error: 'Too many AI requests. Try again in a minute.' });
   }
+  forClient.count += 1;
+  forAll.count += 1;
+
+  if (!key) return send(res, 503, { error: 'Live AI is not set up on this site. Using rule-based fallback.' });
 
   try {
     if (action === 'test') return send(res, 200, await callGemini(key, preferred, { prompt: 'Reply with the single word: ready', maxTokens: 20 }));

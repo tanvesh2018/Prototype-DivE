@@ -51,14 +51,9 @@ How it works: the browser calls `/api/ai/*` on the local dev server; [`server/ai
 
 ### On the hosted site (Vercel)
 
-[`api/ai/[action].ts`](api/ai/[action].ts) is the hosted gateway. In the Vercel project, go to **Settings → Environment Variables** and add these two, then redeploy:
+[`api/ai/[action].ts`](api/ai/[action].ts) is the hosted gateway. In the Vercel project, go to **Settings → Environment Variables**, add `GEMINI_API_KEY` for Production and Preview (without a `VITE_` prefix), then redeploy.
 
-| Variable | Value |
-|---|---|
-| `GEMINI_API_KEY` | Your Gemini key. Don't prefix it with `VITE_`. |
-| `DEALSYNC_ACCESS_CODE` | A code you choose and share with your viewers. |
-
-Viewers then enter the code in **Governance & Settings → AI engine**. Without it, or if either variable is missing, the site uses the rule-based fallback. The access code protects Gemini calls only: the site and its data stay public. Rate limits are best effort, so also set a usage limit for the key on Google's side.
+Visitors get live Gemini with no sign-in, so anyone can use the key's quota. The gateway accepts same-site requests only and limits size, tokens and request rate, but a determined script can get past these. **Set a usage limit for the key on Google's side**, and don't send real deal data through a free-tier key.
 
 ## 3. The 9 screens
 
@@ -126,7 +121,7 @@ See [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md). Short version: Overview (79 NO
 ```
 server/aiPlugin.ts        Gemini gateway (/api/ai/status | generate | test); reads .env.local per request
 server/gemini.ts          Gemini call shared by both gateways
-api/ai/[action].ts        Hosted gateway for Vercel; reads env vars, requires the access code
+api/ai/[action].ts        Hosted gateway for Vercel; reads env vars, public with guards
 src/ai/                   client.ts (runAI + fallback), tasks.ts (all prompts + rule fallbacks), context.ts, frameworks.ts
 src/engine/               glossary (datasets & 12 components), ingest (CSV → standard rows, PII masking),
                           quality (issues + hygiene), model (every score/formula), workspace (seed + ingest)
@@ -145,7 +140,7 @@ design-reference/         original Figma Make export (visual source of truth)
 ## 8. Troubleshooting
 
 - **Port busy** → Vite picks the next free port; read the terminal URL.
-- **AI shows "Rule-based fallback"** → no key in `.env.local`, or Gemini returned an error (see the terminal and the chip tooltip). Test it in Governance. On the hosted site, also check both Vercel variables, that you redeployed after adding them, and that you entered the access code.
+- **AI shows "Rule-based fallback"** → no key in `.env.local`, or Gemini returned an error (see the terminal and the chip tooltip). Test it in Governance. On the hosted site, also check the Vercel variable and that you redeployed after adding it.
 - **Want a clean slate** → Governance → *Reset to demo data* resets the active deal (or clear the browser's site data).
 - **Undo says "conflicts"** → a later change touched the same records; undo the later one first.
 - **Behind a corporate proxy** → Node's `fetch` may not reach Gemini; the app keeps working on the fallback rules.

@@ -54,7 +54,7 @@ export function geminiGateway(): Plugin {
     const { key, model } = readEnv(root);
     try {
       if (url === '/api/ai/status') {
-        return send(res, 200, { configured: !!key, model: getWorkingModel() ?? (model || DEFAULT_MODELS[0]), keyFile: '.env.local', keyHint: key ? `…${key.slice(-4)}` : null, authRequired: false });
+        return send(res, 200, { configured: !!key, model: getWorkingModel() ?? (model || DEFAULT_MODELS[0]), keyFile: '.env.local', keyHint: key ? `…${key.slice(-4)}` : null });
       }
       if (req.method !== 'POST') return send(res, 405, { error: 'POST only' });
       if (!key) return send(res, 503, { error: 'GEMINI_API_KEY is not set in .env.local — using rule-based fallback.' });

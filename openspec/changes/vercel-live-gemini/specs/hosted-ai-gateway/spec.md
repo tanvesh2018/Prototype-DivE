@@ -1,14 +1,14 @@
 ## Purpose
 
-Lets the publicly hosted DealSync prototype use live Gemini suggestions for authorised viewers, without exposing the API key or allowing anonymous use of its quota.
+Lets the publicly hosted DealSync prototype use live Gemini suggestions for all visitors, without exposing the API key, while limiting misuse of its quota.
 
 ## ADDED Requirements
 
 ### Requirement: Hosted AI endpoints
 The hosted deployment SHALL serve the AI status, test and generate endpoints at `/api/ai/status`, `/api/ai/test` and `/api/ai/generate`, with the same success response shapes as the local gateway.
 
-#### Scenario: Authorised generate request
-- **WHEN** an authorised viewer sends a valid generate request and a key is configured
+#### Scenario: Generate request from the site
+- **WHEN** the site sends a valid generate request and a key is configured
 - **THEN** the response is 200 with the generated text, the model name and the latency
 
 #### Scenario: Wrong method
@@ -26,16 +26,16 @@ The hosted deployment SHALL read the Gemini key only from a server-side environm
 - **WHEN** the production build is searched for the key value
 - **THEN** no match is found
 
-### Requirement: Access code required on the hosted site
-The hosted deployment MUST reject test and generate requests that do not carry the correct access code, and MUST NOT call Gemini for them. If no access code is configured, it SHALL refuse all test and generate requests.
+### Requirement: Same-site requests only
+The hosted deployment MUST reject test and generate requests whose origin does not match the site, and MUST NOT call Gemini for them.
 
-#### Scenario: Missing or wrong code
-- **WHEN** a generate request has a missing or incorrect access code
-- **THEN** the response is 401 and Gemini is not called
+#### Scenario: Request from another website
+- **WHEN** a request has a different origin, or no origin or referer
+- **THEN** the response is 403 and Gemini is not called
 
-#### Scenario: No code configured on the server
-- **WHEN** a key is set but no access code is configured
-- **THEN** status reports AI as unavailable and test and generate requests are refused
+#### Scenario: Visitor using the site
+- **WHEN** a visitor uses an AI feature on the site
+- **THEN** no sign-in or code is needed and the result is labelled with the Gemini model
 
 ### Requirement: Request limits
 The hosted deployment MUST reject oversized requests before calling Gemini, cap output tokens, and limit the request rate per client on a best-effort basis.
@@ -49,37 +49,26 @@ The hosted deployment MUST reject oversized requests before calling Gemini, cap 
 - **THEN** Gemini is called with the capped value
 
 #### Scenario: Too many requests
-- **WHEN** a client exceeds the request or failed-code rate limit
+- **WHEN** a client or the deployment exceeds its request rate limit
 - **THEN** the response is 429 and Gemini is not called
 
 ### Requirement: Deterministic fallback remains available
 Every AI feature SHALL keep producing its deterministic fallback, labelled "Rule-based fallback", whenever live AI is unavailable to the viewer.
 
-#### Scenario: Viewer has no access code
-- **WHEN** a viewer without a code uses an AI feature on the hosted site
-- **THEN** the feature returns its fallback result and no generate request is sent
+#### Scenario: No key configured
+- **WHEN** a visitor uses an AI feature and no key is configured
+- **THEN** the feature returns its fallback result and no generate request reaches Gemini
 
 #### Scenario: Gemini fails
 - **WHEN** Gemini returns an error or times out
 - **THEN** the feature returns its fallback result with the failure reason available to the viewer
 
-### Requirement: Viewer can enter and clear an access code
-The hosted site SHALL let a viewer enter, test and clear an access code in AI settings. A rejected code MUST be cleared from the browser and reported to the viewer.
-
-#### Scenario: Correct code
-- **WHEN** a viewer enters the correct code and tests the connection
-- **THEN** the connected model is shown and later AI results are labelled with the Gemini model
-
-#### Scenario: Rejected code
-- **WHEN** the server rejects the stored code
-- **THEN** the code is cleared, the viewer sees that it was rejected, and AI features use the fallback
-
 ### Requirement: Local development unchanged
-Running the app locally SHALL continue to use the key from `.env.local`, re-read per request, without an access code.
+Running the app locally SHALL continue to use the key from `.env.local`, re-read per request, as it does today.
 
 #### Scenario: Local key
 - **WHEN** a developer sets a key in `.env.local` and runs the local server
-- **THEN** AI features use Gemini with no access code and no restart
+- **THEN** AI features use Gemini with no restart
 
 ### Requirement: AI output remains a suggestion
 Live AI results on the hosted site SHALL NOT change workspace data without a human action.

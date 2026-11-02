@@ -1,6 +1,6 @@
 # AGENTS.md — instructions for AI coding agents (Claude, Gemini, Codex, Copilot…)
 
-You are working on **DealSync prototype v2** (two deals: Project Rioja and Project Phoenix), a React 19 + Vite 5 + TypeScript single-page app (runs on Node 18.18+) with a tiny Vite-hosted AI gateway. Read this before changing anything. Product context lives in `docs/requirements/` (BRD + solution logic) and `README.md`.
+You are working on **DealSync prototype v2** (two deals: Project Rioja and Project Phoenix), a React 19 + Vite 5 + TypeScript single-page app (runs on Node 18.18+) with a tiny AI gateway (Vite middleware locally, a Vercel function when hosted). Read this before changing anything. Product context lives in `docs/requirements/` (BRD + solution logic) and `README.md`.
 
 ## Run / verify
 - `npm start` — dev server on :5173 (auto-installs on first run). `npm run dev` skips the browser.
@@ -12,7 +12,7 @@ You are working on **DealSync prototype v2** (two deals: Project Rioja and Proje
 2. **All mutations go through `act(action, detail, recipe, opts)`** from `useStore()`. The recipe is an **Immer** draft recipe. `act` enforces read-only roles, recomputes quality issues if needed, and writes an audit event with the current screen (`module`) and an undo `patch`. Keep recipes **pure**: in StrictMode they can run twice, so never push into arrays captured from outside the recipe. Never call `setState` on the workspace directly. Show decisions with `<DecisionLog modules={[...]} />` or `<DecisionLogButton />`.
 3. **All AI goes through `runAI(task, input)`** (`src/ai/client.ts`). Each AI feature is one entry in `src/ai/tasks.ts` with: `system` prompt, `prompt(input)`, optional `parse`, and a deterministic `fallback(input)`. A task MUST work without a key. Show results with `<AIChip result={r} />` so users can see the source.
 4. **AI only suggests.** Never let an AI result change data without a human click (approve / confirm / apply). Log approvals with `kind: 'approve'`, overrides with `kind: 'override'`, AI calls with `kind: 'ai'`.
-5. **The key never reaches the browser.** Only `server/aiPlugin.ts` reads `GEMINI_API_KEY` (from `.env.local`, re-read per request). Don't add `VITE_`-prefixed secrets.
+5. **The key never reaches the browser.** Only the two gateways read `GEMINI_API_KEY`: `server/aiPlugin.ts` locally (from `.env.local`, re-read per request) and `api/ai/[action].ts` when hosted (from Vercel's server-side environment variables). Both share `server/gemini.ts`, which must never be imported from `src/`. The hosted gateway must stay closed without `DEALSYNC_ACCESS_CODE`. Don't add `VITE_`-prefixed secrets or commit a key.
 6. **Personal data** (`pii: true` glossary fields) is masked at ingest when `controls.maskPII` is on. Don't add features that store names/emails from identity or HR files.
 7. Styling follows the Figma export (`design-reference/`): CSS classes in `src/styles.css` (Figma rules first, prototype additions at the bottom). Prefer existing classes (`card`, `card-header`, `gtable` + `--cols`, `btn`, `badge`, `ai-box`, `lesson-card`, `tabs`…). No CSS framework — plain CSS with a small reset at the top of `src/styles.css`. Keep Node 18 compatibility (Vite 5, @vitejs/plugin-react 4).
 

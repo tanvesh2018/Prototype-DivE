@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
-import { getAIStatus, type AIResult } from '../ai/client';
+import { getAIStatus, isLiveAIAvailable, type AIResult } from '../ai/client';
 
 export type IconName =
   | 'overview' | 'database' | 'network' | 'decision' | 'tasks' | 'readiness' | 'funding' | 'insights' | 'settings' | 'search' | 'bell'
@@ -112,7 +112,8 @@ export function Menu({ items, trigger, left }: { items: (MenuItem | 'sep' | { la
 
 export function AIChip({ result }: { result?: Pick<AIResult<unknown>, 'source' | 'model' | 'error'> | null }) {
   const st = getAIStatus();
-  if (!result) return <span className={`ai-chip ${st.configured ? '' : 'fallback'}`} title={st.configured ? 'Gemini configured' : 'No API key — rule-based fallback'}><Icon name="spark" size={10} />{st.configured ? `Gemini ready` : 'Rule-based AI'}</span>;
+  const live = isLiveAIAvailable(st);
+  if (!result) return <span className={`ai-chip ${live ? '' : 'fallback'}`} title={live ? 'Gemini configured' : st.configured ? 'Access code needed — rule-based fallback' : 'No API key — rule-based fallback'}><Icon name="spark" size={10} />{live ? `Gemini ready` : 'Rule-based AI'}</span>;
   return <span className={`ai-chip ${result.source === 'gemini' ? '' : 'fallback'}`} title={result.error ?? ''}><Icon name="spark" size={10} />{result.source === 'gemini' ? `Gemini · ${result.model}` : 'Rule-based fallback'}</span>;
 }
 

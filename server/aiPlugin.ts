@@ -2,6 +2,7 @@
  * DealSync central AI gateway (Gemini).
  *
  * Runs inside the Vite dev/preview server, so `npm start` is all you need.
+ * The hosted equivalent for Vercel is api/ai/[action].ts.
  * The browser never sees the API key: it calls /api/ai/*, and this
  * middleware forwards the request to Google's Gemini API.
  *
@@ -14,9 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Plugin } from 'vite';
-
-const DEFAULT_MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.0-flash'];
-const ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models';
+import { DEFAULT_MODELS, callGemini, getWorkingModel, isPlaceholderKey } from './gemini.js';
 
 function readEnv(root: string) {
   const env: Record<string, string> = {};
@@ -31,8 +30,7 @@ function readEnv(root: string) {
   }
   const key = process.env.GEMINI_API_KEY || env.GEMINI_API_KEY || '';
   const model = process.env.GEMINI_MODEL || env.GEMINI_MODEL || '';
-  const placeholder = !key || /paste|your[-_ ]?key|xxxx/i.test(key);
-  return { key: placeholder ? '' : key, model };
+  return { key: isPlaceholderKey(key) ? '' : key, model };
 }
 
 function send(res: ServerResponse, status: number, body: unknown) {
@@ -48,33 +46,6 @@ async function readBody(req: IncomingMessage): Promise<any> {
   return raw ? JSON.parse(raw) : {};
 }
 
-let workingModel: string | null = null;
-
-async function callGemini(key: string, preferred: string, body: { system?: string; prompt: string; json?: boolean; temperature?: number; maxTokens?: number }) {
-  const models = [...new Set([workingModel, preferred, ...DEFAULT_MODELS].filter(Boolean) as string[])];
-  let lastErr = '';
-  for (const model of models) {
-    const generationConfig: Record<string, unknown> = { temperature: body.temperature ?? 0.2, maxOutputTokens: body.maxTokens ?? 2048 };
-    if (body.json) generationConfig.responseMimeType = 'application/json';
-    if (model.startsWith('gemini-2.5')) generationConfig.thinkingConfig = { thinkingBudget: 0 };
-    const payload: Record<string, unknown> = { contents: [{ role: 'user', parts: [{ text: body.prompt }] }], generationConfig };
-    if (body.system) payload.systemInstruction = { parts: [{ text: body.system }] };
-    const started = Date.now();
-    const r = await fetch(`${ENDPOINT}/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify(payload) });
-    const data: any = await r.json().catch(() => ({}));
-    if (r.ok) {
-      const text = (data?.candidates?.[0]?.content?.parts ?? []).map((p: any) => p.text ?? '').join('');
-      if (!text) { lastErr = `Empty response from ${model} (${data?.candidates?.[0]?.finishReason ?? 'no candidate'})`; continue; }
-      workingModel = model;
-      return { text, model, latencyMs: Date.now() - started };
-    }
-    lastErr = `${model}: ${r.status} ${data?.error?.message ?? r.statusText}`;
-    // only fall through to the next model when the model itself is unavailable
-    if (![404, 400].includes(r.status) || /api key|permission|unauthori/i.test(lastErr)) break;
-  }
-  throw new Error(lastErr || 'Gemini request failed');
-}
-
 export function geminiGateway(): Plugin {
   let root = process.cwd();
   const handler = async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
@@ -83,7 +54,7 @@ export function geminiGateway(): Plugin {
     const { key, model } = readEnv(root);
     try {
       if (url === '/api/ai/status') {
-        return send(res, 200, { configured: !!key, model: workingModel ?? (model || DEFAULT_MODELS[0]), keyFile: '.env.local', keyHint: key ? `…${key.slice(-4)}` : null });
+        return send(res, 200, { configured: !!key, model: getWorkingModel() ?? (model || DEFAULT_MODELS[0]), keyFile: '.env.local', keyHint: key ? `…${key.slice(-4)}` : null, authRequired: false });
       }
       if (req.method !== 'POST') return send(res, 405, { error: 'POST only' });
       if (!key) return send(res, 503, { error: 'GEMINI_API_KEY is not set in .env.local — using rule-based fallback.' });

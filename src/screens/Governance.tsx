@@ -6,10 +6,13 @@ import type { AuditEvent, Config, RoleKey, WorkspaceState } from '../engine/type
 import { download, toCSV } from '../engine/util';
 import { DEFAULT_CONFIG, ROLES } from '../engine/workspace';
 import { blankWorkspace, resetToDemo, useStore } from '../state/store';
+import { resetSavedData } from '../components/ErrorBoundary';
 
 export function Governance() {
   const { s, act, toast, replaceWorkspace, readOnly, params } = useStore();
   const [access, setAccess] = useState(false);
+  const [fresh, setFresh] = useState(false);
+  const [resetting, setResetting] = useState(false);
   const [auditAll, setAuditAll] = useState(false);
   const [detail, setDetail] = useState<AuditEvent | null>(null);
   const [ai, setAi] = useState(getAIStatus());
@@ -34,14 +37,27 @@ export function Governance() {
   const test = async () => { setTesting(true); setTestMsg(await testAIConnection()); setTesting(false); };
 
   return <>
-    <PageTitle eyebrow="Control & assure" title="Governance & Settings" description={`Access, consent, auditability, AI and retention controls for ${s.deal.name}.`} action={<Button variant="secondary" icon="download" onClick={exportAudit}>Export audit report</Button>} />
+    <PageTitle eyebrow="Control & assure" title="Governance & Settings" description={`Access, consent, auditability, AI and retention controls for ${s.deal.name}.`} action={<><Button variant="secondary" icon="refresh" onClick={() => setFresh(true)} title="Wipe all demo changes and start the app from the beginning">Fresh demo</Button><Button variant="secondary" icon="download" onClick={exportAudit}>Export audit report</Button></>} />
+    {fresh && <Modal title="Start a fresh demo?" subtitle="Puts the whole app back exactly as it was on first start" onClose={() => !resetting && setFresh(false)}
+      footer={<><Button variant="secondary" disabled={resetting} onClick={() => setFresh(false)}>Cancel</Button><Button icon="refresh" loading={resetting} onClick={() => { setResetting(true); void resetSavedData(); }}>Reset everything</Button></>}>
+      <div className="stack small">
+        <p style={{ margin: 0 }}>This clears every change made in this browser, for <b>both</b> deals:</p>
+        <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.7 }}>
+          <li>Project Rioja and Project Phoenix go back to their original demo data</li>
+          <li>All decisions, approvals, uploads, funding steps, consents, AI drafts and Copilot chats are removed</li>
+          <li>The decision log and audit trail start again</li>
+          <li>You start as <b>Alex Chen</b> on <b>Project Rioja</b>, Deal Overview</li>
+        </ul>
+        <p className="muted" style={{ margin: 0 }}>Your Gemini key and the project files are not affected. This can’t be undone.</p>
+      </div>
+    </Modal>}
     <div className="governance-banner" style={{ display: 'flex', gap: 12, alignItems: 'center', padding: '12px 16px', marginBottom: 14, background: passed === 8 ? '#20392d' : '#3d2f12', borderLeftColor: passed === 8 ? '#6fbd90' : 'var(--amber)' }}><Icon name="shield" /><div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 3, fontSize: 10 }}><strong style={{ fontSize: 11 }}>Control posture: {passed === 8 ? 'Healthy' : 'Attention needed'}</strong><span>{passed === 8 ? 'All required access, AI, consent and retention controls are active.' : `Failing: ${controls.filter((c) => !c[1]).map((c) => c[0]).join(', ')}`}</span></div><Badge tone={passed === 8 ? 'success' : 'warning'}>{passed} / 8 controls passed</Badge></div>
 
     <section className="card mb" style={{ borderTop: '3px solid var(--orange)' }}>
       <div className="card-header"><div><h2>AI engine (Gemini)</h2><p>One central gateway serves every AI feature — column matching, gap filling, hidden links, buckets, board notes, SPA reading, early warnings, readiness path, learning records, funding advice and the Copilot</p></div><div className="row">{ai.configured ? <Badge tone="success">Connected · {ai.model}</Badge> : <Badge tone="warning">No key — rule-based fallback active</Badge>}<Button variant="secondary" icon="refresh" loading={testing} onClick={test}>Test connection</Button></div></div>
       <div className="card-body grid-2">
-        {ai.hosted ? <div className="stack small"><strong>Live AI on this site</strong><span>The Gemini key is kept in the hosting provider's server settings and never reaches this browser. No sign-in is needed. If Gemini is unavailable, AI features use deterministic rules.</span></div> : <div className="stack small"><strong>Where the API key goes</strong><ol style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}><li>Get a free key at <b>aistudio.google.com/apikey</b></li><li>Open <code>.env.local</code> in the project root (copy of <code>.env.example</code>)</li><li>Set <code>GEMINI_API_KEY=your-key</code> and save — no restart needed</li><li>Click <b>Test connection</b></li></ol><span className="muted">The key stays on your machine: the browser calls <code>/api/ai/*</code> and the local server (server/aiPlugin.ts) forwards to Gemini. Optional: <code>GEMINI_MODEL=gemini-flash-latest</code>.</span></div>}
-        <div className="stack small"><dl className="kv"><dt>Status</dt><dd>{!ai.configured ? 'Not configured' : ai.hosted ? 'Key set on server' : `Key loaded (${ai.keyHint})`}</dd><dt>Model</dt><dd>{ai.model}</dd><dt>Key location</dt><dd>{ai.keyFile}</dd><dt>Fallback</dt><dd>Deterministic rules (always on)</dd><dt>Data boundary</dt><dd>Only the fields a task needs are sent; nothing is stored by DealSync</dd></dl>{testMsg && <div className="ai-box" style={{ borderLeftColor: testMsg.ok ? 'var(--green)' : 'var(--red)' }}>{testMsg.message}</div>}</div>
+        <div className="stack small"><strong>Where the API key goes</strong><ol style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8 }}><li>Get a free key at <b>aistudio.google.com/apikey</b></li><li>Open <code>.env.local</code> in the project root (copy of <code>.env.example</code>)</li><li>Set <code>GEMINI_API_KEY=your-key</code> and save — no restart needed</li><li>Click <b>Test connection</b></li></ol><span className="muted">The key stays on your machine: the browser calls <code>/api/ai/*</code> and the local server (server/aiPlugin.ts) forwards to Gemini. Optional: <code>GEMINI_MODEL=gemini-2.5-flash</code>.</span></div>
+        <div className="stack small"><dl className="kv"><dt>Status</dt><dd>{ai.configured ? `Key loaded (${ai.keyHint})` : 'Not configured'}</dd><dt>Model</dt><dd>{ai.model}</dd><dt>Key file</dt><dd>{ai.keyFile}</dd><dt>Fallback</dt><dd>Deterministic rules (always on)</dd><dt>Data boundary</dt><dd>Only the fields a task needs are sent; nothing is stored by DealSync</dd></dl>{testMsg && <div className="ai-box" style={{ borderLeftColor: testMsg.ok ? 'var(--green)' : 'var(--red)' }}>{testMsg.message}</div>}</div>
       </div>
     </section>
 

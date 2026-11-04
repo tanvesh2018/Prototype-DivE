@@ -1,3 +1,4 @@
+import type { SettlePlan } from '../engine/model';
 /**
  * AI task registry — one entry per AI feature in DealSync.
  * Each task defines: the Gemini system instruction, how to build the prompt
@@ -354,17 +355,15 @@ export const fundMilestone = mk<{ milestone: string; context: any }, { update: s
   (i) => `Milestone: ${i.milestone}\nData: ${J(i.context)}\nReturn JSON {"update":""}`,
   ({ milestone, context: c }) => ({ update: `Milestone reached: ${milestone}. Readiness is now ${c.score}/100 (${c.signal}) with ${c.blockers} critical blocker(s); we request release of the next tranche of ${money(c.tranche)}.` }));
 
-export const fundSettle = mk<{ path: string; amount: number; sellerPct: number; escrow: number; buyer: string; seller: string; method: string; quote?: string }, { summary: string }>('fund-settle', 'Settlement summary', 'Draft the settlement summary in plain words: the agreed split, how much of the loan the escrow repays for the seller, what is returned to the seller, and what the buyer repays.',
+export const fundSettle = mk<{ plan: SettlePlan; buyer: string; seller: string; method: string; quote?: string }, { summary: string }>('fund-settle', 'Settlement summary', 'Draft the settlement summary in plain words using ONLY the numbers in the plan: the agreed split, what happens to any bank loan (repaid, reduced or cancelled), what the escrow pays and returns, and what each side pays directly. Settlement can happen before, during or after bank funding.',
   (i) => `${J(i)}\nReturn JSON {"summary":""}`,
   (i) => {
-    const sp = Math.round(i.sellerPct * 100);
-    const sellerOwes = Math.round(i.amount * i.sellerPct), buyerOwes = i.amount - sellerOwes;
-    const fromEscrow = Math.min(sellerOwes, i.escrow), back = Math.max(0, i.escrow - sellerOwes), extra = Math.max(0, sellerOwes - i.escrow);
-    return { summary: [
-      `Final split agreed via ${i.method === 'spa' ? `the SPA reading${i.quote ? ` (“${i.quote.slice(0, 90)}…”)` : ''}` : 'negotiation at the deal board'}: ${i.seller} ${sp}% · ${i.buyer} ${100 - sp}%.`,
-      `Escrow pays the bank ${money(fromEscrow)} for ${i.seller}'s share${back ? `; the remaining ${money(back)} in escrow is returned to ${i.seller}` : ''}${extra ? `; ${i.seller} pays the extra ${money(extra)} directly under the SPA` : ''}.`,
-      `${i.buyer} repays its share of ${money(buyerOwes)}. Interest is split in the same ratio, and the facility is then closed.`,
-    ].join('\n') };
+    const p = i.plan, sp = Math.round(p.sellerPct * 100);
+    const lines = [`Final split agreed via ${i.method === 'spa' ? `the SPA reading${i.quote ? ` (“${i.quote.slice(0, 90)}…”)` : ''}` : 'negotiation at the deal board'}: ${i.seller} ${sp}% (${money(p.sellerOwes)}) · ${i.buyer} ${100 - sp}% (${money(p.buyerOwes)}).`];
+    if (p.stage === 'before') lines.push(`Settled before any bank funding, so no loan is needed: ${i.seller} pays ${money(p.sellerOwes)} and ${i.buyer} pays ${money(p.buyerOwes)} directly.`);
+    if (p.stage === 'during') lines.push(`Settled before any money was released, so the ${money(p.cancelled)} bank facility is cancelled. Escrow pays ${i.seller}'s ${money(p.fromEscrow)} directly${p.escrowBack ? ` and returns ${money(p.escrowBack)} to ${i.seller}` : ''}${p.sellerExtra ? `; ${i.seller} pays the extra ${money(p.sellerExtra)} itself` : ''}. ${i.buyer} pays ${money(p.buyerOwes)} directly.`);
+    if (p.stage === 'after') lines.push(`The bank had released ${money(p.drawn)}: ${i.seller} repays ${money(p.sellerToBank)} from escrow and ${i.buyer} repays ${money(p.buyerToBank)}, plus interest in the same ratio.${p.cancelled ? ` The undrawn ${money(p.cancelled)} is cancelled and paid directly: ${i.seller} ${money(p.sellerDirect)}, ${i.buyer} ${money(p.buyerDirect)}.` : ''}${p.escrowBack ? ` ${money(p.escrowBack)} left in escrow goes back to ${i.seller}.` : ''}${p.sellerExtra ? ` ${i.seller} pays the extra ${money(p.sellerExtra)} itself.` : ''}`);
+    return { summary: lines.join('\n') };
   });
 
 export const fundLesson = mk<{ facts: any }, { lesson: string }>('fund-lesson', 'Close and learn', 'Write one anonymised, reusable lesson (no client or person names, numbers as ranges).',

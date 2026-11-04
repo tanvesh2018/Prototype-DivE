@@ -45,15 +45,9 @@ Each deal keeps its own workspace in the browser (IndexedDB). Old v1 saved state
    ```
 3. Save. No restart needed — go to **Governance & Settings → AI engine → Test connection**.
 
-Optional: `GEMINI_MODEL=gemini-flash-latest` (default; falls back through the other models listed in `server/gemini.ts`).
+Optional: `GEMINI_MODEL=gemini-2.5-flash` (default; falls back to `gemini-2.5-flash-lite`, then `gemini-2.0-flash`).
 
 How it works: the browser calls `/api/ai/*` on the local dev server; [`server/aiPlugin.ts`](server/aiPlugin.ts) adds the key and forwards to Gemini, so the key never reaches the browser. Without a key — or if Gemini errors or times out — every AI feature falls back to deterministic rules ([`src/ai/tasks.ts`](src/ai/tasks.ts)), and the UI labels each result **"Gemini · model"** or **"Rule-based fallback"**.
-
-### On the hosted site (Vercel)
-
-[`api/ai/[action].ts`](api/ai/[action].ts) is the hosted gateway. In the Vercel project, go to **Settings → Environment Variables**, add `GEMINI_API_KEY` for Production and Preview (without a `VITE_` prefix), then redeploy.
-
-Visitors get live Gemini with no sign-in, so anyone can use the key's quota. The gateway accepts same-site requests only and limits size, tokens and request rate, but a determined script can get past these. **Set a usage limit for the key on Google's side**, and don't send real deal data through a free-tier key.
 
 ## 3. The 9 screens
 
@@ -65,7 +59,7 @@ Visitors get live Gemini with no sign-in, so anyone can use the key's quota. The
 | **Separation Decisions** | Six-bucket strategy cards per app with rule reasoning, AI recommendation, confirm or override (with a logged reason); classification explained in plain words (C = business criticality, D = seller dependency, R = regulatory risk, S = security risk, each 1–5, with labelled scales) plus a "why this priority?" breakdown per app; decision log with undo |
 | **Execution Tracker** | **Suggested Day-1 / TSA-exit date** based on current pace, the readiness gap, industry buffer and consent lead time, with the working shown and "Use suggested date". 312 tasks with filters, search, inline status, add / edit / delete, export; early-warning rule plus AI next steps; create an escalation |
 | **Day-1 Readiness** | Score with formula drill-down per component and item. A **Tune the weightages** studio sits under the component list: a colour-coded weight-mix bar, one slider per component (with the points each adds), an item-formula tab (tasks / tests / hygiene) with a worked example, and a live Now → Preview score before you apply (logged, undoable). Step-by-step **calculation logic** with a contributions table; test evidence; what-if simulator; AI "fastest path to GO"; printable board scorecard |
-| **Funding & TSA Exit** | **Funding desk** for each disputed cost: pick the cost card → a 5-stage journey bar (Understand → Decide → Get the money → Settle → Learn) → one **"Your next step"** card at a time, in plain English, with who acts and what AI does. Funding is by **bank loan + escrow**: the bank lends now (released in two halves at milestones), the seller's likely share is held in escrow from the purchase price, and nobody pays new cash while the dispute runs. At settlement the escrow repays the seller's share, the remainder goes back to the seller and the buyer repays its share. A **money picture** panel shows who pays (split bar), the loan, tranches released, escrow held and days left; an "All steps" checklist lets you revisit any step. **TSA exit board**: summary tiles, one card per service with a plain-English verdict, a Today / Target / Expected timeline and milestone progress vs plan, "Record a finished milestone" and "Ask AI how to recover"; burn-down and a glossary. Migration waves gated on data hygiene; product priority by blocked revenue |
+| **Funding & TSA Exit** | **Funding desk** for each disputed cost: pick the cost card → a 5-stage journey bar (Understand → Decide → Get the money → Settle → Learn) → one **"Your next step"** card at a time, in plain English, with who acts and what AI does. Funding is by **bank loan + escrow**: the bank lends now (released in two halves at milestones), the seller's likely share is held in escrow from the purchase price, and nobody pays new cash while the dispute runs. **"Who finally pays?" is open at any time** and adapts to where funding stands: settled before the bank plan → each side pays directly (any funding steps already started simply stay as they are); before any money is released → the loan is cancelled and escrow goes to the seller's share; after release → the drawn loan is repaid in the agreed split (seller's part from escrow) and the rest is paid directly. A **money picture** panel shows who pays (split bar), the loan, tranches released, escrow held and days left; an "All steps" checklist lets you revisit any step. **TSA exit board**: summary tiles, one card per service with a plain-English verdict, a Today / Target / Expected timeline and milestone progress vs plan, "Record a finished milestone" and "Ask AI how to recover"; burn-down and a glossary. Migration waves gated on data hygiene; product priority by blocked revenue |
 | **Knowledge & Market Insights** | Deal Copilot (live numbers + frameworks + past deals, cites sources, says "I don't know"); Close & Learn (AI anonymisation → steward approval → consent check); framework library and past-deal matches; benchmarks; prospect scoring with AI outreach notes |
 | **Governance & Settings** | Decision log across all screens (with undo); AI engine status and test; role-based access (switch "View as" in the profile menu: client = read-only, bank = funding summary only); consent registry; PII and AI controls; retention; scoring weights and thresholds (no rebuild); deal dates; reset, empty or import/export the workspace; full audit log |
 
@@ -120,8 +114,6 @@ See [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md). Short version: Overview (79 NO
 
 ```
 server/aiPlugin.ts        Gemini gateway (/api/ai/status | generate | test); reads .env.local per request
-server/gemini.ts          Gemini call shared by both gateways
-api/ai/[action].ts        Hosted gateway for Vercel; reads env vars, public with guards
 src/ai/                   client.ts (runAI + fallback), tasks.ts (all prompts + rule fallbacks), context.ts, frameworks.ts
 src/engine/               glossary (datasets & 12 components), ingest (CSV → standard rows, PII masking),
                           quality (issues + hygiene), model (every score/formula), workspace (seed + ingest)
@@ -140,7 +132,7 @@ design-reference/         original Figma Make export (visual source of truth)
 ## 8. Troubleshooting
 
 - **Port busy** → Vite picks the next free port; read the terminal URL.
-- **AI shows "Rule-based fallback"** → no key in `.env.local`, or Gemini returned an error (see the terminal and the chip tooltip). Test it in Governance. On the hosted site, also check the Vercel variable and that you redeployed after adding it.
-- **Want a clean slate** → Governance → *Reset to demo data* resets the active deal (or clear the browser's site data).
+- **AI shows "Rule-based fallback"** → no key in `.env.local`, or Gemini returned an error (see the terminal and the chip tooltip). Test it in Governance.
+- **Want a clean slate for a new demo** → Governance → **Fresh demo** (top-right) wipes both deals, all decisions, AI drafts and chats, and restarts on Project Rioja as Alex Chen. *Reset to demo data* resets only the active deal.
 - **Undo says "conflicts"** → a later change touched the same records; undo the later one first.
 - **Behind a corporate proxy** → Node's `fetch` may not reach Gemini; the app keeps working on the fallback rules.

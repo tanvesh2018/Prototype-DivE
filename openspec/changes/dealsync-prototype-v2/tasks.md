@@ -31,6 +31,9 @@
 - [x] 6.5 Rental route removed: funding is bank loan + escrow only; rental quotes dataset, sample files and AI tasks removed; Dependency Explorer toolbar no longer clips its legend
 - [x] 6.4 Layout fixes: Tracker suggested-date card, wrapping table toolbars, needed-by badge, classification table min-width + scroll, retention steps, migration-wave summaries for 400+ app estates, phase-date wrap
 
+- [x] 6.6 Settlement available at any time (`settlementPlan()` in the engine): before plan / before release / after release
+- [x] 6.7 Governance → **Fresh demo** button: resets both deals and the session for a clean demo
+
 ## 7. Verify
 - [x] 7.1 Typecheck, build, `check:engine` for both deals (Rioja golden numbers unchanged)
 - [x] 7.2 Browser click-through of both deals, RBAC and the bank view

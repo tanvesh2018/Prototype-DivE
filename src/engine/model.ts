@@ -445,3 +445,33 @@ export function simulateReadiness(s: WorkspaceState, opts: { unblock?: string[];
   const m = buildModel(clone);
   return { score: m.score, underlying: m.underlying, signal: m.signal, capped: m.capped };
 }
+
+/**
+ * Settlement of a disputed cost — works at ANY point in the funding flow.
+ * before : no bank plan yet → each side pays its agreed share directly.
+ * during : plan agreed, no money released yet → loan cancelled; escrow released to the seller's share.
+ * after  : some tranches released → the drawn loan is repaid in the agreed split (seller's part from escrow),
+ *          the undrawn part is cancelled and the rest of the cost is paid directly in the same split.
+ * Interest on any drawn amount is split in the same ratio.
+ */
+export interface SettlePlan {
+  stage: 'before' | 'during' | 'after';
+  amount: number; sellerPct: number; sellerOwes: number; buyerOwes: number;
+  drawn: number; sellerToBank: number; buyerToBank: number; cancelled: number;
+  sellerDirect: number; buyerDirect: number;
+  escrow: number; fromEscrow: number; escrowBack: number; sellerExtra: number;
+}
+export function settlementPlan(o: { amount: number; sellerPct: number; planAgreed: boolean; provisionalShare: number; released: number }): SettlePlan {
+  const { amount, sellerPct, planAgreed } = o;
+  const drawn = planAgreed ? Math.round((amount * Math.min(2, Math.max(0, o.released))) / 2) : 0;
+  const sellerOwes = Math.round(amount * sellerPct), buyerOwes = amount - sellerOwes;
+  const sellerToBank = Math.round(drawn * sellerPct), buyerToBank = drawn - sellerToBank;
+  const escrow = planAgreed ? Math.round(amount * o.provisionalShare) : 0;
+  const fromEscrow = Math.min(escrow, sellerOwes);
+  return {
+    stage: !planAgreed ? 'before' : drawn === 0 ? 'during' : 'after',
+    amount, sellerPct, sellerOwes, buyerOwes, drawn, sellerToBank, buyerToBank, cancelled: planAgreed ? amount - drawn : 0,
+    sellerDirect: sellerOwes - sellerToBank, buyerDirect: buyerOwes - buyerToBank,
+    escrow, fromEscrow, escrowBack: escrow - fromEscrow, sellerExtra: sellerOwes - fromEscrow,
+  };
+}

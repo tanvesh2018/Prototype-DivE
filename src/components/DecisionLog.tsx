@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useMemo, useEffect, useRef, useState, type ReactNode } from 'react';
 import type { AuditEvent } from '../engine/types';
 import { download, toCSV } from '../engine/util';
 import { useStore } from '../state/store';
@@ -54,9 +54,25 @@ export function DecisionLogButton({ modules, label = 'Decision log' }: { modules
 /** Small ⓘ button that opens a plain-language explanation. */
 export function InfoTip({ title, children, wide }: { title: string; children: ReactNode; wide?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [pos, setPos] = useState<{ top: number; left: number; maxH: number } | null>(null);
   const ref = useClickOutside<HTMLSpanElement>(open, () => setOpen(false));
+  const popRef = useRef<HTMLDivElement>(null);
+  // Fixed positioning so the popup is never clipped by a scrolling panel; kept inside the window.
+  const place = (btn: HTMLElement) => {
+    const r = btn.getBoundingClientRect(); const w = wide ? 460 : 340;
+    const left = Math.max(8, Math.min(r.left - 10, window.innerWidth - w - 12));
+    const below = window.innerHeight - r.bottom - 12;
+    const top = below > 260 ? r.bottom + 6 : Math.max(8, r.top - Math.min(520, r.top - 16) - 6);
+    setPos({ top, left, maxH: below > 260 ? below - 6 : Math.min(520, r.top - 16) });
+  };
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: Event) => { if (e.type === 'scroll' && popRef.current?.contains(e.target as Node)) return; setOpen(false); };
+    window.addEventListener('scroll', close, true); window.addEventListener('resize', close);
+    return () => { window.removeEventListener('scroll', close, true); window.removeEventListener('resize', close); };
+  }, [open]);
   return <span className="info-tip" ref={ref}>
-    <button type="button" className="info-btn" aria-label={`About ${title}`} onClick={(e) => { e.stopPropagation(); setOpen(!open); }}>i</button>
-    {open && <div className={`info-pop ${wide ? 'wide' : ''}`} onClick={(e) => e.stopPropagation()}><div className="row between"><strong>{title}</strong><button className="kebab" onClick={() => setOpen(false)}>×</button></div><div className="info-body">{children}</div></div>}
+    <button type="button" className="info-btn" aria-label={`About ${title}`} onClick={(e) => { e.stopPropagation(); if (!open) place(e.currentTarget); setOpen(!open); }}>i</button>
+    {open && <div ref={popRef} className={`info-pop ${wide ? 'wide' : ''}`} style={pos ? { position: 'fixed', top: pos.top, left: pos.left, maxHeight: pos.maxH, overflowY: 'auto' } : undefined} onClick={(e) => e.stopPropagation()}><div className="row between"><strong>{title}</strong><button className="kebab" onClick={() => setOpen(false)}>×</button></div><div className="info-body">{children}</div></div>}
   </span>;
 }

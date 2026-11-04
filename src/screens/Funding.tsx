@@ -5,7 +5,7 @@ import { DecisionLog } from '../components/DecisionLog';
 import { UploadModal } from '../components/UploadModal';
 import { AIChip, Badge, Button, Empty, Icon, Menu, PageTitle, Progress, Table, Tabs } from '../components/ui';
 import type { DatasetKey } from '../engine/glossary';
-import { ROADMAP_12, WAVES } from '../engine/model';
+import { ROADMAP_12, WAVES, settlementPlan } from '../engine/model';
 import type { FundingFlow as Flow, WorkspaceState } from '../engine/types';
 import { addDays, fmtDate, money, uid } from '../engine/util';
 import { useStore } from '../state/store';
@@ -43,14 +43,15 @@ const STAGES: { key: Stage; label: string; hint: string }[] = [
   { key: 'understand', label: 'Understand', hint: 'What is it, and can they pay?' },
   { key: 'decide', label: 'Decide', hint: 'Agree the bank plan' },
   { key: 'fund', label: 'Get the money', hint: 'Bank lends at milestones' },
-  { key: 'settle', label: 'Settle', hint: 'Who finally pays' },
+  { key: 'settle', label: 'Settle', hint: 'Any time: who finally pays' },
   { key: 'learn', label: 'Learn', hint: 'Save the lesson' },
 ];
-interface StepDef { key: string; stage: Stage; lane?: 'A' | 'B'; title: string; plain: string; who: string; ai?: boolean; done: boolean; ready: boolean; waitsFor: string; body: ReactNode; /** false = open but waiting on something outside the flow (e.g. a milestone) */ actionable?: boolean }
+interface StepDef { key: string; stage: Stage; lane?: 'A' | 'B'; title: string; plain: string; who: string; ai?: boolean; done: boolean; ready: boolean; waitsFor: string; body: ReactNode; /** settled before this step was needed */ skipped?: boolean; /** false = open but waiting on something outside the flow (e.g. a milestone) */ actionable?: boolean }
 
 /** Short progress for a cost card: 5 milestones (explained, affordability, path, settled, lesson). */
 function flowProgress(f?: Flow) {
-  const marks = [!!f?.step1, !!f?.step2, !!f?.path, !!f?.settle?.settled, !!f?.learn?.saved];
+  const st = !!f?.settle?.settled;
+  const marks = [!!f?.step1 || st, !!f?.step2 || st, !!f?.path || st, st, !!f?.learn?.saved];
   const n = marks.filter(Boolean).length;
   const label = f?.learn?.saved ? 'Closed' : f?.settle?.settled ? 'Settled — save the lesson' : f?.path ? 'Bank funding in progress' : f?.step1 ? 'Being assessed' : 'Not started';
   return { pct: Math.round((n / marks.length) * 100), label };
@@ -59,7 +60,7 @@ function flowProgress(f?: Flow) {
 function FundingFlowView({ initialCost }: { initialCost?: string }) {
   const { s, m, act, toast, readOnly } = useStore();
   const bank = s.role === 'bank';
-  const lines = m.sepLines.filter((l) => l.disputed || s.funding.flows?.[l.row.cost_id]?.path);
+  const lines = m.sepLines.filter((l) => l.disputed || s.funding.flows?.[l.row.cost_id]?.path || s.funding.flows?.[l.row.cost_id]?.settle);
   const [costId, setCostIdRaw] = useState(initialCost && lines.some((l) => l.row.cost_id === initialCost) ? initialCost : lines[0]?.row.cost_id);
   const [pick, setPick] = useState<string | null>(null);
   const [seen, setSeen] = useState<string | null>(null);
@@ -93,7 +94,6 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
   const m1 = m.criticalBlocked.length === 0, m2 = m.signal === 'GO';
   const released = (flow.a4?.released ?? []).filter(Boolean).length;
   const aDone = !!flow.a4?.released?.every(Boolean) || (!!flow.a3?.decision && flow.a3.decision !== 'declined' && released > 0);
-  const pathsDone = !!flow.path && !!flow.a3?.decision;
   const defaultQuestions = [`What happens to the facility if ${L} slips?`, 'What secures repayment?', 'How reliable is the readiness score?'];
   const sellerPct = Math.round((flow.settle?.sellerPct ?? line.share) * 100);
 
@@ -105,7 +105,9 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
     { key: 's2', stage: 'understand', title: 'Can each side afford it?', plain: 'Check both companies’ finances (Prowess). If the buyer is cash-tight, paying upfront would hurt — so we look for financing.', who: 'Prowess data · AI summary', ai: true, done: !!flow.step2, ready: !!flow.step1, waitsFor: 'What are we paying for?',
       body: <><div className="afford-grid">{fin.map((f) => <div key={f.company} className={`afford-card ${f.tight ? 'tight' : 'ok'}`}><span className="eyebrow">{f.role}</span><strong>{f.company}</strong><span className="verdict">{f.tight ? 'Cash tight — needs financing' : 'Can absorb the cost'}</span><dl><div><dt>Cash</dt><dd>{money(f.cash * 1e6)}</dd></div><div><dt>Debt / equity</dt><dd>{f.de}</dd></div><div><dt>Current ratio</dt><dd>{f.cr}</dd></div><div><dt>Interest cover</dt><dd>{f.ic}x</dd></div></dl></div>)}</div>
         <p className="muted small" style={{ margin: 0 }}>“Cash tight” = current ratio below 1, debt / equity above 1.5 or interest cover below 3.</p>
-        {flow.step2 ? <AIText text={flow.step2.text} source={flow.step2.source} /> : <Button icon="spark" loading={busy === 's2'} disabled={readOnly} onClick={async () => { const r = await ai('s2', fundAfford, { line: fl, fin }); upd('Funding step 2: affordability summarised', r.data.text, (f) => { f.step2 = { text: r.data.text, source: srcOf(r) }; }); }}>Summarise in plain words</Button>}</> },
+        {flow.step2 ? (flow.step2.text ? <AIText text={flow.step2.text} source={flow.step2.source} /> : <span className="muted small"><Icon name="check" size={12} /> {flow.step2.source}: affordability reviewed from the figures above, without an AI summary.</span>)
+          : <div className="row wrap"><Button icon="spark" loading={busy === 's2'} disabled={readOnly} onClick={async () => { const r = await ai('s2', fundAfford, { line: fl, fin }); upd('Funding step 2: affordability summarised', r.data.text, (f) => { f.step2 = { text: r.data.text, source: srcOf(r) }; }); }}>Summarise in plain words</Button>
+            <Button variant="secondary" icon="arrow" disabled={readOnly || busy === 's2'} onClick={() => upd('Funding step 2: affordability reviewed', 'continued without AI summary', (f, d) => { f.step2 = { text: '', source: `Reviewed by ${d.currentUser}` }; })}>Continue without summary</Button></div>}</> },
     { key: 's3', stage: 'decide', title: 'Agree the bank funding plan', plain: `Neither side wants to pay while they argue, so a bank lends the money now and ${L} stays on track. ${s.deal.seller}’s likely share is held in escrow from the purchase price, so the bank knows how it will be repaid. The engagement manager and the client CFO confirm the plan.`, who: 'EM + client CFO decide', done: !!flow.path, ready: !!flow.step2, waitsFor: 'Can each side afford it?',
       body: <>
         <div className={`option-card ${flow.path ? 'chosen' : ''}`}>
@@ -152,8 +154,8 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
   );
 
   if (!bank) steps.push(
-    { key: 'settle', stage: 'settle', title: 'Who finally pays?', plain: 'Buyer and seller agree the final split — by reading the contract (SPA), negotiating, or at the deal board. Then the escrow repays the seller’s share of the loan, the rest of the escrow goes back to the seller, and the buyer repays its own share.', who: 'SPA reading / negotiation · AI drafts', ai: true, done: !!flow.settle?.settled, ready: pathsDone, waitsFor: flow.path ? 'the funding steps above' : 'Agree the bank funding plan',
-      body: <SettleStep line={line} flow={flow} upd={upd} facility={facility} /> },
+    { key: 'settle', stage: 'settle', title: 'Who finally pays?', plain: 'Open at any time. Buyer and seller agree the final split — by reading the contract (SPA), negotiating, or at the deal board. The settlement adapts to where funding stands: before the bank plan, before any money is released, or after.', who: 'SPA reading / negotiation · AI drafts', ai: true, done: !!flow.settle?.settled, ready: true, waitsFor: '',
+      body: <SettleStep line={line} flow={flow} upd={upd} released={released} /> },
     { key: 'learn', stage: 'learn', title: 'Save the lesson', plain: 'AI writes an anonymised lesson (no names, no exact amounts) for future deals. You approve it into the knowledge library.', who: 'AI writes · you approve', ai: true, done: !!flow.learn?.saved, ready: !!flow.settle?.settled, waitsFor: 'Who finally pays?',
       body: flow.learn ? <><AIText text={flow.learn.lesson} source={flow.learn.source} />{flow.learn.saved ? <Badge tone="success">Added to the knowledge library</Badge> : <div><Button icon="check" disabled={readOnly} onClick={() => upd('Funding lesson added to knowledge library', flow.learn!.lesson, (f, d) => { f.learn = { ...f.learn!, saved: true }; d.learning.unshift({ id: uid('LR'), answers: { worked: flow.learn!.lesson, didNot: '', day1OnTime: '', tsaExtended: '', lesson: flow.learn!.lesson }, record: { id: `FUND-${d.learning.length + 1}`, summary: flow.learn!.lesson, industry: d.deal.industry, dealType: d.deal.dealType, appsBand: '', sizeBand: line.amount < 1e6 ? '<₹1M' : '₹1M to ₹5M', keyLesson: flow.learn!.lesson, hiddenTerms: [d.deal.buyer, d.deal.seller] }, status: 'anonymised' }); }, 'approve')}>Add to knowledge library</Button></div>}</>
         : <Button icon="spark" loading={busy === 'l'} disabled={readOnly} onClick={async () => { const r = await ai('l', fundLesson, { facts: { path: flow.path, milestone: L, band: line.amount < 1e6 ? 'sub-₹1M' : '₹1M+', settled: flow.settle?.method } }); upd('Funding lesson drafted', r.data.lesson, (f) => { f.learn = { lesson: r.data.lesson, source: srcOf(r), saved: false }; }); }}>Write lesson</Button> },
@@ -169,7 +171,7 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
   if (focus && !focus.done && seen !== focus.key && !(seenStep?.done)) setSeen(focus.key);
   const fi = visible.findIndex((x) => x.key === focus?.key);
   const nextAfter = visible.slice(fi + 1).find(can) ?? visible.find((x) => can(x) && x.key !== focus?.key) ?? visible.find((x) => !x.done && x.ready && x.key !== focus?.key);
-  const stageState = (st: Stage) => { const ss = visible.filter((x) => x.stage === st); if (!ss.length) return st === 'fund' && !flow.path ? 'todo' : 'skip'; return ss.every((x) => x.done) ? 'done' : ss.some((x) => x.key === auto?.key) ? 'current' : 'todo'; };
+  const stageState = (st: Stage) => { const ss = visible.filter((x) => x.stage === st); if (!ss.length) return st === 'fund' && !flow.path && !flow.settle?.settled ? 'todo' : 'skip'; return ss.every((x) => x.skipped) ? 'skip' : ss.every((x) => x.done) ? 'done' : ss.some((x) => x.key === auto?.key) ? 'current' : 'todo'; };
   const doneCount = visible.filter((x) => x.done).length;
 
   return <div className="fdesk">
@@ -185,7 +187,7 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
         {!visible.length && <div className="na-head"><span className="na-kicker"><Icon name="lock" size={12} /> Nothing shared yet</span><h2>{bank ? 'Waiting for the client to share this cost' : 'No steps yet'}</h2><p>{bank ? `${s.deal.buyer}'s CFO has not yet chosen the bank route for this cost or approved what you may see. You'll see the summary and can record a credit decision as soon as they consent.` : 'Choose a cost above to begin.'}</p></div>}
         {focus && <>
           <div className="na-head">
-            <span className="na-kicker">{focus.done ? <><Icon name="check" size={12} /> Done</> : focus.key === auto?.key ? 'Your next step' : 'Step'} · {STAGES.find((x) => x.key === focus.stage)?.label}</span>
+            <span className="na-kicker">{focus.skipped ? 'Not needed' : focus.done ? <><Icon name="check" size={12} /> Done</> : focus.key === auto?.key ? 'Your next step' : 'Step'} · {STAGES.find((x) => x.key === focus.stage)?.label}</span>
             <h2>{focus.title}{focus.ai && <span className="ai-chip"><Icon name="spark" size={10} />AI helps</span>}</h2>
             <p>{focus.plain}</p>
             <span className="na-who"><Icon name="users" size={13} />{focus.who}</span>
@@ -209,7 +211,7 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
               <div className="split-bar"><span style={{ width: `${sellerPct}%` }}>{sellerPct >= 18 && `${s.deal.seller} ${sellerPct}%`}</span><span style={{ width: `${100 - sellerPct}%` }}>{100 - sellerPct >= 18 && `${s.deal.buyer} ${100 - sellerPct}%`}</span></div>
               <div className="row between small muted"><span>{money(line.amount * sellerPct / 100)}</span><span>{money(line.amount * (100 - sellerPct) / 100)}</span></div></div>
             <dl className="kv">
-              <div><dt>Route</dt><dd>{flow.path ? 'Bank funding with escrow' : <span className="muted">Not agreed yet</span>}</dd></div>
+              <div><dt>Route</dt><dd>{flow.settle?.settled ? `Settled · ${s.deal.seller} ${Math.round(flow.settle.sellerPct * 100)}%` : flow.path ? 'Bank funding with escrow' : <span className="muted">Not agreed yet</span>}</dd></div>
               {usesA && <div><dt>Bank facility</dt><dd>{money(facility)} · {released}/2 released</dd></div>}
               {usesA && <div><dt>Held in escrow</dt><dd>{money(escrow)} ({s.deal.seller}'s share)</dd></div>}
               
@@ -222,20 +224,24 @@ function FundingFlowView({ initialCost }: { initialCost?: string }) {
           <div className="card-header"><div><h2>All steps</h2><p>Click any open or finished step to view it</p></div></div>
           <ol className="steps-nav">{visible.map((x, i) => { const prev = visible[i - 1]; const header = !prev || prev.stage !== x.stage || prev.lane !== x.lane; return <li key={x.key}>
             {header && <span className="steps-group">{STAGES.find((st) => st.key === x.stage)?.label}</span>}
-            <button disabled={!x.done && !x.ready} className={`${x.done ? 'done' : x.ready ? 'open' : 'locked'} ${focus?.key === x.key ? 'active' : ''}`} onClick={() => setPick(x.key)}><span className="sn">{x.done ? <Icon name="check" size={11} /> : x.ready ? '•' : <Icon name="lock" size={10} />}</span><span>{x.title}</span></button></li>; })}</ol>
+            <button disabled={!x.done && !x.ready} className={`${x.skipped ? 'skipped' : x.done ? 'done' : x.ready ? 'open' : 'locked'} ${focus?.key === x.key ? 'active' : ''}`} onClick={() => setPick(x.key)}><span className="sn">{x.skipped ? '–' : x.done ? <Icon name="check" size={11} /> : x.ready ? '•' : <Icon name="lock" size={10} />}</span><span>{x.title}{x.skipped && <small className="muted"> · not needed</small>}</span></button></li>; })}</ol>
         </section>
       </aside>
     </div>
   </div>;
 }
 
-function SettleStep({ line, flow, upd, facility }: { line: ReturnType<typeof useStore>['m']['disputed'][number]; flow: Flow; upd: (a: string, d: string, fn: (f: Flow, d: WorkspaceState) => void, k?: 'data' | 'approve' | 'override') => boolean; facility: number }) {
+function SettleStep({ line, flow, upd, released }: { line: ReturnType<typeof useStore>['m']['disputed'][number]; flow: Flow; upd: (a: string, d: string, fn: (f: Flow, d: WorkspaceState) => void, k?: 'data' | 'approve' | 'override') => boolean; released: number }) {
   const { s, readOnly } = useStore();
   const [pct, setPct] = useState(Math.round((flow.settle?.sellerPct ?? line.share) * 100));
   const [busy, setBusy] = useState<string | null>(null);
   const w = s.config.costSplitWeights;
   const score = (v: string) => (/^sel/i.test(v) ? 1 : /^shar/i.test(v) ? 0.5 : /^buy/i.test(v) ? 0 : 0.5);
   const lfl = (v: string) => (/^like/i.test(v) ? 1 : /^part/i.test(v) ? 0.5 : /^upg/i.test(v) ? 0 : 0.5);
+  const plan = settlementPlan({ amount: line.amount, sellerPct: pct / 100, planAgreed: !!flow.path, provisionalShare: line.share, released });
+  const S = s.deal.seller, B = s.deal.buyer;
+  const poss = (n: string) => (/s$/i.test(n) ? `${n}’` : `${n}’s`);
+  const STAGE = { before: { t: 'Settling before the bank plan', d: 'No loan is needed — each side simply pays its agreed share.' }, during: { t: 'Settling before any money is released', d: 'The bank loan is cancelled and the escrow goes straight to the seller’s share.' }, after: { t: `Settling after ${money(plan.drawn)} was released`, d: 'The drawn loan is repaid in the agreed split, the rest is cancelled and paid directly.' } }[plan.stage];
   const readSpa = async () => {
     setBusy('spa');
     const r = await runAI(spaReader, { clause: s.datasets.spa?.text ?? '', lines: [{ id: line.row.cost_id, description: line.row.description, amount: line.amount, cause: line.row.cause, likeForLike: line.row.like_for_like }] });
@@ -248,7 +254,7 @@ function SettleStep({ line, flow, upd, facility }: { line: ReturnType<typeof use
   };
   const summarise = async () => {
     setBusy('sum');
-    const r = await runAI(fundSettle, { path: flow.path ?? 'underwriting', amount: line.amount, sellerPct: pct / 100, escrow: Math.round(line.amount * (pct / 100)), buyer: s.deal.buyer, seller: s.deal.seller, method: flow.settle?.method ?? 'negotiated', quote: flow.settle?.quote });
+    const r = await runAI(fundSettle, { plan, buyer: s.deal.buyer, seller: s.deal.seller, method: flow.settle?.method ?? 'negotiated', quote: flow.settle?.quote });
     setBusy(null);
     upd('Settlement summary drafted', r.data.summary, (f) => { f.settle = { ...(f.settle ?? { method: 'negotiated', settled: false }), sellerPct: pct / 100, summary: r.data.summary, source: srcOf(r) } as Flow['settle']; });
   };
@@ -256,12 +262,18 @@ function SettleStep({ line, flow, upd, facility }: { line: ReturnType<typeof use
     <span className="small">Buyer and seller agree the final split — through the SPA reading, negotiation or the deal board. Seller share rule: {w.cause} × who caused it + {w.likeForLike} × like-for-like + {w.contract} × what the contract says.</span>
     <div className="row wrap"><Button variant="secondary" icon="spark" loading={busy === 'spa'} disabled={readOnly || !s.datasets.spa?.text} onClick={readSpa}>Read the SPA clause with AI</Button>{flow.settle?.quote && <span className="small muted">SPA: “{flow.settle.quote}”</span>}</div>
     <div className="slider-row"><span>Agreed seller share</span><input type="range" min={0} max={100} value={pct} disabled={!!flow.settle?.settled || readOnly} onChange={(e) => setPct(+e.target.value)} /><strong className="num">{pct}%</strong><span className="small">{s.deal.seller} {money(line.amount * pct / 100)}</span></div>
+    <div className={`settle-stage ${plan.stage}`}><strong>{STAGE.t}</strong><span>{STAGE.d}</span></div>
     <table className="calc-table"><tbody>
-      {<tr><td>Bank loan facility {money(facility)}: escrowed {s.deal.seller} share to the bank</td><td className="num">{money(line.amount * pct / 100)}</td></tr>}
-      {<tr><td>{s.deal.buyer} repays the rest</td><td className="num">{money(Math.max(0, facility - line.amount * pct / 100))}</td></tr>}
+      <tr><td>{poss(S)} share ({pct}%)</td><td className="num">{money(plan.sellerOwes)}</td></tr>
+      <tr><td>{poss(B)} share ({100 - pct}%)</td><td className="num">{money(plan.buyerOwes)}</td></tr>
+      {plan.drawn > 0 && <tr><td>Bank repaid for the {money(plan.drawn)} released: {S} {money(plan.sellerToBank)} (from escrow) + {B} {money(plan.buyerToBank)} · interest split the same way</td><td className="num">{money(plan.drawn)}</td></tr>}
+      {plan.cancelled > 0 && <tr><td>Bank loan not drawn — cancelled</td><td className="num">{money(plan.cancelled)}</td></tr>}
+      {plan.amount - plan.drawn > 0 && <tr><td>Paid directly {plan.drawn > 0 ? 'for the rest of the cost' : 'by each side'}: {S} {money(plan.sellerDirect)} + {B} {money(plan.buyerDirect)}</td><td className="num">{money(plan.amount - plan.drawn)}</td></tr>}
+      {plan.escrow > 0 && <tr><td>Escrow {money(plan.escrow)}: {money(plan.fromEscrow)} covers {poss(S)} share{plan.escrowBack ? `, ${money(plan.escrowBack)} returned to ${S}` : ''}</td><td className="num">{money(plan.escrow)}</td></tr>}
+      {plan.escrow > 0 && plan.sellerExtra > 0 && <tr><td>{S} pays the part of its share above the escrow</td><td className="num">{money(plan.sellerExtra)}</td></tr>}
     </tbody></table>
     {flow.settle?.summary ? <AIText text={flow.settle.summary} source={flow.settle.source} /> : <Button variant="secondary" icon="spark" loading={busy === 'sum'} onClick={summarise}>Draft settlement summary</Button>}
-    {flow.settle?.settled ? <Badge tone="success">Settled — {s.deal.seller} {Math.round((flow.settle.sellerPct) * 100)}%</Badge> : <Button icon="check" disabled={readOnly} onClick={() => upd('Dispute settled', `${s.deal.seller} ${pct}% · ${s.deal.buyer} ${100 - pct}%`, (f, d) => { f.settle = { ...(f.settle ?? { method: 'negotiated' }), sellerPct: pct / 100, settled: true } as Flow['settle']; const row = d.datasets.costs?.rows.find((x) => x.cost_id === line.row.cost_id); if (row) row.status = 'Agreed'; }, 'approve')}>Mark dispute settled</Button>}
+    {flow.settle?.settled ? <Badge tone="success">Settled — {s.deal.seller} {Math.round((flow.settle.sellerPct) * 100)}%</Badge> : <Button icon="check" disabled={readOnly} onClick={() => upd('Dispute settled', `${s.deal.seller} ${pct}% · ${s.deal.buyer} ${100 - pct}% · ${STAGE.t.toLowerCase()}`, (f, d) => { f.settle = { ...(f.settle ?? { method: 'negotiated' }), sellerPct: pct / 100, settled: true } as Flow['settle']; const row = d.datasets.costs?.rows.find((x) => x.cost_id === line.row.cost_id); if (row) row.status = 'Agreed'; }, 'approve')}>Mark dispute settled</Button>}
   </>;
 }
 
